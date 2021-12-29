@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NichosController;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\AvalesController;
+use App\Http\Controllers\BeneficiariosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,3 +42,10 @@ Route::POST('/avalesstore', [AvalesController::class, 'store'])->name('avalesSto
 Route::GET('/avalesshow/{id}', [AvalesController::class, 'show'])->name('avalesShow');
 Route::PUT('/avalesupdate/{id}', [AvalesController::class, 'update'])->name('avalesUpdate');
 Route::GET('/avalesdelete/{id}', [AvalesController::class, 'destroy'])->name('avalesdestroy');
+
+//Rutas para los beneficiarios
+Route::GET('/beneficiariosindex', [BeneficiariosController::class, 'index'])->name('beneficiariosIndex');
+Route::POST('/beneficiariosstore', [BeneficiariosController::class, 'store'])->name('beneficiariosStore');
+Route::GET('/beneficiariosshow/{id}', [BeneficiariosController::class, 'show'])->name('beneficiariosShow');
+Route::PUT('/beneficiariosupdate/{id}', [BeneficiariosController::class, 'update'])->name('beneficiariosUpdate');
+Route::GET('/beneficiariosdelete/{id}', [BeneficiariosController::class, 'destroy'])->name('beneficiariosdestroy');
