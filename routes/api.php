@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NichosController;
 use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\AvalesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,10 @@ Route::POST('/clientesstore', [ClientesController::class, 'store'])->name('clien
 Route::GET('/clientesshow/{id}', [ClientesController::class, 'show'])->name('clientesShow');
 Route::PUT('/clientesupdate/{id}', [ClientesController::class, 'update'])->name('clientesUpdate');
 Route::GET('/clientesdelete/{id}', [ClientesController::class, 'destroy'])->name('clientesdestroy');
+
+//Rutas para los avales
+Route::GET('/avalesindex', [AvalesController::class, 'index'])->name('avalesIndex');
+Route::POST('/avalesstore', [AvalesController::class, 'store'])->name('avalesStore');
+Route::GET('/avalesshow/{id}', [AvalesController::class, 'show'])->name('avalesShow');
+Route::PUT('/avalesupdate/{id}', [AvalesController::class, 'update'])->name('avalesUpdate');
+Route::GET('/avalesdelete/{id}', [AvalesController::class, 'destroy'])->name('avalesdestroy');
