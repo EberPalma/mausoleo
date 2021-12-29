@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\nichos;
-use Illuminate\Support\Facades\Log;
 
 
 class NichosController extends Controller
@@ -139,20 +138,26 @@ class NichosController extends Controller
             $error = '1';
         }
 
-        if($nicho->activo == null){
-            $nicho->activo = true;
-            $mensaje = 'El registro ha sido activado';
-        }
-        if($nicho->activo == true){
-            $nicho->activo = false;
-            $mensaje = 'El registro ha sido desactivado';
-        }
-        if($nicho->activo == false){
-            $nicho->activo = true;
-            $mensaje = 'El registro ha sido activado';
-        }
+        $activo = \DB::table('nichos')->where('id', $id)->get();
 
-        return json_encode(array('message' => $mensaje, 'errors' => $error, 'data' => $nicho));
+        if($activo[0]->activo == false){
+            \DB::table('nichos')->where('id', $id)->update(array('activo' => true));
+            $mensaje = 'El registro ha sido activado';
+            $nicho = Nichos::find($id);
+            return json_encode(array('message' => $mensaje, 'errors' => $error, 'data' => $nicho));
+        }
+        if($activo[0]->activo == true){
+            \DB::table('nichos')->where('id', $id)->update(array('activo' => false));
+            $mensaje = 'El registro ha sido desactivado';
+            $nicho = Nichos::find($id);
+            return json_encode(array('message' => $mensaje, 'errors' => $error, 'data' => $nicho));
+        }
+        if($activo->activo[0] == null){
+            \DB::table('nichos')->where('id', $id)->update(array('activo' => true));
+            $mensaje = 'El registro ha sido activado';
+            $nicho = Nichos::find($id);
+            return json_encode(array('message' => $mensaje, 'errors' => $error, 'data' => $nicho));
+        }
 
     }
 }
