@@ -112,7 +112,7 @@ class AvalesController extends Controller
         ]);
 
         $aval = Avales::find($id);
-        if($cliente != null){
+        if($aval != null){
             $error = '0';
             $aval->id_contrato = $request->id_contrato;
             $aval->nombre = $request->nombre;
