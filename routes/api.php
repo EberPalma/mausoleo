@@ -8,6 +8,7 @@ use App\Http\Controllers\AvalesController;
 use App\Http\Controllers\BeneficiariosController;
 use App\Http\Controllers\Cat_modController;
 use App\Http\Controllers\NivelController;
+use App\Http\Controllers\RolesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,3 +66,10 @@ Route::POST('/nivelesstore', [NivelController::class, 'store'])->name('nivelesSt
 Route::GET('/nivelesshow/{id}', [NivelController::class, 'show'])->name('nivelesShow');
 Route::PUT('/nivelesupdate/{id}', [NivelController::class, 'update'])->name('nivelesUpdate');
 Route::GET('/nivelesdelete/{id}', [NivelController::class, 'destroy'])->name('nivelesdestroy');
+
+//Rutas para los roles
+Route::GET('/rolesindex', [RolesController::class, 'index'])->name('rolesIndex');
+Route::POST('/rolesstore', [RolesController::class, 'store'])->name('rolesStore');
+Route::GET('/rolesshow/{id}', [RolesController::class, 'show'])->name('rolesShow');
+Route::PUT('/rolesupdate/{id}', [RolesController::class, 'update'])->name('rolesUpdate');
+Route::GET('/rolesdelete/{id}', [RolesController::class, 'destroy'])->name('rolesdestroy');
