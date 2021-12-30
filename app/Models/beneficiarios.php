@@ -9,6 +9,7 @@ class beneficiarios extends Model
 {
     use HasFactory;
     protected $primaryKey = 'id';
+    protected $table = 'beneficiarios';
     protected $fillable = [
         'id_contrato',
         'nombre',

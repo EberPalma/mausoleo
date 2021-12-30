@@ -9,6 +9,7 @@ class cat_mod extends Model
 {
     use HasFactory;
     protected $primaryKey = 'id';
+    protected $table = 'cat_mod';
     protected $fillable = [
         'posicion',
         'nombre',

@@ -9,6 +9,7 @@ class avales extends Model
 {
     use HasFactory;
     protected $primaryKey = 'id';
+    protected $table = 'avales';
     protected $fillable = [
         'id_contrato',
         'nombre',

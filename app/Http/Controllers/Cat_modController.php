@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\cat_mod;
 
 class Cat_modController extends Controller
 {
@@ -13,7 +14,7 @@ class Cat_modController extends Controller
      */
     public function index()
     {
-        $mod = Cat_model::all();
+        $mod = Cat_mod::all();
         if($mod != null){
             $mensaje = 'Ok';
             $error = '0';

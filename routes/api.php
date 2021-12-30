@@ -6,6 +6,7 @@ use App\Http\Controllers\NichosController;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\AvalesController;
 use App\Http\Controllers\BeneficiariosController;
+use App\Http\Controllers\Cat_modController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,3 +50,10 @@ Route::POST('/beneficiariosstore', [BeneficiariosController::class, 'store'])->n
 Route::GET('/beneficiariosshow/{id}', [BeneficiariosController::class, 'show'])->name('beneficiariosShow');
 Route::PUT('/beneficiariosupdate/{id}', [BeneficiariosController::class, 'update'])->name('beneficiariosUpdate');
 Route::GET('/beneficiariosdelete/{id}', [BeneficiariosController::class, 'destroy'])->name('beneficiariosdestroy');
+
+//Rutas para cat_mod
+Route::GET('/cat_modindex', [Cat_modController::class, 'index'])->name('cat_modIndex');
+Route::POST('/cat_modstore', [Cat_modController::class, 'store'])->name('cat_modStore');
+Route::GET('/cat_modshow/{id}', [Cat_modController::class, 'show'])->name('cat_modShow');
+Route::PUT('/cat_modupdate/{id}', [Cat_modController::class, 'update'])->name('cat_modUpdate');
+Route::GET('/cat_moddelete/{id}', [Cat_modController::class, 'destroy'])->name('cat_moddestroy');

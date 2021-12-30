@@ -9,6 +9,7 @@ class cat_clientes extends Model
 {
     use HasFactory;
     protected $primaryKey = 'id';
+    protected $table = 'cat_clientes';
     protected $fillable = [
         'nombre',
         'rfc',
