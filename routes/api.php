@@ -7,6 +7,7 @@ use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\AvalesController;
 use App\Http\Controllers\BeneficiariosController;
 use App\Http\Controllers\Cat_modController;
+use App\Http\Controllers\NivelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,3 +58,10 @@ Route::POST('/cat_modstore', [Cat_modController::class, 'store'])->name('cat_mod
 Route::GET('/cat_modshow/{id}', [Cat_modController::class, 'show'])->name('cat_modShow');
 Route::PUT('/cat_modupdate/{id}', [Cat_modController::class, 'update'])->name('cat_modUpdate');
 Route::GET('/cat_moddelete/{id}', [Cat_modController::class, 'destroy'])->name('cat_moddestroy');
+
+//Rutas para los niveles
+Route::GET('/nivelesindex', [NivelController::class, 'index'])->name('nivelesIndex');
+Route::POST('/nivelesstore', [NivelController::class, 'store'])->name('nivelesStore');
+Route::GET('/nivelesshow/{id}', [NivelController::class, 'show'])->name('nivelesShow');
+Route::PUT('/nivelesupdate/{id}', [NivelController::class, 'update'])->name('nivelesUpdate');
+Route::GET('/nivelesdelete/{id}', [NivelController::class, 'destroy'])->name('nivelesdestroy');
