@@ -9,6 +9,7 @@ use App\Http\Controllers\BeneficiariosController;
 use App\Http\Controllers\Cat_modController;
 use App\Http\Controllers\NivelController;
 use App\Http\Controllers\RolesController;
+use App\Http\Controllers\session\SessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,3 +74,7 @@ Route::POST('/rolesstore', [RolesController::class, 'store'])->name('rolesStore'
 Route::GET('/rolesshow/{id}', [RolesController::class, 'show'])->name('rolesShow');
 Route::PUT('/rolesupdate/{id}', [RolesController::class, 'update'])->name('rolesUpdate');
 Route::GET('/rolesdelete/{id}', [RolesController::class, 'destroy'])->name('rolesdestroy');
+
+//Rutas para el manejo de sesion
+Route::POST('/login', [SessionController::class, 'login'])->name('login');
+Route::POST('/logout', [SessionController::class, 'logout'])->name('logout');
