@@ -123,14 +123,14 @@ class ConfigController extends Controller
 
         $activo = \DB::table('config')->where('id', $id)->get();
 
-        if($activo[0]->bactivo == false){
-            \DB::table('config')->where('id', $id)->update(array('bactivo' => true));
+        if($activo[0]->activo == false){
+            \DB::table('config')->where('id', $id)->update(array('activo' => true));
             $mensaje = 'El registro ha sido activado';
             $config = Config::find($id);
             return json_encode(array('message' => $mensaje, 'errors' => $error, 'data' => $config));
         }
-        if($activo[0]->bactivo == true){
-            \DB::table('config')->where('id', $id)->update(array('bactivo' => false));
+        if($activo[0]->activo == true){
+            \DB::table('config')->where('id', $id)->update(array('activo' => false));
             $mensaje = 'El registro ha sido desactivado';
             $config = Config::find($id);
             return json_encode(array('message' => $mensaje, 'errors' => $error, 'data' => $config));
