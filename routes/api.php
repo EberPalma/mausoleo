@@ -10,6 +10,8 @@ use App\Http\Controllers\Cat_modController;
 use App\Http\Controllers\NivelController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\ConfigController;
+use App\Http\Controllers\ContratosController;
+use App\Http\Controllers\Contrato_creditoController;
 use App\Http\Controllers\session\SessionController;
 
 /*
@@ -86,3 +88,17 @@ Route::POST('/configstore', [ConfigController::class, 'store'])->name('configSto
 Route::GET('/configshow/{id}', [ConfigController::class, 'show'])->name('configShow');
 Route::PUT('/configupdate/{id}', [ConfigController::class, 'update'])->name('configUpdate');
 Route::GET('/configdelete/{id}', [ConfigController::class, 'destroy'])->name('configdestroy');
+
+//Rutas para los contratos
+Route::GET('/contratoindex', [ContratosController::class, 'index'])->name('contratoIndex');
+Route::POST('/contratostore', [ContratosController::class, 'store'])->name('contratoStore');
+Route::GET('/contratoshow/{id}', [ContratosController::class, 'show'])->name('contratoShow');
+Route::PUT('/contratoupdate/{id}', [ContratosController::class, 'update'])->name('contratoUpdate');
+Route::GET('/contratodelete/{id}', [ContratosController::class, 'destroy'])->name('contratodestroy');
+
+//Rutas para los contratos a credito
+Route::GET('/contratocreditoindex', [Contrato_creditoController::class, 'index'])->name('contratocreditoIndex');
+Route::POST('/contratocreditostore', [Contrato_creditoController::class, 'store'])->name('contratocreditoStore');
+Route::GET('/contratocreditoshow/{id}', [Contrato_creditoController::class, 'show'])->name('contratocreditoShow');
+Route::PUT('/contratocreditoupdate/{id}', [Contrato_creditoController::class, 'update'])->name('contratocreditoUpdate');
+Route::GET('/contratocreditodelete/{id}', [Contrato_creditoController::class, 'destroy'])->name('contratocreditodestroy');
