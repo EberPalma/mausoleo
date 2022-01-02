@@ -52,7 +52,7 @@ class BeneficiariosController extends Controller
         ]);
 
         try{
-            $beneficiario = Beneficiario::create($request->all());
+            $beneficiario = Beneficiarios::create($request->all());
             $mensaje = "registro realizado correctamente";
             $error = '0';
         }catch(\Exception $ex){
@@ -109,7 +109,7 @@ class BeneficiariosController extends Controller
             'orden' => 'nullable|integer',
         ]);
 
-        $beneficiario = Avales::find($id);
+        $beneficiario = Beneficiarios::find($id);
         if($cliente != null){
             $error = '0';
             $beneficiario->id_contrato = $request->id_contrato;

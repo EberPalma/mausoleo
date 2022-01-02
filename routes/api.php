@@ -9,6 +9,7 @@ use App\Http\Controllers\BeneficiariosController;
 use App\Http\Controllers\Cat_modController;
 use App\Http\Controllers\NivelController;
 use App\Http\Controllers\RolesController;
+use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\session\SessionController;
 
 /*
@@ -78,3 +79,10 @@ Route::GET('/rolesdelete/{id}', [RolesController::class, 'destroy'])->name('role
 //Rutas para el manejo de sesion
 Route::POST('/login', [SessionController::class, 'login'])->name('login');
 Route::POST('/logout', [SessionController::class, 'logout'])->name('logout');
+
+//Rutas para las configuraciones
+Route::GET('/configindex', [ConfigController::class, 'index'])->name('configIndex');
+Route::POST('/configstore', [ConfigController::class, 'store'])->name('configStore');
+Route::GET('/configshow/{id}', [ConfigController::class, 'show'])->name('configShow');
+Route::PUT('/configupdate/{id}', [ConfigController::class, 'update'])->name('configUpdate');
+Route::GET('/configdelete/{id}', [ConfigController::class, 'destroy'])->name('configdestroy');
