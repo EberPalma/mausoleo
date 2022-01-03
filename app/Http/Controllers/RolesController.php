@@ -42,7 +42,7 @@ class RolesController extends Controller
         ]);
 
         try{
-            $rol = Cat_roles::create([
+            $rol = Cat_rol::create([
                 'nombre' => $request->nombre,
                 'nivel' => $request->nivel,
                 'redirect' => $request->redirect,
@@ -67,7 +67,7 @@ class RolesController extends Controller
      */
     public function show($id)
     {
-        $rol = Cat_roles::find($id);
+        $rol = Cat_rol::find($id);
         
         if($rol != null){
             $mensaje = "Ok";
@@ -96,7 +96,7 @@ class RolesController extends Controller
             'redirect' => 'required|string'
         ]);
 
-        $rol = Cat_roles::find($id);
+        $rol = Cat_rol::find($id);
 
         if($rol != null){
             $error = '0';
@@ -125,7 +125,7 @@ class RolesController extends Controller
      */
     public function destroy($id)
     {
-        $rol = Cat_roles::find($id);
+        $rol = Cat_rol::find($id);
 
         if($rol != null){
             $error = '0';
@@ -134,18 +134,18 @@ class RolesController extends Controller
             $error = '1';
         }
 
-        $activo = \DB::table('cat_roles')->where('id', $id)->get();
+        $activo = \DB::table('cat_rol')->where('id', $id)->get();
 
         if($activo[0]->bactivo == false){
-            \DB::table('cat_roles')->where('id', $id)->update(array('bactivo' => true));
+            \DB::table('cat_rol')->where('id', $id)->update(array('bactivo' => true));
             $mensaje = 'El registro ha sido activado';
-            $rol = Cat_roles::find($id);
+            $rol = Cat_rol::find($id);
             return json_encode(array('message' => $mensaje, 'errors' => $error, 'data' => $rol));
         }
         if($activo[0]->bactivo == true){
-            \DB::table('cat_roles')->where('id', $id)->update(array('bactivo' => false));
+            \DB::table('cat_rol')->where('id', $id)->update(array('bactivo' => false));
             $mensaje = 'El registro ha sido desactivado';
-            $rol = Cat_roles::find($id);
+            $rol = Cat_rol::find($id);
             return json_encode(array('message' => $mensaje, 'errors' => $error, 'data' => $rol));
         }
     }

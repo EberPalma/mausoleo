@@ -13,6 +13,7 @@ use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\ContratosController;
 use App\Http\Controllers\Contrato_creditoController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\HuespedesController;
 use App\Http\Controllers\session\SessionController;
 
 /*
@@ -111,3 +112,10 @@ Route::POST('/userstore', [UserController::class, 'store'])->name('userStore');
 Route::GET('/usershow/{id}', [UserController::class, 'show'])->name('userShow');
 Route::PUT('/userupdate/{id}', [UserController::class, 'update'])->name('userUpdate');
 Route::GET('/userdelete/{id}', [UserController::class, 'destroy'])->name('userdestroy');
+
+//Rutas para los huespedes
+Route::GET('/huespedindex', [HuespedesController::class, 'index'])->name('huespedIndex');
+Route::POST('/huespedstore', [HuespedesController::class, 'store'])->name('huespedStore');
+Route::GET('/huespedshow/{id}', [HuespedesController::class, 'show'])->name('huespedShow');
+Route::PUT('/huespedupdate/{id}', [HuespedesController::class, 'update'])->name('huespedUpdate');
+Route::GET('/huespeddelete/{id}', [HuespedesController::class, 'destroy'])->name('huespeddestroy');
