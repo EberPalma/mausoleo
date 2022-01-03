@@ -17,7 +17,7 @@ class SessionController extends Controller
         
         $user = Cat_usu::where('username', $request->username)->first();
         if($user != null){
-            if(Hash::check($user->password, $request->password)){
+            if(Hash::check($request->get('password'), $user->password)){
                 $acceso = \DB::table('log_acceso')->insert([
                     'username' => $user->username,
                     'nombre_completo' => $user->nombre.' '.$user->ap_paterno.' '.$user->ap_materno,
@@ -59,6 +59,12 @@ class SessionController extends Controller
                     'status' => 'close'
                 );
             }
+        }else{
+            $error = "0";
+            $mensaje = "No se encontro el usuario";
+            $session = array(
+                'status' => 'close'
+            );
         }
 
         return json_encode(array('message' => $mensaje, 'errors' => $error, 'session' => $session));
@@ -80,5 +86,33 @@ class SessionController extends Controller
         );
 
         return json_encode(array('message' => $mensaje, 'errors' => $error, 'session' => $session));
+    }
+
+    /**
+     * Funcion que permite cambiar la contraseña de un usuario
+     * segun el id proporcionado
+     * 
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function changePassword(Request $request, $id){
+        $request->validate([
+            'old_password' => 'required|string',
+            'password' => 'required|string|different:old_password',
+            'conf_password' => 'required|string|same:password'
+        ]);
+        $user = Cat_usu::find($id);
+        if(Hash::check($request->get('old_password'), $user->password)){
+            $user->password = bcrypt($request->password);
+            $user->save();
+
+            $mensaje = 'Ok';
+            $error = '1';
+        }else{
+            $mensaje = 'Las contraseñas no coinciden';
+            $error = '0';
+        }
+
+        return json_encode(array('message' => $mensaje, 'errors' => $error));
     }
 }

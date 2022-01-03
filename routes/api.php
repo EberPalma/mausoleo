@@ -12,6 +12,7 @@ use App\Http\Controllers\RolesController;
 use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\ContratosController;
 use App\Http\Controllers\Contrato_creditoController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\session\SessionController;
 
 /*
@@ -81,6 +82,7 @@ Route::GET('/rolesdelete/{id}', [RolesController::class, 'destroy'])->name('role
 //Rutas para el manejo de sesion
 Route::POST('/login', [SessionController::class, 'login'])->name('login');
 Route::POST('/logout', [SessionController::class, 'logout'])->name('logout');
+Route::PUT('/changepassword/{id}', [SessionController::class, 'changePassword'])->name('userChangePW');
 
 //Rutas para las configuraciones
 Route::GET('/configindex', [ConfigController::class, 'index'])->name('configIndex');
@@ -102,3 +104,10 @@ Route::POST('/contratocreditostore', [Contrato_creditoController::class, 'store'
 Route::GET('/contratocreditoshow/{id}', [Contrato_creditoController::class, 'show'])->name('contratocreditoShow');
 Route::PUT('/contratocreditoupdate/{id}', [Contrato_creditoController::class, 'update'])->name('contratocreditoUpdate');
 Route::GET('/contratocreditodelete/{id}', [Contrato_creditoController::class, 'destroy'])->name('contratocreditodestroy');
+
+//Rutas para los usuarios
+Route::GET('/userindex', [UserController::class, 'index'])->name('userIndex');
+Route::POST('/userstore', [UserController::class, 'store'])->name('userStore');
+Route::GET('/usershow/{id}', [UserController::class, 'show'])->name('userShow');
+Route::PUT('/userupdate/{id}', [UserController::class, 'update'])->name('userUpdate');
+Route::GET('/userdelete/{id}', [UserController::class, 'destroy'])->name('userdestroy');
