@@ -17,7 +17,7 @@ class SessionController extends Controller
         
         $user = Cat_usu::where('username', $request->username)->first();
         if($user != null){
-            if(!Hash::check($user->password, $request->password)){
+            if(Hash::check($user->password, $request->password)){
                 $acceso = \DB::table('log_acceso')->insert([
                     'username' => $user->username,
                     'nombre_completo' => $user->nombre.' '.$user->ap_paterno.' '.$user->ap_materno,
