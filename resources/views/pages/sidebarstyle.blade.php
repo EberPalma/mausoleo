@@ -7,7 +7,7 @@
             <li class="header-title"> {{ __('Sidebar Style') }}</li>
             <li class="adjustments-line">
                 <a href="javascript:void(0)" class="switch-trigger">
-                    <p>{{ __('Background Image') }}</p>
+                    <p>{{ __('Imagen de fondo') }}</p>
                     <label class="switch">
                         <input type="checkbox" data-toggle="switch" checked="" data-on-color="primary" data-off-color="primary">
                         <span class="toggle"></span>
@@ -17,7 +17,7 @@
             </li>
             <li class="adjustments-line">
                 <a href="javascript:void(0)" class="switch-trigger background-color">
-                    <p>Filters</p>
+                    <p>Filtros</p>
                     <div class="pull-right">
                         <span class="badge filter badge-black" data-color="black"></span>
                         <span class="badge filter badge-azure" data-color="azure"></span>
@@ -29,7 +29,7 @@
                     <div class="clearfix"></div>
                 </a>
             </li>
-            <li class="header-title">{{ __('Sidebar Images') }}</li>
+            <li class="header-title">{{ __('Imagenes laterales') }}</li>
             <li class="active">
                 <a class="img-holder switch-trigger" href="javascript:void(0)">
                     <img src="{{ asset('/img/sidebar-1.jpg') }}" alt="" />
@@ -63,7 +63,7 @@
             <li class="header-title pro-title text-center">{{ __('Want more components?') }}</li>
             <li class="button-container">
                 <div class="">
-                    <a href="https://www.creative-tim.com/product/light-bootstrap-dashboard-pro-laravel" target="_blank" class="btn btn-warning btn-block btn-fill">{{ __('Get The PRO Version!') }}</a>
+                    <a href="https://www.creative-tim.com/product/light-bootstrap-dashboard-pro-laravel" target="_blank" class="btn btn-success btn-block btn-fill">{{ __('Ir a Whatsapp') }}</a>
                 </div>
             </li>
             <li class="header-title" id="sharrreTitle">{{ __('Thank you for sharing!') }}</li>

@@ -15,12 +15,12 @@
                         <i class="nc-icon nc-chart-pie-35"></i> {{ __('Tablero') }}
                     </a>
                 </li>
-                <li class="nav-item @if($activePage == 'register') active @endif">
+                <li class="nav-item">
                     <a href="{{ route('register') }}" class="nav-link">
                         <i class="nc-icon nc-badge"></i> {{ __('Registro') }}
                     </a>
                 </li>
-                <li class="nav-item @if($activePage == 'login') active @endif">
+                <li class="nav-item">
                     <a href="{{ route('loginuser') }}" class="nav-link">
                         <i class="nc-icon nc-mobile"></i> {{ __('Iniciar Sesión') }}
                     </a>
