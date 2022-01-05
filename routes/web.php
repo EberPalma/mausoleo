@@ -37,5 +37,8 @@ Route::get('/verify', function () {return view('auth.verify');})->name('verifica
 
 Route::get('/usuarios', function () {return view('users.listausuarios');})->name('usuarios');
 Route::get('/profile.edit', function () {return view('profile.edit');})->name('profile.edit');
-Route::get('/page.index', function () {return view('page.index');})->name('page.index');
+Route::get('/pageindex', function () {return view('page.index');})->name('page.index');
 Route::get('/profile.update', function () {return view('profile.update');})->name('profile.update');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

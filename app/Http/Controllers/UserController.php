@@ -14,7 +14,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = Cat_usu::all();
+        $user = \DB::table('cat_usu')
+                        ->select('id', 'nombre', 'ap_paterno', 'ap_materno', 'fecha_creado')
+                        ->orderBy('fecha_creado')
+                        ->get();
         if($user != null){
             $mensaje = 'Ok';
             $error = '0';

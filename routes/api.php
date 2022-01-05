@@ -86,6 +86,7 @@ Route::GET('/rolesdelete/{id}', [RolesController::class, 'destroy'])->name('role
 //Rutas para el manejo de sesion
 Route::POST('/login', [SessionController::class, 'login'])->name('login');
 Route::POST('/logout', [SessionController::class, 'logout'])->name('logout');
+Route::GET('/sessionvalidator/{id}', [SessionController::class, 'sessionValidator'])->name('sessionValidator');
 Route::PUT('/changepassword/{id}', [SessionController::class, 'changePassword'])->name('userChangePW');
 
 //Rutas para las configuraciones
