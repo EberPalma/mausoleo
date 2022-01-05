@@ -15,6 +15,8 @@ use App\Http\Controllers\Contrato_creditoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HuespedesController;
 use App\Http\Controllers\VendedoresController;
+use App\Http\Controllers\PagosController;
+use App\Http\Controllers\RecibosController;
 use App\Http\Controllers\session\SessionController;
 
 /*
@@ -127,3 +129,17 @@ Route::POST('/vendedorstore', [VendedoresController::class, 'store'])->name('ven
 Route::GET('/vendedorshow/{id}', [VendedoresController::class, 'show'])->name('vendedorShow');
 Route::PUT('/vendedorupdate/{id}', [VendedoresController::class, 'update'])->name('vendedorUpdate');
 Route::GET('/vendedordelete/{id}', [VendedoresController::class, 'destroy'])->name('vendedordestroy');
+
+//Rutas para los pagos
+Route::GET('/pagoindex', [PagosController::class, 'index'])->name('pagoIndex');
+Route::POST('/pagostore', [PagosController::class, 'store'])->name('pagoStore');
+Route::GET('/pagoshow/{id}', [PagosController::class, 'show'])->name('pagoShow');
+Route::PUT('/pagoupdate/{id}', [PagosController::class, 'update'])->name('pagoUpdate');
+Route::GET('/pagodelete/{id}', [PagosController::class, 'destroy'])->name('pagodestroy');
+
+//Rutas para los recibos
+Route::GET('/reciboindex', [RecibosController::class, 'index'])->name('recibosIndex');
+Route::POST('/recibostore', [RecibosController::class, 'store'])->name('recibosStore');
+Route::GET('/reciboshow/{id}', [RecibosController::class, 'show'])->name('recibosShow');
+Route::PUT('/reciboupdate/{id}', [RecibosController::class, 'update'])->name('recibosUpdate');
+Route::GET('/recibodelete/{id}', [RecibosController::class, 'destroy'])->name('recibosdestroy');

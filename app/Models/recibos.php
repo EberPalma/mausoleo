@@ -5,25 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class pagos extends Model
+class recibos extends Model
 {
     use HasFactory;
     protected $primaryKey = 'id';
-    protected $table = 'pagos';
+    protected $table = 'recibos';
     protected $fillable = [
         'id_usuario',
-        'id_recibo',
-        'id_nicho',
         'id_cliente',
-        'id_estado_pago',
-        'id_contrato',
-        'id_tipo_pago',
-        'anio',
+        'id_nicho',
+        'id_medoto_pago',
+        'total_sin_descuento',
         'descuento',
-        'costo',
-        'concepto',
-        'fecha_pago',
-        'fecha_vencimiento',
+        'subtotal',
+        'iva',
+        'total',
         'fecha_aux'
     ];
 }

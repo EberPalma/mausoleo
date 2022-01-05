@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\cat_vendedores;
 
 class VendedoresController extends Controller
 {
