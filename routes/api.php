@@ -14,6 +14,7 @@ use App\Http\Controllers\ContratosController;
 use App\Http\Controllers\Contrato_creditoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HuespedesController;
+use App\Http\Controllers\VendedoresController;
 use App\Http\Controllers\session\SessionController;
 
 /*
@@ -119,3 +120,10 @@ Route::POST('/huespedstore', [HuespedesController::class, 'store'])->name('huesp
 Route::GET('/huespedshow/{id}', [HuespedesController::class, 'show'])->name('huespedShow');
 Route::PUT('/huespedupdate/{id}', [HuespedesController::class, 'update'])->name('huespedUpdate');
 Route::GET('/huespeddelete/{id}', [HuespedesController::class, 'destroy'])->name('huespeddestroy');
+
+//Rutas para los vendedores
+Route::GET('/vendedorindex', [VendedoresController::class, 'index'])->name('vendedorIndex');
+Route::POST('/vendedorstore', [VendedoresController::class, 'store'])->name('vendedorStore');
+Route::GET('/vendedorshow/{id}', [VendedoresController::class, 'show'])->name('vendedorShow');
+Route::PUT('/vendedorupdate/{id}', [VendedoresController::class, 'update'])->name('vendedorUpdate');
+Route::GET('/vendedordelete/{id}', [VendedoresController::class, 'destroy'])->name('vendedordestroy');
