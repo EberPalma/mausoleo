@@ -105,4 +105,9 @@
             }, 700)
         });
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', ()=>{
+            
+        });
+    </script>
 @endpush

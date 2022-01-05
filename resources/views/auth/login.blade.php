@@ -17,7 +17,7 @@
                                         <label for="email" class="col-md-6 col-form-label">{{ __('Correo electrónico') }}</label>
             
                                         <div class="col-md-14">
-                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', 'admin@lightbp.com') }}" required autocomplete="email" autofocus>
+                                            <input id="emailInput" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', 'admin@lightbp.com') }}" required autocomplete="email" autofocus>
             
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
@@ -29,7 +29,7 @@
                                             <label for="password" class="col-md-6 col-form-label">{{ __('Contraseña') }}</label>
                 
                                             <div class="col-md-14">
-                                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password', 'secret') }}" required autocomplete="current-password">
+                                                <input id="passwordInput" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password', 'secret') }}" required autocomplete="current-password">
                 
                                                 @error('password')
                                                     <span class="invalid-feedback" role="alert">
@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="card-footer ml-auto mr-auto">
                                     <div class="container text-center" >
-                                        <button type="submit" class="btn btn-warning btn-wd">{{ __('Iniciar Sesión') }}</button>
+                                        <button type="submit" class="btn btn-warning btn-wd" id="submitButton">{{ __('Iniciar Sesión') }}</button>
                                     </div>
                                     <div>
                                         
@@ -81,6 +81,35 @@
                 // after 1000 ms we add the class animated to the login/register card
                 $('.card').removeClass('card-hidden');
             }, 700)
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', ()=>{
+            submitButton = document.querySelector('#submitButton');
+            submitButton.addEventListener('click', (e)=>{
+                e.preventDefault();
+                let emailInput = document.querySelector('#emailInput');
+                let passwordInput = document.querySelector('#passwordInput');
+                axios.post('/api/login', {
+                    username: emailInput.value,
+                    password: passwordInput.value
+                }).then((response)=>{
+                    if(typeof(storage) != 'undefinied'){
+                        console.log(response.data.session);
+                        let username = response.data.session.username;
+                        let fullname = response.data.session.fullname;
+                        let id_session = response.data.session.id_session;
+                        let status = response.data.session.status;
+                        let type = response.data.session.type;
+                        localStorage.setItem('mausoleoSessionFullname', fullname);
+                        localStorage.setItem('mausoleoSessionUsername', username);
+                        localStorage.setItem('mausoleoSessionId_session', id_session);
+                        localStorage.setItem('mausoleoSessionStatus', status);
+                        localStorage.setItem('mausoleoSessionType', type);
+                    }
+                    location.replace('/dashboard');
+                });
+            });
         });
     </script>
 @endpush

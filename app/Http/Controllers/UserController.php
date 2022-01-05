@@ -36,7 +36,9 @@ class UserController extends Controller
     {
         $request->validate([
             'username' => 'required|string|unique:cat_usu',
+            'email' => 'required|email|unique:cat_usu',
             'password' => 'required|string',
+            'conf_password' => 'required|string|same:password',
             'nombre' => 'required|string',
             'ap_paterno' => 'required|string',
             'ap_materno' => 'required|string',
@@ -46,6 +48,7 @@ class UserController extends Controller
         try{
             $user = Cat_usu::create([
                 'username' => $request->username,
+                'email' => $request->email,
                 'password' => bcrypt($request->password),
                 'nombre' => $request->nombre,
                 'ap_paterno' => $request->ap_paterno,
@@ -98,6 +101,7 @@ class UserController extends Controller
     {
         $request->validate([
             'username' => 'nullable|string|unique:cat_usu',
+            'email' => 'required|email|unique:cat_usu',
             'nombre' => 'required|string',
             'ap_paterno' => 'required|string',
             'ap_materno' => 'required|string',
@@ -108,6 +112,7 @@ class UserController extends Controller
         if($user != null){
             $error = '0';
             $user->nombre = $request->nombre;
+            $user->email = $request->email;
             $user->ap_paterno = $request->ap_paterno;
             $user->ap_materno = $request->ap_materno;
             $user->id_rol = $request->id_rol;

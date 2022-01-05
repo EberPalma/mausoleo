@@ -15,6 +15,9 @@
         <!-- CSS Files -->
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
         <link href="{{ asset('css/light-bootstrap-dashboard.css?v=2.0.0') }} " rel="stylesheet" />
+
+        <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     </head>
 
     <body>
