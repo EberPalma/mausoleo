@@ -11,13 +11,13 @@
                     <div class="card-header">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">Users</h3>
+                                <h3 class="mb-0">Usuarios</h3>
                                 <p class="text-sm mb-0">
-                                    This is an example of user management. This is a minimal setup in order to get started fast.
+                                   Gestor de usuarios
                                 </p>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="#" class="btn btn-sm btn-default">Add user</a>
+                                <a href="#" class="btn btn-sm btn-default">Agregar usuario</a>
                             </div>
                         </div>
                     </div>
@@ -31,28 +31,49 @@
                     <div class="card-body table-full-width table-responsive">
                         <table class="table table-hover table-striped">
                             <thead>
-                                <tr><th>Name</th>
+                                <tr>
+                                <th>Usuario</th>
+                                <th>Nombre</th>
+                                <th>A.Paterno</th>
+                                <th>A.Materno</th>
+                                <th>Rol</th>
                                 <th>Email</th>
-                                <th>Start</th>
-                                <th>Actions</th>
+                                <th>Ultima Entrada</th>
+                                <th>Acciones</th>
                             </tr></thead>
                             <tfoot>
                                 <tr>
-                                    <th>Name</th>
+                                    <th>Usuario</th>
+                                    <th>Nombre</th>
+                                    <th>A.Paterno</th>
+                                    <th>A.Materno</th>
+                                    <th>Rol</th>
                                     <th>Email</th>
-                                    <th>Start</th>
-                                    <th>Actions</th>
+                                    <th>Ultima Entrada</th>
+                                    <th>Acciones</th>
                                 </tr>
                             </tfoot>
                             <tbody>
                             
                                                                         <tr>
                                         <td>Admin Admin</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                         <td>admin@lightbp.com</td>
                                         <td>2020-02-25 12:37:04</td>
                                         <td class="d-flex justify-content-end">
                                                 
-                                                <a href="#"><i class="fa fa-edit"></i></a>
+                                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                
+                                                <label class="btn btn-sm btn-secondary">
+                                                  <a href="#" type="radio" name="options" > <i class="fa fa-edit"></i> Editar </a>
+                                                </label>
+                                                <label class="btn btn-sm btn-danger">
+                                                  <a href="#" type="radio" name="options"> <i class="fa fa-trash"></i> Borrar</a>
+                                                </label>
+                                              </div>
                                                                                         </td>
                                     </tr>
                                                                 </tbody>
@@ -66,7 +87,7 @@
                 <i class="nc-icon nc-simple-remove"></i>
             </button>
             <span>
-            This is a <b>PRO</b> feature!</span>
+            El administrador es el unico que puede <b>Borrar y Editar</b> usuarios.</span>
         </div>
     </div>
 </div>

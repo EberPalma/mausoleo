@@ -4,76 +4,85 @@
     <div class="content">
         <div class="container-fluid">
             <div class="row">
+               <div class="col-md-3">
+                   <div class="card bg-warning">
+                       <div class="card-header bg-warning" style="font-size: 25px; ">Nichos</div>
+                       <div class="card-body">
+                        <i class="fa fa-square fa-3x"></i>
+                        </div>
+                            <div class="card-footer">
+                              <b>200 Disponibles</b>  
+                            </div>
+
+                   </div>
+               </div>
+               <div class="col">
+                   <div class="card text-white bg-dark">
+                       <div class="card-header text-white bg-dark" style="font-size: 25px;">Difuntos</div>
+                       <div class="card-body">
+                        <i class="fa fa-user fa-3x"></i>
+                        </div>
+                        <div class="card-footer">
+                          <b>198 Disponibles</b>  
+                        </div>
+
+                   </div>
+               
+
+            </div>
+            <div class="col">
+                <div class="card bg-primary">
+                    <div class="card-header bg-primary" style="font-size: 25px;">Formularios</div>
+                    <div class="card-body">
+                        <i class="fa fa-wpforms fa-3x"></i>
+                    </div>
+                    <div class="card-footer">
+                        <b>40 Formularios</b>
+                    </div>
+
+                </div>
+                              
+            </div>
+            <div class="col"> 
+                <div class="card bg-success">
+                    <div class="card-header bg-success" style="font-size: 25px;">Codigos QR</div>
+                    <div class="card-body">
+                        <i class="fa fa-qrcode fa-3x"></i>
+                    </div>
+                        <div class="card-footer">
+                            <b>195 Generados</b>
+                        </div>
+                    </div> 
+                                                                   
+
+            </div>
+            </div>
+            <div class="row">
                 <div class="col-md-4">
                     <div class="card ">
                         <div class="card-header ">
-                            <h4 class="card-title">{{ __('Email Statistics') }}</h4>
-                            <p class="card-category">{{ __('Last Campaign Performance') }}</p>
+                            <h4 class="card-title">{{ __('Estadisticas Atención') }}</h4>
+                            <p class="card-category">{{ __('Formularios de contacto') }}</p>
                         </div>
                         <div class="card-body ">
                             <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
                             <div class="legend">
-                                <i class="fa fa-circle text-info"></i> {{ __('Open') }}
-                                <i class="fa fa-circle text-danger"></i> {{ __('Bounce') }}
-                                <i class="fa fa-circle text-warning"></i> {{ __('Unsubscribe') }}
+                                <i class="fa fa-circle text-info"></i> {{ __('Informes') }}
+                                <i class="fa fa-circle text-danger"></i> {{ __('Otros') }}
+                                <i class="fa fa-circle text-warning"></i> {{ __('Quejas') }}
                             </div>
                             <hr>
                             <div class="stats">
-                                <i class="fa fa-clock-o"></i> {{ __('Campaign sent 2 days ago') }}
+                                <i class="fa fa-clock-o"></i> {{ __('Ultimo formulario hecho:') }}
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <div class="card ">
-                        <div class="card-header ">
-                            <h4 class="card-title">{{ __('Users Behavior') }}</h4>
-                            <p class="card-category">{{ __('24 Hours performance') }}</p>
-                        </div>
-                        <div class="card-body ">
-                            <div id="chartHours" class="ct-chart"></div>
-                        </div>
-                        <div class="card-footer ">
-                            <div class="legend">
-                                <i class="fa fa-circle text-info"></i> {{ __('Open') }}
-                                <i class="fa fa-circle text-danger"></i> {{ __('Click') }}
-                                <i class="fa fa-circle text-warning"></i> {{ __('Click Second Time') }}
-                            </div>
-                            <hr>
-                            <div class="stats">
-                                <i class="fa fa-history"></i> {{ __('Updated 3 minutes ago') }}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card ">
-                        <div class="card-header ">
-                            <h4 class="card-title">{{ __('2017 Sales') }}</h4>
-                            <p class="card-category">{{ __('All products including Taxes') }}</p>
-                        </div>
-                        <div class="card-body ">
-                            <div id="chartActivity" class="ct-chart"></div>
-                        </div>
-                        <div class="card-footer ">
-                            <div class="legend">
-                                <i class="fa fa-circle text-info"></i> {{ __('Tesla Model S') }}
-                                <i class="fa fa-circle text-danger"></i> {{ __('BMW 5 Series') }}
-                            </div>
-                            <hr>
-                            <div class="stats">
-                                <i class="fa fa-check"></i> {{ __('Data information certified') }}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
                     <div class="card  card-tasks">
                         <div class="card-header ">
-                            <h4 class="card-title">{{ __('Tasks') }}</h4>
-                            <p class="card-category">{{ __('Backend development') }}</p>
+                            <h4 class="card-title">{{ __('Contacto') }}</h4>
+                            <p class="card-category">{{ __('Formularios Recientes') }}</p>
                         </div>
                         <div class="card-body ">
                             <div class="table-full-width">
@@ -207,6 +216,7 @@
                     </div>
                 </div>
             </div>
+            
         </div>
     </div>
 @endsection
