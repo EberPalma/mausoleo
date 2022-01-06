@@ -17,7 +17,7 @@
                                         <label for="email" class="col-md-6 col-form-label">{{ __('Correo electrónico') }}</label>
             
                                         <div class="col-md-14">
-                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', 'admin@lightbp.com') }}" required autocomplete="email" autofocus>
+                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="" required autocomplete="email" autofocus>
             
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
@@ -29,7 +29,7 @@
                                             <label for="password" class="col-md-6 col-form-label">{{ __('Contraseña') }}</label>
                 
                                             <div class="col-md-14">
-                                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password', 'secret') }}" required autocomplete="current-password">
+                                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="" required autocomplete="current-password">
                 
                                                 @error('password')
                                                     <span class="invalid-feedback" role="alert">

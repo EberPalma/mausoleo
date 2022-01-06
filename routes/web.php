@@ -35,7 +35,9 @@ Route::get('/verify', function () {return view('auth.verify');})->name('verify')
 Route::get('/verify', function () {return view('auth.verify');})->name('verification.resend');
 
 //Administrativos CRUD
-
+//Contacto
+Route::get('/contacto', function () {return view('layouts.contacto.index');})->name('contacto');
+//Usuarios
 Route::get('/usuarios', function () {return view('users.listausuarios');})->name('usuarios');
 Route::get('/profile.edit', function () {return view('profile.edit');})->name('profile.edit');
 Route::get('/pageindex', function () {return view('page.index');})->name('page.index');
