@@ -25,7 +25,7 @@ Route::get('/dashboard', function () {return view('dashboard');})->name('dashboa
 
 // Rutas con controlador (Aun no formadas)
 
-Route::get('/login', function () {return view('auth.login');})->name('loginuser');
+Route::get('/login', function () {return view('auth.login');})->name('login');
 
 //Envio de verificación
 Route::get('/verify', function () {return view('auth.verify');})->name('verify');

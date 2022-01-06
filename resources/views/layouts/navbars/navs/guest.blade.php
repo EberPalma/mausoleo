@@ -21,7 +21,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('loginuser') }}" class="nav-link">
+                    <a href="{{ route('login') }}" class="nav-link">
                         <i class="nc-icon nc-mobile"></i> {{ __('Iniciar Sesión') }}
                     </a>
                 </li>

@@ -83,12 +83,6 @@ Route::GET('/rolesshow/{id}', [RolesController::class, 'show'])->name('rolesShow
 Route::PUT('/rolesupdate/{id}', [RolesController::class, 'update'])->name('rolesUpdate');
 Route::GET('/rolesdelete/{id}', [RolesController::class, 'destroy'])->name('rolesdestroy');
 
-//Rutas para el manejo de sesion
-Route::POST('/login', [SessionController::class, 'login'])->name('login');
-Route::POST('/logout', [SessionController::class, 'logout'])->name('logout');
-Route::GET('/sessionvalidator/{id}', [SessionController::class, 'sessionValidator'])->name('sessionValidator');
-Route::PUT('/changepassword/{id}', [SessionController::class, 'changePassword'])->name('userChangePW');
-
 //Rutas para las configuraciones
 Route::GET('/configindex', [ConfigController::class, 'index'])->name('configIndex');
 Route::POST('/configstore', [ConfigController::class, 'store'])->name('configStore');

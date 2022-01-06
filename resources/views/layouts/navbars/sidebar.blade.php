@@ -37,7 +37,7 @@ Tip 2: you can also add an image using data-image tag
                             </a>
                         </li>
                         <li class="nav-item @if($activePage == 'user-management') active @endif">
-                            <a class="nav-link" href="{{route('user.index')}}">
+                            <a class="nav-link" href="{{route('usuarios')}}">
                                 <i class="nc-icon nc-circle-09"></i>
                                 <p>{{ __("User Management") }}</p>
                             </a>
