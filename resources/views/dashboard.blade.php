@@ -1,6 +1,6 @@
-@extends('layouts.app', ['activePage' => 'dashboard', 'title' => 'Mausoleo Santa Clara', 'navName' => 'Dashboard', 'activeButton' => 'laravel'])
+@extends('index')
 
-@section('content')
+@section('Contenidoprincipal')
     <div class="content">
         <div class="container-fluid">
             <div class="row">
