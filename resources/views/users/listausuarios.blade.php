@@ -44,16 +44,18 @@
                                     <th>Actions</th>
                                 </tr>
                             </tfoot>
-                            <tbody id="tableBody">
-                                <tr>
-                                    <td>Admin Admin</td>
-                                    <td>admin@lightbp.com</td>
-                                    <td>2020-02-25 12:37:04</td>
-                                    <td class="d-flex justify-content-end">            
-                                        <a href="#"><i class="fa fa-edit"></i></a>
-                                    </td>
-                                </tr>
-                            </tbody>
+                            <tbody>
+                            
+                                                                        <tr>
+                                        <td>Admin Admin</td>
+                                        <td>admin@lightbp.com</td>
+                                        <td>2020-02-25 12:37:04</td>
+                                        <td class="d-flex justify-content-end">
+                                                
+                                                <a href="#"><i class="fa fa-edit"></i></a>
+                                                                                        </td>
+                                    </tr>
+                                                                </tbody>
                         </table>
                     </div>
                 </div>
@@ -69,19 +71,3 @@
     </div>
 </div>
 @endsection
-
-@push('js')
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', ()=>{
-            let idSession = localStorage.mausoleoSessionId_session;
-            axios.post('/api/sessionvalidator'+idSession
-                ).then((response)=>{
-                    console.log(response);
-                }).catch(()=>{
-                    location.replace('/login');
-                });
-        });
-    </script>
-    <script src="{{asset('js/userIndexTable.js')}}"></script>
-@endpush
