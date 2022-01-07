@@ -23,6 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $nichos = \DB::table('nichos')->get()->count();
+        $huespedes = \DB::table('huespedes')->get()->count();
+        return view('dashboard')
+                ->with('nichos', $nichos)
+                ->with('huespedes', $huespedes);
     }
 }

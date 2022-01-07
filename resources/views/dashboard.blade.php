@@ -11,19 +11,19 @@
                         <i class="fa fa-square fa-3x"></i>
                         </div>
                             <div class="card-footer">
-                              <b>200 Disponibles</b>  
+                              <b>{{$nichos}} Registros</b>  
                             </div>
 
                    </div>
                </div>
                <div class="col">
                    <div class="card text-white bg-dark">
-                       <div class="card-header text-white bg-dark" style="font-size: 25px;">Difuntos</div>
+                       <div class="card-header text-white bg-dark" style="font-size: 25px;">Huespedes</div>
                        <div class="card-body">
                         <i class="fa fa-user fa-3x"></i>
                         </div>
                         <div class="card-footer">
-                          <b>198 Disponibles</b>  
+                          <b>{{$huespedes}} Registros</b>  
                         </div>
 
                    </div>

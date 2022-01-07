@@ -32,14 +32,14 @@
                            <b>Estado de la solicitud:</b>
                        </div> 
                        <div class="col-md-4">
-                           <select class="form-control" name="" id="">
-                               <option value="">Sin atender</option>
-                               <option value="">Atendidas</option>
-                               <option value="">Todas</option>
+                           <select class="form-control" name="" id="filtroStatus">
+                               <option value="sinatender">Sin atender</option>
+                               <option value="atendidas">Atendidas</option>
+                               <option value="todas">Todas</option>
                            </select>
                        </div>
                        <div class="col-md-4">
-                           <a class="btn">Buscar</a>
+                           <a class="btn" id="btnBuscar">Buscar</a>
                        </div>  
                     </div>
                 </div>
@@ -65,31 +65,7 @@
                                         <th style="width:100px">Fecha de registro</th>
                                         <th >Acciones</th>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="">
-                                                        <span class="form-check-sign"></span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td style="width:250px"><small>{{ __('Buen dia por este medio deseo contactarme con ustedes para hacer entrega de nuestra carta de presentación sobre nuestro servicio de proteccion patrimonial y su logistica') }}</small></td>
-                                            <td><small>{{ __('Sugerencias') }}</td>
-                                            <td><small>{{ __('Central de Alarmas y Monitoreo de México SA DE CV') }}</small></td>
-                                            <td><small>{{ __('7222105999') }}</small></td>
-                                            <td><small>{{ __('nestor.salazar@calmo.com.mx') }}</small></td>
-                                            <td><small>
-                                                {{ __('06/01/2022 03:07:52 p. m.') }}</small>
-                                            </td>
-                                            <td class="td-actions text-right" class="d-flex align-items-center; width:100px;">
-                                                <button type="button" rel="tooltip" title="Mandar mensaje" class="btn btn-success">
-                                                    <i class="fa fa-whatsapp"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
+                                    <tbody id="tableBody"></tbody>
                                 </table>
                             </div>
                         </div>
@@ -113,3 +89,8 @@
     </div>
 </div>
 @endsection
+
+@push('js')
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="{{ asset('js/contactoIndexTable.js') }}"></script>
+@endpush

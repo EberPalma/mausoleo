@@ -17,6 +17,7 @@ use App\Http\Controllers\HuespedesController;
 use App\Http\Controllers\VendedoresController;
 use App\Http\Controllers\PagosController;
 use App\Http\Controllers\RecibosController;
+use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\session\SessionController;
 
 /*
@@ -138,3 +139,7 @@ Route::POST('/recibostore', [RecibosController::class, 'store'])->name('recibosS
 Route::GET('/reciboshow/{id}', [RecibosController::class, 'show'])->name('recibosShow');
 Route::PUT('/reciboupdate/{id}', [RecibosController::class, 'update'])->name('recibosUpdate');
 Route::GET('/recibodelete/{id}', [RecibosController::class, 'destroy'])->name('recibosdestroy');
+
+//Rutas para el contacto
+Route::GET('/contactoindex/{filtro}', [ContactoController::class, 'index'])->name('contactoIndex');
+Route::POST('/contactostore', [ContactoController::class, 'store'])->name('contactoStore');

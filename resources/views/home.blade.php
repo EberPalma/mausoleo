@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['activePage' => 'home', 'title' => 'Mausoleo Santa Clara', 'navName' => 'Icons', 'activeButton' => 'laravel'])
 
 @section('content')
 <div class="container">
