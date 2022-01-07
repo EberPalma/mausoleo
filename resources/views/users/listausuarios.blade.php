@@ -1,7 +1,9 @@
 @extends('index') 
 @section('Contenidoprincipal')
-    
 
+@if(!isset(Auth::user()->name))
+    <meta http-equiv="refresh" content="0; url={{ route('login') }}">
+@else
 <div class="content">
     <div class="container-fluid">
         <div class="row">
@@ -53,30 +55,8 @@
                                     <th>Acciones</th>
                                 </tr>
                             </tfoot>
-                            <tbody>
-                            
-                                                                        <tr>
-                                        <td>Admin Admin</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>admin@lightbp.com</td>
-                                        <td>2020-02-25 12:37:04</td>
-                                        <td class="d-flex justify-content-end">
-                                                
-                                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                                
-                                                <label class="btn btn-sm btn-secondary">
-                                                  <a href="#" type="radio" name="options" > <i class="fa fa-edit"></i> Editar </a>
-                                                </label>
-                                                <label class="btn btn-sm btn-danger">
-                                                  <a href="#" type="radio" name="options"> <i class="fa fa-trash"></i> Borrar</a>
-                                                </label>
-                                              </div>
-                                                                                        </td>
-                                    </tr>
-                                                                </tbody>
+                            <tbody id="tableBody"></tbody>
+
                         </table>
                     </div>
                 </div>
@@ -91,6 +71,8 @@
         </div>
     </div>
 </div>
+@endif
+
 @endsection
 
 @push('js')

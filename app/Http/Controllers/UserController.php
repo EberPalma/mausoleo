@@ -14,10 +14,19 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = \DB::table('cat_usu')
-                        ->select('id', 'nombre', 'ap_paterno', 'ap_materno', 'fecha_creado')
-                        ->orderBy('fecha_creado')
+        $user = \DB::table('users')
+                        ->select('id', 'name', 'ap_paterno', 'ap_materno', 'created_at', 'email', 'username', 'id_rol')
+                        ->where('activo', 1)
+                        ->orderBy('created_at')
                         ->get();
+        foreach($user as $u){
+            $id_rol = \DB::table('cat_rol')
+                        ->select('nombre')
+                        ->where('id', $u->id_rol)
+                        ->get();
+            $u->id_rol = $id_rol[0];
+        }
+
         if($user != null){
             $mensaje = 'Ok';
             $error = '0';
