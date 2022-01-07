@@ -116,11 +116,4 @@ class SessionController extends Controller
         return json_encode(array('message' => $mensaje, 'errors' => $error));
     }
 
-    public function sessionValidator($id){
-        $session = \DB::table('log_acceso')
-                            ->select('session')
-                            ->where('id', $id)
-                            ->get();
-        return $session;
-    }
 }
