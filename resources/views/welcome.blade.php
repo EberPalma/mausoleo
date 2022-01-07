@@ -1,4 +1,4 @@
-@extends('layouts/app', ['activePage' => 'welcome', 'title' => 'Mausoleo Santa Clara'])
+@extends('layouts.app')
 
 @section('content')
     <div class="full-page section-image" data-color="black" data-image="{{asset('img/full-screen-image-2.jpg')}}">

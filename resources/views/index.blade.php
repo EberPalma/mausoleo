@@ -148,7 +148,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('page.index', 'icons')}}">
+                        <a class="nav-link" href="{{route('usuarios')}}">
                             <i class="nc-icon nc-single-02"></i>
                             <p>{{ __("Usuarios") }}</p>
                         </a>

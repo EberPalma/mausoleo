@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 //RUTAS SIN AUTH
 Route::get('/', function () {return view('welcome');});
+Route::get('/guest', function () {return view('layouts.app');});
 Route::get('/register', function () {return view('auth.register');})->name('register');
 
 
@@ -34,11 +35,17 @@ Route::get('/verify', function () {return view('auth.verify');})->name('verify')
 Route::get('/verify', function () {return view('auth.verify');})->name('verification.resend');
 
 //Administrativos CRUD
-
+//Contacto
+Route::get('/contacto', function () {return view('layouts.contacto.index');})->name('contacto');
+//Usuarios
 Route::get('/usuarios', function () {return view('users.listausuarios');})->name('usuarios');
 Route::get('/profile.edit', function () {return view('profile.edit');})->name('profile.edit');
 Route::get('/pageindex', function () {return view('page.index');})->name('page.index');
 Route::get('/profile.update', function () {return view('profile.update');})->name('profile.update');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

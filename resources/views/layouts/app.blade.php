@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -72,7 +71,6 @@
           template: '<i class="fab fa-facebook-f"></i> Facebook',
           url: 'https://light-bootstrap-dashboard-laravel.creative-tim.com/login'
         });
-
         $('#google').sharrre({
           share: {
             googlePlus: true
@@ -87,7 +85,6 @@
           template: '<i class="fab fa-google-plus"></i> Google',
           url: 'https://light-bootstrap-dashboard-laravel.creative-tim.com/login'
         });
-
         $('#twitter').sharrre({
           share: {
             twitter: true
