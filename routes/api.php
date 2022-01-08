@@ -18,6 +18,7 @@ use App\Http\Controllers\VendedoresController;
 use App\Http\Controllers\PagosController;
 use App\Http\Controllers\RecibosController;
 use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\session\SessionController;
 
 /*
@@ -142,6 +143,12 @@ Route::GET('/recibodelete/{id}', [RecibosController::class, 'destroy'])->name('r
 
 //Rutas para el contacto
 Route::GET('/contactoindex/{filtro}', [ContactoController::class, 'index'])->name('contactoIndex');
+Route::GET('/contactoindexdashboard', [ContactoController::class, 'indexDashboard'])->name('contactoIndexDB');
 Route::POST('/contactostore', [ContactoController::class, 'store'])->name('contactoStore');
 Route::GET('/contactochecked/{id}', [ContactoController::class, 'setChecked'])->name('contactoChecked');
 Route::GET('/contactoactivo/{id}', [ContactoController::class, 'setActivo'])->name('contactoActivo');
+
+//Rutas para el dashboard
+Route::GET('/nichosdashboard', [DashboardController::class, 'countNichos'])->name('countNichos');
+Route::GET('/huespedesdashboard', [DashboardController::class, 'countHuespedes'])->name('countHuespedes');
+Route::GET('/contactodashboard', [DashboardController::class, 'countContacto'])->name('countContacto');

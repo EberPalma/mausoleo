@@ -22,11 +22,8 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
-        $nichos = \DB::table('nichos')->get()->count();
-        $huespedes = \DB::table('huespedes')->get()->count();
-        return view('dashboard')
-                ->with('nichos', $nichos)
-                ->with('huespedes', $huespedes);
+    {   
+        return view('dashboard');
     }
+
 }

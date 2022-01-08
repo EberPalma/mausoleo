@@ -33,6 +33,21 @@ class ContactoController extends Controller
         return json_encode(array('message' => $mensaje, 'errors' => $error, 'data' => $contacto));
     }
 
+    public function indexDashboard(){
+        $contacto = \DB::table('contacto')
+                            ->select('id', 'mensaje', 'atendido', 'asunto')
+                            ->get();
+        if($contacto != null){
+            $mensaje = 'Ok';
+            $error = '0';
+        }else{
+            $mensaje = 'No se puede obtener la informacion';
+            $error = '1';
+        }
+                    
+        return json_encode(array('message' => $mensaje, 'errors' => $error, 'data' => $contacto));    
+    }
+
     public function store(Request $request){
         $request->validate([
             'nombre' => 'required|string',
