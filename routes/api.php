@@ -143,3 +143,5 @@ Route::GET('/recibodelete/{id}', [RecibosController::class, 'destroy'])->name('r
 //Rutas para el contacto
 Route::GET('/contactoindex/{filtro}', [ContactoController::class, 'index'])->name('contactoIndex');
 Route::POST('/contactostore', [ContactoController::class, 'store'])->name('contactoStore');
+Route::GET('/contactochecked/{id}', [ContactoController::class, 'setChecked'])->name('contactoChecked');
+Route::GET('/contactoactivo/{id}', [ContactoController::class, 'setActivo'])->name('contactoActivo');

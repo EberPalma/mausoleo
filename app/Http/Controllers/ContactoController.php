@@ -12,13 +12,13 @@ class ContactoController extends Controller
         $contacto = "";
         switch ($tipo){
             case "sinatender":
-                $contacto = \DB::table('contacto')->where('atendido', 0)->get();
+                $contacto = \DB::table('contacto')->where('atendido', 0)->where('activo', 1)->get();
                 break;
             case "atendidas":
-                $contacto = \DB::table('contacto')->where('atendido', 1)->get();
+                $contacto = \DB::table('contacto')->where('atendido', 1)->where('activo', 1)->get();
                 break;
             case "todas":
-                $contacto = Contacto::all();
+                $contacto = \DB::table('contacto')->where('activo', 1)->get();
                 break;
         }
         
@@ -49,7 +49,8 @@ class ContactoController extends Controller
                 'email' => $request->email,
                 'asunto' => $request->asunto,
                 'mensaje' => $request->mensaje,
-                'atendido' => 0
+                'atendido' => 0,
+                'activo' => 1
             ]);
             $mensaje = "registro realizado correctamente";
             $error = '0';
@@ -58,5 +59,33 @@ class ContactoController extends Controller
         }
         
         return json_encode(array('message' => $mensaje, 'errors' => $contacto));
+    }
+
+    public function setChecked($id){
+        $contacto = Contacto::find($id);
+
+        if($contacto->atendido == 1){
+            $contacto->atendido = 0;
+            $contacto->save();
+        }else{
+            $contacto->atendido = 1;
+            $contacto->save();
+        } 
+
+    }
+
+    public function setActivo($id){
+        $contacto = Contacto::find($id);
+
+        if($contacto->activo == 1){
+            $contacto->activo = 0;
+            $contacto->save();
+            return $contacto;
+        }else{
+            $contacto->activo = 1;
+            $contacto->save();
+            return $contacto;
+        } 
+
     }
 }

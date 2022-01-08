@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     let filtro = document.querySelector("#btnBuscar");
     getContactoInfo(document.querySelector("#filtroStatus").value);
+
     filtro.addEventListener("click", () => {
         clearTable();
         getContactoInfo(document.querySelector("#filtroStatus").value);
@@ -13,13 +14,14 @@ function clearTable() {
 
 function getContactoInfo(tipo) {
     axios.get("/api/contactoindex/" + tipo).then((response) => {
-        let tabla = document.querySelector("#tableBody").innerHTML;
+        let tabla = document.querySelector("#tableBody");
         let data = response.data;
         data.data.forEach((e) => {
+            let check = e.atendido == 1 ? "checked" : "";
             let atendido = `<td>
                                 <div class="form-check">
                                     <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox" value="">
+                                        <input class="form-check-input" id="id${e.id}" type="checkbox" value="${e.id}" ${check}>
                                         <span class="form-check-sign"></span>
                                     </label>
                                 </div>
@@ -39,9 +41,13 @@ function getContactoInfo(tipo) {
                                 <button type="button" rel="tooltip" title="Mandar mensaje" class="btn btn-success">
                                     <i class="fa fa-whatsapp"></i>
                                 </button>
+                                <label class="btn btn-sm btn-danger" id="delete${e.id}">
+                                    <i class="fa fa-trash"></i> Borrar
+                                </label>
                             </td>`;
 
-            let tableRow =
+            let tableRow = document.createElement("tr");
+            tableRow.innerHTML =
                 "<tr>" +
                 atendido +
                 mensaje +
@@ -52,8 +58,18 @@ function getContactoInfo(tipo) {
                 fechaRegistro +
                 acciones +
                 "</tr>";
-            tabla = tabla + tableRow;
-            document.querySelector("#tableBody").innerHTML = tabla;
+            tabla.appendChild(tableRow);
+            document
+                .querySelector("#id" + e.id)
+                .addEventListener("click", () => {
+                    axios.get("/api/contactochecked/" + e.id);
+                });
+            document
+                .querySelector("#delete" + e.id)
+                .addEventListener("click", () => {
+                    axios.get("/api/contactoactivo/" + e.id);
+                    tabla.removeChild(tableRow);
+                });
         });
     });
 }
