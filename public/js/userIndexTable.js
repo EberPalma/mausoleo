@@ -20,11 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 let userEdit = `<td class="d-flex justify-content-end">
                                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                         
-                                        <label class="btn btn-sm btn-secondary">
-                                        <a href="#" type="radio" name="options" > <i class="fa fa-edit"></i> Editar </a>
+                                        <label class="btn btn-sm btn-secondary" title="Editar usuario">
+                                        <a href="#" type="radio" name="options" > <i class="fa fa-edit"></i> </a>
                                         </label>
-                                        <label class="btn btn-sm btn-danger">
-                                        <a href="{{ url('api/userdelete/${e.id}') }}" type="radio" name="options"> <i class="fa fa-trash"></i> Borrar</a>
+                                        <label class="btn btn-sm btn-danger"  title="Borrar usuario">
+                                        <a href="{{ url('api/userdelete/${e.id}') }}" type="radio" name="options"> <i class="fa fa-trash"></i></a>
                                         </label>
                                     </div>
                                 </td>`;

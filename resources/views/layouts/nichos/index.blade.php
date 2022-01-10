@@ -18,9 +18,9 @@
                     <div class="card-header">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">Contacto</h3>
+                                <h3 class="mb-0">Nichos</h3>
                                 <p class="text-sm mb-0">
-                                   Gestor de formularios de contacto
+                                   Gestor de nichos
                                 </p>
                             </div>
                             
@@ -28,15 +28,11 @@
                     </div><br>
                     <div class="container">
                     <div class="row">
-                       <div class="col-md-4">
-                           <b>Estado de la solicitud:</b>
+                       <div class="col-md-2">
+                           <b>Nicho:</b>
                        </div> 
                        <div class="col-md-4">
-                           <select class="form-control" name="" id="filtroStatus">
-                               <option value="sinatender">Sin atender</option>
-                               <option value="atendidas">Atendidas</option>
-                               <option value="todas">Todas</option>
-                           </select>
+                           <input type="text" class="form-control">
                        </div>
                        <div class="col-md-4">
                            <a class="btn" id="btnBuscar">Buscar</a>
@@ -56,14 +52,11 @@
                             <div class="card-body table-full-width table-responsive">
                                 <table class="table table-hover table-striped">
                                     <thead>
-                                        <th>Atendida</th>
-                                        <th style="width:200px">Mensaje</th>
-                                        <th>Asunto</th>
-                                        <th>Nombre</th>
-                                        <th>Telefono</th>
-                                        <th>Email</th>
-                                        <th>Fecha de registro</th>
-                                        <th >Acciones</th>
+                                        <th>Coordenada</th>
+                                        <th>Tamaño</th>
+                                        <th>Familia</th>
+                                        <th>Difuntos</th>
+                                        <th>Resultado de busqueda</th>
                                     </thead>
                                     <tbody id="tableBody"></tbody>
                                 </table>
@@ -91,6 +84,5 @@
 @endsection
 
 @push('js')
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="{{ asset('js/contactoIndexTable.js') }}"></script>
+
 @endpush

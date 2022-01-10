@@ -108,33 +108,24 @@
                             <p>{{ __("Tablero") }}</p>
                         </a>
                     </li>
-                   
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#laravelExamples" aria-expanded="true">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{{route('nichos')}}">
                             <i class="nc-icon nc-icon nc-grid-45"></i>
-                            <p>
-                                {{ __('Nichos') }}
-                                <b class="caret"></b>
-                            </p>
+                            <p>{{ __("Nichos") }}</p>
                         </a>
-                        <div class="collapse  show " id="laravelExamples">
-                            <ul class="nav">
-                                <li class="nav-item ">
-                                    <a class="nav-link" href="{{route('profile.edit')}}">
-                                        <i class="nc-icon nc-badge"></i>
-                                        <p>{{ __("Difuntos") }}</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item ">
-                                    <a class="nav-link" href="{{route('index')}}">
-                                        <i class="nc-icon nc-email-85"></i>
-                                        <p>{{ __("Contacto") }}</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
                     </li>
-        
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{{route('contacto')}}">
+                            <i class="nc-icon nc-badge"></i>
+                                        <p>{{ __("Difuntos") }}</p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{{route('contacto')}}">
+                            <i class="nc-icon nc-email-85"></i>
+                                        <p>{{ __("Contacto") }}</p>
+                        </a>
+                    </li>
                     <li class="nav-item ">
                         <a class="nav-link" href="{{route('page.index', 'table')}}">
                             <img src="{{ asset('img/laravel.svg') }}" style="width:25px">

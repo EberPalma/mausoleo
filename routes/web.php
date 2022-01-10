@@ -42,6 +42,9 @@ Route::get('/usuarios', function () {return view('users.listausuarios');})->name
 Route::get('/profile.edit', function () {return view('profile.edit');})->name('profile.edit');
 Route::get('/pageindex', function () {return view('page.index');})->name('page.index');
 Route::get('/profile.update', function () {return view('profile.update');})->name('profile.update');
+Route::get('/profile.password', function () {return view('profile.password');})->name('profile.password');
+//Nichos
+Route::get('/nichos', function () {return view('layouts.nichos.index');})->name('nichos');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

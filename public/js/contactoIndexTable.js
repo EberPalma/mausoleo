@@ -26,7 +26,7 @@ function getContactoInfo(tipo) {
                                     </label>
                                 </div>
                             </td>`;
-            let mensaje = `<td style="width:250px"><small>${e.mensaje}</small></td>`;
+            let mensaje = `<td style="width:200px"><small>${e.mensaje}</small></td>`;
             let asunto = `<td><small>${e.asunto}</small></td>`;
             let nombre = `<td><small>${e.nombre}</small></td>`;
             let telefono = `<td><small>${e.telefono}</small></td>`;
@@ -37,13 +37,18 @@ function getContactoInfo(tipo) {
             let fechaRegistro = `<td>
                                     <small>${e.created_at}</small>
                                 </td>`;
-            let acciones = `<td class="td-actions text-right" class="d-flex align-items-center; width:100px;">
-                                <button type="button" rel="tooltip" title="Mandar mensaje" class="btn btn-success">
+            let acciones = `<td class="td-actions"  >
+            
+                                <a href="https://api.whatsapp.com/send?phone=https://api.whatsapp.com/send?phone=521${e.telefono}" target="_blank" title="Mandar mensaje" class="btn btn-sm btn-success">
                                     <i class="fa fa-whatsapp"></i>
-                                </button>
-                                <label class="btn btn-sm btn-danger" id="delete${e.id}">
-                                    <i class="fa fa-trash"></i> Borrar
+                                </a>
+                                <a href="mailto:${e.email}?Subject=Mausoleo%20Santa%20Clara"  target="_blank" rel="tooltip" title="Mandar email" class="btn btn-sm btn-info">
+                                    <i class="fa fa-envelope"></i>
+                                </a><br>
+                                <label class="btn btn-sm btn-danger" rel="tooltip" title="Borrar" id="delete${e.id}">
+                                    <i class="fa fa-trash"></i>
                                 </label>
+                                
                             </td>`;
 
             let tableRow = document.createElement("tr");
