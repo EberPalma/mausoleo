@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\cat_usu;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -12,11 +13,17 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($filtro)
     {
+        $activo = 0;
+        if($filtro == "activo"){
+            $activo = 1;
+        }else if($filtro == 'todos'){
+            $activo = 0;
+        }
         $user = \DB::table('users')
                         ->select('id', 'name', 'ap_paterno', 'ap_materno', 'created_at', 'email', 'username', 'id_rol')
-                        ->where('activo', 1)
+                        ->where('activo', $activo)
                         ->orderBy('created_at')
                         ->get();
         foreach($user as $u){
@@ -147,28 +154,16 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = Cat_usu::find($id);
+        $user = User::find($id);
 
-        if($user != null){
-            $error = '0';
+        if($user->activo == 1){
+            $user->activo = 0;
+            $user->save();
+            return $user;
         }else{
-            $mensaje = "No se encontro registro";
-            $error = '1';
-        }
-
-        $activo = \DB::table('cat_usu')->where('id', $id)->get();
-
-        if($activo[0]->activo == false){
-            \DB::table('cat_usu')->where('id', $id)->update(array('activo' => true));
-            $mensaje = 'El registro ha sido activado';
-            $user = Cat_usu::find($id);
-            return json_encode(array('message' => $mensaje, 'errors' => $error, 'data' => $user));
-        }
-        if($activo[0]->activo == true){
-            \DB::table('cat_usu')->where('id', $id)->update(array('activo' => false));
-            $mensaje = 'El registro ha sido desactivado';
-            $user = Cat_usu::find($id);
-            return json_encode(array('message' => $mensaje, 'errors' => $error, 'data' => $user));
-        }
+            $user->activo = 1;
+            $user->save();
+            return $user;
+        } 
     }
 }

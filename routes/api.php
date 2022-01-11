@@ -107,7 +107,7 @@ Route::PUT('/contratocreditoupdate/{id}', [Contrato_creditoController::class, 'u
 Route::GET('/contratocreditodelete/{id}', [Contrato_creditoController::class, 'destroy'])->name('contratocreditodestroy');
 
 //Rutas para los usuarios
-Route::GET('/userindex', [UserController::class, 'index'])->name('userIndex');
+Route::GET('/userindex/{filtro}', [UserController::class, 'index'])->name('userIndex');
 Route::POST('/userstore', [UserController::class, 'store'])->name('userStore');
 Route::GET('/usershow/{id}', [UserController::class, 'show'])->name('userShow');
 Route::PUT('/userupdate/{id}', [UserController::class, 'update'])->name('userUpdate');
@@ -142,7 +142,7 @@ Route::PUT('/reciboupdate/{id}', [RecibosController::class, 'update'])->name('re
 Route::GET('/recibodelete/{id}', [RecibosController::class, 'destroy'])->name('recibosdestroy');
 
 //Rutas para el contacto
-Route::GET('/contactoindex/{filtro}', [ContactoController::class, 'index'])->name('contactoIndex');
+Route::GET('/contactoindex/{filtro}/{activo}', [ContactoController::class, 'index'])->name('contactoIndex');
 Route::GET('/contactoindexdashboard', [ContactoController::class, 'indexDashboard'])->name('contactoIndexDB');
 Route::POST('/contactostore', [ContactoController::class, 'store'])->name('contactoStore');
 Route::GET('/contactochecked/{id}', [ContactoController::class, 'setChecked'])->name('contactoChecked');

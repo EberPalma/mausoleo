@@ -7,18 +7,19 @@ use App\Models\contacto;
 
 class ContactoController extends Controller
 {
-    public function index($tipo)
+    public function index($tipo, $activo)
     {
+        $value = $activo == 'activo' ? 1 : 0;
         $contacto = "";
         switch ($tipo){
             case "sinatender":
-                $contacto = \DB::table('contacto')->where('atendido', 0)->where('activo', 1)->get();
+                $contacto = \DB::table('contacto')->where('atendido', 0)->where('activo', $value)->get();
                 break;
             case "atendidas":
-                $contacto = \DB::table('contacto')->where('atendido', 1)->where('activo', 1)->get();
+                $contacto = \DB::table('contacto')->where('atendido', 1)->where('activo', $value)->get();
                 break;
             case "todas":
-                $contacto = \DB::table('contacto')->where('activo', 1)->get();
+                $contacto = \DB::table('contacto')->where('activo', $value)->get();
                 break;
         }
         
