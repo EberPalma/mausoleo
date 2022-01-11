@@ -7,7 +7,10 @@
 }
 
 
-</style>   
+</style>  
+@if(!isset(Auth::user()->name))
+    <meta http-equiv="refresh" content="0; url={{ route('login') }}">
+@else 
 
 <div class="content">
     <div class="container-fluid">
@@ -101,3 +104,4 @@
 @push('js')
 
 @endpush
+@endif

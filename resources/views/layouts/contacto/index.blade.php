@@ -8,7 +8,9 @@
 
 
 </style>   
-
+@if(!isset(Auth::user()->name))
+    <meta http-equiv="refresh" content="0; url={{ route('login') }}">
+@else
 <div class="content">
     <div class="container-fluid">
         <div class="row">
@@ -94,3 +96,4 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="{{ asset('js/contactoIndexTable.js') }}"></script>
 @endpush
+@endif
