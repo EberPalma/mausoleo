@@ -45,6 +45,8 @@ Route::get('/profile.update', function () {return view('profile.update');})->nam
 Route::get('/profile.password', function () {return view('profile.password');})->name('profile.password');
 //Nichos
 Route::get('/nichos', function () {return view('layouts.nichos.index');})->name('nichos');
+//Difuntos
+Route::get('/difuntos', function () {return view('layouts.difuntos.index');})->name('difuntos');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

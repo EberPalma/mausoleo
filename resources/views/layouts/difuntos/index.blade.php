@@ -18,9 +18,9 @@
                     <div class="card-header">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">Nichos</h3>
+                                <h3 class="mb-0">Difuntos</h3>
                                 <p class="text-sm mb-0">
-                                   Gestor de nichos
+                                   Gestor de difuntos
                                 </p>
                             </div>
                             
@@ -29,7 +29,7 @@
                     <div class="container">
                     <div class="row">
                        <div class="col-md-2">
-                           <b>Nicho:</b>
+                           <b>Buscar:</b>
                        </div> 
                        <div class="col-md-4">
                            <input type="text" class="form-control">
@@ -38,7 +38,7 @@
                            <a class="btn" id="btnBuscar">Buscar</a>
                        </div> 
                        <div class="col-md-2">
-                        <a class="btn btn-warning"><i class="fa fa-plus-circle"></i> Agregar </a>
+                        <a class="btn btn-warning"><i class="fa fa-plus-circle"></i> Agregar Difunto</a>
                     </div>  
                     </div>
                 </div>
@@ -55,21 +55,19 @@
                             <div class="card-body table-full-width table-responsive">
                                 <table class="table table-hover table-striped">
                                     <thead>
+                                        <th>Difunto</th>
                                         <th>Coordenada</th>
-                                        <th>Tamaño</th>
                                         <th>Familia</th>
-                                        <th>Difuntos</th>
                                         <th>Resultado de busqueda</th>
                                     </thead>
                                     <tbody id="">
-                                        <th>A 1</th>
-                                        <th>4</th>
-                                        <th>Villaseñor Userralde</th>
                                         <th>Guillermina Gordillo Serna</th>
+                                        <th>A 1</th>
+                                        <th>Villaseñor Userralde</th>
                                         <th>
-                                        <button type="button" rel="tooltip" title="Editar" class="btn btn-info">
+                                        <a type="button" rel="tooltip" title="Editar" class="btn btn-info">
                                         <i class="fa fa-edit"></i>
-                                        </button>
+                                        </a>
                                         <button type="button" rel="tooltip" id="" title="Eliminar" class="btn btn-danger">
                                         <i class="fa fa-times"></i>
                                         </button></th>
@@ -92,7 +90,7 @@
                 <i class="nc-icon nc-simple-remove"></i>
             </button>
             <span>
-            El administrador es el unico que puede <b>Borrar y Editar</b> nichos.</span>
+            El administrador es el unico que puede <b>Borrar y Editar</b> difuntos.</span>
         </div>
     </div>
 </div>

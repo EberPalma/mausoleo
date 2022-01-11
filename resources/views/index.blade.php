@@ -115,7 +115,7 @@
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="{{route('contacto')}}">
+                        <a class="nav-link" href="{{route('difuntos')}}">
                             <i class="nc-icon nc-badge"></i>
                                         <p>{{ __("Difuntos") }}</p>
                         </a>
