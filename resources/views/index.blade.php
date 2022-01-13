@@ -17,6 +17,7 @@
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
          <!-- CSS Files -->
          <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
+         <link href="{{ asset('css/dropzone.css') }}" rel="stylesheet" />
          <link href="{{ asset('css/light-bootstrap-dashboard.css?v=2.0.0') }} " rel="stylesheet" />
          <!-- CSS Just for demo purpose, don't include it in your project -->
          <link href="{{ asset('css/demo.css') }}" rel="stylesheet" />
@@ -38,10 +39,7 @@
          <meta property="fb:app_id" content="655968634437471">
          <meta property="og:title" content="Mausoleo Santa Clara" />
          <meta property="og:type" content="article" />
-         <meta property="og:url" content="https://www.creative-tim.com/live/light-bootstrap-dashboard-laravel" />
-         <meta property="og:image" content="https://s3.amazonaws.com/creativetim_bucket/products/213/opt_lbd_laravel_thumbnail.jpg"/>
-         <meta property="og:description" content="Start your development with a Bootstrap 4 Admin Dashboard built for Laravel Framework 5.5 and Up." />
-         <meta property="og:site_name" content="Mausoleo Santa Clara" />
+         
            <!-- Google Tag Manager -->
          <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -302,6 +300,7 @@
         <script src="{{ asset('js/core/jquery.3.2.1.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('js/core/popper.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('js/core/bootstrap.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('js/dropzone.js') }}" type="text/javascript"></script>
     
         <script src="{{ asset('js/plugins/jquery.sharrre.js') }}"></script>
         <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->

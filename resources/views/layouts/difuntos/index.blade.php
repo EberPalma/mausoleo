@@ -40,7 +40,7 @@
                            <a class="btn" id="btnBuscar">Buscar</a>
                        </div> 
                        <div class="col-md-2">
-                        <a class="btn btn-warning"><i class="fa fa-plus-circle"></i> Agregar Difunto</a>
+                        <a href="{{ route('difunto.añadir') }}" class="btn btn-warning"><i class="fa fa-plus-circle"></i> Agregar Difunto</a>
                     </div>  
                     </div>
                 </div>

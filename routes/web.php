@@ -48,6 +48,7 @@ Route::get('/nichos', function () {return view('layouts.nichos.index');})->name(
 //Difuntos
 Route::get('/difuntos', function () {return view('layouts.difuntos.index');})->name('difuntos');
 Route::get('/difunto.editar', function () {return view('layouts.difuntos.edit');})->name('difuntos.update');
+Route::get('/difunto.añadir', function () {return view('layouts.difuntos.create');})->name('difunto.añadir');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
