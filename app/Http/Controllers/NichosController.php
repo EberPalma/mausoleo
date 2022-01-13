@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
-use App\Models\nichos;
-
 
 class NichosController extends Controller
 {
@@ -16,8 +13,10 @@ class NichosController extends Controller
      */
     public function index()
     {
-        $nichos = Nichos::all();
-
+        $nicho = \DB::table('nichos')
+                        ->select('id', 'coordenada', 'capacidad', 'nombre', 'familia')
+                        ->get();
+        
         if($nichos != null){
             $mensaje = 'Ok';
             $error = '0';
@@ -25,7 +24,7 @@ class NichosController extends Controller
             $mensaje = 'No se pudo obtener la informacion';
             $error = '1';
         }
-
+                
         return json_encode(array('message' => $mensaje,'errors' => $error, 'data' => $nichos));
     }
 
@@ -38,17 +37,21 @@ class NichosController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_cliente'=>'required|integer',
-            'id_tipo_nicho'=>'nullable|integer',
-            'id_nivel'=>'nullable|integer',
-            'numero'=>'nullable|string',
-            'capacidad'=>'required|integer',
-            'id_ubicacion'=>'nullable|integer',
-            'bpreregistro'=>'nullable|integer'
+            'coordenada'=>'required|string',
+            'capacidad'=>'required|string',
+            'nombre'=>'required|string',
+            'familia'=>'required|string',
         ]);
 
         try{
-            $nicho = Nichos::create($request->all());
+            $nicho = \DB::table('nichos')
+                            ->insert([
+                                'coordenada' => $request->coordenada,
+                                'capacidad' => $request->capacidad,
+                                'nombre' => $request->nombre,
+                                'familia' => $request->familia,
+                                'activo' => 1
+                            ]);
             $mensaje = "Registro realizado correctamente";
         }catch(\Exception $ex){
             $mensaje = $ex->getMessage(); 
@@ -64,7 +67,7 @@ class NichosController extends Controller
      */
     public function show($id)
     {
-        $nicho = Nichos::find($id);
+        $nicho = \DB::table('nichos')->where('id', $id);
         
         if($nicho != null){
             $mensaje = "Ok";
@@ -96,21 +99,16 @@ class NichosController extends Controller
             'bpreregistro'=>'nullable|integer'
         ]);
 
-        $nicho = Nichos::find($id);
-        if($nicho != null){
+        if(\DB::table('nichos')->where('id', $id) != null){
             $error = '0';
 
-            $nicho->id_cliente = $request->id_cliente;
-            $nicho->id_tipo_nicho = $request->id_tipo_nicho;
-            $nicho->id_nivel = $request->id_nivel;
-            $nicho->numero = $request->numero;
-            $nicho->capacidad = $request->capacidad;
-            $nicho->id_ubicacion = $request->id_ubicacion;
-            $nicho->bpreregistro = $request->bpreregistro;
-            if($nicho->activo == null){
-                $nicho->activo = true;
-            }
-            $nicho->save();
+           \DB::table('nichos')->where('id', $id)
+                            ->update([
+                                'coordenada' => $request->coordenada,
+                                'capacidad' => $request->capacidad,
+                                'nombre' => $request->nombre,
+                                'familia' => $request->familia
+                            ]);
 
             $mensaje = "Informacion actualizada correctamente";
         }else{
@@ -129,35 +127,16 @@ class NichosController extends Controller
      */
     public function destroy($id)
     {
-        $nicho = Nichos::find($id);
-
+        $nicho = \DB::table('nichos')->where('id', $id)->get();
         if($nicho != null){
             $error = '0';
         }else{
             $mensaje = "No se encontro registro";
             $error = '1';
         }
-
-        $activo = \DB::table('nichos')->where('id', $id)->get();
-
-        if($activo[0]->activo == false){
-            \DB::table('nichos')->where('id', $id)->update(array('activo' => true));
-            $mensaje = 'El registro ha sido activado';
-            $nicho = Nichos::find($id);
-            return json_encode(array('message' => $mensaje, 'errors' => $error, 'data' => $nicho));
-        }
-        if($activo[0]->activo == true){
-            \DB::table('nichos')->where('id', $id)->update(array('activo' => false));
-            $mensaje = 'El registro ha sido desactivado';
-            $nicho = Nichos::find($id);
-            return json_encode(array('message' => $mensaje, 'errors' => $error, 'data' => $nicho));
-        }
-        if($activo->activo[0] == null){
-            \DB::table('nichos')->where('id', $id)->update(array('activo' => true));
-            $mensaje = 'El registro ha sido activado';
-            $nicho = Nichos::find($id);
-            return json_encode(array('message' => $mensaje, 'errors' => $error, 'data' => $nicho));
-        }
-
+        $activo = $nicho[0]->activo;
+        $nicho = \DB::table('nichos')->where('id', $id)->update(['activo' => $activo == 1 ? 0 : 1]);
+        $nicho = \DB::table('nichos')->where('id', $id)->get();
+        return json_encode(array('message' => $mensaje, 'errors' => $error, 'data' => $nicho));
     }
 }

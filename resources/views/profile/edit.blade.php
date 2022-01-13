@@ -58,13 +58,14 @@
                                         <label class="form-control-label" for="input-name">
                                             <i class="w3-xxlarge fa fa-user"></i>{{ __('Nombre de usuario') }}
                                         </label>
-                                        <input type="text" name="username" id="" class="form-control" placeholder="{{ __('JoseGH') }}" value="" required autofocus>
+                                        <input type="text" name="username" id="" class="form-control" placeholder="{{ __('JoseGH') }}" value="{{ auth()->user()->username }}" required autofocus>
         
                                         
                                     </div>
                                     <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-email"><i class="w3-xxlarge fa fa-envelope-o"></i>{{ __('CORREO ELECTRÓNICO') }}</label>
-                                        <input type="email" name="email" id="input-email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" value="{{ old('email', auth()->user()->email) }}" required>
+                                        <input type="email" 
+                                               name="email" id="input-email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" value="{{ old('email', auth()->user()->email) }}" required>
         
                                         @include('alerts.feedback', ['field' => 'email'])
                                     </div>
