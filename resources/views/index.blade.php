@@ -1,7 +1,9 @@
 
  <!-- JS, Fuentes, Iconos, CSS (HEADER) --> 
  <!DOCTYPE html>
-
+ @if(!isset(Auth::user()->name))
+ <meta http-equiv="refresh" content="0; url={{ route('login') }}">
+@else 
  <html lang="en">
      <head>
          <meta charset="utf-8" />
@@ -142,6 +144,12 @@
                         <a class="nav-link" href="{{route('usuarios')}}">
                             <i class="nc-icon nc-single-02"></i>
                             <p>{{ __("Usuarios") }}</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('usuarios')}}">
+                            <img src="{{ asset('img/calendario.svg') }}" style="width:35px">
+                            <p>{{ __("Calendario") }}</p>
                         </a>
                     </li>
     
@@ -364,4 +372,5 @@
           });
         </script>
     </html>
+    @endif
  <!-- /JS, Fuentes, Iconos, CSS (FOOTER) --> 

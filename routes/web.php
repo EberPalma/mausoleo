@@ -47,6 +47,7 @@ Route::get('/profile.password', function () {return view('profile.password');})-
 Route::get('/nichos', function () {return view('layouts.nichos.index');})->name('nichos');
 //Difuntos
 Route::get('/difuntos', function () {return view('layouts.difuntos.index');})->name('difuntos');
+Route::get('/difunto.editar', function () {return view('layouts.difuntos.edit');})->name('difuntos.update');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

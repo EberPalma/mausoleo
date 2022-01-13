@@ -1,0 +1,10 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+	<title>icons8-calendario-80</title>
+	<defs>
+		<image  width="60" height="65" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAABBAQMAAAC3jlUuAAAAAXNSR0IB2cksfwAAAAZQTFRFAAAA////pdmf3QAAAAJ0Uk5TAP9bkSK1AAAAbElEQVR4nGNg4D/AwGDPAARwBg+QYYyVYf/n////n/8fYKiHMB4w/ABLMX5geABRU4BgHIAYaIDEYAAD4hj/IeADgkGSdnwMtjQgQGFgUQMCKIzhYQ4pjAcQRgGC8QNMA6O7HhIpDxjsIYwDAJm0ekFNUgcWAAAAAElFTkSuQmCC"/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<use id="Background" href="#img1" x="10" y="5" />
+</svg>
