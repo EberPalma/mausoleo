@@ -13,7 +13,7 @@
                         <div class="card-header">
                             <div class="row align-items-center">
                                 <div class="col-md-8">
-                                    <h3 class="mb-0">{{ __('Editar Difunto') }}</h3>
+                                    <h3 class="mb-0">{{ __('Añadir Difunto') }}</h3>
                                 </div>
                             </div>
                         </div>
@@ -94,36 +94,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4">
-                        <div class="card card-user">
-                            <div class="card-image">
-                                <img src="{{ asset('img/1.jpg') }}" alt="...">
-                            </div>
-                            <div class="card-body">
-                                <div class="author">
-                                    <a href="#">
-                                        <img class="avatar border-gray" src="{{ asset('img/faces/9_1.jpg') }}" alt="...">
-                                        <h5 class="title">{{ __('Jose Gonzales Hernandez') }}</h5>
-                                    </a>
-                                    <p class="description">
-                                       <b>Nacimiento:</b> {{ __('dd/mm/aaaa') }}
-                                    </p>
-                                    <p class="description">
-                                        <b>Defunción:</b> {{ __('dd/mm/aaaa') }}
-                                     </p>
-                                </div>
-                                <p class="description text-center">
-
-                                {{ __(' "Armonia Eterna"') }}
-                                    
-                                </p>
-                            </div>
-                            <hr>
-                            <div class="button-container mr-auto ml-auto">
-                                <img width="200px" src="{{ asset('img/qr-code.png') }}" class="rounded float-left" alt="...">
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
