@@ -38,9 +38,10 @@ class NichosController extends Controller
     {
         $request->validate([
             'coordenada'=>'required|string',
-            'capacidad'=>'required|string',
+            'capacidad'=>'required|integer',
             'nombre'=>'required|string',
             'familia'=>'required|string',
+            'email'=>'required|string'
         ]);
 
         try{
@@ -50,6 +51,7 @@ class NichosController extends Controller
                                 'capacidad' => $request->capacidad,
                                 'nombre' => $request->nombre,
                                 'familia' => $request->familia,
+                                'email' => $request->email,
                                 'activo' => 1
                             ]);
             $mensaje = "Registro realizado correctamente";
@@ -90,13 +92,11 @@ class NichosController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'id_cliente'=>'nullable|integer',
-            'id_tipo_nicho'=>'nullable|integer',
-            'id_nivel'=>'nullable|integer',
-            'numero'=>'nullable|string',
-            'capacidad'=>'nullable|integer',
-            'id_ubicacion'=>'nullable|integer',
-            'bpreregistro'=>'nullable|integer'
+            'coordenada'=>'required|string',
+            'capacidad'=>'required|integer',
+            'nombre'=>'required|string',
+            'familia'=>'required|string',
+            'email'=>'required|string'
         ]);
 
         if(\DB::table('nichos')->where('id', $id) != null){
@@ -107,7 +107,8 @@ class NichosController extends Controller
                                 'coordenada' => $request->coordenada,
                                 'capacidad' => $request->capacidad,
                                 'nombre' => $request->nombre,
-                                'familia' => $request->familia
+                                'familia' => $request->familia,
+                                'email' => $request->email
                             ]);
 
             $mensaje = "Informacion actualizada correctamente";
