@@ -108,8 +108,12 @@
 @endsection
 
 @push('js')
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="{{ asset('js/dashboardContactoTable.js') }}"></script>
+    <script src="{{ asset('js/dashboardCards.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
+            console.log(localStorage.nichos);
             // Javascript method's body can be found in assets/js/demos.js
             demo.initDashboardPageCharts();
 
@@ -117,7 +121,4 @@
 
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="{{ asset('js/dashboardContactoTable.js') }}"></script>
-    <script src="{{ asset('js/dashboardCards.js') }}"></script>
 @endpush
