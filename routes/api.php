@@ -152,3 +152,7 @@ Route::GET('/contactoactivo/{id}', [ContactoController::class, 'setActivo'])->na
 Route::GET('/nichosdashboard', [DashboardController::class, 'countNichos'])->name('countNichos');
 Route::GET('/huespedesdashboard', [DashboardController::class, 'countHuespedes'])->name('countHuespedes');
 Route::GET('/contactodashboard', [DashboardController::class, 'countContacto'])->name('countContacto');
+
+Route::GET('/informesdashboard', [DashboardController::class, 'countInformes'])->name('countNichos');
+Route::GET('/quejasdashboard', [DashboardController::class, 'countQuejas'])->name('countHuespedes');
+Route::GET('/otrosdashboard', [DashboardController::class, 'countOtros'])->name('countContacto');

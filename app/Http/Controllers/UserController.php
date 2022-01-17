@@ -22,17 +22,10 @@ class UserController extends Controller
             $activo = 0;
         }
         $user = \DB::table('users')
-                        ->select('id', 'name', 'ap_paterno', 'ap_materno', 'created_at', 'email', 'username', 'id_rol')
+                        ->select('id', 'name', 'ap_paterno', 'ap_materno', 'created_at', 'email', 'username', 'rol')
                         ->where('activo', $activo)
                         ->orderBy('created_at')
                         ->get();
-        foreach($user as $u){
-            $id_rol = \DB::table('cat_rol')
-                        ->select('nombre')
-                        ->where('id', $u->id_rol)
-                        ->get();
-            $u->id_rol = $id_rol[0];
-        }
 
         if($user != null){
             $mensaje = 'Ok';

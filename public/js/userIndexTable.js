@@ -25,7 +25,7 @@ function loadTable(response) {
         let userNombre = `<td>${e.name}</td>`;
         let userApPaterno = `<td>${e.ap_paterno}</td>`;
         let userApMaterno = `<td>${e.ap_materno}</td>`;
-        let userRol = `<td>${e.id_rol.nombre}</td>`;
+        let userRol = `<td>${e.rol}</td>`;
         let userEmail =
             e.email != null
                 ? `<td>${e.email}</td>`
