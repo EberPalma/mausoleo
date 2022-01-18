@@ -18,7 +18,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form method="post" action="{{ route('profile.update') }}" autocomplete="off"
+                            <form method="post" action="#" autocomplete="off"
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('patch')
@@ -38,23 +38,31 @@
                                         @include('alerts.feedback', ['field' => 'name'])
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-control-label" for="input-name">
-                                            <i class="w3-xxlarge fa fa-user"></i>{{ __('Apellidos') }}
+                                        <label class="form-control-label" for="apaterno">
+                                            <i class="w3-xxlarge fa fa-user"></i>{{ __('Apellido paterno') }}
                                         </label>
-                                        <input type="text" name="apaterno" id="" class="form-control" placeholder="{{ __('Gonzales Hernandez') }}" value="" required autofocus>
+                                        <input type="text" name="apaterno" id="input-paterno" class="form-control" placeholder="{{ __('Gonzales Hernandez') }}" value="" required autofocus>
         
                                         
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-control-label" for="input-name">
+                                        <label class="form-control-label" for="amaterno">
+                                            <i class="w3-xxlarge fa fa-user"></i>{{ __('Apellido materno') }}
+                                        </label>
+                                        <input type="text" name="amaterno" id="input-materno" class="form-control" placeholder="{{ __('Gonzales Hernandez') }}" value="" required autofocus>
+        
+                                        
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="fechan">
                                             <i class="w3-xxlarge fa fa-calendar"></i>{{ __('Fecha de nacimiento') }}
                                         </label>
-                                        <input type="date" name="fechan" id="" class="form-control datepicker" placeholder="Da clic en este campo" value="" required autofocus>
+                                        <input type="date" name="fechan" id="fecha_nacimiento" class="form-control datepicker" placeholder="Da clic en este campo" value="" required autofocus>
         
                                         
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-control-label" for="input-name">
+                                        <label class="form-control-label" for="input-d">
                                             <i class="w3-xxlarge fa fa-calendar"></i>{{ __('Fecha de defunción') }}
                                         </label>
                                         <input type="date" name="fecha-d" id="input-fechad" class="form-control datepicker" placeholder="{{ __('Da clic en este campo') }}" value="" required autofocus>
@@ -87,7 +95,7 @@
                                     </div>
                                     
                                     <div class="text-center">
-                                        <button type="submit" class="btn btn-default mt-4">{{ __('GUARDAR') }}</button>
+                                        <button type="submit" id="agregarBTN" class="btn btn-default mt-4">{{ __('GUARDAR') }}</button>
                                     </div>
                                 </div>
                             </form>
@@ -99,9 +107,39 @@
             </div>
         </div>
     </div>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection
 @push('js')
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        let btn = document.querySelector('#agregarBTN');
+        let input_name = document.querySelector('#input-name');
+        let input_paterno = document.querySelector('#input-paterno');
+        let input_materno = document.querySelector('#input-materno');
+        let fecha_nacimiento = document.querySelector('#fecha_nacimiento');
+        let input_fechad = document.querySelector('#input-fechad');
+        let input_mensaje = document.querySelector('#input-mensaje');
+        btn.addEventListener('click', (e)=>{
+            e.preventDefault();
+            
+            axios.post('/api/beneficiariosstore', {
+                idNicho: 1,
+                nombre: input_name.value+" "+input_paterno.value+" "+input_materno.value,
+                fechaNacimiento: fecha_nacimiento.value,
+                fechaDefuncion: input_fechad.value,
+                mensaje: input_mensaje.value
+            }).then(()=>{
+                    alert('Registro realizado correctamente');
+                }
+            ).catch(()=>{
+                    alert('Ha ocurrido un error, por favor revisa la informacion')
+                }
+            );
+        });
+    });
+</script>
 
 @endpush
 @endif
