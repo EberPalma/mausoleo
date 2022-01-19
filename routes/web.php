@@ -40,6 +40,7 @@ Route::get('/contacto', function () {return view('layouts.contacto.index');})->n
 //Usuarios
 Route::get('/usuarios', function () {return view('users.listausuarios');})->name('usuarios');
 Route::get('/profile.edit', function () {return view('profile.edit');})->name('profile.edit');
+Route::get('/profile.editar/{id}', [App\Http\Controllers\UserController::class, 'editar'])->name('profile.editar');
 Route::get('/pageindex', function () {return view('page.index');})->name('page.index');
 Route::get('/profile.update', function () {return view('profile.update');})->name('profile.update');
 Route::get('/profile.password', function () {return view('profile.password');})->name('profile.password');
@@ -47,7 +48,7 @@ Route::get('/profile.password', function () {return view('profile.password');})-
 Route::get('/nichos', function () {return view('layouts.nichos.index');})->name('nichos');
 //Difuntos
 Route::get('/difuntos', function () {return view('layouts.difuntos.index');})->name('difuntos');
-Route::get('/difunto.editar', function () {return view('layouts.difuntos.edit');})->name('difuntos.update');
+Route::get('/difunto.editar/{id}', [App\Http\Controllers\BeneficiariosController::class, 'edit'])->name('difuntos.update');
 Route::get('/difunto.añadir', function () {return view('layouts.difuntos.create');})->name('difunto.añadir');
 Auth::routes();
 

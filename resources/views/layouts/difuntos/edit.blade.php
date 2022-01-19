@@ -18,10 +18,10 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form method="post" action="{{ route('profile.update') }}" autocomplete="off"
+                            <form method="post" action="/api/beneficiariosupdate/{{ $beneficiario->id }}" autocomplete="off"
                                 enctype="multipart/form-data">
                                 @csrf
-                                @method('patch')
+                                @method('put')
 
                                 <h6 class="heading-small text-muted mb-4">{{ __('Información de difunto') }}</h6>
                                 
@@ -31,25 +31,25 @@
                                 <div class="pl-lg-4">
                                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-name">
-                                            <i class="w3-xxlarge fa fa-user"></i>{{ __('Nombres') }}
+                                            <i class="w3-xxlarge fa fa-user"></i>{{ __('Nombre') }}
                                         </label>
-                                        <input type="text" name="name" id="input-name" class="form-control" placeholder="{{ __('Jose') }}" value="" required autofocus>
+                                        <input type="text" name="nombre" id="input-name" class="form-control" placeholder="{{ __('Jose') }}" value="{{ $beneficiario->nombre }}" required autofocus>
         
                                         @include('alerts.feedback', ['field' => 'name'])
                                     </div>
-                                    <div class="form-group">
+                                    <!--<div class="form-group">
                                         <label class="form-control-label" for="input-name">
                                             <i class="w3-xxlarge fa fa-user"></i>{{ __('Apellidos') }}
                                         </label>
                                         <input type="text" name="apaterno" id="" class="form-control" placeholder="{{ __('Gonzales Hernandez') }}" value="" required autofocus>
         
                                         
-                                    </div>
+                                    </div>-->
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-name">
                                             <i class="w3-xxlarge fa fa-calendar"></i>{{ __('Fecha de nacimiento') }}
                                         </label>
-                                        <input type="date" name="fechan" id="" class="form-control datepicker" placeholder="Da clic en este campo" value="" required autofocus>
+                                        <input type="date" name="fechaNacimiento" id="" class="form-control datepicker" placeholder="Da clic en este campo" value="{{ $beneficiario->fechaNacimiento }}" required autofocus>
         
                                         
                                     </div>
@@ -57,13 +57,13 @@
                                         <label class="form-control-label" for="input-name">
                                             <i class="w3-xxlarge fa fa-calendar"></i>{{ __('Fecha de defunción') }}
                                         </label>
-                                        <input type="date" name="fecha-d" id="input-fechad" class="form-control datepicker" placeholder="{{ __('Da clic en este campo') }}" value="" required autofocus>
+                                        <input type="date" name="fechaDefuncion" id="input-fechad" class="form-control datepicker" placeholder="{{ __('Da clic en este campo') }}" value="{{ $beneficiario->fechaDefuncion }}" required autofocus>
         
                                         
                                     </div>
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-email"><i class="w3-xxlarge fa fa-envelope-o"></i>{{ __('Mensaje o epitafilo') }}</label>
-                                        <input type="text" name="mensaje" id="input-mensaje" class="form-control" placeholder="{{ __('Mensaje') }}" value="" required>
+                                        <input type="text" name="mensaje" id="input-mensaje" class="form-control" placeholder="{{ __('Mensaje') }}" value="{{ $beneficiario->mensaje }}" required>
         
                                         @include('alerts.feedback', ['field' => 'email'])
                                     </div>
@@ -103,18 +103,18 @@
                                 <div class="author">
                                     <a href="#">
                                         <img class="avatar border-gray" src="{{ asset('img/faces/9_1.jpg') }}" alt="...">
-                                        <h5 class="title">{{ __('Jose Gonzales Hernandez') }}</h5>
+                                        <h5 class="title">{{ $beneficiario->nombre }}</h5>
                                     </a>
                                     <p class="description">
-                                       <b>Nacimiento:</b> {{ __('dd/mm/aaaa') }}
+                                       <b>Nacimiento:</b> {{ $beneficiario->fechaNacimiento }}
                                     </p>
                                     <p class="description">
-                                        <b>Defunción:</b> {{ __('dd/mm/aaaa') }}
+                                        <b>Defunción:</b> {{ $beneficiario->fechaDefuncion }}
                                      </p>
                                 </div>
                                 <p class="description text-center">
 
-                                {{ __(' "Armonia Eterna"') }}
+                                "{{ $beneficiario->mensaje }}"
                                     
                                 </p>
                             </div>

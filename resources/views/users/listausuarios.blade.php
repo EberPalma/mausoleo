@@ -70,6 +70,7 @@
 @endsection
 
 @push('js')
+<script src="{{ asset('js/axios.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="{{ asset('js/userIndexTable.js') }}"></script>
 @endpush

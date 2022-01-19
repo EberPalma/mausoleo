@@ -38,6 +38,10 @@ class UserController extends Controller
         return json_encode(array('message' => $mensaje, 'errors' => $error, 'data' => $user));
     }
 
+    public function editar($id){
+        return $id;
+    }
+
     /**
      * Store a newly created resource in storage.
      *
