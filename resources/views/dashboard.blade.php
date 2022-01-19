@@ -108,17 +108,28 @@
 @endsection
 
 @push('js')
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="{{ asset('js/dashboardContactoTable.js') }}"></script>
-    <script src="{{ asset('js/dashboardCards.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            console.log(localStorage.nichos);
-            // Javascript method's body can be found in assets/js/demos.js
-            demo.initDashboardPageCharts();
 
-            demo.showNotification();
+        let informes = axios.get("/api/informesdashboard").then((response) => {
+            return response.data;
+        });
+        let quejas = axios.get("/api/quejasdashboard").then((response) => {
+            return response.data;
+        });
+        let otros = axios.get("/api/otrosdashboard").then((response) => {
+            return response.data;
+        });
+        console.log(informes);
+
+        // Javascript method's body can be found in assets/js/demos.js
+        demo.initDashboardPageCharts(informes, quejas, otros);
+
+        demo.showNotification();
 
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="{{ asset('js/dashboardContactoTable.js') }}"></script>
+    <script src="{{ asset('js/dashboardCards.js') }}"></script>
 @endpush

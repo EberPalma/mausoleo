@@ -35,7 +35,7 @@
                            <b>Nicho:</b>
                        </div> 
                        <div class="col-md-4">
-                           <input type="text" class="form-control">
+                           <input type="text" id="input-filtro" class="form-control">
                        </div>
                        <div class="col-md-2">
                            <a class="btn" id="btnBuscar">Buscar</a>
@@ -64,18 +64,8 @@
                                         <th>Difuntos</th>
                                         <th>Resultado de busqueda</th>
                                     </thead>
-                                    <tbody id="">
-                                        <th>A 1</th>
-                                        <th>4</th>
-                                        <th>Villaseñor Userralde</th>
-                                        <th>Guillermina Gordillo Serna</th>
-                                        <th>
-                                        <button type="button" rel="tooltip" title="Editar" class="btn btn-info">
-                                        <i class="fa fa-edit"></i>
-                                        </button>
-                                        <button type="button" rel="tooltip" id="" title="Eliminar" class="btn btn-danger">
-                                        <i class="fa fa-times"></i>
-                                        </button></th>
+                                    <tbody id="tableBody">
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -102,6 +92,72 @@
 @endsection
 
 @push('js')
+<script src="{{ asset('js/axios.js') }}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        axios.get('/api/nichosindex/1')
+            .then((response)=>{
+                loadTable(response);
+            });
+        document.querySelector('#btnBuscar').addEventListener('click', (e)=>{
+            e.preventDefault();
+            let inputFiltro = document.querySelector("#input-filtro");
+            if(inputFiltro.value == ""){
+                alert('Ingresa un termino de busqueda');
+            }else{
+                axios.get('/api/nichosfiltro/'+inputFiltro.value)
+                    .then((response)=>{
+                        loadTable(response);
+                    });
+            }
+        });
+        let showAllCheckbox = document.querySelector('#defaultCheck1');
+        showAllCheckbox.addEventListener("change", () => {
+            if(showAllCheckbox.checked){
+                axios.get('/api/nichosindex/0')
+                    .then((response)=>{
+                        loadTable(response);
+                    });
+            }else{
+                axios.get('/api/nichosindex/1')
+                    .then((response)=>{
+                            loadTable(response);
+                    });
+            }
+        });
+    });
 
+    function loadTable(response){
+        let tabla = document.querySelector("#tableBody");
+        tabla.innerHTML = "";
+        let data = response.data;
+        data.forEach((e)=>{
+            let coordenada = `<th>${e.coordenada}</th>`;
+            let tamanio = `<th>${e.capacidad}</th>`;
+            let familia = `<th>${e.familia}</th>`;
+            let difuntos = '';
+            e.difuntos.forEach((e)=>{
+                difuntos = difuntos + `<span>-${e.nombre}</span></br>`
+            });
+            let botones = `<th>
+                                <button type="button" rel="tooltip" title="Editar" class="btn btn-info">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                                <button type="button" rel="tooltip" id="delete${e.id}" title="Eliminar" class="btn btn-danger">
+                                    <i class="fa fa-times"></i>
+                                </button>
+                            </th>`;
+            let tableRow = document.createElement("tr");
+            tableRow.innerHTML = "<tr>" +coordenada + tamanio + familia +difuntos + botones + "</tr>";
+            tabla.appendChild(tableRow);
+            document
+                .querySelector("#delete" + e.id)
+                .addEventListener("click", () => {
+                    axios.get("/api/nichosdelete/" + e.id);
+                    tabla.removeChild(tableRow);
+                });
+        });
+    }
+</script>
 @endpush
 @endif

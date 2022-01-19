@@ -34,7 +34,7 @@
                            <b>Buscar:</b>
                        </div> 
                        <div class="col-md-4">
-                           <input type="text" class="form-control">
+                           <input type="text" class="form-control" id="input-filtro">
                        </div>
                        <div class="col-md-2">
                            <a class="btn" id="btnBuscar">Buscar</a>
@@ -62,17 +62,8 @@
                                         <th>Familia</th>
                                         <th>Resultado de busqueda</th>
                                     </thead>
-                                    <tbody id="">
-                                        <th>Guillermina Gordillo Serna</th>
-                                        <th>A 1</th>
-                                        <th>Villaseñor Userralde</th>
-                                        <th>
-                                        <a type="button" rel="tooltip" title="Editar" class="btn btn-info">
-                                        <i class="fa fa-edit"></i>
-                                        </a>
-                                        <button type="button" rel="tooltip" id="" title="Eliminar" class="btn btn-danger">
-                                        <i class="fa fa-times"></i>
-                                        </button></th>
+                                    <tbody id="tableBody">
+
                                     </tbody>
                                 </table>
                             </div>
@@ -99,6 +90,70 @@
 @endsection
 
 @push('js')
+<script src="{{ asset('js/axios.js') }}"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>-->
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        axios.get('/api/beneficiariosindex/1')
+            .then((response)=>{
+                loadTable(response);
+            });
+        document.querySelector('#btnBuscar').addEventListener('click', (e)=>{
+            e.preventDefault();
+            let inputFiltro = document.querySelector("#input-filtro");
+            if(inputFiltro.value == ""){
+                alert('Ingresa un termino de busqueda');
+            }else{
+                axios.get('/api/beneficiariosfiltro/'+inputFiltro.value)
+                    .then((response)=>{
+                        loadTable(response);
+                    });
+            }
+        });
 
+        let showAllCheckbox = document.querySelector('#defaultCheck1');
+        showAllCheckbox.addEventListener("change", () => {
+            if(showAllCheckbox.checked){
+                axios.get('/api/beneficiariosindex/0')
+                    .then((response)=>{
+                        loadTable(response);
+                    });
+            }else{
+                axios.get('/api/beneficiariosindex/1')
+                    .then((response)=>{
+                        loadTable(response);
+                    });
+            }
+        });
+    });
+
+    function loadTable(response){
+        let tabla = document.querySelector("#tableBody");
+        tabla.innerHTML = "";
+        let data = response.data;
+        data.forEach((e)=>{
+            let difunto = `<td>${e.nombre}</td>`;
+            let coordenada = `<td>${e.coordenada}</td>`;
+            let familia = `<td>${e.familia}</td>`;
+            let botones = `<td>
+                                <a type="button" href="difunto.editar/${e.id}" rel="tooltip" title="Editar" class="btn btn-info">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <button type="button" rel="tooltip" id="delete${e.id}" title="Eliminar" class="btn btn-danger">
+                                    <i class="fa fa-times"></i>
+                                </button>
+                            </td>`;
+            let tableRow = document.createElement("tr");
+            tableRow.innerHTML = "<tr>" + difunto + coordenada + familia + botones + "</tr>";
+            tabla.appendChild(tableRow);
+            document
+                .querySelector("#delete" + e.id)
+                .addEventListener("click", () => {
+                    axios.get("/api/beneficiariosdelete/" + e.id);
+                    tabla.removeChild(tableRow);
+                });
+        });
+    }
+</script>
 @endpush
 @endif

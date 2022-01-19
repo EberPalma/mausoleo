@@ -205,10 +205,14 @@ demo = {
         // lbd.startAnimationForLineChart(dailySalesChart);
     },
 
-    initDashboardPageCharts: function () {
+    initDashboardPageCharts: function (informes, quejas, otros) {
         var dataPreferences = {
             series: [[25, 30, 20, 25]],
         };
+
+        let porcentajeInformes = (informes * 100) / (informes + quejas + otros);
+        let porcentajeQuejas = (quejas * 100) / (informes + quejas + otros);
+        let porcentajeOtros = (otros * 100) / (informes + quejas + otros);
 
         var optionsPreferences = {
             donut: true,
@@ -224,8 +228,12 @@ demo = {
         Chartist.Pie("#chartPreferences", dataPreferences, optionsPreferences);
 
         Chartist.Pie("#chartPreferences", {
-            labels: ["53%", "36%", "11%"],
-            series: [50, 25, 25],
+            labels: [
+                porcentajeInformes + "%",
+                porcentajeQuejas + "%",
+                porcentajeOtros + "%",
+            ],
+            series: [porcentajeInformes, porcentajeQuejas, porcentajeOtros],
         });
 
         var dataSales = {

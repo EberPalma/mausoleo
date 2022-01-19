@@ -11,21 +11,33 @@ class NichosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($activo)
     {
+        $data = array();
         $nicho = \DB::table('nichos')
+                        ->where('activo', $activo)
                         ->select('id', 'coordenada', 'capacidad', 'nombre', 'familia')
                         ->get();
-        
-        if($nichos != null){
-            $mensaje = 'Ok';
-            $error = '0';
-        }else{
-            $mensaje = 'No se pudo obtener la informacion';
-            $error = '1';
+        foreach($nicho as $n){
+            $difuntos = \DB::table('beneficiarios')->where('idNicho', $n->id)->select('nombre')->get();
+            $n->difuntos = $difuntos;
+            array_push($data, $n);
         }
-                
-        return json_encode(array('message' => $mensaje,'errors' => $error, 'data' => $nichos));
+        return $data;
+    }
+
+    public function buscar($filtro){
+        $data = array();
+        $nicho = \DB::table('nichos')
+                        ->where('coordenada', $filtro)
+                        ->select('id', 'coordenada', 'capacidad', 'nombre', 'familia')
+                        ->get();
+        foreach($nicho as $n){
+            $difuntos = \DB::table('beneficiarios')->where('idNicho', $n->id)->select('nombre')->get();
+            $n->difuntos = $difuntos;
+            array_push($data, $n);
+        }
+        return $data;
     }
 
     /**

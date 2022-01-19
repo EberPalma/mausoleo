@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Contacto;
+use App\Models\contacto;
 
 class ContactoController extends Controller
 {
@@ -49,11 +49,11 @@ class ContactoController extends Controller
     }
     public function store(Request $request){
         $request->validate([
-            'nombre' => 'required|string',
-            'telefono' => 'required|integer|min:10',
-            'email' => 'nullable|string',
-            'asunto' => 'required|string',
-            'mensaje' => 'required|string'
+            "nombre" => 'required|string',
+            "telefono" => 'required|integer|min:10',
+            "email" => 'nullable|string',
+            "asunto" => 'required|string',
+            "mensaje" => 'required|string'
         ]);
         try{
             $contacto = Contacto::create([
@@ -96,4 +96,4 @@ class ContactoController extends Controller
         } 
     }
 }
-}
+

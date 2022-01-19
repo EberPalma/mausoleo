@@ -25,7 +25,7 @@ function loadTable(response) {
         let userNombre = `<td>${e.name}</td>`;
         let userApPaterno = `<td>${e.ap_paterno}</td>`;
         let userApMaterno = `<td>${e.ap_materno}</td>`;
-        let userRol = `<td>${e.id_rol.nombre}</td>`;
+        let userRol = `<td>${e.rol}</td>`;
         let userEmail =
             e.email != null
                 ? `<td>${e.email}</td>`
@@ -35,7 +35,7 @@ function loadTable(response) {
                             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                         
                                 <label class="btn btn-sm btn-secondary" title="Editar usuario">
-                                <a href="#" type="radio" name="options" > <i class="fa fa-edit"></i> </a>
+                                <a href="profile.editar/${e.id}" type="radio" name="options" > <i class="fa fa-edit"></i> </a>
                                 </label>
                                 <label class="btn btn-sm btn-danger"  title="Borrar usuario" id="delete${e.id}">
                                     <i class="fa fa-trash"></i>

@@ -37,7 +37,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 //Rutas para los nichos
-Route::GET('/nichosindex', [NichosController::class, 'index'])->name('nichosIndex');
+Route::GET('/nichosindex/{activo}', [NichosController::class, 'index'])->name('nichosIndex');
+Route::GET('/nichosfiltro/{filtro}', [NichosController::class, 'buscar'])->name('nichosFiltro');
 Route::POST('/nichosstore', [NichosController::class, 'store'])->name('nichosStore');
 Route::GET('/nichosshow/{id}', [NichosController::class, 'show'])->name('nichosShow');
 Route::PUT('/nichosupdate/{id}', [NichosController::class, 'update'])->name('nichosUpdate');
@@ -58,8 +59,9 @@ Route::PUT('/avalesupdate/{id}', [AvalesController::class, 'update'])->name('ava
 Route::GET('/avalesdelete/{id}', [AvalesController::class, 'destroy'])->name('avalesdestroy');
 
 //Rutas para los beneficiarios
-Route::GET('/beneficiariosindex', [BeneficiariosController::class, 'index'])->name('beneficiariosIndex');
+Route::GET('/beneficiariosindex/{activo}', [BeneficiariosController::class, 'index'])->name('beneficiariosIndex');
 Route::POST('/beneficiariosstore', [BeneficiariosController::class, 'store'])->name('beneficiariosStore');
+Route::GET('/beneficiariosfiltro/{nombre}', [BeneficiariosController::class, 'busqueda'])->name('beneficiariosFiltro');
 Route::GET('/beneficiariosshow/{id}', [BeneficiariosController::class, 'show'])->name('beneficiariosShow');
 Route::PUT('/beneficiariosupdate/{id}', [BeneficiariosController::class, 'update'])->name('beneficiariosUpdate');
 Route::GET('/beneficiariosdelete/{id}', [BeneficiariosController::class, 'destroy'])->name('beneficiariosdestroy');
@@ -152,3 +154,7 @@ Route::GET('/contactoactivo/{id}', [ContactoController::class, 'setActivo'])->na
 Route::GET('/nichosdashboard', [DashboardController::class, 'countNichos'])->name('countNichos');
 Route::GET('/huespedesdashboard', [DashboardController::class, 'countHuespedes'])->name('countHuespedes');
 Route::GET('/contactodashboard', [DashboardController::class, 'countContacto'])->name('countContacto');
+
+Route::GET('/informesdashboard', [DashboardController::class, 'countInformes'])->name('countNichos');
+Route::GET('/quejasdashboard', [DashboardController::class, 'countQuejas'])->name('countHuespedes');
+Route::GET('/otrosdashboard', [DashboardController::class, 'countOtros'])->name('countContacto');
