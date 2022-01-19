@@ -41,11 +41,11 @@ class TitularesController extends Controller
         try{
             $titulares = \DB::table('titulares')
                             ->insert([
-                                'idNicho' => $request->idNicho;
-                                'nombre' => $request->nombre;
-                                'email' => $request->email;
-                                'telefono' => $request->telefono;
-                                'familia' => $request->familia;
+                                'idNicho' => $request->idNicho,
+                                'nombre' => $request->nombre,
+                                'email' => $request->email,
+                                'telefono' => $request->telefono,
+                                'familia' => $request->familia
                             ]);
             $mensaje = "Registro realizado correctamente";
         }catch(\Exception $ex){

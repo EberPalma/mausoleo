@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\cat_usu;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -36,10 +36,6 @@ class UserController extends Controller
         }
 
         return json_encode(array('message' => $mensaje, 'errors' => $error, 'data' => $user));
-    }
-
-    public function editar($id){
-        return $id;
     }
 
     /**
@@ -110,30 +106,38 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $user = \DB::table('users')
+            ->where('id', $id)
+            ->update([
+                'name' => $request->name,
+                'ap_paterno' => $request->ap_paterno,
+                'ap_materno' => $request->ap_materno,
+                'username' => $request->username,
+                'email' => $request->email
+            ]);
+        
+        return redirect()->back();
+    }
+
+    public function newPassword(Request $request, $id){
+        $user = \DB::table('users')->where('id', $id)->select('password')->get();
         $request->validate([
-            'username' => 'nullable|string|unique:cat_usu',
-            'email' => 'required|email|unique:cat_usu',
-            'name' => 'required|string',
-            'ap_paterno' => 'required|string',
-            'ap_materno' => 'required|string',
+            'password' => 'required|string',
+            'new_password' => 'required|string',
+            'conf_password' => 'required|string|same:new_password'
         ]);
-
-        $user = User::find($id);
-        if($user != null){
-            $error = '0';
-            $user->name = $request->name;
-            $user->email = $request->email;
-            $user->ap_paterno = $request->ap_paterno;
-            $user->ap_materno = $request->ap_materno;
-
-            $user->save();
-            $mensaje = "Informacion actualizada corectamente";
+        //return $user[0]->password;
+        if(Hash::check($request->password, $user[0]->password)){
+            $user = \DB::table('users')
+                ->where('id', $id)
+                ->update([
+                    'password' => bcrypt($request->new_password),
+                    'updated_at' => date('Y-m-d h:i:s')
+                ]);
+            return redirect()->back();
         }else{
-            $mensaje = "No se encontro registro";
-            $error = '1';
+            return "La contraseña no coincide";
         }
-
-        return json_encode(array('message' => $mensaje, 'errors' => $error, 'data' => $user));
     }
 
     /**

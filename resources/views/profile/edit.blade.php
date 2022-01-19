@@ -19,10 +19,10 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form method="post" action="{{ route('profile.update') }}" autocomplete="off"
+                            <form method="post" action="/api/userupdate/{{ auth()->user()->id }}" autocomplete="off"
                                 enctype="multipart/form-data">
                                 @csrf
-                                @method('patch')
+                                @method('put')
 
                                 <h6 class="heading-small text-muted mb-4">{{ __('Información de usuario') }}</h6>
                                 
@@ -42,7 +42,7 @@
                                         <label class="form-control-label" for="input-name">
                                             <i class="w3-xxlarge fa fa-user"></i>{{ __('Apellido Paterno') }}
                                         </label>
-                                        <input type="text" name="apaterno" id="" class="form-control" placeholder="{{ __('Gonzales') }}" value="" required autofocus>
+                                        <input type="text" name="ap_paterno" id="" class="form-control" placeholder="{{ __('Gonzales') }}" value="{{ auth()->user()->ap_paterno }}" required autofocus>
         
                                         
                                     </div>
@@ -50,7 +50,7 @@
                                         <label class="form-control-label" for="input-name">
                                             <i class="w3-xxlarge fa fa-user"></i>{{ __('Apellido Materno') }}
                                         </label>
-                                        <input type="text" name="amaterno" id="" class="form-control" placeholder="{{ __('Hernandez') }}" value="" required autofocus>
+                                        <input type="text" name="ap_materno" id="" class="form-control" placeholder="{{ __('Hernandez') }}" value="{{ auth()->user()->ap_materno }}" required autofocus>
         
                                         
                                     </div>
@@ -75,9 +75,8 @@
                                 </div>
                             </form>
                             <hr class="my-4" />
-                            <form method="post" action="{{ route('profile.password') }}">
+                            <form method="post" action="/api/userpassword/{{ auth()->user()->id }}">
                                 @csrf
-                                @method('patch')
         
                                 <h6 class="heading-small text-muted mb-4">{{ __('CONTRASEÑA') }}</h6>
         
@@ -105,7 +104,7 @@
                                         <label class="form-control-label" for="input-password-confirmation">
                                             <i class="w3-xxlarge fa fa-eye-slash"></i>{{ __('Confirmar nueva contraseña') }}
                                         </label>
-                                        <input type="password" name="password_confirmation" id="input-password-confirmation" class="form-control" placeholder="{{ __('Confirm New Password') }}" value="" required>
+                                        <input type="password" name="conf_password" id="input-password-confirmation" class="form-control" placeholder="{{ __('Confirm New Password') }}" value="" required>
                                     </div>
         
                                     <div class="text-center">
@@ -125,10 +124,10 @@
                                 <div class="author">
                                     <a href="#">
                                         <img class="avatar border-gray" src="{{ asset('img/faces/face-3.jpg') }}" alt="...">
-                                        <h5 class="title">{{ __('Mike Andrew') }}</h5>
+                                        <h5 class="title">{{ auth()->user()->name }} {{ auth()->user()->ap_paterno }} {{ auth()->user()->ap_materno }}</h5>
                                     </a>
                                     <p class="description">
-                                        {{ __('michael24') }}
+                                        {{ auth()->user()->username }}
                                     </p>
                                 </div>
                                 <p class="description text-center">

@@ -35,7 +35,7 @@ function loadTable(response) {
                             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                         
                                 <label class="btn btn-sm btn-secondary" title="Editar usuario">
-                                <a href="profile.editar/${e.id}" type="radio" name="options" > <i class="fa fa-edit"></i> </a>
+                                <a href="profile.edit" type="radio" name="options" > <i class="fa fa-edit"></i> </a>
                                 </label>
                                 <label class="btn btn-sm btn-danger"  title="Borrar usuario" id="delete${e.id}">
                                     <i class="fa fa-trash"></i>

@@ -18,10 +18,9 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form method="post" action="{{ route('profile.update') }}" autocomplete="off"
+                            <form method="post" action="{{ route('nichosStore') }}" autocomplete="off"
                                 enctype="multipart/form-data">
                                 @csrf
-                                @method('patch')
 
                                 <h6 class="heading-small text-muted mb-4">{{ __('Información de nicho') }}</h6>
                                 
@@ -30,47 +29,47 @@
         
                                 <div class="pl-lg-4">
                                     <div class="form-group">
-                                        <label class="form-control-label" for="input-name">
+                                        <label class="form-control-label" for="coordenada">
                                             <i class="w3-xxlarge fa fa-map-marker"></i>{{ __(' Coordenada') }}
                                         </label>
-                                        <input type="text" name="name" id="input-name" class="form-control" placeholder="{{ __('Ejemplo: A1') }}" value="" required autofocus>
+                                        <input type="text" name="coordenada" id="coordenada" class="form-control" placeholder="{{ __('Ejemplo: A1') }}" value="" required autofocus>
         
             
                                     </div>
                                     <div class="form-group col-3">
-                                        <label class="form-control-label" for="input-name">
+                                        <label class="form-control-label" for="capacidad">
                                             <i class="w3-xxlarge fa fa-sitemap"></i>{{ __(' Tamaño') }}
                                         </label>
-                                        <input type="number" name="apaterno" id="" class="form-control" placeholder="{{ __('Ejemplo: 4') }}" value="" required autofocus>
+                                        <input type="number" name="capacidad" id="capacidad" class="form-control" placeholder="{{ __('Ejemplo: 4') }}" value="" required autofocus>
         
                                         
                                     </div>
                                     <div class="pl-lg-4">
                                         <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                                            <label class="form-control-label" for="input-name">
+                                            <label class="form-control-label" for="nombre">
                                                 <i class="w3-xxlarge fa fa-user"></i>{{ __(' Nombre del Titular') }}
                                             </label>
-                                            <input type="text" name="name" id="input-name" class="form-control" placeholder="{{ __('Ejemplo: Juan Perez') }}" value="" required autofocus>
+                                            <input type="text" name="nombre" id="nombre" class="form-control" placeholder="{{ __('Ejemplo: Juan Perez') }}" value="" required autofocus>
             
                                             @include('alerts.feedback', ['field' => 'name'])
                                         </div>
                                     <div class="form-group">
-                                        <label class="form-control-label" for="input-email"><i class="w3-xxlarge fa fa-users"></i>{{ __(' Familia') }}</label>
-                                        <input type="text" name="mensaje" id="input-mensaje" class="form-control" placeholder="{{ __('Ejemplo: Perez Gutierrez') }}" value="" required>
+                                        <label class="form-control-label" for="familia"><i class="w3-xxlarge fa fa-users"></i>{{ __(' Familia') }}</label>
+                                        <input type="text" name="familia" id="familia" class="form-control" placeholder="{{ __('Ejemplo: Perez Gutierrez') }}" value="" required>
         
                                        
                                     </div>
                                     
                                     <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-email"><i class="w3-xxlarge fa fa-envelope-o"></i>{{ __(' CORREO ELECTRÓNICO') }}</label>
+                                        <label class="form-control-label" for="email"><i class="w3-xxlarge fa fa-envelope-o"></i>{{ __(' CORREO ELECTRÓNICO') }}</label>
                                         <input type="email" 
-                                               name="email" id="input-email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" value="" required>
+                                               name="email" id="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" value="" required>
         
                                         @include('alerts.feedback', ['field' => 'email'])
                                     </div>
                                     
                                     <div class="text-center">
-                                        <button type="submit" class="btn btn-default mt-4">{{ __('GUARDAR') }}</button>
+                                        <button type="submit" id="btnSubmit" class="btn btn-default mt-4">{{ __('GUARDAR') }}</button>
                                     </div>
                                 </div>
                             </form>
@@ -84,7 +83,23 @@
     </div>
 @endsection
 @push('js')
-
+<script src="{{ asset('js/axios.js') }}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        document.querySelector('#btnSubmit').addEventListener('click', (e)=>{
+            e.preventDefault();
+            axios.post('api/nichosstore', {
+                coordenada: document.querySelector('#coordenada').value,
+                capacidad: document.querySelector('#capacidad').value,
+                nombre: document.querySelector('#nombre').value,
+                familia: document.querySelector('#familia').value,
+                email: document.querySelector('#email').value
+            }).then((response)=>{
+                alert(response.data.message);
+            });
+        });
+    });
+</script>
 
 @endpush
 @endif

@@ -64,7 +64,8 @@ class NichosController extends Controller
                                 'nombre' => $request->nombre,
                                 'familia' => $request->familia,
                                 'email' => $request->email,
-                                'activo' => 1
+                                'activo' => 1,
+                                'created_at' => date('Y-m-d h:i:s')
                             ]);
             $mensaje = "Registro realizado correctamente";
         }catch(\Exception $ex){
