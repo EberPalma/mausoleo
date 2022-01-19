@@ -41,7 +41,7 @@
                            <a class="btn" id="btnBuscar">Buscar</a>
                        </div> 
                        <div class="col-md-2">
-                        <a class="btn btn-warning"><i class="fa fa-plus-circle"></i> Agregar </a>
+                        <a href="{{ route('nicho.añadir') }}" class="btn btn-warning"><i class="fa fa-plus-circle"></i> Agregar </a>
                     </div>  
                     </div>
                 </div>
