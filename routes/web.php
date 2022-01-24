@@ -47,6 +47,7 @@ Route::get('/profile.password', function () {return view('profile.password');})-
 //Nichos
 Route::get('/nichos', function () {return view('layouts.nichos.index');})->name('nichos');
 Route::get('/nicho.añadir', function () {return view('layouts.nichos.create');})->name('nicho.añadir');
+Route::get('/nicho.editar', function () {return view('layouts.nichos.edit');})->name('nicho.editar');
 //Difuntos
 Route::get('/difuntos', function () {return view('layouts.difuntos.index');})->name('difuntos');
 Route::get('/difunto.editar/{id}', [App\Http\Controllers\BeneficiariosController::class, 'edit'])->name('difuntos.update');

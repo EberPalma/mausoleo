@@ -19,16 +19,21 @@
          <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
          <link href="{{ asset('css/dropzone.css') }}" rel="stylesheet" />
          <link href="{{ asset('css/light-bootstrap-dashboard.css?v=2.0.0') }} " rel="stylesheet" />
-         
+         <!-- CSS Just for demo purpose, don't include it in your project -->
+         <link href="{{ asset('css/demo.css') }}" rel="stylesheet" />
+ 
          <!-- Canonical SEO -->
          <link rel="canonical" href="https://www.creative-tim.com/product/light-bootstrap-dashboard-laravel" />        <!--  Social tags      -->
          <meta name="keywords" content="design system, dashboard, bootstrap 4 dashboard, bootstrap 4 design, bootstrap 4 system, bootstrap 4, bootstrap 4 uit kit, bootstrap 4 kit, light bootstrap, light bootstrap dashboard, creative tim,updivision, html dashboard, html css template, web template, bootstrap, bootstrap 4, css3 template, frontend, responsive bootstrap template, bootstrap dashboard, responsive dashboard, laravel, laravel php, laravel php framework, free laravel admin template, free laravel admin, free laravel admin template + Front End + CRUD, crud laravel php, crud laravel, laravel backend admin dashboard">
          <meta name="description" content="Start your development with a Bootstrap 4 Admin Dashboard built for Laravel Framework 5.5 and Up.">
  
  
-         
-         
-        
+         <!-- Schema.org markup for Google+ -->
+         <meta itemprop="name" content="Mausoleo Santa Clara">
+         <meta itemprop="description" content="Start your development with a Bootstrap 4 Admin Dashboard built for Laravel Framework 5.5 and Up.">
+ 
+         <meta itemprop="image" content="https://s3.amazonaws.com/creativetim_bucket/products/213/opt_lbd_laravel_thumbnail.jpg">
+ 
         
          <!-- Open Graph data -->
          <meta property="fb:app_id" content="655968634437471">
