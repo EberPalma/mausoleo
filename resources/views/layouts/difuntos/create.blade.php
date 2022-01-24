@@ -75,6 +75,14 @@
         
                                         @include('alerts.feedback', ['field' => 'email'])
                                     </div>
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="coordenada">
+                                            <i class="w3-xxlarge fa fa-map-marker"></i>{{ __('Coordenada') }}
+                                        </label>
+                                        <input name="coordenada" id="coordenada" class="form-control datepicker" placeholder="Inserta la coordenada" value="" required autofocus>
+        
+                                        
+                                    </div>
                                     
                                     <hr>
                                     <br>

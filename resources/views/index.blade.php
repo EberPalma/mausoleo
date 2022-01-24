@@ -19,62 +19,25 @@
          <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
          <link href="{{ asset('css/dropzone.css') }}" rel="stylesheet" />
          <link href="{{ asset('css/light-bootstrap-dashboard.css?v=2.0.0') }} " rel="stylesheet" />
-         <!-- CSS Just for demo purpose, don't include it in your project -->
-         <link href="{{ asset('css/demo.css') }}" rel="stylesheet" />
- 
+         
          <!-- Canonical SEO -->
          <link rel="canonical" href="https://www.creative-tim.com/product/light-bootstrap-dashboard-laravel" />        <!--  Social tags      -->
          <meta name="keywords" content="design system, dashboard, bootstrap 4 dashboard, bootstrap 4 design, bootstrap 4 system, bootstrap 4, bootstrap 4 uit kit, bootstrap 4 kit, light bootstrap, light bootstrap dashboard, creative tim,updivision, html dashboard, html css template, web template, bootstrap, bootstrap 4, css3 template, frontend, responsive bootstrap template, bootstrap dashboard, responsive dashboard, laravel, laravel php, laravel php framework, free laravel admin template, free laravel admin, free laravel admin template + Front End + CRUD, crud laravel php, crud laravel, laravel backend admin dashboard">
          <meta name="description" content="Start your development with a Bootstrap 4 Admin Dashboard built for Laravel Framework 5.5 and Up.">
  
  
-         <!-- Schema.org markup for Google+ -->
-         <meta itemprop="name" content="Mausoleo Santa Clara">
-         <meta itemprop="description" content="Start your development with a Bootstrap 4 Admin Dashboard built for Laravel Framework 5.5 and Up.">
- 
-         <meta itemprop="image" content="https://s3.amazonaws.com/creativetim_bucket/products/213/opt_lbd_laravel_thumbnail.jpg">
- 
+         
+         
+        
         
          <!-- Open Graph data -->
          <meta property="fb:app_id" content="655968634437471">
          <meta property="og:title" content="Mausoleo Santa Clara" />
          <meta property="og:type" content="article" />
          
-           <!-- Google Tag Manager -->
-         <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-         })(window,document,'script','dataLayer','GTM-NKDMSK6');</script>
-         <!-- End Google Tag Manager -->
+          
      
-         <script>
-             // Facebook Pixel Code Don't Delete
-               ! function(f, b, e, v, n, t, s) {
-                 if (f.fbq) return;
-                 n = f.fbq = function() {
-                   n.callMethod ?
-                     n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-                 };
-                 if (!f._fbq) f._fbq = n;
-                 n.push = n;
-                 n.loaded = !0;
-                 n.version = '2.0';
-                 n.queue = [];
-                 t = b.createElement(e);
-                 t.async = !0;
-                 t.src = v;
-                 s = b.getElementsByTagName(e)[0];
-                 s.parentNode.insertBefore(t, s)
-               }(window,
-                 document, 'script', '//connect.facebook.net/en_US/fbevents.js');
-               try {
-                 fbq('init', '111649226022273');
-                 fbq('track', "PageView");
-               } catch (err) {
-                 console.log('Facebook Track Error:', err);
-               }
-         </script>
+         
      </head>
  
 

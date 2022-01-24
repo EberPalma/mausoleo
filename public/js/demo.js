@@ -651,7 +651,7 @@ demo = {
             {
                 icon: "nc-icon nc-app",
                 message:
-                    "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer.",
+                    "Bienvenido al <b>Sistema Administrativo</b> - de Mausoleo Santa Clara.",
             },
             {
                 type: type[color],
