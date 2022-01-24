@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     let btn = document.querySelector("#agregarBTN");
+    let input_coordenada = document.querySelector("#input-coordenada");
     let input_name = document.querySelector("#input-name");
     let input_paterno = document.querySelector("#input-paterno");
     let input_materno = document.querySelector("#input-materno");
@@ -11,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         axios
             .post("/api/beneficiariosstore", {
-                idNicho: 1,
+                idNicho: input_coordenada.value,
                 nombre:
                     input_name.value +
                     " " +
