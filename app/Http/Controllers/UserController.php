@@ -134,7 +134,7 @@ class UserController extends Controller
                     'password' => bcrypt($request->new_password),
                     'updated_at' => date('Y-m-d h:i:s')
                 ]);
-            return redirect()->back();
+            return 'Contraseña cambiada correctamente';
         }else{
             return "La contraseña no coincide";
         }

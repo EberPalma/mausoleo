@@ -112,7 +112,7 @@ Route::GET('/contratocreditodelete/{id}', [Contrato_creditoController::class, 'd
 Route::GET('/userindex/{filtro}', [UserController::class, 'index'])->name('userIndex');
 Route::POST('/userstore', [UserController::class, 'store'])->name('userStore');
 Route::GET('/usershow/{id}', [UserController::class, 'show'])->name('userShow');
-Route::POST('/userpassword/{id}', [UserController::class, 'newPassword'])->name('userPassword');
+Route::POST('/changepassword/{id}', [UserController::class, 'newPassword'])->name('userPassword');
 Route::PUT('/userupdate/{id}', [UserController::class, 'update'])->name('userUpdate');
 Route::GET('/userdelete/{id}', [UserController::class, 'destroy'])->name('userdestroy');
 

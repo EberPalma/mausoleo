@@ -75,7 +75,7 @@
                                 </div>
                             </form>
                             <hr class="my-4" />
-                            <form method="post" action="/api/userpassword/{{ auth()->user()->id }}">
+                            <form method="get" action="/api/changepassword/{{ auth()->user()->id }}">
                                 @csrf
         
                                 <h6 class="heading-small text-muted mb-4">{{ __('CONTRASEÑA') }}</h6>
@@ -88,7 +88,7 @@
                                         <label class="form-control-label" for="input-current-password">
                                             <i class="w3-xxlarge fa fa-eye-slash"></i>{{ __('Contraseña actual') }}
                                         </label>
-                                        <input type="password" name="old_password" id="input-current-password" class="form-control{{ $errors->has('old_password') ? ' is-invalid' : '' }}" placeholder="{{ __('Current Password') }}" value="" required>
+                                        <input type="password" name="password" id="password" class="form-control{{ $errors->has('old_password') ? ' is-invalid' : '' }}" placeholder="{{ __('Current Password') }}" value="" required>
         
                                         @include('alerts.feedback', ['field' => 'old_password'])
                                     </div>
@@ -96,7 +96,7 @@
                                         <label class="form-control-label" for="input-password">
                                             <i class="w3-xxlarge fa fa-eye-slash"></i>{{ __('Nueva Contraseña') }}
                                         </label>
-                                        <input type="password" name="password" id="input-password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('New Password') }}" value="" required>
+                                        <input type="password" name="new_password" id="new-password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('New Password') }}" value="" required>
         
                                         @include('alerts.feedback', ['field' => 'password'])
                                     </div>
@@ -104,16 +104,34 @@
                                         <label class="form-control-label" for="input-password-confirmation">
                                             <i class="w3-xxlarge fa fa-eye-slash"></i>{{ __('Confirmar nueva contraseña') }}
                                         </label>
-                                        <input type="password" name="conf_password" id="input-password-confirmation" class="form-control" placeholder="{{ __('Confirm New Password') }}" value="" required>
+                                        <input type="password" name="conf_password" id="conf-password" class="form-control" placeholder="{{ __('Confirm New Password') }}" value="" required>
                                     </div>
         
                                     <div class="text-center">
-                                        <button type="submit" class="btn btn-default mt-4">{{ __('CAMBIAR CONTRASEÑA') }}</button>
+                                        <button type="submit" id="btnSubmit" class="btn btn-default mt-4">{{ __('CAMBIAR CONTRASEÑA') }}</button>
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
+
+                    <script src="{{ asset('js/axios.js') }}"></script>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', ()=>{
+                            let btn = document.querySelector('#btnSubmit');
+                            btn.addEventListener('click',(e)=>{
+                                e.preventDefault();
+                                axios.post('/api/changepassword/{{ auth()->user()->id }}', {
+                                    password: document.querySelector('#password').value,
+                                    new_password: document.querySelector('#new-password').value,
+                                    conf_password: document.querySelector('#conf-password').value
+                                })
+                                    .then((response)=>{
+                                        alert(response.data);
+                                    });
+                            });
+                        });
+                    </script>
 
                     <div class="col-md-4">
                         <div class="card card-user">
