@@ -140,9 +140,9 @@
                 difuntos = difuntos + `<span>-${e.nombre}</span></br>`
             });
             let botones = `<th>
-                                <button type="button" rel="tooltip" title="Editar" class="btn btn-info">
+                                <a type="button" href="/nicho.editar/${ e.id }" rel="tooltip" title="Editar" class="btn btn-info">
                                     <i class="fa fa-edit"></i>
-                                </button>
+                                </a>
                                 <button type="button" rel="tooltip" id="delete${e.id}" title="Eliminar" class="btn btn-danger">
                                     <i class="fa fa-times"></i>
                                 </button>

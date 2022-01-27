@@ -95,6 +95,12 @@ class NichosController extends Controller
         return json_encode(array('message' => $mensaje, 'errors' => $error, 'data' => $nicho));
     }
 
+    public function edit($id){
+        $nicho = \DB::table('nichos')->where('id', $id)->get();
+        return view('layouts.nichos.edit')
+            ->with('nicho', $nicho[0]);
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -121,16 +127,16 @@ class NichosController extends Controller
                                 'capacidad' => $request->capacidad,
                                 'nombre' => $request->nombre,
                                 'familia' => $request->familia,
-                                'email' => $request->email
+                                'email' => $request->email,
+                                'updated_at' => date('Y-m-d h:i:s')
                             ]);
 
-            $mensaje = "Informacion actualizada correctamente";
+            return "Informacion actualizada correctamente";
         }else{
-            $mensaje = "No se encontro registro";
-            $error = '1';
+            return "No se encontro registro";
+            
         }
 
-        return json_encode(array('message' => $mensaje, 'errors' => $error, 'data' => $nicho));
     }
 
     /**
