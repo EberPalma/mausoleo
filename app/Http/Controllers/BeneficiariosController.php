@@ -67,20 +67,20 @@ class BeneficiariosController extends Controller
     }
 
     public function store(Request $request){
-        $nicho = \DB::table('nichos')
+        /*$nicho = \DB::table('nichos')
             ->select('id')
             ->where('coordenada', $request->idNicho)
             ->get();
+        */
 
-
-        $beneficiario = \DB::table('beneficiarios')->insert([
+        $beneficiario = \DB::table('beneficiario')->insert([
             'idNicho' => $nicho[0]->id,
             'nombre' => $request->nombre,
             'fechaNacimiento' => $request->fechaNacimiento,
             'fechaDefuncion' => $request->fechaDefuncion,
             'mensaje' => $request->mensaje,
             'activo' => 1,
-            'created_at' => date('Y-m-d h:i:s')
+            'created_at' =>  date('Y-m-d h:i:s')
         ]);
     }
 

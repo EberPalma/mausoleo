@@ -135,10 +135,11 @@
             let coordenada = `<th>${e.coordenada}</th>`;
             let tamanio = `<th>${e.capacidad}</th>`;
             let familia = `<th>${e.familia}</th>`;
-            let difuntos = '';
+            let difuntos = '<th>';
             e.difuntos.forEach((e)=>{
                 difuntos = difuntos + `<span>-${e.nombre}</span></br>`
             });
+            difuntos = difuntos + '</th>';
             let botones = `<th>
                                 <a type="button" href="/nicho.editar/${ e.id }" rel="tooltip" title="Editar" class="btn btn-info">
                                     <i class="fa fa-edit"></i>
