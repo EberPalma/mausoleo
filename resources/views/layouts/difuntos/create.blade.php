@@ -62,14 +62,6 @@
                                         
                                     </div>
                                     <div class="form-group">
-                                        <div class='input-group date' id='datetimepicker3'>
-                                          <input type='text' class="form-control" />
-                                          <span class="input-group-addon">
-                                            <i class="w3-xxlarge fa fa-calendar"></i>
-                                          </span>
-                                        </div>
-                                      </div>
-                                    <div class="form-group">
                                         <label class="form-control-label" for="input-d">
                                             <i class="w3-xxlarge fa fa-calendar"></i>{{ __('Fecha de defunción') }}
                                         </label>
@@ -128,7 +120,6 @@
 @push('js')
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="{{ asset('js/difuntosStore.js') }}"></script>
-
 
 @endpush
 @endif
