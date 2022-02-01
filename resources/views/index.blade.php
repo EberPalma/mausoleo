@@ -265,10 +265,12 @@
 
 
         <!--   Core JS Files   -->
-        <script src="{{ asset('js/core/jquery.3.2.1.min.js') }}" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
         <script src="{{ asset('js/core/popper.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('js/core/bootstrap.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('js/dropzone.js') }}" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
     
         <script src="{{ asset('js/plugins/jquery.sharrre.js') }}"></script>
         <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
@@ -283,6 +285,7 @@
         <script src="{{ asset('js/light-bootstrap-dashboard.js?v=2.0.0') }}" type="text/javascript"></script>
         <!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
         <script src="{{ asset('js/demo.js') }}"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
         @stack('js')
         <script>
           $(document).ready(function () {

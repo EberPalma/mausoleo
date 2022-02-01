@@ -49,7 +49,7 @@
                                         <label class="form-control-label" for="input-name">
                                             <i class="w3-xxlarge fa fa-calendar"></i>{{ __('Fecha de nacimiento') }}
                                         </label>
-                                        <input type="date" name="fechaNacimiento" id="" class="form-control datepicker" placeholder="Da clic en este campo" value="{{ $beneficiario->fechaNacimiento }}" required autofocus>
+                                        <input type="text" name="fechaNacimiento" id="" class="form-control datepicker" placeholder="Da clic en este campo" value="{{ $beneficiario->fechaNacimiento }}" required autofocus>
         
                                         
                                     </div>
@@ -57,13 +57,19 @@
                                         <label class="form-control-label" for="input-name">
                                             <i class="w3-xxlarge fa fa-calendar"></i>{{ __('Fecha de defunción') }}
                                         </label>
-                                        <input type="date" name="fechaDefuncion" id="input-fechad" class="form-control datepicker" placeholder="{{ __('Da clic en este campo') }}" value="{{ $beneficiario->fechaDefuncion }}" required autofocus>
+                                        <input type="text" name="fechaDefuncion" id="input-fechad" class="form-control datepicker" placeholder="{{ __('Da clic en este campo') }}" value="{{ $beneficiario->fechaDefuncion }}" required autofocus>
         
                                         
                                     </div>
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-email"><i class="w3-xxlarge fa fa-envelope-o"></i>{{ __('Mensaje o epitafilo') }}</label>
                                         <input type="text" name="mensaje" id="input-mensaje" class="form-control" placeholder="{{ __('Mensaje') }}" value="{{ $beneficiario->mensaje }}" required>
+        
+                                        @include('alerts.feedback', ['field' => 'email'])
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-email"><i class="w3-xxlarge fa fa-map-marker"></i>{{ __('Coordenada') }}</label>
+                                        <input type="text" name="mensaje" id="input-mensaje" class="form-control" placeholder="{{ __('Ejemplo: A 1') }}" value="{{ $beneficiario->idNicho }}" required>
         
                                         @include('alerts.feedback', ['field' => 'email'])
                                     </div>
@@ -113,9 +119,14 @@
                                      </p>
                                 </div>
                                 <p class="description text-center">
+                                @if ($beneficiario->mensaje == NULL)
+
+                                
+                                @else
+                                
 
                                 "{{ $beneficiario->mensaje }}"
-                                    
+                                @endif  
                                 </p>
                             </div>
                             <hr>
