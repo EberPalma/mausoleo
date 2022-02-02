@@ -49,7 +49,9 @@
                                         <label class="form-control-label" for="input-name">
                                             <i class="w3-xxlarge fa fa-calendar"></i>{{ __('Fecha de nacimiento') }}
                                         </label>
-                                        <input type="text" name="fechaNacimiento" id="" class="form-control datepicker" placeholder="Da clic en este campo" value="{{ $beneficiario->fechaNacimiento }}" required autofocus>
+                                        <input type="text" name="fechaNacimiento" id="" class="form-control datepicker1 valfechan" placeholder="Da clic en este campo" value="{{ $beneficiario->fechaNacimiento }}" required autofocus>
+                                        <span style="color:red; float:right;" id="spaninputfn"></span>
+                                        <input type="hidden" id="valfn" value="">
         
                                         
                                     </div>
@@ -57,7 +59,7 @@
                                         <label class="form-control-label" for="input-name">
                                             <i class="w3-xxlarge fa fa-calendar"></i>{{ __('Fecha de defunción') }}
                                         </label>
-                                        <input type="text" name="fechaDefuncion" id="input-fechad" class="form-control datepicker" placeholder="{{ __('Da clic en este campo') }}" value="{{ $beneficiario->fechaDefuncion }}" required autofocus>
+                                        <input type="text" name="fechaDefuncion" id="input-fechad" class="form-control datepicker2 valfd" placeholder="{{ __('Da clic en este campo') }}" value="{{ $beneficiario->fechaDefuncion }}" required autofocus>
         
                                         
                                     </div>
@@ -141,7 +143,45 @@
     </div>
 @endsection
 @push('js')
+<script>
+    $(document).ready(function(){
+        //Validaciones segun el input
+       
+       
+       const $input1 = document.querySelector('.datepicker1');
+       const patron1 = /[0-9/AMP:]+/;
+       const r = /([0-2][0-9]|3[0-1]|[0-9])(\/|-)([1-9]|0[1-9]|1[0-2])\2(\d{4})(\s)([0-1][0-9]|2[0-3])(:)([0-5][0-9])(:)([0-5][0-9])(\s)([AP][M])\z/gm; 
+       const validacionf =  $('.datepicker1').val();
 
+       $input1.addEventListener("keydown", event => {
+        
+                   console.log(event.key);
+                   console.log(validacionf);
+                   if(patron1.test(event.key)){
+                    $(".datepicker1").css({ "border": "1px solid #0C0"});
+                   }
+                   else{$(".datepicker1").css({ "border": "1px solid #C00"});
+                       if(event.keyCode==8){ console.log("backspace"); }
+                       else{ event.preventDefault();}
+                   }
+                   
+                   
+               });
+ 
+       const $input2 = document.querySelector('.datepicker2');
+       const patron2 = /[0-9/AMP:]+/;
+       $input2.addEventListener("keydown", event => {
+                   console.log(event.key);
+                   if(patron2.test(event.key)){
+                       $(".datepicker2").css({ "border": "1px solid #0C0"});
+                   }
+                   else{$(".datepicker2").css({ "border": "1px solid #C00"});
+                       if(event.keyCode==8){ console.log("backspace"); }
+                       else{ event.preventDefault();}
+                   }
+               });
+            });
+</script>
 
 @endpush
 @endif
