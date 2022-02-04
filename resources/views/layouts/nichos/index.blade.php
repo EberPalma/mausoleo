@@ -1,13 +1,13 @@
 @extends('index') 
 @section('Contenidoprincipal')
- <style>
-     table{
-    table-layout: fixed;
-    
-}
-
-
-</style>  
+<style>
+    @media screen and (max-width: 320px){
+        table {
+            display:block;
+            overflow-x: auto;
+        }
+    }
+</style>
 @if(!isset(Auth::user()->name))
     <meta http-equiv="refresh" content="0; url={{ route('login') }}">
 @else 
@@ -53,6 +53,7 @@
                     <div class="toolbar">
                         <!--        Here you can write extra buttons/actions for the toolbar              -->
                     </div>
+                </div>
                     <div class="card  card-tasks">
                         
                             <div class="card-body table-full-width table-responsive">
@@ -77,7 +78,7 @@
                             
                         </div>
                     </div>
-                </div>
+                
             </div>
         </div>
         <div class="alert alert-danger">

@@ -1,13 +1,14 @@
 @extends('index') 
 @section('Contenidoprincipal')
- <style>
-     table{
-    table-layout: fixed;
-    
-}
+<style>
+    @media screen and (max-width: 320px){
+        table {
+            display:block;
+            overflow-x: auto;
+        }
+    }
+</style>
 
-
-</style>   
 @if(!isset(Auth::user()->name))
     <meta http-equiv="refresh" content="0; url={{ route('login') }}">
 @else
@@ -45,6 +46,7 @@
                        </div>  
                     </div>
                 </div>
+            </div>
                 
 
                     <div class="col-12 mt-2">
@@ -59,13 +61,13 @@
                                 <table class="table table-hover table-striped">
                                     <thead>
                                         <th>Atendida</th>
-                                        <th style="width:200px">Mensaje</th>
+                                        <th>Mensaje</th>
                                         <th>Asunto</th>
                                         <th>Nombre</th>
                                         <th>Telefono</th>
                                         <th>Email</th>
-                                        <th>Fecha de registro</th>
-                                        <th >Acciones</th>
+                                        <th>Registro</th>
+                                        <th>Acciones</th>
                                     </thead>
                                     <tbody id="tableBody"></tbody>
                                 </table>
@@ -78,7 +80,7 @@
                             
                         </div>
                     </div>
-                </div>
+                
             </div>
         </div>
         <div class="alert alert-danger">

@@ -151,7 +151,7 @@
        const $input1 = document.querySelector('.datepicker1');
        const patron1 = /[0-9/AMP:]+/;
        const r = /([0-2][0-9]|3[0-1]|[0-9])(\/|-)([1-9]|0[1-9]|1[0-2])\2(\d{4})(\s)([0-1][0-9]|2[0-3])(:)([0-5][0-9])(:)([0-5][0-9])(\s)([AP][M])\z/gm; 
-       const validacionf =  $('.datepicker1').val();
+       const validacionf =  $(".valfn").val();
 
        $input1.addEventListener("keydown", event => {
         

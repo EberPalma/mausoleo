@@ -48,12 +48,12 @@ function loadTable(response) {
         let atendido = `<td>
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" id="id${e.id}" type="checkbox" value="${e.id}" ${check}>
+                                    <input class="" id="id${e.id}" type="checkbox" value="${e.id}" ${check}>
                                     <span class="form-check-sign"></span>
                                 </label>
                             </div>
                         </td>`;
-        let mensaje = `<td style="width:200px"><small>${e.mensaje}</small></td>`;
+        let mensaje = `<td><small>${e.mensaje}</small></td>`;
         let asunto = `<td><small>${e.asunto}</small></td>`;
         let nombre = `<td><small>${e.nombre}</small></td>`;
         let telefono = `<td><small>${e.telefono}</small></td>`;

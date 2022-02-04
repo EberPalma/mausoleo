@@ -31,27 +31,11 @@
                                 <div class="pl-lg-4">
                                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-name">
-                                            <i class="w3-xxlarge fa fa-user"></i>{{ __('Nombres') }}
+                                            <i class="w3-xxlarge fa fa-user"></i>{{ __('Nombre Completo') }}
                                         </label>
-                                        <input type="text" name="name" id="input-name" class="form-control" placeholder="{{ __('Jose') }}" value="" required autofocus>
+                                        <input type="text" name="name" id="input-name" class="form-control nombre" placeholder="{{ __('Jose Eduardo Lopez Perez') }}" value="" required autofocus>
         
                                         @include('alerts.feedback', ['field' => 'name'])
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-control-label" for="apaterno">
-                                            <i class="w3-xxlarge fa fa-user"></i>{{ __('Apellido paterno') }}
-                                        </label>
-                                        <input type="text" name="apaterno" id="input-paterno" class="form-control" placeholder="{{ __('Gonzales Hernandez') }}" value="" required autofocus>
-        
-                                        
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-control-label" for="amaterno">
-                                            <i class="w3-xxlarge fa fa-user"></i>{{ __('Apellido materno') }}
-                                        </label>
-                                        <input type="text" name="amaterno" id="input-materno" class="form-control" placeholder="{{ __('Gonzales Hernandez') }}" value="" required autofocus>
-        
-                                        
                                     </div>
                                     <div class="form-group">
                                         <label class="form-control-label" for="fechan">
@@ -62,6 +46,9 @@
                                         
                                     </div>
                                     <div class="form-group">
+                                        <input type="time" name="fechan" id="hora_nacimiento" class="form-control datepicker" value="12:00 p.m." required autofocus>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="form-control-label" for="input-d">
                                             <i class="w3-xxlarge fa fa-calendar"></i>{{ __('Fecha de defunción') }}
                                         </label>
@@ -70,8 +57,11 @@
                                         
                                     </div>
                                     <div class="form-group">
+                                        <input type="time" name="fechad" id="hora_defuncion" class="form-control datepicker" value="12:00 p.m." required autofocus>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="form-control-label" for="input-email"><i class="w3-xxlarge fa fa-envelope-o"></i>{{ __('Mensaje o epitafilo') }}</label>
-                                        <input type="text" name="mensaje" id="input-mensaje" class="form-control" placeholder="{{ __('Mensaje') }}" value="" required>
+                                        <textarea  name="mensaje" id="input-mensaje" class="form-control" placeholder="{{ __('Mensaje') }}" value="" required></textarea>
         
                                         @include('alerts.feedback', ['field' => 'email'])
                                     </div>
@@ -79,7 +69,7 @@
                                         <label class="form-control-label" for="coordenada">
                                             <i class="w3-xxlarge fa fa-map-marker"></i>{{ __('Coordenada') }}
                                         </label>
-                                        <input name="coordenada" id="input-coordenada" class="form-control datepicker" placeholder="Inserta la coordenada" value="" required autofocus>
+                                        <input name="coordenada" id="input-coordenada" class="form-control datepicker coord" placeholder="Inserta la coordenada" value="" required autofocus>
         
                                         
                                     </div>
@@ -90,15 +80,15 @@
                                     <div class="row">
                                     <div class="drop-zone col-md-4 ml-auto">
                                         <span class="drop-zone__prompt">Imagen Principal</span>
-                                        <input type="file" name="myFile" class="drop-zone__input">
+                                        <input accept="image/*" type="file" name="myFile" class="drop-zone__input">
                                       </div>
                                       <div class="drop-zone col-md-3 ml-auto">
                                         <span class="drop-zone__prompt">Imagen Alternativa 1</span>
-                                        <input type="file" name="myFile" class="drop-zone__input">
+                                        <input accept="image/*" type="file" name="myFile" class="drop-zone__input">
                                       </div>
                                       <div class="drop-zone col-md-3 ml-auto">
                                         <span class="drop-zone__prompt">Imagen Alternativa 2</span>
-                                        <input type="file" name="myFile" class="drop-zone__input">
+                                        <input accept="image/*" type="file" name="myFile" class="drop-zone__input">
                                       </div>
                                     </div>
                                     
@@ -120,6 +110,40 @@
 @push('js')
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="{{ asset('js/difuntosStore.js') }}"></script>
+<script>
+    $(document).ready(function(){
+        //Validaciones segun el input
+       
+       
+       const $input1 = document.querySelector('.nombre');
+       const patron1 = /[A-Za-zñÑáéíóúýÁÉÍÓÚ Ý]+/;
+       $input1.addEventListener("keydown", event => {
 
+                   if(patron1.test(event.key)){
+                    $(".nombre").css({ "border": "1px solid #0C0"});
+                   }
+                   else{$(".nombre").css({ "border": "1px solid #C00"});
+                       if(event.keyCode==8){ console.log("backspace"); }
+                       else{ event.preventDefault();}
+                   }
+                   
+                   
+               });
+               const $input2 = document.querySelector('.coord');
+                const patron2 = /[A-Z 0-9]+/;
+                $input2.addEventListener("keydown", event => {
+
+                            if(patron2.test(event.key)){
+                                $(".coord").css({ "border": "1px solid #0C0"});
+                            }
+                            else{$(".coord").css({ "border": "1px solid #C00"});
+                                if(event.keyCode==8){ console.log("backspace"); }
+                                else{ event.preventDefault();}
+                            }
+                            
+                            
+                        });
+            });
+</script>
 @endpush
 @endif

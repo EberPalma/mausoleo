@@ -32,7 +32,7 @@
                                         <label class="form-control-label" for="coordenada">
                                             <i class="w3-xxlarge fa fa-map-marker"></i>{{ __(' Coordenada') }}
                                         </label>
-                                        <input type="text" name="coordenada" id="coordenada" class="form-control" placeholder="{{ __('Ejemplo: A1') }}" value="" required autofocus>
+                                        <input type="text" name="coordenada" id="coordenada" class="form-control coord" placeholder="{{ __('Ejemplo: A1') }}" value="" required autofocus>
         
             
                                     </div>
@@ -49,13 +49,13 @@
                                             <label class="form-control-label" for="nombre">
                                                 <i class="w3-xxlarge fa fa-user"></i>{{ __(' Nombre del Titular') }}
                                             </label>
-                                            <input type="text" name="nombre" id="nombre" class="form-control" placeholder="{{ __('Ejemplo: Juan Perez') }}" value="" required autofocus>
+                                            <input type="text" name="nombre" id="nombre" class="form-control nomb" placeholder="{{ __('Ejemplo: Juan Perez') }}" value="" required autofocus>
             
                                             @include('alerts.feedback', ['field' => 'name'])
                                         </div>
                                     <div class="form-group">
                                         <label class="form-control-label" for="familia"><i class="w3-xxlarge fa fa-users"></i>{{ __(' Familia') }}</label>
-                                        <input type="text" name="familia" id="familia" class="form-control" placeholder="{{ __('Ejemplo: Perez Gutierrez') }}" value="" required>
+                                        <input type="text" name="familia" id="familia" class="form-control fami" placeholder="{{ __('Ejemplo: Perez Gutierrez') }}" value="" required>
         
                                        
                                     </div>
@@ -63,7 +63,8 @@
                                     <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="email"><i class="w3-xxlarge fa fa-envelope-o"></i>{{ __(' CORREO ELECTRÓNICO') }}</label>
                                         <input type="email" 
-                                               name="email" id="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" value="" required>
+                                               name="email" id="email" class="form-control mail {{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" value="" required>
+                                               <span style="color:red; float:right;" id="spanmail"></span>
         
                                         @include('alerts.feedback', ['field' => 'email'])
                                     </div>
@@ -99,6 +100,65 @@
             });
         });
     });
+    </script>
+    <script>
+    $(document).ready(function(){
+        //Validaciones segun el input
+       
+       
+       const $input1 = document.querySelector('.coord');
+       const patron1 = /[A-Z 0-9]+/;
+       $input1.addEventListener("keydown", event => {
+
+                   if(patron1.test(event.key)){
+                    $(".coord").css({ "border": "1px solid #0C0"});
+                   }
+                   else{$(".coord").css({ "border": "1px solid #C00"});
+                       if(event.keyCode==8){ console.log("backspace"); }
+                       else{ event.preventDefault();}
+                   }
+                   
+                   
+               });
+            
+            const $input2 = document.querySelector('.nomb');
+            const patron2 = /[A-Za-zñÑáéíóúýÁÉÍÓÚ Ý]+/;
+            $input2.addEventListener("keydown", event => {
+
+                        if(patron2.test(event.key)){
+                            $(".nomb").css({ "border": "1px solid #0C0"});
+                        }
+                        else{$(".nomb").css({ "border": "1px solid #C00"});
+                            if(event.keyCode==8){ console.log("backspace"); }
+                            else{ event.preventDefault();}
+                        }
+                        
+                        
+                    });
+                    const $input3 = document.querySelector('.fami');
+                    
+                    $input3.addEventListener("keydown", event => {
+
+                                if(patron2.test(event.key)){
+                                    $(".fami").css({ "border": "1px solid #0C0"});
+                                }
+                                else{$(".fami").css({ "border": "1px solid #C00"});
+                                    if(event.keyCode==8){ console.log("backspace"); }
+                                    else{ event.preventDefault();}
+                                }
+                                
+                                
+                            });
+         });
+         $(".mail").blur(function(){
+                            var txtmail = $(".mail").val();
+                            var valmail = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+                            if(
+                            $(".mail").css({ "border":"1px solid #0F0"}).fadeIn(2000);}
+                            else{$("#spanmail").text("Correo Incorrecto").css("color", "red");
+                            $(".mail").css({ "border":"1px solid #F00"}).fadeIn(2000);}
+                            });
+                        });
 </script>
 
 @endpush
