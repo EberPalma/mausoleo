@@ -46,18 +46,24 @@
                                         
                                     </div>
                                     <div class="form-group">
-                                        <input type="time" name="fechan" id="hora_nacimiento" class="form-control datepicker" value="12:00 p.m." required autofocus>
+                                        <input type="time" name="fechan" id="hora_nacimiento" class="form-control datepicker" value="" required autofocus>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="fechan" id="inputconcatna" class="form-control datepicker" value="" required autofocus>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-d">
                                             <i class="w3-xxlarge fa fa-calendar"></i>{{ __('Fecha de defunción') }}
                                         </label>
-                                        <input type="date" name="fecha-d" id="input-fechad" class="form-control datepicker" placeholder="{{ __('Da clic en este campo') }}" value="" required autofocus>
+                                        <input type="date" name="fecha-d" id="fecha_defuncion" class="form-control datepicker" placeholder="{{ __('Da clic en este campo') }}" value="" required autofocus>
         
                                         
                                     </div>
                                     <div class="form-group">
-                                        <input type="time" name="fechad" id="hora_defuncion" class="form-control datepicker" value="12:00 p.m." required autofocus>
+                                        <input type="time" name="fechad" id="hora_defuncion" class="form-control datepicker" value="12:00:00 AM." required autofocus>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="fechan" id="inputconcatd" class="form-control datepicker" value="" required autofocus>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-email"><i class="w3-xxlarge fa fa-envelope-o"></i>{{ __('Mensaje o epitafilo') }}</label>
@@ -143,6 +149,93 @@
                             
                             
                         });
+                        var stringtna = "";
+                        var stringfna = "";
+                        
+
+                        $( "#fecha_nacimiento" ).change(function( event ) {
+                            var stringfna =   $( "#fecha_nacimiento" ).val();
+                        var stringtna =   $( "#hora_nacimiento" ).val();
+                        if (stringtna.value !== "") {
+                            var displayTime = "12:00:00 AM";
+                            var stringftna = stringfna+" "+displayTime;
+                        }
+                        
+                        var day = stringfna.split("-")[0];
+                        var month = stringfna.split("-")[1];
+                        var year = stringfna.split("-")[2];
+                        var displayDate = month + "/" + year +"/"+ day;
+                        var stringftna = displayDate+" "+displayTime;
+                        
+                        $("#inputconcatna" ).val(stringftna);
+                        })
+                        $( "#hora_nacimiento" ).change(function( event ) {
+                        var stringfna =   $( "#fecha_nacimiento" ).val();
+                        var stringtna =   $( "#hora_nacimiento" ).val();
+                        if (stringtna.value !== "") {
+                            var hours = stringtna.split(":")[0];
+                            var minutes = stringtna.split(":")[1];
+                            var suffix = hours >= 12 ? "PM" : "AM";
+                            hours = hours % 12 || 12;
+                            hours = hours < 10 ? "0" + hours : hours;
+
+                            var displayTime = hours + ":" + minutes +":00"+" " + suffix;
+                            var stringftna = stringfna+" "+displayTime;
+                        }else{
+                            var displayTime = "12:00 AM";
+                            var stringftna = stringfna+" "+displayTime;
+                        }
+                        
+                        var day = stringfna.split("-")[0];
+                        var month = stringfna.split("-")[1];
+                        var year = stringfna.split("-")[2];
+                        var displayDate = month + "/" + year +"/"+ day;
+                        var stringftna = displayDate+" "+displayTime;
+                        
+                        $("#inputconcatna" ).val(stringftna);
+                        })  
+                        
+                        $( "#fecha_defuncion" ).change(function( event ) {
+                            var stringfd =   $( "#fecha_defuncion" ).val();
+                        var stringtd =   $( "#hora_defuncion" ).val();
+                        if (stringtd.value !== "") {
+                            var displayTime = "12:00:00 AM";
+                            var stringftd = stringfd+" "+displayTime;
+                        }
+                        
+                        var day = stringfd.split("-")[0];
+                        var month = stringfd.split("-")[1];
+                        var year = stringfd.split("-")[2];
+                        var displayDate = month + "/" + year +"/"+ day;
+                        var stringftd = displayDate+" "+displayTime;
+                        
+                        $("#inputconcatd" ).val(stringftd);
+                        })
+                        $( "#hora_defuncion" ).change(function( event ) {
+                        var stringfd =   $( "#fecha_defuncion" ).val();
+                        var stringtd =   $( "#hora_defuncion" ).val();
+                        if (stringtd.value !== "") {
+                            var hours = stringtd.split(":")[0];
+                            var minutes = stringtd.split(":")[1];
+                            var suffix = hours >= 12 ? "PM" : "AM";
+                            hours = hours % 12 || 12;
+                            hours = hours < 10 ? "0" + hours : hours;
+
+                            var displayTime = hours + ":" + minutes +":00"+" " + suffix;
+                            var stringftd = stringfd+" "+displayTime;
+                        }else{
+                            var displayTime = "12:00 AM";
+                            var stringftd = stringfd+" "+displayTime;
+                        }
+                        
+                        var day = stringfd.split("-")[0];
+                        var month = stringfd.split("-")[1];
+                        var year = stringfd.split("-")[2];
+                        var displayDate = month + "/" + year +"/"+ day;
+                        var stringftd = displayDate+" "+displayTime;
+                        
+                        $("#inputconcatd" ).val(stringftd);
+                        })
             });
 </script>
 @endpush
