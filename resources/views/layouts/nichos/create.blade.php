@@ -30,9 +30,10 @@
                                 <div class="pl-lg-4">
                                     <div class="form-group">
                                         <label class="form-control-label" for="coordenada">
-                                            <i class="w3-xxlarge fa fa-map-marker"></i>{{ __(' Coordenada') }}
+                                            <i class="w3-xxlarge fa fa-map-marker "></i>{{ __(' Coordenada') }}
                                         </label>
-                                        <input type="text" name="coordenada" id="coordenada" class="form-control coord" placeholder="{{ __('Ejemplo: A1') }}" value="" required autofocus>
+                                        <input type="text" name="coordenada" id="coordenada" class="form-control coord nicoo" placeholder="{{ __('Ejemplo: A1') }}" value="" required autofocus>
+                                        <span style="color:red; float:right;" id="spancoo"></span>
         
             
                                     </div>
@@ -103,6 +104,7 @@
     </script>
     <script>
     $(document).ready(function(){
+        $("#btnSubmit").hide();
         //Validaciones segun el input
        
        
@@ -111,9 +113,9 @@
        $input1.addEventListener("keydown", event => {
 
                    if(patron1.test(event.key)){
-                    $(".coord").css({ "border": "1px solid #0C0"});
+                   
                    }
-                   else{$(".coord").css({ "border": "1px solid #C00"});
+                   else{
                        if(event.keyCode==8){ console.log("backspace"); }
                        else{ event.preventDefault();}
                    }
@@ -149,16 +151,33 @@
                                 
                                 
                             });
-         });
-         $(".mail").blur(function(){
+
+                            $(".mail").blur(function(){
                             var txtmail = $(".mail").val();
                             var valmail = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-                            if(
+                            if(valmail.test(txtmail)){
+                                $("#spanmail").text("Valido").css("color", "green");
                             $(".mail").css({ "border":"1px solid #0F0"}).fadeIn(2000);}
                             else{$("#spanmail").text("Correo Incorrecto").css("color", "red");
                             $(".mail").css({ "border":"1px solid #F00"}).fadeIn(2000);}
                             });
-                        });
+                            
+
+                            $(".nicoo").blur(function(){
+                            var txtcoo = $(".nicoo").val();
+                            var valcoo = /([A-Z])\s([0-9])/gm;
+                            if(valcoo.test(txtcoo)){
+                                $("#spancoo").text("Correcto").css("color", "green");
+                            $(".nicoo").css({ "border":"1px solid #0C0"}).fadeIn(2000);
+                            $("#btnSubmit").show();}
+                            else{$("#spancoo").text("Siga la sintaxis: Letra(s)+Espacio+Numero").css("color", "red");
+                            $(".nicoo").css({ "border":"1px solid #C00"}).fadeIn(2000);
+                            $("#btnSubmit").hide();}
+                            });
+
+         });
+         
+                       
 </script>
 
 @endpush
