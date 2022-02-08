@@ -24,6 +24,8 @@
                                 @method('patch')
 
                                 <h6 class="heading-small text-muted mb-4">{{ __('Información de difunto') }}</h6>
+                                <h6 class="heading-small mb-4" style="color:red; float: right;">{{ __('Campos obligatorios*') }}</h6>
+
                                 
                                 @include('alerts.success')
                                 @include('alerts.error_self_update', ['key' => 'not_allow_profile'])
@@ -31,7 +33,7 @@
                                 <div class="pl-lg-4">
                                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-name">
-                                            <i class="w3-xxlarge fa fa-user"></i>{{ __('Nombre Completo') }}
+                                            <i class="w3-xxlarge fa fa-user"></i>{{ __('Nombre Completo') }}<label style="color:red;">*</label>
                                         </label>
                                         <input type="text" name="name" id="input-name" class="form-control nombre" placeholder="{{ __('Jose Eduardo Lopez Perez') }}" value="" required autofocus>
         
@@ -39,9 +41,9 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="form-control-label" for="fechan">
-                                            <i class="w3-xxlarge fa fa-calendar"></i>{{ __('Fecha de nacimiento') }}
+                                            <i class="w3-xxlarge fa fa-calendar"></i>{{ __('Fecha de nacimiento') }}<label style="color:red;">*</label>
                                         </label>
-                                        <input type="date" name="fechan" id="fecha_nacimiento" class="form-control datepicker" placeholder="Da clic en este campo" value="" required autofocus>
+                                        <input type="date" name="fechan" id="fecha_nacimiento" class="form-control datepicker innac" placeholder="Da clic en este campo" value="" required autofocus>
         
                                         
                                     </div>
@@ -53,14 +55,14 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-d">
-                                            <i class="w3-xxlarge fa fa-calendar"></i>{{ __('Fecha de defunción') }}
+                                            <i class="w3-xxlarge fa fa-calendar"></i>{{ __('Fecha de defunción') }}<label style="color:red;">*</label>
                                         </label>
-                                        <input type="date" name="fecha-d" id="fecha_defuncion" class="form-control datepicker" placeholder="{{ __('Da clic en este campo') }}" value="" required autofocus>
+                                        <input type="date" name="fecha-d" id="fecha_defuncion" class="form-control datepicker indef" placeholder="{{ __('Da clic en este campo') }}" value="" required autofocus>
         
                                         
                                     </div>
                                     <div class="form-group">
-                                        <input type="time" name="fechad" id="hora_defuncion" class="form-control datepicker" value="12:00:00 AM." required autofocus>
+                                        <input type="time" name="fechad" id="hora_defuncion" class="form-control datepicker" value="" required autofocus>
                                     </div>
                                     <div class="form-group">
                                         <input type="text" name="fechan" id="inputconcatd" class="form-control datepicker" value="" required autofocus>
@@ -73,9 +75,9 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="form-control-label" for="coordenada">
-                                            <i class="w3-xxlarge fa fa-map-marker"></i>{{ __('Coordenada') }}
+                                            <i class="w3-xxlarge fa fa-map-marker"></i>{{ __('Coordenada') }}<label style="color:red;">*</label>
                                         </label>
-                                        <input name="coordenada" id="input-coordenada" class="form-control datepicker coord" placeholder="Inserta la coordenada" value="" required autofocus>
+                                        <input name="coordenada" id="input-coordenada" class="form-control datepicker coord incoo" placeholder="Inserta la coordenada" value="" required autofocus>
         
                                         
                                     </div>
@@ -117,6 +119,7 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="{{ asset('js/difuntosStore.js') }}"></script>
 <script>
+    $( "#agregarBTN" ).hide();
     $(document).ready(function(){
         //Validaciones segun el input
        
@@ -235,7 +238,35 @@
                         var stringftd = displayDate+" "+displayTime;
                         
                         $("#inputconcatd" ).val(stringftd);
+
                         })
+                        $( "#input-name" ).keydown(function( event ) { 
+                            if($( "#input-name" ).val()=="" || $( ".innac" ).val()=="" || $(".indef" ).val()=="" || $(".incoo" ).val()==""){
+                                $( "#agregarBTN" ).hide();
+                            }
+                        })
+                        $( ".innac" ).change(function( event ) { 
+                            if($( ".innac" ).val()=="" || $( "#input-name" ).val()=="" || $(".indef" ).val()=="" || $(".incoo" ).val()==""){
+                                $( "#agregarBTN" ).hide();
+                            }else{
+                                $( "#agregarBTN" ).show();
+                            }
+                        })
+                        $( ".indef" ).change(function( event ) { 
+                            if($( ".indef" ).val()=="" || $( "#input-name" ).val()=="" || $(".innac" ).val()=="" || $(".incoo" ).val()==""){
+                                $( "#agregarBTN" ).hide();
+                            }else{
+                                $( "#agregarBTN" ).show();
+                            }
+                        })
+                        $( ".incoo" ).change(function( event ) { 
+                            if($( ".indef" ).val()=="" || $( "#input-name" ).val()=="" || $(".innac" ).val()=="" || $(".incoo" ).val()==""){
+                                $( "#agregarBTN" ).hide();
+                            }else{
+                                $( "#agregarBTN" ).show();
+                            }
+                        })
+                        
             });
 </script>
 @endpush
