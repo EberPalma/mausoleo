@@ -22,7 +22,7 @@ class UserController extends Controller
             $activo = 0;
         }
         $user = \DB::table('users')
-                        ->select('id', 'name', 'ap_paterno', 'ap_materno', 'created_at', 'email', 'username', 'rol')
+                        ->select('id', 'name', 'ap_paterno', 'ap_materno', 'created_at', 'email', 'username', 'rol','updated_at')
                         ->where('activo', $activo)
                         ->orderBy('created_at')
                         ->get();

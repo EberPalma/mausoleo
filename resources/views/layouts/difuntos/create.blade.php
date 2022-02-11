@@ -43,12 +43,12 @@
                                         <label class="form-control-label" for="fechan">
                                             <i class="w3-xxlarge fa fa-calendar"></i>{{ __('Fecha de nacimiento') }}<label style="color:red;">*</label>
                                         </label>
-                                        <input type="date" name="fechan" id="fecha_nacimiento" class="form-control datepicker innac" placeholder="Da clic en este campo" value="" required autofocus>
+                                        <input type="date"  id="fecha_nacimiento" class="form-control datepicker innac" placeholder="Da clic en este campo" value="" required autofocus>
         
                                         
                                     </div>
                                     <div class="form-group">
-                                        <input type="time" name="fechan" id="hora_nacimiento" class="form-control datepicker" value="" required autofocus>
+                                        <input type="time"  id="hora_nacimiento" class="form-control datepicker" value="" required autofocus>
                                     </div>
                                     <div class="form-group">
                                         <input type="text" name="fechan" id="inputconcatna" class="form-control datepicker" value="" required autofocus>
@@ -57,15 +57,15 @@
                                         <label class="form-control-label" for="input-d">
                                             <i class="w3-xxlarge fa fa-calendar"></i>{{ __('Fecha de defunción') }}<label style="color:red;">*</label>
                                         </label>
-                                        <input type="date" name="fecha-d" id="fecha_defuncion" class="form-control datepicker indef" placeholder="{{ __('Da clic en este campo') }}" value="" required autofocus>
+                                        <input type="date"  id="fecha_defuncion" class="form-control datepicker indef" placeholder="{{ __('Da clic en este campo') }}" value="" required autofocus>
         
                                         
                                     </div>
                                     <div class="form-group">
-                                        <input type="time" name="fechad" id="hora_defuncion" class="form-control datepicker" value="" required autofocus>
+                                        <input type="time"  id="hora_defuncion" class="form-control datepicker" value="" required autofocus>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="fechan" id="inputconcatd" class="form-control datepicker" value="" required autofocus>
+                                        <input type="text" name="fecha-d" id="inputconcatd" class="form-control datepicker" value="" required autofocus>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-email"><i class="w3-xxlarge fa fa-envelope-o"></i>{{ __('Mensaje o epitafilo') }}</label>
@@ -101,7 +101,7 @@
                                     </div>
                                     
                                     <div class="text-center">
-                                        <button type="submit" id="agregarBTN" class="btn btn-default mt-4">{{ __('GUARDAR') }}</button>
+                                        <button type="submit" id="agregarBTN" class="btn btn-default mt-4 btnsubmit">{{ __('GUARDAR') }}</button>
                                     </div>
                                 </div>
                             </form>
@@ -119,7 +119,7 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="{{ asset('js/difuntosStore.js') }}"></script>
 <script>
-    $( "#agregarBTN" ).hide();
+    $( ".btnsubmit" ).hide();
     $(document).ready(function(){
         //Validaciones segun el input
        
@@ -242,28 +242,28 @@
                         })
                         $( "#input-name" ).keydown(function( event ) { 
                             if($( "#input-name" ).val()=="" || $( ".innac" ).val()=="" || $(".indef" ).val()=="" || $(".incoo" ).val()==""){
-                                $( "#agregarBTN" ).hide();
+                                $( ".btnsubmit" ).hide();
                             }
                         })
                         $( ".innac" ).change(function( event ) { 
                             if($( ".innac" ).val()=="" || $( "#input-name" ).val()=="" || $(".indef" ).val()=="" || $(".incoo" ).val()==""){
-                                $( "#agregarBTN" ).hide();
+                                $( ".btnsubmit" ).hide();
                             }else{
-                                $( "#agregarBTN" ).show();
+                                $( ".btnsubmit" ).show();
                             }
                         })
                         $( ".indef" ).change(function( event ) { 
                             if($( ".indef" ).val()=="" || $( "#input-name" ).val()=="" || $(".innac" ).val()=="" || $(".incoo" ).val()==""){
-                                $( "#agregarBTN" ).hide();
+                                $( ".btnsubmit" ).hide();
                             }else{
-                                $( "#agregarBTN" ).show();
+                                $( ".btnsubmit" ).show();
                             }
                         })
                         $( ".incoo" ).change(function( event ) { 
                             if($( ".indef" ).val()=="" || $( "#input-name" ).val()=="" || $(".innac" ).val()=="" || $(".incoo" ).val()==""){
-                                $( "#agregarBTN" ).hide();
+                                $( ".btnsubmit" ).hide();
                             }else{
-                                $( "#agregarBTN" ).show();
+                                $( ".btnsubmit" ).show();
                             }
                         })
                         
