@@ -50,7 +50,7 @@
                                             <i class="w3-xxlarge fa fa-calendar"></i>{{ __('Fecha de nacimiento') }}
                                         </label>
                                         <input type="text" name="fechaNacimiento" id="" class="form-control datepicker1 valfechan" placeholder="Da clic en este campo" value="{{ $beneficiario->fechaNacimiento }}" required autofocus>
-                                        <span style="color:gray; float:right;" id="spaninputfn">Dia/Mes/Año</span>
+                                        <span style="color:gray; float:right;" id="spaninputfn">Mes/Dia/Año</span>
         
                                         
                                     </div>
@@ -59,7 +59,7 @@
                                             <i class="w3-xxlarge fa fa-calendar"></i>{{ __('Fecha de defunción') }}
                                         </label>
                                         <input type="text" name="fechaDefuncion" id="input-fechad" class="form-control datepicker2 valfd" placeholder="{{ __('Da clic en este campo') }}" value="{{ $beneficiario->fechaDefuncion }}" required autofocus>
-                                        <span style="color:gray; float:right;" id="spaninputfd">Dia/Mes/Año</span>
+                                        <span style="color:gray; float:right;" id="spaninputfd">Mes/Dia/Año</span>
         
                                         
                                     </div>
