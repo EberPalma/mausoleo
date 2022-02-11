@@ -50,8 +50,7 @@
                                             <i class="w3-xxlarge fa fa-calendar"></i>{{ __('Fecha de nacimiento') }}
                                         </label>
                                         <input type="text" name="fechaNacimiento" id="" class="form-control datepicker1 valfechan" placeholder="Da clic en este campo" value="{{ $beneficiario->fechaNacimiento }}" required autofocus>
-                                        <span style="color:red; float:right;" id="spaninputfn"></span>
-                                        <input type="hidden" id="valfn" value="">
+                                        <span style="color:gray; float:right;" id="spaninputfn">Dia/Mes/Año</span>
         
                                         
                                     </div>
@@ -60,6 +59,7 @@
                                             <i class="w3-xxlarge fa fa-calendar"></i>{{ __('Fecha de defunción') }}
                                         </label>
                                         <input type="text" name="fechaDefuncion" id="input-fechad" class="form-control datepicker2 valfd" placeholder="{{ __('Da clic en este campo') }}" value="{{ $beneficiario->fechaDefuncion }}" required autofocus>
+                                        <span style="color:gray; float:right;" id="spaninputfd">Dia/Mes/Año</span>
         
                                         
                                     </div>
@@ -95,7 +95,7 @@
                                     </div>
                                     
                                     <div class="text-center">
-                                        <button type="submit" class="btn btn-default mt-4">{{ __('GUARDAR') }}</button>
+                                        <button type="submit" class=" btnsubmit btn btn-default mt-4">{{ __('GUARDAR') }}</button>
                                     </div>
                                 </div>
                             </form>
@@ -150,7 +150,6 @@
        
        const $input1 = document.querySelector('.datepicker1');
        const patron1 = /[0-9/AMP:]+/;
-       const r = /([0-2][0-9]|3[0-1]|[0-9])(\/|-)([1-9]|0[1-9]|1[0-2])\2(\d{4})(\s)([0-1][0-9]|2[0-3])(:)([0-5][0-9])(:)([0-5][0-9])(\s)([AP][M])\z/gm; 
        const validacionf =  $(".valfn").val();
 
        $input1.addEventListener("keydown", event => {
@@ -167,6 +166,29 @@
                    
                    
                });
+               $(".datepicker1").keyup(function(){
+               var txtfechana = $(".datepicker1").val();
+               
+               var valfechana = /^([1-9]|0[1-9]|1[0-2])(\/|-)([0-2][0-9]|3[0-1]|[0-9])\2(\d{4})(\s)([0-1][0-9]|2[0-3])(:)([0-5][0-9])(:)([0-5][0-9])(\s)([AP][M])$/gm;
+               if(valfechana.test(txtfechana)){
+                                $("#spaninputfn").text("Correcto").css("color", "green");
+                            $(".datepicker1").css({ "border":"1px solid #0C0"}).fadeIn(2000);
+                            $(".btnsubmit").show();}
+                            else{$("#spaninputfn").text("Registre una fecha valida").css("color", "red");
+                            $(".datepicker1").css({ "border":"1px solid #C00"}).fadeIn(2000);
+                            $(".btnsubmit").hide();}
+            }); 
+            $(".datepicker2").keyup(function(){
+               var txtfechad = $(".datepicker2").val();
+               var valfechad = /^([1-9]|0[1-9]|1[0-2])(\/|-)([0-2][0-9]|3[0-1]|[0-9])\2(\d{4})(\s)([0-1][0-9]|2[0-3])(:)([0-5][0-9])(:)([0-5][0-9])(\s)([AP][M])$/gm;
+               if(valfechad.test(txtfechad)){
+                                $("#spaninputfd").text("Correcto").css("color", "green");
+                            $(".datepicker2").css({ "border":"1px solid #0C0"}).fadeIn(2000);
+                            $(".btnsubmit").show();}
+                            else{$("#spaninputfd").text("Registre una fecha valida").css("color", "red");
+                            $(".datepicker2").css({ "border":"1px solid #C00"}).fadeIn(2000);
+                            $(".btnsubmit").hide();}
+            });
  
        const $input2 = document.querySelector('.datepicker2');
        const patron2 = /[0-9/AMP:]+/;

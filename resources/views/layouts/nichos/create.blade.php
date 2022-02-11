@@ -163,7 +163,7 @@
                             });
                             
 
-                            $(".nicoo").blur(function(){
+                            $(".nicoo").keyup(function(){
                             var txtcoo = $(".nicoo").val();
                             var valcoo = /([A-Z])\s([0-9])/gm;
                             if(valcoo.test(txtcoo)){
