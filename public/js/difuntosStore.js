@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let input_name = document.querySelector("#input-name");
     let input_paterno = document.querySelector("#input-paterno");
     let input_materno = document.querySelector("#input-materno");
-    let fecha_nacimiento = document.querySelector("#fecha_nacimiento");
-    let input_fechad = document.querySelector("#input-fechad");
+    let fecha_nacimiento = document.querySelector("#inputconcatna");
+    let input_fechad = document.querySelector("#inputconcatd");
     let input_mensaje = document.querySelector("#input-mensaje");
     btn.addEventListener("click", (e) => {
         e.preventDefault();

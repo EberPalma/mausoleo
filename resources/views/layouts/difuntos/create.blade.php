@@ -51,7 +51,7 @@
                                         <input type="time"  id="hora_nacimiento" class="form-control datepicker" value="" required autofocus>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="fechan" id="inputconcatna" class="form-control datepicker" value="" required autofocus>
+                                        <input type="text" name="fechan" id="inputconcatna" class="form-control datepicker" value="" required autofocus readonly>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-d">
@@ -65,7 +65,7 @@
                                         <input type="time"  id="hora_defuncion" class="form-control datepicker" value="" required autofocus>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="fecha-d" id="inputconcatd" class="form-control datepicker" value="" required autofocus>
+                                        <input type="text" name="fecha-d" id="inputconcatd" class="form-control datepicker" value="" required autofocus readonly>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-email"><i class="w3-xxlarge fa fa-envelope-o"></i>{{ __('Mensaje o epitafilo') }}</label>
