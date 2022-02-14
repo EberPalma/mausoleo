@@ -96,7 +96,7 @@
                         <div class="card-footer ">
                             <hr>
                             <div class="stats">
-                                <i class="now-ui-icons loader_refresh spin"></i> {{ __('Updated 3 minutes ago') }}
+                                <i class="now-ui-icons loader_refresh spin"></i> {{ __('Actualizado recientemente') }}
                             </div>
                         </div>
                     </div>

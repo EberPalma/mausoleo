@@ -40,7 +40,7 @@
                                 <th>A.Materno</th>
                                 <th>Rol</th>
                                 <th>Email</th>
-                                <th>Ultima Entrada</th>
+                                <th>Creado</th>
                                 <th>Acciones</th>
                             </tr></thead>
                             <tfoot>
@@ -49,7 +49,7 @@
                             <tbody id="tableBody"></tbody>
 
                         </table>
-                    </div><div class="stats container" style="margin-left:30px">
+                    </div><div class="stats container">
                         <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"> <i class="now-ui-icons loader_refresh spin"></i> {{ __('VER REGISTROS ELIMINADOS') }}
                     
                 </div>

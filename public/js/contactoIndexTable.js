@@ -47,10 +47,8 @@ function loadTable(response) {
         let check = e.atendido == 1 ? "checked" : "";
         let atendido = `<td>
                             <div class="form-check">
-                                <label class="form-check-label">
-                                    <input class="" id="id${e.id}" type="checkbox" value="${e.id}" ${check}>
-                                    <span class="form-check-sign"></span>
-                                </label>
+                                    <input class="form-check-input" id="id${e.id}" type="checkbox" value="${e.id}" ${check}>
+
                             </div>
                         </td>`;
         let mensaje = `<td><small>${e.mensaje}</small></td>`;

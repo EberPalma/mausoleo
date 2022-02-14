@@ -65,7 +65,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-email"><i class="w3-xxlarge fa fa-envelope-o"></i>{{ __('Mensaje o epitafilo') }}</label>
-                                        <input type="text" name="mensaje" id="input-mensaje" class="form-control" placeholder="{{ __('Mensaje') }}" value="{{ $beneficiario->mensaje }}" required>
+                                        <input type="text" name="mensaje" id="input-mensaje" class="form-control" placeholder="{{ __('Mensaje') }}" value="{{ $beneficiario->mensaje }}" >
         
                                         @include('alerts.feedback', ['field' => 'email'])
                                     </div>

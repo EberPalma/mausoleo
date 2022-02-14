@@ -52,6 +52,9 @@ Route::get('/nicho.editar/{id}', [App\Http\Controllers\NichosController::class, 
 Route::get('/difuntos', function () {return view('layouts.difuntos.index');})->name('difuntos');
 Route::get('/difunto.editar/{id}', [App\Http\Controllers\BeneficiariosController::class, 'edit'])->name('difuntos.update');
 Route::get('/difunto.añadir', function () {return view('layouts.difuntos.create');})->name('difunto.añadir');
+//Invitado
+Route::get('/invitado.contacto', function () {return view('layouts.invitado.contacto');})->name('invitado.contacto');
+Route::get('/invitado.menu', function () {return view('layouts.invitado.invitadomenu');})->name('invitado.menu');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
