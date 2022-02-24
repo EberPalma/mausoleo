@@ -29,6 +29,7 @@
     border-radius: 10px;
     overflow: hidden;
     background-color: #cccccc;
+    content: "Sin imagen";
     background-size: cover;
     position: relative;
   }

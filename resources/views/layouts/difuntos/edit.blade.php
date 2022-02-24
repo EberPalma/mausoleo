@@ -33,7 +33,7 @@
                                         <label class="form-control-label" for="input-name">
                                             <i class="w3-xxlarge fa fa-user"></i>{{ __('Nombre') }}
                                         </label>
-                                        <input type="text" name="nombre" id="input-name" class="form-control" placeholder="{{ __('Jose') }}" value="{{ $beneficiario->nombre }}" required autofocus>
+                                        <input type="text" name="nombre" id="input-name" class="form-control nameb" placeholder="{{ __('Jose') }}" value="{{ $beneficiario->nombre }}" required autofocus>
         
                                         @include('alerts.feedback', ['field' => 'name'])
                                     </div>
@@ -64,8 +64,8 @@
                                         
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-control-label" for="input-email"><i class="w3-xxlarge fa fa-envelope-o"></i>{{ __('Mensaje o epitafilo') }}</label>
-                                        <input type="text" name="mensaje" id="input-mensaje" class="form-control" placeholder="{{ __('Mensaje') }}" value="{{ $beneficiario->mensaje }}" >
+                                        <label class="form-control-label"><i class="w3-xxlarge fa fa-envelope-o"></i>{{ __('Mensaje o epitafilo') }}</label>
+                                        <textarea rows="3" type="text" name="mensaje" id="input-mensaje" class="form-control" placeholder="{{ __('Mensaje') }}" >{{ $beneficiario->mensaje }}</textarea>
         
                                         @include('alerts.feedback', ['field' => 'email'])
                                     </div>
@@ -80,18 +80,45 @@
                                     <br>
                                     <h6 class="heading-small text-muted mb-3">{{ __('Fotos del difunto') }}</h6>
                                     <div class="row">
+                                      @if (File::exists(public_path("Images/Beneficiary/{$beneficiario->id}_1.jpg")))
                                     <div class="drop-zone col-md-4 ml-auto">
-                                        <span class="drop-zone__prompt">Imagen Principal</span>
+                                        <input type="file" name="myFile" class="drop-zone__input">
+                                        <div class="drop-zone__thumb" data-label="{{$beneficiario->id}}_1.jpg" style="background-image:url('{{ asset("Images/Beneficiary/{$beneficiario->id}_1.jpg") }}');"></div>
+                                      </div>
+                                      @else
+                                      <div class="drop-zone col-md-4 ml-auto">
+                                        <span class="drop-zone__prompt">Imagen de Perfil</span>
                                         <input type="file" name="myFile" class="drop-zone__input">
                                       </div>
+                                      @endif
+                                      @if (File::exists(public_path("Images/Beneficiary/{$beneficiario->id}_2.jpg")))
                                       <div class="drop-zone col-md-3 ml-auto">
-                                        <span class="drop-zone__prompt">Imagen Alternativa 1</span>
-                                        <input type="file" name="myFile" class="drop-zone__input">
+                                        <input type="file" name="myFile" class="drop-zone__input" >
+                                        <div class="drop-zone__thumb" data-label="{{$beneficiario->id}}_2.jpg" style="background-image:url('{{ asset("Images/Beneficiary/{$beneficiario->id}_2.jpg") }}');"></div>
                                       </div>
+                                      @else
                                       <div class="drop-zone col-md-3 ml-auto">
                                         <span class="drop-zone__prompt">Imagen Alternativa 2</span>
                                         <input type="file" name="myFile" class="drop-zone__input">
                                       </div>
+                                      @endif
+                                      @if (File::exists(public_path("Images/Beneficiary/{$beneficiario->id}_3.jpg")))
+                                      <div class="drop-zone col-md-3 ml-auto">
+                                        <input type="file" name="myFile" class="drop-zone__input" >
+                                        <div class="drop-zone__thumb" data-label="{{$beneficiario->id}}_3.jpg" style="background-image:url('{{ asset("Images/Beneficiary/{$beneficiario->id}_3.jpg") }}');"></div>
+                                      </div>
+                                      @else
+                                      <div class="drop-zone col-md-3 ml-auto">
+                                        <span class="drop-zone__prompt">Imagen Alternativa 3</span>
+                                        <input type="file" name="myFile" class="drop-zone__input">
+                                      </div>
+                                      @endif
+                                
+                                      <!-- <div class="drop-zone col-md-3 ml-auto">
+                                        <span class="drop-zone__prompt">Imagen Alternativa 1</span>
+                                        <input type="file" name="myFile" class="drop-zone__input">
+                                      </div> -->
+                                      
                                     </div>
                                     
                                     <div class="text-center">
@@ -201,6 +228,18 @@
                        $(".datepicker2").css({ "border": "1px solid #0C0"});
                    }
                    else{$(".datepicker2").css({ "border": "1px solid #C00"});
+                       if(event.keyCode==8){ console.log("backspace"); }
+                       else{ event.preventDefault();}
+                   }
+               });
+               const $input4 = document.querySelector('.nameb');
+               const patron4 = /[A-Za-zñÑáéíóúýÁÉÍÓÚ Ý]+/;
+       $input4.addEventListener("keydown", event => {
+                   console.log(event.key);
+                   if(patron4.test(event.key)){
+                       $(".nameb").css({ "border": "1px solid #0C0"});
+                   }
+                   else{$(".nameb").css({ "border": "1px solid #C00"});
                        if(event.keyCode==8){ console.log("backspace"); }
                        else{ event.preventDefault();}
                    }
