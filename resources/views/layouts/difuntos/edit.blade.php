@@ -110,18 +110,17 @@
                             <div class="card-body">
                                 <div class="author">
                                     <a href="#">
-                                        <img class="avatar border-gray" src="{{ asset('img/faces/9_1.jpg') }}" alt="...">
+                                        <img class="avatar border-gray" src="{{ asset("Images/Beneficiary/{$beneficiario->id}_1.jpg") }}" alt="...">
                                         <h5 class="title">{{ $beneficiario->nombre }}</h5>
                                     </a>
                                     @php
-                                    $date = date_create($beneficiario->fechaNacimiento);
-                                    $datef = date_create($beneficiario->fechaDefuncion);
+                                    
                                     @endphp
                                     <p class="description">
-                                       <b>Nacimiento:</b> {{ date_format($date, "D d M Y H:i:s") }} Hrs
+                                       <b>Nacimiento:</b> {{ $beneficiario->fechaNacimiento }}
                                     </p>
                                     <p class="description">
-                                        <b>Defunción:</b> {{ date_format($datef, "D d M Y H:i:s") }} Hrs
+                                        <b>Defunción:</b> {{ $beneficiario->fechaDefuncion }}
                                      </p>
                                 </div>
                                 <p class="description text-center">

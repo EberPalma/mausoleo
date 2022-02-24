@@ -110,4 +110,23 @@ body {
 
     
   </body>
+  <script>
+  
+    $(document).ready(function(){
+      // Mostrar drwopdown por unos segundos
+      $("#dropdownf").hide();
+      
+      var showed=0;
+      $("#dropdown07").click(function(){
+      $('#dropdownf').toggle();
+      })
+      // Aviso de privacidad
+      $("#txtavisoprivacidad").hide();
+      $("#collapseAviso").click(function(){
+          $('#txtavisoprivacidad').toggle();
+      })
+      
+  
+    });
+    </script>
 </html>
