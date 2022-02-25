@@ -90,7 +90,7 @@
                                     <div class="row">
                                       @if (File::exists(public_path("Images/Beneficiary/{$beneficiario->id}_1.jpg")))
                                     <div class="drop-zone col-md-4 ml-auto">
-                                        <input type="file" name="myFile" class="drop-zone__input">
+                                        <input type="file" name="foto1" class="drop-zone__input">
                                         <div class="drop-zone__thumb" data-label="{{$beneficiario->id}}_1.jpg" style="background-image:url('{{ asset("Images/Beneficiary/{$beneficiario->id}_1.jpg") }}');"></div>
                                       </div>
                                       @else
@@ -101,7 +101,7 @@
                                       @endif
                                       @if (File::exists(public_path("Images/Beneficiary/{$beneficiario->id}_2.jpg")))
                                       <div class="drop-zone col-md-3 ml-auto">
-                                        <input type="file" name="myFile" class="drop-zone__input" >
+                                        <input type="file" name="foto2" class="drop-zone__input" >
                                         <div class="drop-zone__thumb" data-label="{{$beneficiario->id}}_2.jpg" style="background-image:url('{{ asset("Images/Beneficiary/{$beneficiario->id}_2.jpg") }}');"></div>
                                       </div>
                                       @else
@@ -112,7 +112,7 @@
                                       @endif
                                       @if (File::exists(public_path("Images/Beneficiary/{$beneficiario->id}_3.jpg")))
                                       <div class="drop-zone col-md-3 ml-auto">
-                                        <input type="file" name="myFile" class="drop-zone__input" >
+                                        <input type="file" name="foto3" class="drop-zone__input" >
                                         <div class="drop-zone__thumb" data-label="{{$beneficiario->id}}_3.jpg" style="background-image:url('{{ asset("Images/Beneficiary/{$beneficiario->id}_3.jpg") }}');"></div>
                                       </div>
                                       @else

@@ -69,17 +69,17 @@ class BeneficiariosController extends Controller
         if($request->file('foto1') != ''){
                 $file = $request->file('foto1');
                 $nombre = $beneficiario[0]->id.'_1.'.$file->extension();
-                \Storage::disk('beneficiary')->put($nombre, \File::get($file));
+                \Storage::disk('local')->put($nombre, \File::get($file));
             }
         if($request->file('foto2') != ''){
                 $file = $request->file('foto2');
                 $nombre = $beneficiario[0]->id.'_2.'.$file->extension();
-                \Storage::disk('beneficiary')->put($nombre, \File::get($file));
+                \Storage::disk('local')->put($nombre, \File::get($file));
             }
         if($request->file('foto3') != ''){
                 $file = $request->file('foto3');
                 $nombre = $beneficiario[0]->id.'_3.'.$file->extension();
-                \Storage::disk('beneficiary')->put($nombre, \File::get($file));
+                \Storage::disk('local')->put($nombre, \File::get($file));
             }
         return view('layouts.difuntos.edit')
             ->with('beneficiario', $beneficiario[0]);
