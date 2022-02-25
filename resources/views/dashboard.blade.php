@@ -49,8 +49,14 @@
                     <div class="card-body">
                         <i class="fa fa-qrcode fa-3x"></i>
                     </div>
+                    
+                    
                         <div class="card-footer">
-                            <b>195 Generados</b>
+                            <b><?php 
+                                $total_imagenes = count(glob('Images/QrCode/{*.jpg,*.gif,*.png}',GLOB_BRACE));
+                                echo $total_imagenes;
+                                
+                                ?> Generados</b>
                         </div>
                     </div> 
                                                                    
