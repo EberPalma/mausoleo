@@ -77,6 +77,13 @@
                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3"/>
                     <label class="form-check-label" for="flexRadioDefault3"> Quejas </label>
                   </div><hr>
+                  <div class="form-check">
+                    <label for=""><i class="fa-solid fa-edit"></i> Mensaje</label>
+                    <textarea class="form-control" name="" id="" cols="30" rows="5">
+
+                    </textarea>
+
+                  </div>
                   
                   
               </form>
