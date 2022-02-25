@@ -145,7 +145,11 @@
                             <div class="card-body">
                                 <div class="author">
                                     <a href="#">
+                                        @if (File::exists(public_path("Images/Beneficiary/{$beneficiario->id}_1.jpg")))
                                         <img class="avatar border-gray" src="{{ asset("Images/Beneficiary/{$beneficiario->id}_1.jpg") }}" alt="...">
+                                        @else
+                                        <img class="avatar border-gray" src="{{ asset("img/MSC.png") }}" alt="...">
+                                        @endif
                                         <h5 class="title">{{ $beneficiario->nombre }}</h5>
                                     </a>
                                     @php
@@ -171,7 +175,21 @@
                             </div>
                             <hr>
                             <div class="button-container mr-auto ml-auto">
-                                <img width="200px" src="{{ asset('img/qr-code.png') }}" class="rounded float-left" alt="...">
+                                @foreach($nichos as $nicho)
+                                @if($nicho->id == $beneficiario->idNicho)
+                                <center> <b>CODIGO QR<b> 
+                                <?php 
+                                $searchString = " ";
+                                $replaceString = "";
+                                $originalString = "{$nicho->coordenada}";
+                                $outputString = str_replace($searchString, $replaceString, $originalString); 
+                                echo('<img width="200px" src="http://127.0.0.1:8000/Images/QrCode/QRCodeNicho'.$outputString.'.png">'); 
+                                ?> 
+                                <a class="btn btn-success" href=""> Imprimir </a>
+                                <a class="btn btn-primary" href=""> Descargar </a>
+                                </center>
+                                @endif
+                                @endforeach
                             </div>
                         </div>
                     </div>
