@@ -55,6 +55,7 @@ Route::get('/difunto.añadir', function () {return view('layouts.difuntos.create
 //Invitado
 Route::get('/invitado.contacto', function () {return view('layouts.invitado.contacto');})->name('invitado.contacto');
 Route::get('/invitado.menu', function () {return view('layouts.invitado.invitadomenu');})->name('invitado.menu');
+Route::get('/invitado.presentacion', function () {return view('layouts.invitado.carousel');})->name('invitado.presentacion');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

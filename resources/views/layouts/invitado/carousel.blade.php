@@ -33,61 +33,55 @@
     }
     
 }
+.logo img {
+
+max-width: 100%;
+height: auto;
+
+}
 </style><br>
 <center>
     <div class="card text-white bg-secondary mb-3 smartcard" >
-        <img src="{{ asset('img/1.jpg') }}" class="card-img-top" height="250px" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Contacto</h5>
-          <p class="card-text">Horario: Lunes a Viernes de 10:00 a 18:00 hrs. Sábado y Domingo de 10:00 a 14:00 hrs. Para mayores informes comuníquese con nosotros o envíenos sus comentarios.</p>
-        </div><hr>
-        <div class="card-body"><hr>
-            <form>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Nombre</label>
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="fa-solid fa-user"></i></span>
-                    <input type="text" class="form-control nombreinvitado" placeholder="Nombre">
-                  </div>
-                </div><hr>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Telefono</label>
-                    <div class="input-group">
-                        <span class="input-group-addon "><i class="fa-solid fa-phone"></i></span>
-                        <input type="text" class="form-control numeroinvitado" placeholder="Telefono">
-                      </div>
-                      <span class="badge badge-warning" style="color:gray; float:right;" id="spaninputnumero"></span>
-                  </div><hr>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Email</label>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa-solid fa-envelope"></i></span>
-                        <input type="email" class="form-control mail" placeholder="Correo Electronico">
-                      </div>
-                      <span class="badge badge-warning" style="color:red; float:right;" id="spanmail"></span>
-                  </div><hr>
-                  <label for="exampleInputEmail1">Asunto</label>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
-                    <label class="form-check-label" for="flexRadioDefault1"> Informes </label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                  
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"/>
-                    <label class="form-check-label" for="flexRadioDefault2"> Sugerencias </label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                  
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3"/>
-                    <label class="form-check-label" for="flexRadioDefault3"> Quejas </label>
-                  </div><hr>
-                  
-                  
-              </form>
-              <div class="g-recaptcha" data-sitekey="your_site_key"></div>
-          </div><hr>
-        <div class="card-body">
-          <a class="btn btn-danger" style="float:left;" href="#" class="card-link"><i class="fa-solid fa-backward"></i>  &nbsp <b>Regresar</b></a>
-          <a class="btn btn-success btnsubmit" style="float:right;" href="#" class="card-link"><b>Enviar</b> &nbsp <i class="fa-solid fa-paper-plane"></i></a>
+    <div class="card-body">
+          <h5 class="card-title">Presentación</h5>
         </div>
-        
+        <div class="card-body">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="{{ asset('images/Beneficiary/1_1.jpg') }}" alt="First slide" max-width="50" height="auto">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Nombre del beneficiario</h5>
+              <p>Mensaje de epitafio o Fechas N/F</p>
+          </div>
+          </div>
+          <div class="carousel-item">
+          <img class="d-block w-100" src="{{ asset('images/Beneficiary/2_1.jpg') }}" alt="Second slide" max-width="50" height="auto">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Nombre del beneficiario</h5>
+              <p>Mensaje de epitafio o Fechas N/F</p>
+          </div>
+          </div>
+          <div class="carousel-item">
+          <img class="d-block w-100" src="{{ asset('images/Beneficiary/3_1.jpg') }}" alt="Third slide" max-width="50" height="auto">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Nombre del beneficiario</h5>
+              <p>Mensaje de epitafio o Fechas N/F</p>
+          </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+        </div>
       </div>
+        
+    </div>
       
       
 
@@ -177,59 +171,7 @@
 </div>
 </div>
 </center>
-<script>
+
   
-  $(document).ready(function(){
-    $(".btnsubmit").hide();
-    const $input1 = document.querySelector('.nombreinvitado');
-    const patron1 = /[A-Za-zñÑáéíóúýÁÉÍÓÚ Ý.-]+/;
-
-       $input1.addEventListener("keydown", event => {
-        
-                   console.log(event.key);
-                  
-                   if(patron1.test(event.key)){
-                    $(".nombreinvitado").css({ "border": "1px solid #0C0"});
-                   }
-                   else{$(".nombreinvitado").css({ "border": "1px solid #C00"});
-                       if(event.keyCode==8){ console.log("backspace"); }
-                       else{ event.preventDefault();}
-                   }
-                   
-                   
-               })
-               
-        
-        $(".numeroinvitado").blur(function(){
-               var txtnumero = $(".numeroinvitado").val();
-               var valnumero = /^(\(\+?\d{2,3}\)[\*|\s|\-|\.]?(([\d][\*|\s|\-|\.]?){6})(([\d][\s|\-|\.]?){2})?|(\+?[\d][\s|\-|\.]?){8}(([\d][\s|\-|\.]?){2}(([\d][\s|\-|\.]?){2})?)?)$/;
-               if(valnumero.test(txtnumero)){
-                                $("#spaninputnumero").text("Correcto").css("color", "green");
-                            $(".numeroinvitado").css({ "border":"1px solid #0C0"}).fadeIn(2000);
-                            $(".btnsubmit").show();
-                            
-                          }
-                            else{$("#spaninputnumero").text("Registre un numero valido").css("color", "red");
-                            $(".numeroinvitado").css({ "border":"1px solid #C00"}).fadeIn(2000);
-                            $(".btnsubmit").hide();
-                            
-                          }
-            }) 
-
-            $(".mail").blur(function(){
-                            var txtmail = $(".mail").val();
-                            var valmail = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-                            if(valmail.test(txtmail)){
-                                $("#spanmail").text("Valido").css("color", "green");
-                            $(".mail").css({ "border":"1px solid #0F0"}).fadeIn(2000);
-                            $(".btnsubmit").show();}
-                            else{$("#spanmail").text("Correo Incorrecto").css("color", "red");
-                            $(".mail").css({ "border":"1px solid #F00"}).fadeIn(2000);
-                            $(".btnsubmit").hide();
-                          }
-                            });
-
-  });
-  </script>
 @endsection
 
