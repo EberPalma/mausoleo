@@ -110,6 +110,9 @@
                                      <p class="description">
                                         Nombre del Titular:<br> <b>{{ $nicho->nombre }}</b> 
                                      </p>
+                                     <p class="description">
+                                        Familia:<br> <b>{{ $nicho->familia }}</b> 
+                                     </p>
                                      @if ($nicho->email == NULL)
                                      
                                      @else
