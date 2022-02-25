@@ -76,8 +76,9 @@
                                     <div class="form-group">
                                         <label class="form-control-label" for="coordenada">
                                             <i class="w3-xxlarge fa fa-map-marker"></i>{{ __('Coordenada') }}<label style="color:red;">*</label>
-                                        </label>
-                                        <select name="idNicho" id="idNicho">
+                                        </label><br>
+                                        <select  class="form-control" name="idNicho" id="idNicho">
+                                            <option >Selecciona una coordenada</option>
                                             @foreach($nichos as $nicho)
                                                 <option value="{{$nicho->id}}">{{$nicho->coordenada}}</option>
                                             @endforeach
@@ -142,20 +143,7 @@
                    
                    
                });
-               const $input2 = document.querySelector('.coord');
-                const patron2 = /[A-Z 0-9]+/;
-                $input2.addEventListener("keydown", event => {
-
-                            if(patron2.test(event.key)){
-                                $(".coord").css({ "border": "1px solid #0C0"});
-                            }
-                            else{$(".coord").css({ "border": "1px solid #C00"});
-                                if(event.keyCode==8){ console.log("backspace"); }
-                                else{ event.preventDefault();}
-                            }
-                            
-                            
-                        });
+               
                         var stringtna = "";
                         var stringfna = "";
                         
