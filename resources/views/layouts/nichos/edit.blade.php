@@ -139,9 +139,9 @@
                                 $originalString = "{$nicho->coordenada}";
                                 $outputString = str_replace($searchString, $replaceString, $originalString); 
                                 echo('<img width="200px" src="http://127.0.0.1:8000/Images/QrCode/QRCodeNicho'.$outputString.'.png">'); 
+                                echo('<a class="btn btn-primary" href="http://127.0.0.1:8000/Images/QrCode/QRCodeNicho'.$outputString.'.png" download="'.$outputString.'.png"> Descargar </a>');
                                 ?> 
-                                <a class="btn btn-success" href=""> Imprimir </a>
-                                <a class="btn btn-primary" href=""> Descargar </a>
+                                
                             </center>
                         </div>
                     </div>
