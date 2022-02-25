@@ -29,7 +29,7 @@ class NichosController extends Controller
     public function buscar($filtro){
         $data = array();
         $nicho = \DB::table('nichos')
-                        ->where('coordenada', $filtro)
+                        ->where('coordenada', 'like', '%'.$filtro.'%')
                         ->select('id', 'coordenada', 'capacidad', 'nombre', 'familia')
                         ->get();
         foreach($nicho as $n){
