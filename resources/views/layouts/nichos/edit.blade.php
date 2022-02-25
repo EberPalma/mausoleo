@@ -108,12 +108,17 @@
                                      </p>
                                      <hr>
                                      <p class="description">
-                                        Nombre del Titular: <b>{{ $nicho->nombre }}</b> 
+                                        Nombre del Titular:<br> <b>{{ $nicho->nombre }}</b> 
                                      </p>
+                                     @if ($nicho->email == NULL)
+                                     
+                                     @else
                                      <hr>
                                      <p class="description" title="Enviar email">
                                         Email: <a href="mailto:{{ $nicho->email }}">{{ $nicho->email }}</a> 
                                      </p>
+                                     @endif
+                                     
                                 </div>
                                 <p class="description text-center">
 
@@ -122,10 +127,17 @@
                                 </p>
                             </div>
                             <hr>
-                            <div class="button-container mr-auto ml-auto">
-                                <center>Codigo QR:</center> 
-                                <img width="200px" src="{{ asset('img/qr-code.png') }}" class="rounded float-left" alt="...">
-                            </div>
+                            <center> <b>CODIGO QR<b> 
+                                <?php 
+                                $searchString = " ";
+                                $replaceString = "";
+                                $originalString = "{$nicho->coordenada}";
+                                $outputString = str_replace($searchString, $replaceString, $originalString); 
+                                echo('<img width="200px" src="http://127.0.0.1:8000/Images/QrCode/QRCodeNicho'.$outputString.'.png">'); 
+                                ?> 
+                                <a class="btn btn-success" href=""> Imprimir </a>
+                                <a class="btn btn-primary" href=""> Descargar </a>
+                            </center>
                         </div>
                     </div>
                 </div>
