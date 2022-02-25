@@ -77,7 +77,11 @@
                                         <label class="form-control-label" for="coordenada">
                                             <i class="w3-xxlarge fa fa-map-marker"></i>{{ __('Coordenada') }}<label style="color:red;">*</label>
                                         </label>
-                                        <input name="coordenada" id="input-coordenada" class="form-control datepicker coord incoo" placeholder="Inserta la coordenada" value="" required autofocus>
+                                        <select name="idNicho" id="idNicho">
+                                            @foreach($nichos as $nicho)
+                                                <option value="{{$nicho->id}}">{{$nicho->coordenada}}</option>
+                                            @endforeach
+                                        </select>
         
                                         
                                     </div>
