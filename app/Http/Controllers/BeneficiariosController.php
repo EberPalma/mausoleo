@@ -87,7 +87,7 @@ class BeneficiariosController extends Controller
 
     public function store(Request $request){
 
-        $beneficiario = \DB::table('beneficiario')->insert([
+        $beneficiario = \DB::table('beneficiarios')->insert([
             'idNicho' => $request->idNicho,
             'nombre' => $request->nombre,
             'fechaNacimiento' => $request->fechaNacimiento,
@@ -97,7 +97,28 @@ class BeneficiariosController extends Controller
             'created_at' =>  date('Y-m-d h:i:s')
         ]);
 
+        $beneficiario = \DB::table('beneficiarios')->select('id')
+            ->where('nombre', $request->nombre)
+            ->where('idNicho', $request->idNicho)
+            ->get();
 
+        if($request->file('foto1') != ''){
+            $file = $request->file('foto1');
+            $nombre = $beneficiario[0]->id.'_1.'.$file->extension();
+            \Storage::disk('local')->put($nombre, \File::get($file));
+        }
+        if($request->file('foto2') != ''){
+            $file = $request->file('foto2');
+            $nombre = $beneficiario[0]->id.'_2.'.$file->extension();
+            \Storage::disk('local')->put($nombre, \File::get($file));
+        }
+        if($request->file('foto3') != ''){
+            $file = $request->file('foto3');
+            $nombre = $beneficiario[0]->id.'_3.'.$file->extension();
+            \Storage::disk('local')->put($nombre, \File::get($file));
+        }
+
+        return view('layouts.nichos.index');
     }
 
     public function destroy($id){

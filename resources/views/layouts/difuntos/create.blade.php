@@ -18,10 +18,9 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form method="post" action="#" autocomplete="off"
+                            <form method="post" action="{{ route('beneficiariosStore') }}" autocomplete="off"
                                 enctype="multipart/form-data">
                                 @csrf
-                                @method('patch')
 
                                 <h6 class="heading-small text-muted mb-4">{{ __('Información de difunto') }}</h6>
                                 <h6 class="heading-small mb-4" style="color:red; float: right;">{{ __('Campos obligatorios*') }}</h6>
@@ -35,7 +34,7 @@
                                         <label class="form-control-label" for="input-name">
                                             <i class="w3-xxlarge fa fa-user"></i>{{ __('Nombre Completo') }}<label style="color:red;">*</label>
                                         </label>
-                                        <input type="text" name="name" id="input-name" class="form-control nombre" placeholder="{{ __('Jose Eduardo Lopez Perez') }}" value="" required autofocus>
+                                        <input type="text" name="nombre" id="input-name" class="form-control nombre" placeholder="{{ __('Jose Eduardo Lopez Perez') }}" value="" required autofocus>
         
                                         @include('alerts.feedback', ['field' => 'name'])
                                     </div>
@@ -51,7 +50,7 @@
                                         <input type="time"  id="hora_nacimiento" class="form-control datepicker" value="" required autofocus>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="fechan" id="inputconcatna" class="form-control datepicker" value="" required autofocus readonly>
+                                        <input type="text" name="fechaNacimiento" id="inputconcatna" class="form-control datepicker" value="" required autofocus readonly>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-d">
@@ -65,7 +64,7 @@
                                         <input type="time"  id="hora_defuncion" class="form-control datepicker" value="" required autofocus>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="fecha-d" id="inputconcatd" class="form-control datepicker" value="" required autofocus readonly>
+                                        <input type="text" name="fechaDefuncion5" id="inputconcatd" class="form-control datepicker" value="" required autofocus readonly>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-email"><i class="w3-xxlarge fa fa-envelope-o"></i>{{ __('Mensaje o epitafilo') }}</label>
@@ -93,20 +92,20 @@
                                     <div class="row">
                                     <div class="drop-zone col-md-4 ml-auto">
                                         <span class="drop-zone__prompt">Imagen Principal</span>
-                                        <input accept="image/*" type="file" name="myFile" class="drop-zone__input">
+                                        <input accept="image/*" type="file" name="foto1" class="drop-zone__input">
                                       </div>
                                       <div class="drop-zone col-md-3 ml-auto">
                                         <span class="drop-zone__prompt">Imagen Alternativa 1</span>
-                                        <input accept="image/*" type="file" name="myFile" class="drop-zone__input">
+                                        <input accept="image/*" type="file" name="foto2" class="drop-zone__input">
                                       </div>
                                       <div class="drop-zone col-md-3 ml-auto">
                                         <span class="drop-zone__prompt">Imagen Alternativa 2</span>
-                                        <input accept="image/*" type="file" name="myFile" class="drop-zone__input">
+                                        <input accept="image/*" type="file" name="foto3" class="drop-zone__input">
                                       </div>
                                     </div>
                                     
                                     <div class="text-center">
-                                        <button type="submit" id="agregarBTN" class="btn btn-default mt-4 btnsubmit">{{ __('GUARDAR') }}</button>
+                                        <input type="submit" id="agregarBTN" class="btn btn-default mt-4 btnsubmit" value="{{ __('GUARDAR')}}">
                                     </div>
                                 </div>
                             </form>
@@ -122,7 +121,7 @@
 @endsection
 @push('js')
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="{{ asset('js/difuntosStore.js') }}"></script>
+
 <script>
     
     $(document).ready(function(){
