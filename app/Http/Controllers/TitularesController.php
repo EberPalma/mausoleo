@@ -97,11 +97,11 @@ class TitularesController extends Controller
 
            \DB::table('titulares')->where('id', $id)
                             ->update([
-                                'idNicho' => $request->idNicho;
-                                'nombre' => $request->nombre;
-                                'email' => $request->email;
-                                'telefono' => $request->telefono;
-                                'familia' => $request->familia;
+                                'idNicho' => $request->idNicho,
+                                'nombre' => $request->nombre,
+                                'email' => $request->email,
+                                'telefono' => $request->telefono,
+                                'familia' => $request->familia
                             ]);
 
             $mensaje = "Informacion actualizada correctamente";

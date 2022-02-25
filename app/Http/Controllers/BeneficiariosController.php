@@ -45,8 +45,10 @@ class BeneficiariosController extends Controller
 
     public function edit($id){
         $beneficiario = \DB::table('beneficiarios')->where('id', $id)->get();
+        $nichos = \DB::table('nichos')->select('id', 'coordenada')->get();
         return view('layouts.difuntos.edit')
-            ->with('beneficiario', $beneficiario[0]);
+            ->with('beneficiario', $beneficiario[0])
+            ->with('nichos', $nichos);
     }
 
     public function update(Request $request, $id){
@@ -57,6 +59,7 @@ class BeneficiariosController extends Controller
                 'fechaNacimiento' => $request->fechaNacimiento,
                 'fechaDefuncion' => $request->fechaDefuncion,
                 'mensaje' => $request->mensaje,
+                'idNicho' => $request->idNicho,
                 'updated_at' => date('Y-m-d h:i:s')
             ]);
         $beneficiario = \DB::table('beneficiarios')

@@ -70,8 +70,16 @@
                                         @include('alerts.feedback', ['field' => 'email'])
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-control-label" for="input-email"><i class="w3-xxlarge fa fa-map-marker"></i>{{ __('Coordenada') }}</label>
-                                        <input type="text" name="mensaje" id="input-mensaje" class="form-control" placeholder="{{ __('Ejemplo: A 1') }}" value="{{ $beneficiario->idNicho }}" required>
+                                        <label class="form-control-label" for="input-coordenada"><i class="w3-xxlarge fa fa-map-marker"></i>{{ __('Coordenada') }}</label>
+                                        <select name="idNicho" id="input-coordenada" class="form-control">
+                                            @foreach($nichos as $nicho)
+                                                @if($nicho->id == $beneficiario->idNicho)
+                                                    <option value="{{$nicho->id}}" selected>{{$nicho->coordenada}}</option>
+                                                @else
+                                                    <option value="{{$nicho->id}}" >{{$nicho->coordenada}}</option>
+                                                @endif
+                                            @endforeach
+                                        </select>
         
                                         @include('alerts.feedback', ['field' => 'email'])
                                     </div>
