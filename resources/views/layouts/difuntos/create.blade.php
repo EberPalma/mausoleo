@@ -124,7 +124,7 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="{{ asset('js/difuntosStore.js') }}"></script>
 <script>
-    $( ".btnsubmit" ).hide();
+    
     $(document).ready(function(){
         //Validaciones segun el input
        
@@ -232,32 +232,8 @@
                         $("#inputconcatd" ).val(stringftd);
 
                         })
-                        $( "#input-name" ).keydown(function( event ) { 
-                            if($( "#input-name" ).val()=="" || $( ".innac" ).val()=="" || $(".indef" ).val()=="" || $(".incoo" ).val()==""){
-                                $( ".btnsubmit" ).hide();
-                            }
-                        })
-                        $( ".innac" ).change(function( event ) { 
-                            if($( ".innac" ).val()=="" || $( "#input-name" ).val()=="" || $(".indef" ).val()=="" || $(".incoo" ).val()==""){
-                                $( ".btnsubmit" ).hide();
-                            }else{
-                                $( ".btnsubmit" ).show();
-                            }
-                        })
-                        $( ".indef" ).change(function( event ) { 
-                            if($( ".indef" ).val()=="" || $( "#input-name" ).val()=="" || $(".innac" ).val()=="" || $(".incoo" ).val()==""){
-                                $( ".btnsubmit" ).hide();
-                            }else{
-                                $( ".btnsubmit" ).show();
-                            }
-                        })
-                        $( ".incoo" ).change(function( event ) { 
-                            if($( ".indef" ).val()=="" || $( "#input-name" ).val()=="" || $(".innac" ).val()=="" || $(".incoo" ).val()==""){
-                                $( ".btnsubmit" ).hide();
-                            }else{
-                                $( ".btnsubmit" ).show();
-                            }
-                        })
+                        
+                        
                         
             });
 </script>
