@@ -96,7 +96,7 @@
                                       @else
                                       <div class="drop-zone col-md-4 ml-auto">
                                         <span class="drop-zone__prompt">Imagen de Perfil</span>
-                                        <input type="file" name="myFile" class="drop-zone__input">
+                                        <input type="file" name="foto1" class="drop-zone__input">
                                       </div>
                                       @endif
                                       @if (File::exists(public_path("Images/Beneficiary/{$beneficiario->id}_2.jpg")))
@@ -107,7 +107,7 @@
                                       @else
                                       <div class="drop-zone col-md-3 ml-auto">
                                         <span class="drop-zone__prompt">Imagen Alternativa 2</span>
-                                        <input type="file" name="myFile" class="drop-zone__input">
+                                        <input type="file" name="foto2" class="drop-zone__input">
                                       </div>
                                       @endif
                                       @if (File::exists(public_path("Images/Beneficiary/{$beneficiario->id}_3.jpg")))
@@ -118,7 +118,7 @@
                                       @else
                                       <div class="drop-zone col-md-3 ml-auto">
                                         <span class="drop-zone__prompt">Imagen Alternativa 3</span>
-                                        <input type="file" name="myFile" class="drop-zone__input">
+                                        <input type="file" name="foto3" class="drop-zone__input">
                                       </div>
                                       @endif
                                 
