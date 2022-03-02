@@ -65,13 +65,13 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="form-control-label"><i class="w3-xxlarge fa fa-envelope-o"></i>{{ __('Mensaje o epitafilo') }}</label>
-                                        <textarea rows="3" type="text" name="mensaje" id="input-mensaje" class="form-control" placeholder="{{ __('Mensaje') }}" >{{ $beneficiario->mensaje }}</textarea>
+                                        <textarea rows="10" type="text" name="mensaje" id="input-mensaje" class="form-control" placeholder="{{ __('Mensaje') }}" spellcheck autofocus>{{ $beneficiario->mensaje }}</textarea>
         
                                         @include('alerts.feedback', ['field' => 'email'])
                                     </div>
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-coordenada"><i class="w3-xxlarge fa fa-map-marker"></i>{{ __('Coordenada') }}</label>
-                                        <select name="idNicho" id="input-coordenada" class="form-control">
+                                        <select name="idNicho" id="input-coordenada" class="form-control selectdinamico">
                                             @foreach($nichos as $nicho)
                                                 @if($nicho->id == $beneficiario->idNicho)
                                                     <option value="{{$nicho->id}}" selected>{{$nicho->coordenada}}</option>
@@ -178,15 +178,16 @@
                                 @foreach($nichos as $nicho)
                                 @if($nicho->id == $beneficiario->idNicho)
                                 <center> <b>CODIGO QR<b> 
-                                <?php 
-                                $searchString = " ";
-                                $replaceString = "";
-                                $originalString = "{$nicho->coordenada}";
-                                $outputString = str_replace($searchString, $replaceString, $originalString); 
-                                echo('<img width="200px" src="http://127.0.0.1:8000/Images/QrCode/QRCodeNicho'.$outputString.'.png">'); 
-                                
-                                echo('<a class="btn btn-primary" href="http://127.0.0.1:8000/Images/QrCode/QRCodeNicho'.$outputString.'.png" download="'.$outputString.'.png"> Descargar </a>');
-                                ?> 
+                                    <?php 
+                                 $searchString = " ";
+                                 $replaceString = "";
+                                 $originalString = "{$nicho->coordenada}";
+                                 $outputString = str_replace($searchString, $replaceString, $originalString); 
+                            
+                                  ?>
+                                  <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(200)->generate('http://www.mausoleosantaclara.com.mx/Informacion/Nicho/'.$outputString.'.png')) !!} ">
+                                  <a class="btn btn-primary" href="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(200)->generate('http://www.mausoleosantaclara.com.mx/Informacion/Nicho/'.$outputString.'.png')) !!} " download="{{$nicho->coordenada}}.png"> Descargar </a>
+                                 
                                 
                                 </center>
                                 @endif
@@ -202,6 +203,7 @@
 @push('js')
 <script>
     $(document).ready(function(){
+        $('.selectdinamico').select2();
         //Validaciones segun el input
        
        

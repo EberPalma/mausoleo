@@ -76,7 +76,7 @@
                                         <label class="form-control-label" for="coordenada">
                                             <i class="w3-xxlarge fa fa-map-marker"></i>{{ __('Coordenada') }}<label style="color:red;">*</label>
                                         </label><br>
-                                        <select  class="form-control" name="idNicho" id="idNicho">
+                                        <select  class="form-control selectdinamico" name="idNicho" id="idNicho">
                                             <option >Selecciona una coordenada</option>
                                             @foreach($nichos as $nicho)
                                                 <option value="{{$nicho->id}}">{{$nicho->coordenada}}</option>
@@ -125,6 +125,7 @@
 <script>
     
     $(document).ready(function(){
+        $('.selectdinamico').select2();
         //Validaciones segun el input
        
        

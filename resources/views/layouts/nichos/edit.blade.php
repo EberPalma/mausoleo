@@ -134,13 +134,14 @@
                             <hr>
                             <center> <b>CODIGO QR<b> 
                                 <?php 
-                                $searchString = " ";
-                                $replaceString = "";
-                                $originalString = "{$nicho->coordenada}";
-                                $outputString = str_replace($searchString, $replaceString, $originalString); 
-                                echo('<img width="200px" src="http://127.0.0.1:8000/Images/QrCode/QRCodeNicho'.$outputString.'.png">'); 
-                                echo('<a class="btn btn-primary" href="http://127.0.0.1:8000/Images/QrCode/QRCodeNicho'.$outputString.'.png" download="'.$outputString.'.png"> Descargar </a>');
-                                ?> 
+                                 $searchString = " ";
+                                 $replaceString = "";
+                                 $originalString = "{$nicho->coordenada}";
+                                 $outputString = str_replace($searchString, $replaceString, $originalString); 
+                            
+                                  ?>
+                                  <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(200)->generate('http://www.mausoleosantaclara.com.mx/Informacion/Nicho/'.$outputString.'.png')) !!} ">
+                                  <a class="btn btn-primary" href="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(200)->generate('http://www.mausoleosantaclara.com.mx/Informacion/Nicho/'.$outputString.'.png')) !!} " download="{{$nicho->coordenada}}.png"> Descargar </a>
                                 
                             </center>
                         </div>

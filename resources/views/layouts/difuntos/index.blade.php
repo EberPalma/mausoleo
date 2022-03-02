@@ -154,7 +154,12 @@
                     tabla.removeChild(tableRow);
                 });
         });
+        
     }
+    
+            
+        
+
 </script>
 @endpush
 @endif

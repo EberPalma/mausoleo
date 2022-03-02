@@ -267,6 +267,8 @@
         <!--   Core JS Files   -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
         <script src="{{ asset('js/core/popper.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('js/core/bootstrap.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('js/dropzone.js') }}" type="text/javascript"></script>

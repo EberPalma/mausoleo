@@ -71,4 +71,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/mausoleo', function(){ return view('Mausoleo');});
+Route::get('/qr_generate', [App\Http\Controllers\QRController::class, 'qr_generate'])->name('qr_generate');
