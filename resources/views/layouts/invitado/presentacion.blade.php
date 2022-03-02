@@ -6,8 +6,8 @@
   <nav class="nav nav-masthead justify-content-center float-md-end">
     <a class="nav-link"  href="#">Inicio</a>
     <a class="nav-link" href="#">Condolencias</a>
-    <a class="nav-link" href="{{route('invitado.presentacion')}}">Presentacion</a>
-    <a class="nav-link active" aria-current="page" href="{{route('invitado.contacto')}}">Contacto</a>&nbsp&nbsp&nbsp
+    <a class="nav-link active" href="{{route('invitado.presentacion')}}">Presentacion</a>
+    <a class="nav-link" aria-current="page" href="{{route('invitado.contacto')}}">Contacto</a>&nbsp&nbsp&nbsp
     <li class="nav-item dropdown show">
       <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Recordando a</a>
       <div id="dropdownf" class="dropdown-menu show" aria-labelledby="dropdown07">
@@ -39,7 +39,7 @@ max-width: 100%;
 height: auto;
 
 }
-</style><br>
+</style>
 <center>
     <div class="card text-white bg-secondary mb-3 smartcard" >
     <div class="card-body">
@@ -48,10 +48,10 @@ height: auto;
         <div class="card-body">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="d-block w-100" src="{{ asset('images/Beneficiary/1_1.jpg') }}" alt="First slide" max-width="50" height="auto">
+          <div class="carousel-item">
+            <img class="d-block w-100" src="{{ asset('Images/Beneficiary/{$beneficiario->id}_1.jpg') }}" alt="" max-width="50" height="auto">
             <div class="carousel-caption d-none d-md-block">
-              <h5>Nombre del beneficiario</h5>
+              <h5>{{ __('Nombre') }}</h5>
               <p>Mensaje de epitafio o Fechas N/F</p>
           </div>
           </div>
@@ -72,17 +72,15 @@ height: auto;
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
+          <span class="sr-only">Anterior</span>
         </a>
         <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
+          <span class="sr-only">Siguiente</span>
         </a>
         </div>
-      </div>
-        
-    </div>
-      
+      </div>        
+    </div>  
       
 
 <div  class="mx-auto">
