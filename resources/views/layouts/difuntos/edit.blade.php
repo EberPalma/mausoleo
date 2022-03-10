@@ -273,6 +273,32 @@
                        else{ event.preventDefault();}
                    }
                });
+
+            });
+            $(".btnsubmit").click(function(e){
+                e.preventDefault();
+                var form = $(this).parents('form');
+                Swal.fire({
+                    title: 'Deseas guardar los cambios?',
+                    showDenyButton: true,
+                    showCancelButton: true,
+                    confirmButtonText: 'Guardar',
+                    denyButtonText: `No guardar`,
+                    }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                        Swal.fire('Guardado', '', 'success')
+                        setTimeout(function(){
+                            form.submit();
+                        },3000);
+                        
+                    } else if (result.isDenied) {
+                        Swal.fire('Los cambios no han sido guardados', '', 'info')
+                        setTimeout(function(){
+                            location.reload();
+                        },3000);
+                    }
+                    })
             });
 </script>
 

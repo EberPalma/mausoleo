@@ -155,8 +155,25 @@
             document
                 .querySelector("#delete" + e.id)
                 .addEventListener("click", () => {
-                    axios.get("/api/nichosdelete/" + e.id);
-                    tabla.removeChild(tableRow);
+                    Swal.fire({
+                    title: 'Estas por eliminar este nicho',
+                    text: "Estas seguro?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, borralo'
+                    }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire(
+                        'Borrado',
+                        'El nicho se ha eliminado.',
+                        'success'
+                        )
+                        axios.get("/api/nichosdelete/" + e.id);
+                        tabla.removeChild(tableRow);
+                    }
+                    })   
                 });
         });
     }

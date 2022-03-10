@@ -232,8 +232,26 @@
                         $("#inputconcatd" ).val(stringftd);
 
                         })
-                        
-                        
+                        $(".btnsubmit").click(function(e){
+                        e.preventDefault();
+                        var form = $(this).parents('form');
+                        Swal.fire({
+                            title: 'Estas por registrar a un nuevo huesped',
+                            text: "Estas deacuerdo?",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Registrar'
+                            }).then((result) => {
+                            if (result.isConfirmed) {
+                                Swal.fire('Guardado', '', 'success')
+                                setTimeout(function(){
+                                    form.submit();
+                                },3000);
+                            }
+                            })
+                    });
                         
             });
 </script>

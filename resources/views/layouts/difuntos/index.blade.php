@@ -140,7 +140,7 @@
                                 <a type="button" href="difunto.editar/${e.id}" rel="tooltip" title="Editar" class="btn btn-info">
                                     <i class="fa fa-edit"></i>
                                 </a>
-                                <button type="button" rel="tooltip" id="delete${e.id}" title="Eliminar" class="btn btn-danger">
+                                <button type="button" rel="tooltip" id="delete${e.id}" title="Eliminar" class="btn btn-danger alerteliminar">
                                     <i class="fa fa-times"></i>
                                 </button>
                             </td>`;
@@ -150,16 +150,32 @@
             document
                 .querySelector("#delete" + e.id)
                 .addEventListener("click", () => {
-                    axios.get("/api/beneficiariosdelete/" + e.id);
+                    Swal.fire({
+            title: 'Estas por eliminar este huesped',
+            text: "Estas seguro?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, borralo'
+            }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                'Borrado',
+                'El huesped se ha eliminado.',
+                'success'
+                )
+                axios.get("/api/beneficiariosdelete/" + e.id);
                     tabla.removeChild(tableRow);
+            }
+            })
+                    
                 });
         });
         
     }
     
-            
-        
-
 </script>
+
 @endpush
 @endif
