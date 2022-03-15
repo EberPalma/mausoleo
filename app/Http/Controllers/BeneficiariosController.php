@@ -67,16 +67,25 @@ class BeneficiariosController extends Controller
             ->get();
 
         if($request->file('foto1') != ''){
+                if(\File::exists(public_path("Images/Beneficiary/".$id."_1.jpg"))){
+                    \Storage::disk('local')->move($id.'_1.jpg', 'old/'.$id.'_1_'.date('Y-m-d h:i:s').'.jpg');
+                }
                 $file = $request->file('foto1');
                 $nombre = $beneficiario[0]->id.'_1.'.$file->extension();
                 \Storage::disk('local')->put($nombre, \File::get($file));
             }
         if($request->file('foto2') != ''){
+                if(\File::exists(public_path("Images/Beneficiary/".$id."_2.jpg"))){
+                    \Storage::disk('local')->move($id.'_1.jpg', 'old/'.$id.'_2_'.date('Y-m-d h:i:s').'.jpg');
+                }
                 $file = $request->file('foto2');
                 $nombre = $beneficiario[0]->id.'_2.'.$file->extension();
                 \Storage::disk('local')->put($nombre, \File::get($file));
             }
         if($request->file('foto3') != ''){
+                if(\File::exists(public_path("Images/Beneficiary/".$id."_3.jpg"))){
+                    \Storage::disk('local')->move($id.'_1.jpg', 'old/'.$id.'_3_'.date('Y-m-d h:i:s').'.jpg');
+                }
                 $file = $request->file('foto3');
                 $nombre = $beneficiario[0]->id.'_3.'.$file->extension();
                 \Storage::disk('local')->put($nombre, \File::get($file));
