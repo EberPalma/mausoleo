@@ -18,7 +18,7 @@ Route::get('/guest', function () {return view('layouts.app');});
 Route::get('/register', function () {return view('auth.register');})->name('register');
 
 
-//RUTAS CON AUTH 
+//RUTAS CON AUTH
 Route::get('/plantilla', function () {return view('index');})->name('index');
 Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
 
@@ -56,6 +56,8 @@ Route::get('/difunto.añadir', function () {
     return view('layouts.difuntos.create')
     ->with('nichos', $nichos);
 })->name('difunto.añadir');
+// Calendario Mausoleo Santa Clara
+Route::get('/calendario', function () {return view('layouts.calendario.index');})->name('calendario.index');
 //Invitado
 Route::get('/invitado.contacto', function () {return view('layouts.invitado.contacto');})->name('invitado.contacto');
 Route::get('/invitado.menu', function () {return view('layouts.invitado.invitadomenu');})->name('invitado.menu');
