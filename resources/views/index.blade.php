@@ -1,12 +1,13 @@
 
- <!-- JS, Fuentes, Iconos, CSS (HEADER) --> 
+ <!-- JS, Fuentes, Iconos, CSS (HEADER) -->
  <!DOCTYPE html>
  @if(!isset(Auth::user()->name))
  <meta http-equiv="refresh" content="0; url={{ route('login') }}">
-@else 
+@else
  <html lang="en">
      <head>
          <meta charset="utf-8" />
+         <meta name="csrf-token" content="{{ csrf_token() }}" />
          <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/apple-icon.png') }}">
          <link rel="icon" type="image/png" href="{{ asset('img/favicon.ico') }}">
          <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -21,30 +22,31 @@
          <link href="{{ asset('css/light-bootstrap-dashboard.css?v=2.0.0') }} " rel="stylesheet" />
          <!-- CSS Just for demo purpose, don't include it in your project -->
          <link href="{{ asset('css/demo.css') }}" rel="stylesheet" />
- 
+
          <!-- Canonical SEO -->
-         <link rel="canonical" href="https://www.creative-tim.com/product/light-bootstrap-dashboard-laravel" />        <!--  Social tags      -->
-         <meta name="keywords" content="design system, dashboard, bootstrap 4 dashboard, bootstrap 4 design, bootstrap 4 system, bootstrap 4, bootstrap 4 uit kit, bootstrap 4 kit, light bootstrap, light bootstrap dashboard, creative tim,updivision, html dashboard, html css template, web template, bootstrap, bootstrap 4, css3 template, frontend, responsive bootstrap template, bootstrap dashboard, responsive dashboard, laravel, laravel php, laravel php framework, free laravel admin template, free laravel admin, free laravel admin template + Front End + CRUD, crud laravel php, crud laravel, laravel backend admin dashboard">
-         <meta name="description" content="Start your development with a Bootstrap 4 Admin Dashboard built for Laravel Framework 5.5 and Up.">
- 
- 
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
+
+
+
          <!-- Schema.org markup for Google+ -->
          <meta itemprop="name" content="Mausoleo Santa Clara">
          <meta itemprop="description" content="Start your development with a Bootstrap 4 Admin Dashboard built for Laravel Framework 5.5 and Up.">
- 
+
          <meta itemprop="image" content="https://s3.amazonaws.com/creativetim_bucket/products/213/opt_lbd_laravel_thumbnail.jpg">
- 
-        
+
+
          <!-- Open Graph data -->
          <meta property="fb:app_id" content="655968634437471">
          <meta property="og:title" content="Mausoleo Santa Clara" />
          <meta property="og:type" content="article" />
-         
-          
-     
-         
+
+
+
+
      </head>
- 
+
 
 <body class="clickup-chrome-ext_installed">
     <!-- Google Tag Manager (noscript) -->
@@ -56,11 +58,11 @@
     </noscript>
 
     <div class="wrapper ">
-<!-- Zona del navbar -->     
+<!-- Zona del navbar -->
         <div class="sidebar" data-image="{{ asset('img/sidebar-5.jpg') }}">
             <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
-        
+
         Tip 2: you can also add an image using data-image tag
         -->
             <div class="sidebar-wrapper">
@@ -113,17 +115,17 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('usuarios')}}">
+                        <a class="nav-link" href="{{route('calendario.index')}}">
                             <img src="{{ asset('img/calendario.svg') }}" style="width:35px">
                             <p>{{ __("Calendario") }}</p>
                         </a>
                     </li>
-    
+
                 </ul>
             </div>
-        </div>     
-<!-- /Zona del navbar -->     
-<!-- Zona del navbarstyle -->           
+        </div>
+<!-- /Zona del navbar -->
+<!-- Zona del navbarstyle -->
         <div class="fixed-plugin">
 <div class="dropdown show-dropdown">
     <a href="#" data-toggle="dropdown">
@@ -131,7 +133,7 @@
     </a>
     <ul class="dropdown-menu">
         <li class="header-title"> Estilo lateral </li>
-        
+
         <li class="adjustments-line">
             <a href="javascript:void(0)" class="switch-trigger background-color">
                 <p>Filtros</p>
@@ -180,9 +182,9 @@
         <li class="header-title" id="sharrreTitle"> - ARMONIA ETERNA - </li>
     </ul>
 </div>
-<!-- /Zona del navbarstyle --> 
-<!-- Zona del header --> 
-</div>            
+<!-- /Zona del navbarstyle -->
+<!-- Zona del header -->
+</div>
         <div class=" main-panel ">
             <nav class="navbar navbar-expand-lg " color-on-scroll="500">
                 <div class="container-fluid">
@@ -200,7 +202,7 @@
                                     <span class="d-lg-none">{{ __('Tablero') }}</span>
                                 </a>
                             </li>
-                            
+
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="nc-icon nc-zoom-split"></i>
@@ -223,14 +225,14 @@
                         </ul>
                     </div>
                 </div>
-            </nav>   
-<!-- /Zona del header --> 
-<!-- Contenido --> 
-    
+            </nav>
+<!-- /Zona del header -->
+<!-- Contenido -->
+
 @yield('Contenidoprincipal')
 
-<!-- /Contenido --> 
-<!-- Footer --> 
+<!-- /Contenido -->
+<!-- Footer -->
             <footer class="footer">
 <div class="container -fluid ">
     <nav>
@@ -254,18 +256,18 @@
         </p>
     </nav>
 </div>
-</footer> 
-<!-- /Footer --> 
-<!-- JS, Fuentes, Iconos, CSS (FOOTER) --> 
+</footer>
+<!-- /Footer -->
+<!-- JS, Fuentes, Iconos, CSS (FOOTER) -->
     </div>
 
     </div>
-   
+
 
 
 
         <!--   Core JS Files   -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
@@ -273,7 +275,7 @@
         <script src="{{ asset('js/core/bootstrap.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('js/dropzone.js') }}" type="text/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
-    
+
         <script src="{{ asset('js/plugins/jquery.sharrre.js') }}"></script>
         <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
         <script src="{{ asset('js/plugins/bootstrap-switch.js') }}"></script>
@@ -289,62 +291,13 @@
         <script src="{{ asset('js/light-bootstrap-dashboard.js?v=2.0.0') }}" type="text/javascript"></script>
         <!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
         <script src="{{ asset('js/demo.js') }}"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0//locale-all.js"></script>
+
         @stack('js')
-        <script>
-          $(document).ready(function () {
-            
-            $('#facebook').sharrre({
-              share: {
-                facebook: true
-              },
-              enableHover: false,
-              enableTracking: false,
-              enableCounter: false,
-              click: function(api, options) {
-                api.simulateClick();
-                api.openPopup('facebook');
-              },
-              template: '<i class="fab fa-facebook-f"></i> Facebook',
-              url: 'https://light-bootstrap-dashboard-laravel.creative-tim.com/login'
-            });
-    
-            $('#google').sharrre({
-              share: {
-                googlePlus: true
-              },
-              enableCounter: false,
-              enableHover: false,
-              enableTracking: true,
-              click: function(api, options) {
-                api.simulateClick();
-                api.openPopup('googlePlus');
-              },
-              template: '<i class="fab fa-google-plus"></i> Google',
-              url: 'https://light-bootstrap-dashboard-laravel.creative-tim.com/login'
-            });
-    
-            $('#twitter').sharrre({
-              share: {
-                twitter: true
-              },
-              enableHover: false,
-              enableTracking: false,
-              enableCounter: false,
-              buttons: {
-                twitter: {
-                  via: 'CreativeTim'
-                }
-              },
-              click: function(api, options) {
-                api.simulateClick();
-                api.openPopup('twitter');
-              },
-              template: '<i class="fab fa-twitter"></i> Twitter',
-              url: 'https://light-bootstrap-dashboard-laravel.creative-tim.com/login'
-            });
-          });
-        </script>
+
+
     </html>
     @endif
- <!-- /JS, Fuentes, Iconos, CSS (FOOTER) --> 
+ <!-- /JS, Fuentes, Iconos, CSS (FOOTER) -->

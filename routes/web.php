@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\FullCalendarController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,7 +57,8 @@ Route::get('/difunto.añadir', function () {
     ->with('nichos', $nichos);
 })->name('difunto.añadir');
 // Calendario Mausoleo Santa Clara
-Route::get('/calendario', function () {return view('layouts.calendario.index');})->name('calendario.index');
+Route::get('/calendario',  [App\Http\Controllers\FullCalendarController::class, 'index'])->name('calendario.index');
+Route::post('/calendario/action',  [App\Http\Controllers\FullCalendarController::class, 'action']);
 //Invitado
 Route::get('/invitado.contacto', function () {return view('layouts.invitado.contacto');})->name('invitado.contacto');
 Route::get('/invitado.menu', function () {return view('layouts.invitado.invitadomenu');})->name('invitado.menu');

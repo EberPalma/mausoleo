@@ -3,16 +3,14 @@
     <meta http-equiv="refresh" content="0; url={{ route('login') }}">
 @else
 @section('Contenidoprincipal')
-<link href='fullcalendar/core/main.css' rel='stylesheet' />
-    <link href='fullcalendar/daygrid/main.css' rel='stylesheet' />
+<meta name="csrf-token" content="{{ csrf_token() }}" />
 
-    <script src='fullcalendar/core/main.js'></script>
-    <script src='fullcalendar/daygrid/main.js'></script>
     <div class="content">
 <div class="container-fluid">
     <div class="section-image">
         <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
         <div class="row">
+
 
             <div class="card col-md-12">
                 <div class="card-header">
@@ -23,10 +21,8 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="/api/userupdate/{{ auth()->user()->id }}" autocomplete="off"
-                        enctype="multipart/form-data">
-                        @csrf
-                        @method('put')
+
+
 
 
                         <div id='calendar'></div>
@@ -36,7 +32,7 @@
 
 
 
-                    </form>
+
                 </div>
             </div>
         </div>
@@ -47,20 +43,124 @@
 @endsection
 @push('js')
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
+    $(document).ready(function () {
 
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            
-          plugins: [ 'dayGrid' ]
+$.ajaxSetup({
+    headers:{
+        'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+    }
+});
 
+var calendar = $('#calendar').fullCalendar({
+    locale: 'es',
+    editable:true,
+    header:{
+        left:'prev,next today',
+        center:'title',
+        right:'month,agendaWeek,agendaDay'
+    },
+    events:'/calendario',
+    selectable:true,
+    selectHelper: true,
+    select:function(start, end, allDay)
+    {
+        var title = prompt('Cita o Evento:');
 
-        });
-        calendar.setOption('locale','Es');
+        if(title)
+        {
+            var start = $.fullCalendar.formatDate(start, 'Y-MM-DD HH:mm:ss');
 
+            var end = $.fullCalendar.formatDate(end, 'Y-MM-DD HH:mm:ss');
 
-        calendar.render();
-      });
+            $.ajax({
+                url:"/calendario/action",
+                type:"POST",
+                data:{
+                    title: title,
+                    start: start,
+                    end: end,
+                    type: 'add'
+                },
+                success:function(data)
+                {
+                    calendar.fullCalendar('refetchEvents');
+                    alert("El evento se ha creado exitosamente");
+                }
+            })
+        }
+    },
+    editable:true,
+    eventResize: function(event, delta)
+    {
+        var start = $.fullCalendar.formatDate(event.start, 'Y-MM-DD HH:mm:ss');
+        var end = $.fullCalendar.formatDate(event.end, 'Y-MM-DD HH:mm:ss');
+        var title = event.title;
+        var id = event.id;
+        $.ajax({
+            url:"/calendario/action",
+            type:"POST",
+            data:{
+                title: title,
+                start: start,
+                end: end,
+                id: id,
+                type: 'update'
+            },
+            success:function(response)
+            {
+                calendar.fullCalendar('refetchEvents');
+                alert("El evento se ha actualizado correctamente");
+            }
+        })
+    },
+    eventDrop: function(event, delta)
+    {
+        var start = $.fullCalendar.formatDate(event.start, 'Y-MM-DD HH:mm:ss');
+        var end = $.fullCalendar.formatDate(event.end, 'Y-MM-DD HH:mm:ss');
+        var title = event.title;
+        var id = event.id;
+        $.ajax({
+            url:"/calendario/action",
+            type:"POST",
+            data:{
+                title: title,
+                start: start,
+                end: end,
+                id: id,
+                type: 'update'
+            },
+            success:function(response)
+            {
+                calendar.fullCalendar('refetchEvents');
+                alert("Event Updated Successfully");
+            }
+        })
+    },
+
+    eventClick:function(event)
+    {
+        if(confirm("¿Esta seguro de eliminarlo?"))
+        {
+            var id = event.id;
+            $.ajax({
+                url:"/calendario/action",
+                type:"POST",
+                data:{
+                    id:id,
+                    type:"delete"
+                },
+                success:function(response)
+                {
+                    calendar.fullCalendar('refetchEvents');
+                    alert("El evento se ha eliminado");
+                }
+            })
+        }
+    }
+
+});
+
+});
 </script>
 @endpush
 @endif
