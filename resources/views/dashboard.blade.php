@@ -1,6 +1,8 @@
 @extends('index')
 
 @section('Contenidoprincipal')
+
+
     <div class="content">
         <div class="container-fluid">
             <div class="row">
@@ -11,7 +13,7 @@
                         <i class="fa fa-square fa-3x"></i>
                         </div>
                             <div class="card-footer">
-                              <b id="countNichos"></b>  
+                              <b id="countNichos"></b>
                             </div>
 
                    </div>
@@ -23,11 +25,11 @@
                         <i class="fa fa-user fa-3x"></i>
                         </div>
                         <div class="card-footer">
-                          <b id="countHuespedes"></b>  
+                          <b id="countHuespedes"></b>
                         </div>
 
                    </div>
-               
+
 
             </div>
             <div class="col">
@@ -41,25 +43,25 @@
                     </div>
 
                 </div>
-                              
+
             </div>
-            <div class="col"> 
+            <div class="col">
                 <div class="card bg-success">
                     <div class="card-header bg-success" style="font-size: 25px;">Codigos QR</div>
                     <div class="card-body">
                         <i class="fa fa-qrcode fa-3x"></i>
                     </div>
-                    
-                    
+
+
                         <div class="card-footer">
-                            <b><?php 
+                            <b><?php
                                 $total_imagenes = count(glob('Images/QrCode/{*.jpg,*.gif,*.png}',GLOB_BRACE));
                                 echo $total_imagenes;
-                                
+
                                 ?> Generados</b>
                         </div>
-                    </div> 
-                                                                   
+                    </div>
+
 
             </div>
             </div>
@@ -94,7 +96,7 @@
                             <div class="table-full-width">
                                 <table class="table">
                                     <tbody id="tableBody">
-                                        
+
                                     </tbody>
                                 </table>
                             </div>
@@ -108,7 +110,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 @endsection
@@ -128,10 +130,7 @@
         });
         console.log(informes);
 
-        // Javascript method's body can be found in assets/js/demos.js
-        demo.initDashboardPageCharts(informes, quejas, otros);
-
-        demo.showNotification();
+        
 
         });
     </script>

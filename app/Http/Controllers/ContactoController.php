@@ -25,7 +25,7 @@ class ContactoController extends Controller
         $contacto-> activo = $request->activo;
 
         $contacto->save();
-        return redirect()->route('invitado.menu');
+        return redirect()->route('invitado.confirmacion-contacto');
     }
 
     public function index($tipo)

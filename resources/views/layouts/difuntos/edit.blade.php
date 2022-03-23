@@ -1,4 +1,4 @@
-@extends('index') 
+@extends('index')
 @if(!isset(Auth::user()->name))
     <meta http-equiv="refresh" content="0; url={{ route('login') }}">
 @else
@@ -24,17 +24,17 @@
                                 @method('put')
 
                                 <h6 class="heading-small text-muted mb-4">{{ __('Información de difunto') }}</h6>
-                                
+
                                 @include('alerts.success')
                                 @include('alerts.error_self_update', ['key' => 'not_allow_profile'])
-        
+
                                 <div class="pl-lg-4">
                                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-name">
                                             <i class="w3-xxlarge fa fa-user"></i>{{ __('Nombre') }}
                                         </label>
                                         <input type="text" name="nombre" id="input-name" class="form-control nameb" placeholder="{{ __('Jose') }}" value="{{ $beneficiario->nombre }}" required autofocus>
-        
+
                                         @include('alerts.feedback', ['field' => 'name'])
                                     </div>
                                     <!--<div class="form-group">
@@ -42,8 +42,8 @@
                                             <i class="w3-xxlarge fa fa-user"></i>{{ __('Apellidos') }}
                                         </label>
                                         <input type="text" name="apaterno" id="" class="form-control" placeholder="{{ __('Gonzales Hernandez') }}" value="" required autofocus>
-        
-                                        
+
+
                                     </div>-->
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-name">
@@ -51,8 +51,8 @@
                                         </label>
                                         <input type="text" name="fechaNacimiento" id="" class="form-control datepicker1 valfechan" placeholder="Da clic en este campo" value="{{ $beneficiario->fechaNacimiento }}" required autofocus>
                                         <span style="color:gray; float:right;" id="spaninputfn">Mes/Dia/Año</span>
-        
-                                        
+
+
                                     </div>
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-name">
@@ -60,13 +60,13 @@
                                         </label>
                                         <input type="text" name="fechaDefuncion" id="input-fechad" class="form-control datepicker2 valfd" placeholder="{{ __('Da clic en este campo') }}" value="{{ $beneficiario->fechaDefuncion }}" required autofocus>
                                         <span style="color:gray; float:right;" id="spaninputfd">Mes/Dia/Año</span>
-        
-                                        
+
+
                                     </div>
                                     <div class="form-group">
                                         <label class="form-control-label"><i class="w3-xxlarge fa fa-envelope-o"></i>{{ __('Mensaje o epitafilo') }}</label>
                                         <textarea rows="10" type="text" name="mensaje" id="input-mensaje" class="form-control" placeholder="{{ __('Mensaje') }}" spellcheck autofocus>{{ $beneficiario->mensaje }}</textarea>
-        
+
                                         @include('alerts.feedback', ['field' => 'email'])
                                     </div>
                                     <div class="form-group">
@@ -80,10 +80,10 @@
                                                 @endif
                                             @endforeach
                                         </select>
-        
+
                                         @include('alerts.feedback', ['field' => 'email'])
                                     </div>
-                                    
+
                                     <hr>
                                     <br>
                                     <h6 class="heading-small text-muted mb-3">{{ __('Fotos del difunto') }}</h6>
@@ -121,14 +121,14 @@
                                         <input type="file" name="foto3" class="drop-zone__input">
                                       </div>
                                       @endif
-                                
+
                                       <!-- <div class="drop-zone col-md-3 ml-auto">
                                         <span class="drop-zone__prompt">Imagen Alternativa 1</span>
                                         <input type="file" name="myFile" class="drop-zone__input">
                                       </div> -->
-                                      
+
                                     </div>
-                                    
+
                                     <div class="text-center">
                                         <button type="submit" class=" btnsubmit btn btn-default mt-4">{{ __('GUARDAR') }}</button>
                                     </div>
@@ -153,7 +153,7 @@
                                         <h5 class="title">{{ $beneficiario->nombre }}</h5>
                                     </a>
                                     @php
-                                    
+
                                     @endphp
                                     <p class="description">
                                        <b>Nacimiento:</b> {{ $beneficiario->fechaNacimiento }}
@@ -165,30 +165,30 @@
                                 <p class="description text-center">
                                 @if ($beneficiario->mensaje == NULL)
 
-                                
+
                                 @else
-                                
+
 
                                 "{{ $beneficiario->mensaje }}"
-                                @endif  
+                                @endif
                                 </p>
                             </div>
                             <hr>
                             <div class="button-container mr-auto ml-auto">
                                 @foreach($nichos as $nicho)
                                 @if($nicho->id == $beneficiario->idNicho)
-                                <center> <b>CODIGO QR<b> 
-                                    <?php 
+                                <center> <b>CODIGO QR<b>
+                                    <?php
                                  $searchString = " ";
                                  $replaceString = "";
                                  $originalString = "{$nicho->coordenada}";
-                                 $outputString = str_replace($searchString, $replaceString, $originalString); 
-                            
+                                 $outputString = str_replace($searchString, $replaceString, $originalString);
+
                                   ?>
-                                  <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(200)->generate('http://www.mausoleosantaclara.com.mx/Informacion/Nicho/'.$outputString.'.png')) !!} ">
-                                  <a class="btn btn-primary" href="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(200)->generate('http://www.mausoleosantaclara.com.mx/Informacion/Nicho/'.$outputString.'.png')) !!} " download="{{$nicho->coordenada}}.png"> Descargar </a>
-                                 
-                                
+                                  <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(200)->generate('http://www.mausoleosantaclara.com.mx/Informacion/Nicho/'.$outputString)) !!} ">
+                                  <a class="btn btn-primary" href="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(200)->generate('http://www.mausoleosantaclara.com.mx/Informacion/Nicho/'.$outputString)) !!} " download="{{$nicho->coordenada}}.png"> Descargar </a>
+
+
                                 </center>
                                 @endif
                                 @endforeach
@@ -205,14 +205,14 @@
     $(document).ready(function(){
         $('.selectdinamico').select2();
         //Validaciones segun el input
-       
-       
+
+
        const $input1 = document.querySelector('.datepicker1');
        const patron1 = /[0-9/AMP:]+/;
        const validacionf =  $(".valfn").val();
 
        $input1.addEventListener("keydown", event => {
-        
+
                    console.log(event.key);
                    console.log(validacionf);
                    if(patron1.test(event.key)){
@@ -222,12 +222,12 @@
                        if(event.keyCode==8){ console.log("backspace"); }
                        else{ event.preventDefault();}
                    }
-                   
-                   
+
+
                });
                $(".datepicker1").keyup(function(){
                var txtfechana = $(".datepicker1").val();
-               
+
                var valfechana = /^([1-9]|0[1-9]|1[0-2])(\/|-)([0-2][0-9]|3[0-1]|[0-9])\2(\d{4})(\s)([0-1][0-9]|2[0-3])(:)([0-5][0-9])(:)([0-5][0-9])(\s)([AP][M])$/gm;
                if(valfechana.test(txtfechana)){
                                 $("#spaninputfn").text("Correcto").css("color", "green");
@@ -236,7 +236,7 @@
                             else{$("#spaninputfn").text("Registre una fecha valida").css("color", "red");
                             $(".datepicker1").css({ "border":"1px solid #C00"}).fadeIn(2000);
                             $(".btnsubmit").hide();}
-            }); 
+            });
             $(".datepicker2").keyup(function(){
                var txtfechad = $(".datepicker2").val();
                var valfechad = /^([1-9]|0[1-9]|1[0-2])(\/|-)([0-2][0-9]|3[0-1]|[0-9])\2(\d{4})(\s)([0-1][0-9]|2[0-3])(:)([0-5][0-9])(:)([0-5][0-9])(\s)([AP][M])$/gm;
@@ -248,7 +248,7 @@
                             $(".datepicker2").css({ "border":"1px solid #C00"}).fadeIn(2000);
                             $(".btnsubmit").hide();}
             });
- 
+
        const $input2 = document.querySelector('.datepicker2');
        const patron2 = /[0-9/AMP:]+/;
        $input2.addEventListener("keydown", event => {
@@ -291,7 +291,7 @@
                         setTimeout(function(){
                             form.submit();
                         },3000);
-                        
+
                     } else if (result.isDenied) {
                         Swal.fire('Los cambios no han sido guardados', '', 'info')
                         setTimeout(function(){

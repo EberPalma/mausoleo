@@ -294,6 +294,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0//locale-all.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
         @stack('js')
 

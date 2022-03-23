@@ -1,4 +1,4 @@
-@extends('index') 
+@extends('index')
 @if(!isset(Auth::user()->name))
     <meta http-equiv="refresh" content="0; url={{ route('login') }}">
 @else
@@ -24,10 +24,10 @@
                                 @method('put')
 
                                 <h6 class="heading-small text-muted mb-4">{{ __('Información de nicho') }}</h6>
-                                
+
                                 @include('alerts.success')
                                 @include('alerts.error_self_update', ['key' => 'not_allow_profile'])
-        
+
                                 <div class="pl-lg-4">
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-name">
@@ -35,7 +35,7 @@
                                         </label>
                                         <input type="text" name="nombre" id="input-coordenada" class="form-control coord nicoo" placeholder="{{ __('Ejemplo: A1') }}" value="{{ $nicho->coordenada }}" required autofocus>
                                         <span style="color:red; float:right;" id="spancoo"></span>
-        
+
                                         @include('alerts.feedback', ['field' => 'name'])
                                     </div>
                                     <div class="col-4">
@@ -44,7 +44,7 @@
                                             <i class="w3-xxlarge fa fa-sitemap"></i>{{ __(' TAMAÑO') }}
                                         </label>
                                         <input type="number" name="nombre" id="input-capacidad" class="form-control" placeholder="{{ __('Ejemplo: 4') }}" value="{{ $nicho->capacidad }}" required autofocus>
-        
+
                                         @include('alerts.feedback', ['field' => 'name'])
                                     </div>
                                 </div>
@@ -53,7 +53,7 @@
                                         <i class="w3-xxlarge fa fa-user"></i>{{ __(' Nombre del Titular') }}
                                     </label>
                                     <input type="text" name="nombre" id="input-nombre" class="form-control nomb" placeholder="{{ __('Ejemplo: Jose Perez') }}" value="{{ $nicho->nombre }}" required autofocus>
-    
+
                                     @include('alerts.feedback', ['field' => 'name'])
                                 </div>
                                 <div class="form-group">
@@ -61,23 +61,23 @@
                                         <i class="w3-xxlarge fa fa-users"></i>{{ __(' Familia') }}
                                     </label>
                                     <input type="text" name="nombre" id="input-familia" class="form-control fami" placeholder="{{ __('Ejemplo: Perez') }}" value="{{ $nicho->familia }}" required autofocus>
-    
+
                                     @include('alerts.feedback', ['field' => 'name'])
                                 </div>
                                 <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-email"><i class="w3-xxlarge fa fa-envelope-o"></i>{{ __('CORREO ELECTRÓNICO') }}</label>
-                                    <input type="email" 
+                                    <input type="email"
                                            name="email" id="input-email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }} mail" placeholder="{{ __('Email') }}" value="{{ $nicho->email }}" required>
                                            <span style="color:red; float:right;" id="spanmail"></span>
-    
+
                                     @include('alerts.feedback', ['field' => 'email'])
                                 </div>
-                                
-                                    
-                                    
-                                    
-                                    
-                                    
+
+
+
+
+
+
                                     <div class="text-center">
                                         <button type="submit" id="btnSubmit" class="btn btn-default mt-4">{{ __('GUARDAR') }}</button>
                                     </div>
@@ -110,39 +110,39 @@
                                      </p>
                                      <hr>
                                      <p class="description">
-                                        Nombre del Titular:<br> <b>{{ $nicho->nombre }}</b> 
+                                        Nombre del Titular:<br> <b>{{ $nicho->nombre }}</b>
                                      </p>
                                      <p class="description">
-                                        Familia:<br> <b>{{ $nicho->familia }}</b> 
+                                        Familia:<br> <b>{{ $nicho->familia }}</b>
                                      </p>
                                      @if ($nicho->email == NULL)
-                                     
+
                                      @else
                                      <hr>
                                      <p class="description" title="Enviar email">
-                                        Email: <a href="mailto:{{ $nicho->email }}">{{ $nicho->email }}</a> 
+                                        Email: <a href="mailto:{{ $nicho->email }}">{{ $nicho->email }}</a>
                                      </p>
                                      @endif
-                                     
+
                                 </div>
                                 <p class="description text-center">
 
-                                
-                                    
+
+
                                 </p>
                             </div>
                             <hr>
-                            <center> <b>CODIGO QR<b> 
-                                <?php 
+                            <center> <b>CODIGO QR<b>
+                                <?php
                                  $searchString = " ";
                                  $replaceString = "";
                                  $originalString = "{$nicho->coordenada}";
-                                 $outputString = str_replace($searchString, $replaceString, $originalString); 
-                            
+                                 $outputString = str_replace($searchString, $replaceString, $originalString);
+
                                   ?>
-                                  <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(200)->generate('http://www.mausoleosantaclara.com.mx/Informacion/Nicho/'.$outputString.'.png')) !!} ">
-                                  <a class="btn btn-primary" href="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(200)->generate('http://www.mausoleosantaclara.com.mx/Informacion/Nicho/'.$outputString.'.png')) !!} " download="{{$nicho->coordenada}}.png"> Descargar </a>
-                                
+                                  <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(200)->generate('http://www.mausoleosantaclara.com.mx/Informacion/Nicho/'.$outputString)) !!} ">
+                                  <a class="btn btn-primary" href="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(200)->generate('http://www.mausoleosantaclara.com.mx/Informacion/Nicho/'.$outputString)) !!} " download="{{$nicho->coordenada}}.png"> Descargar </a>
+
                             </center>
                         </div>
                     </div>
@@ -171,25 +171,25 @@
         });
     });
     $(document).ready(function(){
-        
+
         //Validaciones segun el input
-       
-       
+
+
        const $input1 = document.querySelector('.coord');
        const patron1 = /[A-Z 0-9]+/;
        $input1.addEventListener("keydown", event => {
 
                    if(patron1.test(event.key)){
-                   
+
                    }
                    else{
                        if(event.keyCode==8){ console.log("backspace"); }
                        else{ event.preventDefault();}
                    }
-                   
-                   
+
+
                });
-            
+
             const $input2 = document.querySelector('.nomb');
             const patron2 = /[A-Za-zñÑáéíóúýÁÉÍÓÚ Ý]+/;
             $input2.addEventListener("keydown", event => {
@@ -201,11 +201,11 @@
                             if(event.keyCode==8){ console.log("backspace"); }
                             else{ event.preventDefault();}
                         }
-                        
-                        
+
+
                     });
                     const $input3 = document.querySelector('.fami');
-                    
+
                     $input3.addEventListener("keydown", event => {
 
                                 if(patron2.test(event.key)){
@@ -215,8 +215,8 @@
                                     if(event.keyCode==8){ console.log("backspace"); }
                                     else{ event.preventDefault();}
                                 }
-                                
-                                
+
+
                             });
 
                             $(".mail").blur(function(){
@@ -230,7 +230,7 @@
                             $(".mail").css({ "border":"1px solid #F00"}).fadeIn(2000);
                             $("#btnSubmit").hide();}
                             });
-                            
+
 
                             $(".nicoo").keyup(function(){
                             var txtcoo = $(".nicoo").val();
@@ -245,10 +245,10 @@
                             $("#btnSubmit").hide();
                             }
                             });
-                            
+
 
          });
-         
+
 </script>
 
 @endpush
