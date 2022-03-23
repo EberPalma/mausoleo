@@ -20,18 +20,22 @@
 @endsection
 @section('body')
 <style>
-    
+
     @media screen and (max-width: 1008px) {
         .smartcard{
         width: 23rem;
     }
-    
+
 }
     @media screen and (min-width: 1008px) {
         .smartcard{
         width: 40rem;
     }
-    
+
+    strong{
+        color:#f75e25 ;
+    }
+
 }
 </style><br>
 <center>
@@ -42,65 +46,87 @@
           <p class="card-text">Horario: Lunes a Viernes de 10:00 a 18:00 hrs. Sábado y Domingo de 10:00 a 14:00 hrs. Para mayores informes comuníquese con nosotros o envíenos sus comentarios.</p>
         </div><hr>
         <div class="card-body"><hr>
-            <form>
+            <form action="{{ url('/invitado.contacto/action')}}" method="post" enctype="multipart/form-data">
+                @csrf
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Nombre</label>
+                  <label >Nombre</label>
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa-solid fa-user"></i></span>
-                    <input type="text" class="form-control nombreinvitado" placeholder="Nombre">
+                    <input type="text" name="nombre" class="form-control nombreinvitado" placeholder="Nombre">
                   </div>
+                  @error('nombre')
+                  <small>
+                      <strong> {{$message}} </strong>
+                  </small>
+                  @enderror
                 </div><hr>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Telefono</label>
+                    <label >Telefono</label>
                     <div class="input-group">
                         <span class="input-group-addon "><i class="fa-solid fa-phone"></i></span>
-                        <input type="text" class="form-control numeroinvitado" placeholder="Telefono">
+                        <input type="text" name="telefono" class="form-control numeroinvitado" placeholder="Telefono">
                       </div>
                       <span class="badge badge-warning" style="color:gray; float:right;" id="spaninputnumero"></span>
                   </div><hr>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Email</label>
+                    <label >Email</label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa-solid fa-envelope"></i></span>
-                        <input type="email" class="form-control mail" placeholder="Correo Electronico">
+                        <input type="email" name="email"class="form-control mail" placeholder="Correo Electronico">
                       </div>
                       <span class="badge badge-warning" style="color:red; float:right;" id="spanmail"></span>
-                  </div><hr>
-                  <label for="exampleInputEmail1">Asunto</label>
+                  </div>
+                  <hr>
+                  <label>Asunto</label>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
-                    <label class="form-check-label" for="flexRadioDefault1"> Informes </label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                  
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"/>
-                    <label class="form-check-label" for="flexRadioDefault2"> Sugerencias </label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                  
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3"/>
-                    <label class="form-check-label" for="flexRadioDefault3"> Quejas </label>
-                  </div><hr>
+                    <input class="form-check-input" type="radio" name="asunto" value="Informes" id="Asunto1"/>
+                    <label class="form-check-label" for="Asunto1"> Informes </label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+                    <input class="form-check-input" type="radio" name="asunto" value="Sugerencias" id="Asunto2"/>
+                    <label class="form-check-label" for="Asunto2"> Sugerencias </label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+                    <input class="form-check-input" type="radio" name="asunto" value="Quejas" id="Asunto3"/>
+                    <label class="form-check-label" for="Asunto3"> Quejas </label>
+                  </div>
+                  @error('asunto')
+                  <small>
+                      <strong> {{$message}} </strong>
+                  </small>
+                  @enderror
+                  <hr>
                   <div class="form-check">
                     <label for=""><i class="fa-solid fa-edit"></i> Mensaje</label>
-                    <textarea class="form-control" name="" id="" cols="30" rows="5">
+                    <textarea class="form-control" name="mensaje" id="" cols="30" rows="5">
+
 
                     </textarea>
+                    @error('mensaje')
+                    <small>
+                        <strong> {{$message}} </strong>
+                    </small>
+                    @enderror
+                    <input type="hidden" name="atendido" value="0">
+                    <input type="hidden" name="activo" value="1">
 
                   </div>
-                  
-                  
-              </form>
-              <div class="g-recaptcha" data-sitekey="your_site_key"></div>
+
+
+
+              <!-- RECAPTCHA GOOGLE
+                <div class="g-recaptcha" data-sitekey="your_site_key"></div>-->
           </div><hr>
         <div class="card-body">
           <a class="btn btn-danger" style="float:left;" href="#" class="card-link"><i class="fa-solid fa-backward"></i>  &nbsp <b>Regresar</b></a>
-          <a class="btn btn-success btnsubmit" style="float:right;" href="#" class="card-link"><b>Enviar</b> &nbsp <i class="fa-solid fa-paper-plane"></i></a>
+          <button type="submit" class="btn btn-success btnsubmit" style="float:right;" class="card-link"><b>Enviar</b> &nbsp <i class="fa-solid fa-paper-plane"></i></button>
         </div>
-        
+    </form>
       </div>
-      
-      
+
+
 
 <div  class="mx-auto">
 <div class="card text-black bg-primary smartcard" >
-  
+
   <div  aria-expanded="true" style="text-align: center;"><br>
     <h5 class="card-title"><a id="collapseAviso" style="color:white; cursor: pointer;">Aviso de Privacidad  &nbsp <i class="fa-solid fa-circle-chevron-down"></i></a></h5>
     <div class="card-body" id="txtavisoprivacidad">
@@ -185,16 +211,16 @@
 </div>
 </center>
 <script>
-  
+
   $(document).ready(function(){
     $(".btnsubmit").hide();
     const $input1 = document.querySelector('.nombreinvitado');
     const patron1 = /[A-Za-zñÑáéíóúýÁÉÍÓÚ Ý.-]+/;
 
        $input1.addEventListener("keydown", event => {
-        
+
                    console.log(event.key);
-                  
+
                    if(patron1.test(event.key)){
                     $(".nombreinvitado").css({ "border": "1px solid #0C0"});
                    }
@@ -202,11 +228,11 @@
                        if(event.keyCode==8){ console.log("backspace"); }
                        else{ event.preventDefault();}
                    }
-                   
-                   
+
+
                })
-               
-        
+
+
         $(".numeroinvitado").blur(function(){
                var txtnumero = $(".numeroinvitado").val();
                var valnumero = /^(\(\+?\d{2,3}\)[\*|\s|\-|\.]?(([\d][\*|\s|\-|\.]?){6})(([\d][\s|\-|\.]?){2})?|(\+?[\d][\s|\-|\.]?){8}(([\d][\s|\-|\.]?){2}(([\d][\s|\-|\.]?){2})?)?)$/;
@@ -214,14 +240,14 @@
                                 $("#spaninputnumero").text("Correcto").css("color", "green");
                             $(".numeroinvitado").css({ "border":"1px solid #0C0"}).fadeIn(2000);
                             $(".btnsubmit").show();
-                            
+
                           }
                             else{$("#spaninputnumero").text("Registre un numero valido").css("color", "red");
                             $(".numeroinvitado").css({ "border":"1px solid #C00"}).fadeIn(2000);
                             $(".btnsubmit").hide();
-                            
+
                           }
-            }) 
+            })
 
             $(".mail").blur(function(){
                             var txtmail = $(".mail").val();

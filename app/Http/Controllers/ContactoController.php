@@ -7,6 +7,26 @@ use App\Models\contacto;
 
 class ContactoController extends Controller
 {
+    public function store1(Request $request){
+
+        $request->validate([
+            'nombre' => 'required',
+            'asunto' => 'required',
+            'mensaje' => 'required',
+        ]);
+
+        $contacto = new contacto();
+        $contacto-> nombre = $request->nombre;
+        $contacto-> telefono = $request->telefono;
+        $contacto-> email = $request->email;
+        $contacto-> asunto = $request->asunto;
+        $contacto-> mensaje = $request->mensaje;
+        $contacto-> atendido = $request->atendido;
+        $contacto-> activo = $request->activo;
+
+        $contacto->save();
+        return redirect()->route('invitado.menu');
+    }
 
     public function index($tipo)
     {
@@ -22,7 +42,7 @@ class ContactoController extends Controller
                 $contacto = \DB::table('contacto')->where('activo', 1)->get();
                 break;
         }
-        
+
         if($contacto != null){
             $mensaje = 'Ok';
             $error = '0';
@@ -45,7 +65,7 @@ class ContactoController extends Controller
             $error = '1';
         }
 
-        return json_encode(array('message' => $mensaje, 'errors' => $error, 'data' => $contacto));    
+        return json_encode(array('message' => $mensaje, 'errors' => $error, 'data' => $contacto));
     }
     public function store(Request $request){
         $request->validate([
@@ -70,7 +90,7 @@ class ContactoController extends Controller
         }catch(\Exception $ex){
             $mensaje = $ex->getMessage();
         }
-        
+
         return json_encode(array('message' => $mensaje, 'errors' => $contacto));
     }
     public function setChecked($id){
@@ -81,7 +101,7 @@ class ContactoController extends Controller
         }else{
             $contacto->atendido = 1;
             $contacto->save();
-        } 
+        }
     }
     public function setActivo($id){
         $contacto = Contacto::find($id);
@@ -93,7 +113,7 @@ class ContactoController extends Controller
             $contacto->activo = 1;
             $contacto->save();
             return $contacto;
-        } 
+        }
     }
 }
 

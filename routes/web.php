@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\FullCalendarController;
+use App\Http\Controllers\ContactoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -61,6 +62,7 @@ Route::get('/calendario',  [App\Http\Controllers\FullCalendarController::class, 
 Route::post('/calendario/action',  [App\Http\Controllers\FullCalendarController::class, 'action']);
 //Invitado
 Route::get('/invitado.contacto', function () {return view('layouts.invitado.contacto');})->name('invitado.contacto');
+Route::post('/invitado.contacto/action', [App\Http\Controllers\ContactoController::class, 'store1']);
 Route::get('/invitado.menu', function () {return view('layouts.invitado.invitadomenu');})->name('invitado.menu');
 Auth::routes();
 
