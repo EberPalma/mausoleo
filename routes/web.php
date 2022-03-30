@@ -36,6 +36,8 @@ Route::get('/verify', function () {return view('auth.verify');})->name('verify')
 Route::get('/verify', function () {return view('auth.verify');})->name('verification.resend');
 
 //Administrativos CRUD
+//Codigo QR
+Route::get('/codigoqr', function () {return view('layouts.codigosqr.index');})->name('codigoqr');
 //Contacto
 Route::get('/contacto', function () {return view('layouts.contacto.index');})->name('contacto');
 //Usuarios
@@ -65,16 +67,9 @@ Route::get('/invitado.contacto', function () {return view('layouts.invitado.cont
 Route::get('/invitado.contacto-confirmacion', function () {return view('layouts.invitado.confirmacion-contacto');})->name('invitado.confirmacion-contacto');
 Route::post('/invitado.contacto/action', [App\Http\Controllers\ContactoController::class, 'store1']);
 Route::get('/invitado.menu', function () {return view('layouts.invitado.invitadomenu');})->name('invitado.menu');
+Route::get('/presentacion', function () {return view('layouts.guest.presentacion');})->name('presentacion');
+Route::get('/inicio', function () {return view('layouts.guest.index');})->name('inicio');
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/qr_generate', [App\Http\Controllers\QRController::class, 'qr_generate'])->name('qr_generate');

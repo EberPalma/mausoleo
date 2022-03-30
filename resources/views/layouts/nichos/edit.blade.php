@@ -79,7 +79,7 @@
 
 
                                     <div class="text-center">
-                                        <button type="submit" id="btnSubmit" class="btn btn-default mt-4">{{ __('GUARDAR') }}</button>
+                                        <button class="btn btn-warning" type="submit" id="btnSubmit" class="btn btn-default mt-4">{{ __('GUARDAR') }}</button>
                                     </div>
                                 </div>
                             </form>

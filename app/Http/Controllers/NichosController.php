@@ -17,6 +17,7 @@ class NichosController extends Controller
         $nicho = \DB::table('nichos')
                         ->where('activo', $activo)
                         ->select('id', 'coordenada', 'capacidad', 'nombre', 'familia')
+                        ->orderBy('id', 'ASC')
                         ->get();
         foreach($nicho as $n){
             $difuntos = \DB::table('beneficiarios')->where('idNicho', $n->id)->select('nombre')->get();
@@ -69,7 +70,7 @@ class NichosController extends Controller
                             ]);
             $mensaje = "Registro realizado correctamente";
         }catch(\Exception $ex){
-            $mensaje = $ex->getMessage(); 
+            $mensaje = $ex->getMessage();
         }
         return json_encode(array('message' => $mensaje));
     }
@@ -83,7 +84,7 @@ class NichosController extends Controller
     public function show($id)
     {
         $nicho = \DB::table('nichos')->where('id', $id);
-        
+
         if($nicho != null){
             $mensaje = "Ok";
             $error = '0';
@@ -134,7 +135,7 @@ class NichosController extends Controller
             return "Informacion actualizada correctamente";
         }else{
             return "No se encontro registro";
-            
+
         }
 
     }

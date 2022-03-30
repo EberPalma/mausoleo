@@ -1,8 +1,8 @@
 
-@extends('index') 
+@extends('index')
 @if(!isset(Auth::user()->name))
     <meta http-equiv="refresh" content="0; url={{ route('login') }}">
-@else 
+@else
 @section('Contenidoprincipal')
     <div class="content">
         <div class="container-fluid">
@@ -25,17 +25,17 @@
                                 @method('put')
 
                                 <h6 class="heading-small text-muted mb-4">{{ __('Información de usuario') }}</h6>
-                                
+
                                 @include('alerts.success')
                                 @include('alerts.error_self_update', ['key' => 'not_allow_profile'])
-        
+
                                 <div class="pl-lg-4">
                                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-name">
                                             <i class="w3-xxlarge fa fa-user"></i>{{ __('Nombre') }}
                                         </label>
                                         <input type="text" name="name" id="input-name" class="inname form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Jose') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus>
-        
+
                                         @include('alerts.feedback', ['field' => 'name'])
                                     </div>
                                     <div class="form-group">
@@ -43,31 +43,31 @@
                                             <i class="w3-xxlarge fa fa-user"></i>{{ __('Apellido Paterno') }}
                                         </label>
                                         <input type="text" name="ap_paterno" id="" class="inappa form-control" placeholder="{{ __('Gonzales') }}" value="{{ auth()->user()->ap_paterno }}" required autofocus>
-        
-                                        
+
+
                                     </div>
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-name">
                                             <i class="w3-xxlarge fa fa-user"></i>{{ __('Apellido Materno') }}
                                         </label>
                                         <input type="text" name="ap_materno" id="" class="inapma form-control" placeholder="{{ __('Hernandez') }}" value="{{ auth()->user()->ap_materno }}" required autofocus>
-        
-                                        
+
+
                                     </div>
                                     <div class="form-group">
                                         <label class="form-control-label" for="input-name">
                                             <i class="w3-xxlarge fa fa-user"></i>{{ __('Nombre de usuario') }}
                                         </label>
                                         <input type="text" name="username" id="" class="inun form-control" placeholder="{{ __('JoseGH') }}" value="{{ auth()->user()->username }}" required autofocus>
-        
-                                        
+
+
                                     </div>
                                     <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-email"><i class="w3-xxlarge fa fa-envelope-o"></i>{{ __('CORREO ELECTRÓNICO') }}</label>
-                                        <input type="email" 
+                                        <input type="email"
                                                name="email" id="input-email" class="inemail form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" value="{{ old('email', auth()->user()->email) }}" required>
                                                <span class="badge badge-warning" id="spanmail"></span>
-        
+
                                         @include('alerts.feedback', ['field' => 'email'])
                                     </div>
                                     <div class="text-center">
@@ -78,19 +78,19 @@
                             <hr class="my-4" />
                             <form method="get" action="/api/changepassword/{{ auth()->user()->id }}">
                                 @csrf
-        
+
                                 <h6 class="heading-small text-muted mb-4">{{ __('CONTRASEÑA') }}</h6>
-        
+
                                 @include('alerts.success', ['key' => 'password_status'])
                                 @include('alerts.error_self_update', ['key' => 'not_allow_password'])
-        
+
                                 <div class="pl-lg-4">
                                     <div class="form-group{{ $errors->has('old_password') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-current-password">
                                             <i class="w3-xxlarge fa fa-eye-slash"></i>{{ __('Contraseña actual') }}
                                         </label>
                                         <input type="password" name="password" id="password" class="form-control{{ $errors->has('old_password') ? ' is-invalid' : '' }}" placeholder="{{ __('Current Password') }}" value="" required>
-        
+
                                         @include('alerts.feedback', ['field' => 'old_password'])
                                     </div>
                                     <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
@@ -99,7 +99,7 @@
                                         </label>
                                         <input type="password" name="new_password" id="new-password" class="pass form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('New Password') }}" value="" required>
                                         <span class="badge badge-warning" id="passstrength"></span>
-        
+
                                         @include('alerts.feedback', ['field' => 'password'])
                                     </div>
                                     <div class="form-group">
@@ -109,7 +109,7 @@
                                         <input type="password" name="conf_password" id="conf-password" class="confpass form-control" placeholder="{{ __('Confirm New Password') }}" value="" required>
                                         <span class="badge badge-warning" id="passconf"></span>
                                     </div>
-        
+
                                     <div class="text-center">
                                         <button type="submit" id="btnSubmit" class="btn btn-default mt-4">{{ __('CAMBIAR CONTRASEÑA') }}</button>
                                     </div>
@@ -152,10 +152,10 @@
                                        <b>Email:</b> {{ auth()->user()->email }}
                                     </p>
                                 </div>
-                                
+
                             </div>
-                            <hr>        
-                             <center>  <h5> <span class="badge badge-warning">{{ auth()->user()->rol }}</span></h5> </center>  
+                            <hr>
+                             <center>  <h5> <span class="badge badge-warning">{{ auth()->user()->rol }}</span></h5> </center>
                         </div>
                     </div>
                 </div>
@@ -178,8 +178,8 @@ $(document).ready(function(){
                        if(event.keyCode==8){ console.log("backspace"); }
                        else{ event.preventDefault();}
                    }
-                   
-                   
+
+
                })
        const $input2 = document.querySelector('.inappa');
        const patron2 = /[A-Za-zñÑáéíóúýÁÉÍÓÚ Ý]+/;
@@ -192,8 +192,8 @@ $(document).ready(function(){
                        if(event.keyCode==8){ console.log("backspace"); }
                        else{ event.preventDefault();}
                    }
-                   
-                   
+
+
                })
                const $input3 = document.querySelector('.inapma');
                const patron3 = /[A-Za-zñÑáéíóúýÁÉÍÓÚ Ý]+/;
@@ -206,8 +206,8 @@ $(document).ready(function(){
                        if(event.keyCode==8){ console.log("backspace"); }
                        else{ event.preventDefault();}
                    }
-                   
-                   
+
+
                })
                const $input4 = document.querySelector('.inun');
                const patron4 = /[A-Za-zñÑáéíóúýÁÉÍÓÚ Ý]+/;
@@ -220,8 +220,8 @@ $(document).ready(function(){
                        if(event.keyCode==8){ console.log("backspace"); }
                        else{ event.preventDefault();}
                    }
-                   
-                   
+
+
                })
                $(".inemail").blur(function(){
                             var txtmail = $(".inemail").val();

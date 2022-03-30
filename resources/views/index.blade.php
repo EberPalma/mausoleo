@@ -97,7 +97,7 @@
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="{{route('page.index', 'table')}}">
+                        <a class="nav-link" href="{{route('codigoqr')}}">
                             <img src="{{ asset('img/laravel.svg') }}" style="width:25px">
                              <p>{{ __("Codigo QR") }}</p>
                         </a>
