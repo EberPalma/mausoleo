@@ -160,4 +160,19 @@ class UserController extends Controller
             return $user;
         } 
     }
+
+    public function updateImage(Request $request){
+        if($request->file('profileFoto') != ""){
+            if(\File::exists(public_path("Images/User/".$request->id."_profile.jpg"))){
+                \Storage::disk('local')->move($id.'_profile.jpg', 'old/user/'.$request->id.'profile_'.date('Y-m-d').'.jpg');
+            }
+            $file = $request->file('profileFoto');
+            $nombre = $request->id.'_profile.jpg';
+            \Storage::disk('local')->put('User/'.$nombre, \File::get($file));
+            return redirect()->back();
+        }else{
+            return redirect()->back()
+                ->with('alert', 'Ha ocurrido un error al guardar la imagen!');
+        }
+    }
 }
