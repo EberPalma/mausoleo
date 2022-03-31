@@ -175,4 +175,9 @@ class UserController extends Controller
                 ->with('alert', 'Ha ocurrido un error al guardar la imagen!');
         }
     }
+
+    public function editar($id){
+        $user = User::find($id);
+        return view('users/edit')->with('user', $user);
+    }
 }

@@ -32,11 +32,9 @@ function loadTable(response) {
                 : `<td>No cuenta con email</td>`;
         let userCreado = `<td>${e.created_at}</td>`;
         let userEdit = `<td class="d-flex justify-content-end">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons" id="edit${e.id}">
                                         
-                                <label class="btn btn-sm btn-secondary" title="Editar usuario">
-                                <a href="profile.edit" type="radio" name="options" > <i class="fa fa-edit"></i> </a>
-                                </label>
+                                <a class="btn btn-sm btn-secondary" href="/profile.editar/${e.id}"><i class="fa fa-edit"></i></a>
                                 <label class="btn btn-sm btn-danger"  title="Borrar usuario" id="delete${e.id}">
                                     <i class="fa fa-trash"></i>
                                 </label>
