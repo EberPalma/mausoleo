@@ -34,7 +34,9 @@ function loadTable(response) {
         let userEdit = `<td class="d-flex justify-content-end">
                             <div class="btn-group btn-group-toggle" data-toggle="buttons" id="edit${e.id}">
                                         
-                                <a class="btn btn-sm btn-secondary" href="/profile.editar/${e.id}"><i class="fa fa-edit"></i></a>
+                                <label class="btn btn-sm btn-secondary" title="Editar usuario">
+                                    <a href="/profile.editar/${e.id}"><i class="fa fa-edit"></i> </a>
+                                </label>
                                 <label class="btn btn-sm btn-danger"  title="Borrar usuario" id="delete${e.id}">
                                     <i class="fa fa-trash"></i>
                                 </label>
@@ -54,6 +56,9 @@ function loadTable(response) {
             userEdit +
             "</tr>";
         tabla.appendChild(tableRow);
+        document.querySelector("#edit"+e.id).addEventListener("click", ()=>{
+            window.location.replace("/profile.editar/"+e.id);
+        });
         document
             .querySelector("#delete" + e.id)
             .addEventListener("click", () => {
