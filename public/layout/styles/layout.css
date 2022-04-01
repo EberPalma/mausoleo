@@ -334,7 +334,7 @@ input:focus, textarea:focus, *:required:focus{border-color:#948307 !important;}
 .btn, .btn.inverse:hover{color:#FFFFFF; background-color:#948307; border-color:#948307;}
 .btn:hover, .btn.inverse{color:inherit; background-color:transparent; border-color:inherit;}
 
-.imgover:hover::before{background-color:rgba(142,200,55,.3);/* #948307 */}
+.imgover:hover::before{background-color:rgba(227,185,11,.3);/* #948307 */}
 .imgover, .imgover:hover::after{color:#FFFFFF;}
 
 

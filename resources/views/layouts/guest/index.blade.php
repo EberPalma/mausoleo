@@ -79,16 +79,16 @@
     <!-- ################################################################################################ -->
     <ul class="nospace clear">
       <li class="one_quarter first">
-        <div class="block clear"><a href="#"><i class="fas fa-phone"></i></a> <span><strong>Llámanos:</strong> +52 (722) 8944086</span></div>
+        <div class="block clear"><a href="tel:+34678567876"><i class="fas fa-phone"></i></a> <span><strong>Llámanos:</strong> +52 (722) 8944086</span></div>
       </li>
       <li class="one_quarter">
-        <div class="block clear"><a href="#"><i class="fas fa-envelope"></i></a> <span><strong>Mándanos un correo:</strong> support@domain.com</span></div>
+        <div class="block clear"><a href="mailto:contacto@mausoleosantaclara.com"><i class="fas fa-envelope"></i></a> <span><strong>Mándanos un correo:</strong> <small style="font-size:12.3px">contacto@mausoleosantaclara.com.mx</small></span></div>
       </li>
       <li class="one_quarter">
-        <div class="block clear"><a href="#"><i class="fas fa-clock"></i></a> <span><strong> Lun. - Dom.</strong> 08.00am - 18.00pm</span></div>
+        <div class="block clear"><a href="https://www.horasabiertas.mx/es/toluca-de-lerdo/mausoleo-santa-clara"><i class="fas fa-clock"></i></a> <span><strong> Lun-Vie & Sab-Dom.</strong> 08.00am - 18.00pm  10.00am - 14.00pm</span></div>
       </li>
       <li class="one_quarter">
-        <div class="block clear"><a href="#"><i class="fas fa-map-marker-alt"></i></a> <span><strong>Visítanos:</strong> Direccion al <a href="#">lugar</a></span></div>
+        <div class="block clear"><a href="https://goo.gl/maps/52MF2dMtbryQZPaT7"><i class="fas fa-map-marker-alt"></i></a> <span><strong>Visítanos:</strong> Direccion al <a href="https://goo.gl/maps/52MF2dMtbryQZPaT7">lugar</a></span></div>
       </li>
     </ul>
     <!-- ################################################################################################ -->
@@ -109,7 +109,7 @@
   <header id="header" class="hoc clear"  style="background-image:url('images/demo/backgrounds/marmol-blanco.jpg'); border-radius: 10px; ">
     <div id="logo" >
       <!-- ################################################################################################ -->
-      <img src="Images/demo/logolargo.png" style="margin-top:-10px; height:80px"  alt="">
+      <img loading="lazy" src="Images/demo/logolargo.png" style="margin-top:-10px; height:80px"  alt="">
       <!-- ################################################################################################ -->
 
     <nav id="mainav" class="fl_right">
@@ -125,7 +125,7 @@
           </ul>
         </li>
         <li><a href="#" style="color: #948307; font-weight:bold ">Condolencias</a></li>
-        <li><a href="#" style="color: #948307; font-weight:bold ">Contacto</a></li>
+        <li><a href="/invitado.contacto" style="color: #948307; font-weight:bold ">Contacto</a></li>
       </ul>
       <!-- ################################################################################################ -->
     </nav>
@@ -142,7 +142,7 @@
       <footer>
         <ul class="nospace inline pushright">
           <li><a class="btn" href="#">Ver video</a></li>
-          <li><a class="btn inverse" href="#">Contacto</a></li>
+          <li><a class="btn inverse" href="/invitado.contacto">Contacto</a></li>
 
   </div>
   <!-- ################################################################################################ -->
@@ -160,17 +160,17 @@
     <section id="introblocks">
       <ul class="nospace group grid-3">
         <li class="one_third">
-          <figure><a class="imgover" href="#"><img style="width:348px;height:220px" src="images/demo/servicios.jpg" alt=""></a>
+          <figure><a class="imgover" href="#"><img loading="lazy" style="width:348px;height:220px" src="images/demo/servicios.jpg" alt=""></a>
             <figcaption><a href="#">Servicios</a></figcaption>
           </figure>
         </li>
         <li class="one_third">
-          <figure><a class="imgover" href="#"><img style="width:348px;height:220px" src="images/demo/productos.jpg" alt=""></a>
+          <figure><a class="imgover" href="#"><img loading="lazy" style="width:348px;height:220px" src="images/demo/productos.jpg" alt=""></a>
             <figcaption><a href="#">Productos</a></figcaption>
           </figure>
         </li>
         <li class="one_third">
-          <figure><a class="imgover" href="#"><img src="images/demo/348x220.png" alt=""></a>
+          <figure><a class="imgover" href="#"><img loading="lazy" src="images/demo/348x220.png" alt=""></a>
             <figcaption><a href="#">Instalaciones</a></figcaption>
           </figure>
         </li>
@@ -188,74 +188,74 @@
   <section class="hoc container clear">
     <!-- ################################################################################################ -->
     <figure class="one_half first">
-      <h6 class="heading">Ante fringilla nisl eu</h6>
-      <p class="btmspace-30">Gravida lorem ligula quis ligula pellentesque congue semper felis maecenas rutrum euismod nibh class aptent taciti.</p>
+      <h6 class="heading">Mausoleo Santa Clara</h6>
+      <p class="btmspace-30">Mausomex es una organización mexicana con una importante experiencia en el resguardo y custodia de urnas de cenizas humanas.</p>
       <ul class="nospace clear points">
         <li><a href="#"><i class="fas fa-equals"></i></a>
-          <h6 class="heading">Sociosqu ad litora torquent</h6>
-          <p>Per conubia nostra per inceptos himenaeos mauris lectus enim luctus vitae viverra a pharetra mollis diam aliquam.</p>
+          <h6 class="heading">¿Quienes somos?</h6>
+          <p>Conozca mas acerca de las actividades de Mausomex</p>
         </li>
         <li><a href="#"><i class="fas fa-exclamation-circle"></i></a>
-          <h6 class="heading">Sociosqu ad litora torquent</h6>
-          <p>Per conubia nostra per inceptos himenaeos mauris lectus enim luctus vitae viverra a pharetra mollis diam aliquam.</p>
+          <h6 class="heading">Mision & Vision</h6>
+          <p>¿Le interesa nuestra Visión y Misión?</p>
         </li>
       </ul>
     </figure>
-    <div class="one_half last"><a class="imgover" href="#"><img style="width:480px;height:300px" src="images/demo/exterior.jpg" alt=""></a></div>
+    <div class="one_half last"><a class="imgover" href="#"><img loading="lazy" style="width:480px;height:300px" src="images/demo/exterior.jpg" alt=""></a></div>
     <!-- ################################################################################################ -->
   </section>
 </div>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<div class="wrapper row3">
+<div class="wrapper row3" style="background-image:url('images/demo/backgrounds/marmol-blanco.jpg');">
   <section id="services" class="hoc container clear">
     <!-- ################################################################################################ -->
     <div class="sectiontitle">
-      <p class="nospace font-xs">Te invitamos a conocer</p>
-      <h6 class="heading">Nuestras instalaciones</h6>
+      <p class="nospace font-xs">Le invitamos a conocer todo lo que</p>
+      <h6 class="heading">Podemos Ofrecerle</h6>
     </div>
     <ul class="nospace group grid-3">
-      <li class="one_third">
+      <li class="one_third" style="background-color:white;">
         <article><a href="#"><i class="fas fa-chess-king"></i></a>
           <h6 class="heading">Tincidunt enim etiam</h6>
           <p>Tellus lacus tempor in pharetra id imperdiet sit amet enim suspendisse potenti fusce ornare imperdiet sit amet enim suspendisse.</p>
-          <footer><a href="#">Read More</a></footer>
+          <footer><a href="#">Leer Más</a></footer>
         </article>
       </li>
-      <li class="one_third">
+      <li class="one_third" style="background-color:white;">
         <article><a href="#"><i class="fas fa-archive"></i></a>
           <h6 class="heading">Tincidunt enim etiam</h6>
           <p>Tellus lacus tempor in pharetra id imperdiet sit amet enim suspendisse potenti fusce ornare imperdiet sit amet enim suspendisse.</p>
-          <footer><a href="#">Read More</a></footer>
+          <footer><a href="#">Leer Más</a></footer>
         </article>
       </li>
-      <li class="one_third">
+      <li class="one_third" style="background-color:white;">
         <article><a href="#"><i class="fas fa-backspace"></i></a>
           <h6 class="heading">Tincidunt enim etiam</h6>
           <p>Tellus lacus tempor in pharetra id imperdiet sit amet enim suspendisse potenti fusce ornare imperdiet sit amet enim suspendisse.</p>
-          <footer><a href="#">Read More</a></footer>
+          <footer><a href="#">Leer Más</a></footer>
         </article>
       </li>
-      <li class="one_third">
+      <li class="one_third" style="background-color:white;">
         <article><a href="#"><i class="fas fa-bezier-curve"></i></a>
           <h6 class="heading">Tincidunt enim etiam</h6>
           <p>Tellus lacus tempor in pharetra id imperdiet sit amet enim suspendisse potenti fusce ornare imperdiet sit amet enim suspendisse.</p>
-          <footer><a href="#">Read More</a></footer>
+          <footer><a href="#">Leer Más</a></footer>
         </article>
       </li>
-      <li class="one_third">
+      <li class="one_third" style="background-color:white;">
         <article><a href="#"><i class="fas fa-box-open"></i></a>
           <h6 class="heading">Tincidunt enim etiam</h6>
           <p>Tellus lacus tempor in pharetra id imperdiet sit amet enim suspendisse potenti fusce ornare imperdiet sit amet enim suspendisse.</p>
-          <footer><a href="#">Read More</a></footer>
+          <footer><a href="#">Leer Más</a></footer>
         </article>
       </li>
-      <li class="one_third">
+      <li class="one_third" style="background-color:white;">
         <article><a href="#"><i class="fas fa-luggage-cart"></i></a>
           <h6 class="heading">Tincidunt enim etiam</h6>
           <p>Tellus lacus tempor in pharetra id imperdiet sit amet enim suspendisse potenti fusce ornare imperdiet sit amet enim suspendisse.</p>
-          <footer><a href="#">Read More</a></footer>
+          <footer><a href="#">Leer Más</a></footer>
         </article>
       </li>
     </ul>
@@ -265,6 +265,21 @@
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
+<div class="bgded overlay" style="background-image:url('images/demo/backgrounds/marmol-blanco.jpg');">
+    <section id="testimonials" class="hoc container clear">
+      <!-- ################################################################################################ -->
+      <article>
+        <figure><img loading="lazy" src="images/demo/Jaime-Sabines.jpg" style="width:100px; height:100px;" alt=""></figure>
+        <h6 class="heading font-x2">Jaime Sabines</h6>
+        <br>
+        <blockquote>'Morir es retirarse, hacerse a un lado, ocultarse un momento, quedarse quieto pasar el aire de una orilla a nada y estar en todas partes en secreto'</blockquote>
+      </article>
+      <!-- ################################################################################################ -->
+    </section>
+  </div>
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
 <div class="wrapper row2">
   <section class="hoc container clear">
     <!-- ################################################################################################ -->
@@ -273,14 +288,14 @@
       <h6 class="heading">Galeria</h6>
     </div>
     <figure>
-      <figcaption class="center btmspace-50"><a href="#">Pharetra</a> / <a href="#">Imperdiet</a> / <a href="#">Suspendisse</a> / <a href="#">Potenti</a></figcaption>
+      <figcaption class="center btmspace-50"><a href="#">Ubicación</a> / <a href="#">Mantenimiento</a> / <a href="#">Calidad</a> / <a href="#">Cementerio Virtual</a></figcaption>
       <ul class="nospace group grid-3">
-        <li class="one_third"><a class="imgover" href="#"><img src="images/demo/348x261.png" alt=""></a></li>
-        <li class="one_third"><a class="imgover" href="#"><img src="images/demo/348x261.png" alt=""></a></li>
-        <li class="one_third"><a class="imgover" href="#"><img src="images/demo/348x261.png" alt=""></a></li>
-        <li class="one_third"><a class="imgover" href="#"><img src="images/demo/348x261.png" alt=""></a></li>
-        <li class="one_third"><a class="imgover" href="#"><img src="images/demo/348x261.png" alt=""></a></li>
-        <li class="one_third"><a class="imgover" href="#"><img src="images/demo/348x261.png" alt=""></a></li>
+        <li class="one_third"><a class="imgover" href="#"><img loading="lazy" style="width:348px; height:261px" src="images/demo/gallery/Nichoexteriordesdearriba.jpg" alt=""></a></li>
+        <li class="one_third"><a class="imgover" href="#"><img loading="lazy" style="width:348px; height:261px" src="images/demo/gallery/Asientosnichoexterior.jpg" alt=""></a></li>
+        <li class="one_third"><a class="imgover" href="#"><img loading="lazy" style="width:348px; height:261px" src="images/demo/gallery/Ventanadesdeafuera.jpg" alt=""></a></li>
+        <li class="one_third"><a class="imgover" href="#"><img loading="lazy"  style="width:348px; height:261px" src="images/demo/gallery/Nichosinteriorcentrado.jpg" alt=""></a></li>
+        <li class="one_third"><a class="imgover" href="#"><img loading="lazy" style="width:348px; height:261px" src="images/demo/gallery/Nichosexterioresdesenfocado.jpg" alt=""></a></li>
+        <li class="one_third"><a class="imgover" href="#"><img loading="lazy" style="width:348px; height:261px" src="images/demo/gallery/Nichointeriordesenfocado.jpg" alt=""></a></li>
       </ul>
     </figure>
     <!-- ################################################################################################ -->
@@ -289,22 +304,8 @@
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<div class="bgded overlay" style="background-image:url('images/demo/backgrounds/marmol-blanco.jpg');">
-  <section id="testimonials" class="hoc container clear">
-    <!-- ################################################################################################ -->
-    <article>
-      <figure><img src="images/demo/Jaime-Sabines.jpg" style="width:100px; height:100px;" alt=""></figure>
-      <h6 class="heading font-x2">Jaime Sabines</h6>
-      <br>
-      <blockquote>'Morir es retirarse, hacerse a un lado, ocultarse un momento, quedarse quieto pasar el aire de una orilla a nada y estar en todas partes en secreto'</blockquote>
-    </article>
-    <!-- ################################################################################################ -->
-  </section>
-</div>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<div class="wrapper row2">
+
+{{-- <div class="wrapper row2">
   <section class="hoc container clear">
     <!-- ################################################################################################ -->
     <div class="sectiontitle">
@@ -314,7 +315,7 @@
     <ul id="latest" class="nospace group sd-third">
       <li class="one_third first">
         <article>
-          <figure><a class="imgover" href="#"><img src="images/demo/348x261.png" alt=""></a>
+          <figure><a class="imgover" href="#"><img loading="lazy" src="images/demo/348x261.png" alt=""></a>
             <figcaption>
               <h6 class="heading">Nisl nullam odio justo pharetra</h6>
               <ul class="nospace meta clear">
@@ -326,12 +327,12 @@
             </figcaption>
           </figure>
           <p>Et sagittis ac dignissim nec metus proin nunc maecenas vel nulla vivamus mattis massa vitae metus proin nunc maecenas vel nulla vivamus mattis massa vitae.</p>
-          <footer><a href="#">Read More</a></footer>
+          <footer><a href="#">Leer Más</a></footer>
         </article>
       </li>
       <li class="one_third">
         <article>
-          <figure><a class="imgover" href="#"><img src="images/demo/348x261.png" alt=""></a>
+          <figure><a class="imgover" href="#"><img loading="lazy" src="images/demo/348x261.png" alt=""></a>
             <figcaption>
               <h6 class="heading">Nisl nullam odio justo pharetra</h6>
               <ul class="nospace meta clear">
@@ -343,12 +344,12 @@
             </figcaption>
           </figure>
           <p>Et sagittis ac dignissim nec metus proin nunc maecenas vel nulla vivamus mattis massa vitae metus proin nunc maecenas vel nulla vivamus mattis massa vitae.</p>
-          <footer><a href="#">Read More</a></footer>
+          <footer><a href="#">Leer Más</a></footer>
         </article>
       </li>
       <li class="one_third">
         <article>
-          <figure><a class="imgover" href="#"><img src="images/demo/348x261.png" alt=""></a>
+          <figure><a class="imgover" href="#"><img loading="lazy" src="images/demo/348x261.png" alt=""></a>
             <figcaption>
               <h6 class="heading">Nisl nullam odio justo pharetra</h6>
               <ul class="nospace meta clear">
@@ -360,13 +361,13 @@
             </figcaption>
           </figure>
           <p>Et sagittis ac dignissim nec metus proin nunc maecenas vel nulla vivamus mattis massa vitae metus proin nunc maecenas vel nulla vivamus mattis massa vitae.</p>
-          <footer><a href="#">Read More</a></footer>
+          <footer><a href="#">Leer Más</a></footer>
         </article>
       </li>
     </ul>
     <!-- ################################################################################################ -->
   </section>
-</div>
+</div> --}}
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
@@ -412,15 +413,15 @@
         <div class="one_quarter">
           <h6 class="heading">Galeria</h6>
           <ul class="nospace clear latestimg">
-            <li><a class="imgover" href="#"><img src="images/demo/100x100.png" alt=""></a></li>
-            <li><a class="imgover" href="#"><img src="images/demo/100x100.png" alt=""></a></li>
-            <li><a class="imgover" href="#"><img src="images/demo/100x100.png" alt=""></a></li>
-            <li><a class="imgover" href="#"><img src="images/demo/100x100.png" alt=""></a></li>
-            <li><a class="imgover" href="#"><img src="images/demo/100x100.png" alt=""></a></li>
-            <li><a class="imgover" href="#"><img src="images/demo/100x100.png" alt=""></a></li>
-            <li><a class="imgover" href="#"><img src="images/demo/100x100.png" alt=""></a></li>
-            <li><a class="imgover" href="#"><img src="images/demo/100x100.png" alt=""></a></li>
-            <li><a class="imgover" href="#"><img src="images/demo/100x100.png" alt=""></a></li>
+            <li><a class="imgover" href="#"><img loading="lazy" src="images/demo/100x100.png" alt=""></a></li>
+            <li><a class="imgover" href="#"><img loading="lazy" src="images/demo/100x100.png" alt=""></a></li>
+            <li><a class="imgover" href="#"><img loading="lazy" src="images/demo/100x100.png" alt=""></a></li>
+            <li><a class="imgover" href="#"><img loading="lazy" src="images/demo/100x100.png" alt=""></a></li>
+            <li><a class="imgover" href="#"><img loading="lazy" src="images/demo/100x100.png" alt=""></a></li>
+            <li><a class="imgover" href="#"><img loading="lazy" src="images/demo/100x100.png" alt=""></a></li>
+            <li><a class="imgover" href="#"><img loading="lazy" src="images/demo/100x100.png" alt=""></a></li>
+            <li><a class="imgover" href="#"><img loading="lazy" src="images/demo/100x100.png" alt=""></a></li>
+            <li><a class="imgover" href="#"><img loading="lazy" src="images/demo/100x100.png" alt=""></a></li>
           </ul>
         </div>
       </div>
@@ -431,7 +432,7 @@
         <ul class="nospace">
           <li><a href="index.html"><i class="fas fa-lg fa-home"></i></a></li>
           <li><a href="#">Acerca de nosotros</a></li>
-          <li><a href="#">Contacto</a></li>
+          <li><a href="/invitado.contacto">Contacto</a></li>
           <li><a href="#">Terminos</a></li>
           <li><a href="#">Privacidad</a></li>
           <li><a href="#">Cookies</a></li>

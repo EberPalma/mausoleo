@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //RUTAS SIN AUTH
-Route::get('/', function () {return view('welcome');});
+Route::get('/', function () {return view('layouts.guest.index');});
+Route::get('/administracion', function () {return view('welcome');});
 Route::get('/guest', function () {return view('layouts.app');});
 Route::get('/register', function () {return view('auth.register');})->name('register');
 
