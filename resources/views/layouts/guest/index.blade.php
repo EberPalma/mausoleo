@@ -1,12 +1,58 @@
 <!DOCTYPE html>
-<!--
-Template Name: Spourmo
-Author: <a href="https://www.os-templates.com/">OS Templates</a>
-Author URI: https://www.os-templates.com/
-Copyright: OS-Templates.com
-Licence: Free to use under our free template licence terms
-Licence URI: https://www.os-templates.com/template-terms
--->
+
+
+<style>
+    #myVideo {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+
+}
+
+/* Add some content at the bottom of the video/page */
+.content {
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Style the button used to pause/play the video */
+#myBtn {
+  width: 200px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+#myBtn:hover {
+  background: #ddd;
+  color: black;
+}
+
+.whatsapp {
+  position:fixed;
+  width:60px;
+  height:60px;
+  bottom:80px;
+  right:7px;
+  background-color:#25d366;
+  color:#FFF;
+  border-radius:50px;
+  text-align:center;
+  font-size:30px;
+  z-index:100;
+}
+.whatsapp-icon {
+  margin-top:13px;
+}
+</style>
 <html lang="">
 <!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
 <head>
@@ -14,46 +60,21 @@ Licence URI: https://www.os-templates.com/template-terms
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body id="top">
+
+
+<a href="https://wa.me/5211234567890?text=Me%20gustaría%20saber%20el%20precio%20del%20coche" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<div class="wrapper row0">
-  <div id="topbar" class="hoc clear">
-    <!-- ################################################################################################ -->
-    <div class="fl_left">
-      <ul class="nospace">
-        <li><i class="fas fa-mobile-alt rgtspace-5"></i> +52 (722) 8944086</li>
-        <li><i class="far fa-envelope rgtspace-5"></i> info@domain.com</li>
-      </ul>
-    </div>
-    <div class="fl_right">
-      <ul class="nospace">
-        <li><a href="#"><i class="fas fa-home"></i></a></li>
-        <li><a href="#" title="Help Centre"><i class="far fa-life-ring"></i></a></li>
-        <li><a href="#" title="Login"><i class="fas fa-sign-in-alt"></i></a></li>
-        <li><a href="#" title="Sign Up"><i class="fas fa-edit"></i></a></li>
-        <li id="searchform">
-          <div>
-            <form action="#" method="post">
-              <fieldset>
-                <legend>Quick Search:</legend>
-                <input type="text" placeholder="Enter search term&hellip;">
-                <button type="submit"><i class="fas fa-search"></i></button>
-              </fieldset>
-            </form>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <!-- ################################################################################################ -->
-  </div>
-</div>
+
+
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<div class="wrapper row1">
+<div class="wrapper row1 " >
   <section id="ctdetails" class="hoc clear">
     <!-- ################################################################################################ -->
     <ul class="nospace clear">
@@ -77,33 +98,38 @@ Licence URI: https://www.os-templates.com/template-terms
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- Top Background Image Wrapper -->
-<div class="bgded overlay padtop" style="background-image:url('images/demo/backgrounds/01.png');">
+
+<div class="bgded overlay " >
+    <video id="myVideo" src="/Images/demo/backgrounds/Videoinicio.webm" style="z-index:-200;" width="1312px"  autoplay muted loop>
+    </video>
+
   <!-- ################################################################################################ -->
   <!-- ################################################################################################ -->
   <!-- ################################################################################################ -->
-  <header id="header" class="hoc clear">
-    <div id="logo" class="fl_left">
+  <header id="header" class="hoc clear"  style="background-image:url('images/demo/backgrounds/marmol-blanco.jpg'); border-radius: 10px; ">
+    <div id="logo" >
       <!-- ################################################################################################ -->
-      <h1><a href="index.html">Mausoleo Santa Clara</a></h1>
+      <img src="Images/demo/logolargo.png" style="margin-top:-10px; height:80px"  alt="">
       <!-- ################################################################################################ -->
-    </div>
+
     <nav id="mainav" class="fl_right">
       <!-- ################################################################################################ -->
       <ul class="clear">
-        <li class="active"><a href="index.html">Inicio</a></li>
-        <li><a href="#">Nosotros</a></li>
-        <li><a href="#">Productos y Servicios</a></li>
-        <li><a class="drop" href="#">Recordando a</a>
+        <li class="active"><a href="index.html" style="color: black; font-weight:bold ">Inicio</a></li>
+        <li><a href="#" style="color: #948307; font-weight:bold ">Nosotros</a></li>
+        <li><a href="#" style="color: #948307; font-weight:bold ">Servicios</a></li>
+        <li><a class="drop" href="#" style="color: #948307; font-weight:bold ">Recordando a</a>
           <ul>
             <li><a href="pages/gallery.html">Hoy</a></li>
             <li><a href="pages/full-width.html">Mes</a></li>
           </ul>
         </li>
-        <li><a href="#">Condolencias</a></li>
-        <li><a href="#">Contacto</a></li>
+        <li><a href="#" style="color: #948307; font-weight:bold ">Condolencias</a></li>
+        <li><a href="#" style="color: #948307; font-weight:bold ">Contacto</a></li>
       </ul>
       <!-- ################################################################################################ -->
     </nav>
+</div>
   </header>
   <!-- ################################################################################################ -->
   <!-- ################################################################################################ -->
@@ -111,19 +137,18 @@ Licence URI: https://www.os-templates.com/template-terms
   <div id="pageintro" class="hoc clear">
     <!-- ################################################################################################ -->
     <article>
-      <h3 class="heading">Senectus et netus</h3>
-      <p>Et malesuada fames ac turpis egestas duis rutrum eros ut sapien in hac habitasse platea dictumst aliquam venenatis leo et orci ut pretium odio eu nisi nulla at.</p>
+      <h3 class="heading">Paseo Virtual</h3>
+      <p>Lo invitamos a conocer nuestras instalaciones, puede acceder a un paseo donde le mostraremos todas las zonas interiores y exteriores del <b>mausoleo santa clara<b></p>
       <footer>
         <ul class="nospace inline pushright">
-          <li><a class="btn" href="#">Egestas</a></li>
-          <li><a class="btn inverse" href="#">Tristique</a></li>
-        </ul>
-      </footer>
-    </article>
-    <!-- ################################################################################################ -->
+          <li><a class="btn" href="#">Ver video</a></li>
+          <li><a class="btn inverse" href="#">Contacto</a></li>
+
   </div>
   <!-- ################################################################################################ -->
+
 </div>
+
 <!-- End Top Background Image Wrapper -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
@@ -135,18 +160,18 @@ Licence URI: https://www.os-templates.com/template-terms
     <section id="introblocks">
       <ul class="nospace group grid-3">
         <li class="one_third">
-          <figure><a class="imgover" href="#"><img src="images/demo/348x220.png" alt=""></a>
-            <figcaption><a href="#">Aliquam faucibus</a></figcaption>
+          <figure><a class="imgover" href="#"><img style="width:348px;height:220px" src="images/demo/servicios.jpg" alt=""></a>
+            <figcaption><a href="#">Servicios</a></figcaption>
+          </figure>
+        </li>
+        <li class="one_third">
+          <figure><a class="imgover" href="#"><img style="width:348px;height:220px" src="images/demo/productos.jpg" alt=""></a>
+            <figcaption><a href="#">Productos</a></figcaption>
           </figure>
         </li>
         <li class="one_third">
           <figure><a class="imgover" href="#"><img src="images/demo/348x220.png" alt=""></a>
-            <figcaption><a href="#">Aliquam faucibus</a></figcaption>
-          </figure>
-        </li>
-        <li class="one_third">
-          <figure><a class="imgover" href="#"><img src="images/demo/348x220.png" alt=""></a>
-            <figcaption><a href="#">Aliquam faucibus</a></figcaption>
+            <figcaption><a href="#">Instalaciones</a></figcaption>
           </figure>
         </li>
       </ul>
@@ -159,7 +184,7 @@ Licence URI: https://www.os-templates.com/template-terms
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<div class="bgded overlay" style="background-image:url('images/demo/backgrounds/01.png');">
+<div class="bgded overlay" style="background-image:url('images/demo/backgrounds/marmol-blanco.jpg');">
   <section class="hoc container clear">
     <!-- ################################################################################################ -->
     <figure class="one_half first">
@@ -176,7 +201,7 @@ Licence URI: https://www.os-templates.com/template-terms
         </li>
       </ul>
     </figure>
-    <div class="one_half last"><a class="imgover" href="#"><img src="images/demo/480x300.png" alt=""></a></div>
+    <div class="one_half last"><a class="imgover" href="#"><img style="width:480px;height:300px" src="images/demo/exterior.jpg" alt=""></a></div>
     <!-- ################################################################################################ -->
   </section>
 </div>
@@ -187,8 +212,8 @@ Licence URI: https://www.os-templates.com/template-terms
   <section id="services" class="hoc container clear">
     <!-- ################################################################################################ -->
     <div class="sectiontitle">
-      <p class="nospace font-xs">Mollis eu commodo eu dui quisque</p>
-      <h6 class="heading">Ut ipsum vivamus tincidunt</h6>
+      <p class="nospace font-xs">Te invitamos a conocer</p>
+      <h6 class="heading">Nuestras instalaciones</h6>
     </div>
     <ul class="nospace group grid-3">
       <li class="one_third">
@@ -244,8 +269,8 @@ Licence URI: https://www.os-templates.com/template-terms
   <section class="hoc container clear">
     <!-- ################################################################################################ -->
     <div class="sectiontitle">
-      <p class="nospace font-xs">Mollis eu commodo eu dui quisque</p>
-      <h6 class="heading">Ut ipsum vivamus tincidunt</h6>
+      <p class="nospace font-xs">Visita nuestra galería y conoce nuestras instalaciones.</p>
+      <h6 class="heading">Galeria</h6>
     </div>
     <figure>
       <figcaption class="center btmspace-50"><a href="#">Pharetra</a> / <a href="#">Imperdiet</a> / <a href="#">Suspendisse</a> / <a href="#">Potenti</a></figcaption>
@@ -264,14 +289,14 @@ Licence URI: https://www.os-templates.com/template-terms
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<div class="bgded overlay" style="background-image:url('images/demo/backgrounds/01.png');">
+<div class="bgded overlay" style="background-image:url('images/demo/backgrounds/marmol-blanco.jpg');">
   <section id="testimonials" class="hoc container clear">
     <!-- ################################################################################################ -->
     <article>
-      <figure><img src="images/demo/100x100.png" alt=""></figure>
-      <h6 class="heading font-x2">J. Doe</h6>
-      <em>Conubia nostra per inceptos</em>
-      <blockquote>Himenaeos curabitur feugiat etiam in enim sed felis interdum lobortis phasellus nec eros ut arcu sollicitudin pellentesque curabitur porta justo vitae molestie semper ligula enim sed felis interdum lobortis phasellus nec eros ut arcu sollicitudin pellentesque curabitur porta justo vitae molestie semper ligula.</blockquote>
+      <figure><img src="images/demo/Jaime-Sabines.jpg" style="width:100px; height:100px;" alt=""></figure>
+      <h6 class="heading font-x2">Jaime Sabines</h6>
+      <br>
+      <blockquote>'Morir es retirarse, hacerse a un lado, ocultarse un momento, quedarse quieto pasar el aire de una orilla a nada y estar en todas partes en secreto'</blockquote>
     </article>
     <!-- ################################################################################################ -->
   </section>
@@ -346,7 +371,7 @@ Licence URI: https://www.os-templates.com/template-terms
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- Bottom Background Image Wrapper -->
-<div class="bgded overlay" style="background-image:url('images/demo/backgrounds/01.png');">
+<div class="bgded overlay" >
   <!-- ################################################################################################ -->
   <div class="wrapper row4">
     <footer id="footer" class="hoc clear">
@@ -422,8 +447,8 @@ Licence URI: https://www.os-templates.com/template-terms
   <div class="wrapper row5">
     <div id="copyright" class="hoc clear">
       <!-- ################################################################################################ -->
-      <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
-      <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+      <p class="fl_left">Copyright &copy; 2022 - All Rights Reserved - <a href="/">www.mausoleosantaclara.com.mx</a></p>
+      <p class="fl_right">Webpage <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">Mausomex & CPI</a></p>
       <!-- ################################################################################################ -->
     </div>
   </div>
