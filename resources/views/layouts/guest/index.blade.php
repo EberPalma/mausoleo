@@ -65,7 +65,7 @@
 <body id="top">
 
 
-<a href="https://wa.me/5211234567890?text=Me%20gustaría%20saber%20el%20precio%20del%20coche" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
+<a href="https://api.whatsapp.com/send/?phone=+527228944086" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
@@ -217,44 +217,44 @@
     </div>
     <ul class="nospace group grid-3">
       <li class="one_third" style="background-color:white;">
+        <article><a href="#"><i class="fas fa-gem"></i></a>
+          <h6 class="heading">Urnas</h6>
+          <p>Urnas de excelente calidad, elaboradas en cerámica, piedra, bronce, mármol, alabastro o vidrio.</p>
+          <footer><a href="#">Leer Más</a></footer>
+        </article>
+      </li>
+      <li class="one_third" style="background-color:white;">
+        <article><a href="#"><i class="fas fa-map-marked-alt"></i></a>
+          <h6 class="heading">Ubicación</h6>
+          <p>Excelente ubicación en el centro de la Ciudad de Toluca, a lado de la Iglesia Santa Clara de Asís.</p>
+          <footer><a href="#">Leer Más</a></footer>
+        </article>
+      </li>
+      <li class="one_third" style="background-color:white;">
+        <article><a href="#"><i class="fas fa-glasses"></i></a>
+          <h6 class="heading">Vigilancia</h6>
+          <p>El cuidado de las instalaciones y de sus familiares son nuestra principal prioridad</p>
+          <footer><a href="#">Leer Más</a></footer>
+        </article>
+      </li>
+      <li class="one_third" style="background-color:white;">
         <article><a href="#"><i class="fas fa-chess-king"></i></a>
-          <h6 class="heading">Tincidunt enim etiam</h6>
-          <p>Tellus lacus tempor in pharetra id imperdiet sit amet enim suspendisse potenti fusce ornare imperdiet sit amet enim suspendisse.</p>
+          <h6 class="heading">Cementerio virtual</h6>
+          <p>Espacio en el cual las personas pueden compartir bellos recuerdos de sus miembros de familia</p>
           <footer><a href="#">Leer Más</a></footer>
         </article>
       </li>
       <li class="one_third" style="background-color:white;">
-        <article><a href="#"><i class="fas fa-archive"></i></a>
-          <h6 class="heading">Tincidunt enim etiam</h6>
-          <p>Tellus lacus tempor in pharetra id imperdiet sit amet enim suspendisse potenti fusce ornare imperdiet sit amet enim suspendisse.</p>
+        <article><a href="#"><i class="fas fa-broom"></i></a>
+          <h6 class="heading">Mantenimiento</h6>
+          <p>Tenemos personal capacitado para mantener a sus familiares y las instalaciones en optimas condiciones.</p>
           <footer><a href="#">Leer Más</a></footer>
         </article>
       </li>
       <li class="one_third" style="background-color:white;">
-        <article><a href="#"><i class="fas fa-backspace"></i></a>
-          <h6 class="heading">Tincidunt enim etiam</h6>
-          <p>Tellus lacus tempor in pharetra id imperdiet sit amet enim suspendisse potenti fusce ornare imperdiet sit amet enim suspendisse.</p>
-          <footer><a href="#">Leer Más</a></footer>
-        </article>
-      </li>
-      <li class="one_third" style="background-color:white;">
-        <article><a href="#"><i class="fas fa-bezier-curve"></i></a>
-          <h6 class="heading">Tincidunt enim etiam</h6>
-          <p>Tellus lacus tempor in pharetra id imperdiet sit amet enim suspendisse potenti fusce ornare imperdiet sit amet enim suspendisse.</p>
-          <footer><a href="#">Leer Más</a></footer>
-        </article>
-      </li>
-      <li class="one_third" style="background-color:white;">
-        <article><a href="#"><i class="fas fa-box-open"></i></a>
-          <h6 class="heading">Tincidunt enim etiam</h6>
-          <p>Tellus lacus tempor in pharetra id imperdiet sit amet enim suspendisse potenti fusce ornare imperdiet sit amet enim suspendisse.</p>
-          <footer><a href="#">Leer Más</a></footer>
-        </article>
-      </li>
-      <li class="one_third" style="background-color:white;">
-        <article><a href="#"><i class="fas fa-luggage-cart"></i></a>
-          <h6 class="heading">Tincidunt enim etiam</h6>
-          <p>Tellus lacus tempor in pharetra id imperdiet sit amet enim suspendisse potenti fusce ornare imperdiet sit amet enim suspendisse.</p>
+        <article><a href="#"><i class="fas fa-wallet"></i></a>
+          <h6 class="heading">Facilidades de pago</h6>
+          <p>Pagos en abonos mensuales fijos faciles de pagar, o bien puede elegir la renta de un nicho. </p>
           <footer><a href="#">Leer Más</a></footer>
         </article>
       </li>
@@ -379,14 +379,14 @@
       <!-- ################################################################################################ -->
       <div class="group btmspace-50">
         <div class="one_quarter first">
-          <h6 class="heading">Lorem proin volutpat</h6>
-          <p>Ligula quis sapien nam molestie massa quis pede maecenas quis lacus nunc sed lectus quis lectus tristique tincidunt sed varius nisl tincidunt lectus pellentesque sagittis mauris ut leo ullamcorper tortor morbi accumsan [<a href="#">&hellip;</a>]</p>
+          <h6 class="heading">Mausoleo Santa Clara</h6>
+          <p>MAUSOLEO SANTA CLARA ubicado sobre una leyenda Toluqueña
+            En el siglo XlX frente a la iglesia de Santa Clara, existía un panteón; en este espacio se localiza actualmente el jardín 5 de Mayo (o por muchos conocido como Jardín Santa Clara)
+            En el año 1880 falleció el General Juan N. Mirafuentes, quien fuera entonces gobernador del Estado de Méx [<a href="https://www.facebook.com/MausoleoSantaClaraToluca">&hellip;</a>]</p>
           <ul class="faico clear">
-            <li><a class="faicon-facebook" href="#"><i class="fab fa-facebook"></i></a></li>
-            <li><a class="faicon-google-plus" href="#"><i class="fab fa-google-plus-g"></i></a></li>
-            <li><a class="faicon-linkedin" href="#"><i class="fab fa-linkedin"></i></a></li>
-            <li><a class="faicon-twitter" href="#"><i class="fab fa-twitter"></i></a></li>
-            <li><a class="faicon-vk" href="#"><i class="fab fa-vk"></i></a></li>
+            <li><a class="faicon-facebook" href="https://www.facebook.com/MausoleoSantaClaraToluca"><i class="fab fa-facebook"></i></a></li>
+            <li><a class="faicon-google-plus" href="https://goo.gl/maps/83d4UYwDnCwE41Mf7"><i class="fab fa-google-plus-g"></i></a></li>
+            <li><a class="faicon-twitter" href="https://twitter.com/MausoleoStaCla"><i class="fab fa-twitter"></i></a></li>
           </ul>
         </div>
         <div class="one_quarter">
@@ -411,18 +411,7 @@
           </form>
         </div>
         <div class="one_quarter">
-          <h6 class="heading">Galeria</h6>
-          <ul class="nospace clear latestimg">
-            <li><a class="imgover" href="#"><img loading="lazy" src="images/demo/100x100.png" alt=""></a></li>
-            <li><a class="imgover" href="#"><img loading="lazy" src="images/demo/100x100.png" alt=""></a></li>
-            <li><a class="imgover" href="#"><img loading="lazy" src="images/demo/100x100.png" alt=""></a></li>
-            <li><a class="imgover" href="#"><img loading="lazy" src="images/demo/100x100.png" alt=""></a></li>
-            <li><a class="imgover" href="#"><img loading="lazy" src="images/demo/100x100.png" alt=""></a></li>
-            <li><a class="imgover" href="#"><img loading="lazy" src="images/demo/100x100.png" alt=""></a></li>
-            <li><a class="imgover" href="#"><img loading="lazy" src="images/demo/100x100.png" alt=""></a></li>
-            <li><a class="imgover" href="#"><img loading="lazy" src="images/demo/100x100.png" alt=""></a></li>
-            <li><a class="imgover" href="#"><img loading="lazy" src="images/demo/100x100.png" alt=""></a></li>
-          </ul>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.8174184801396!2d-99.65037208509553!3d19.29030458696534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cd89ecdee2e551%3A0x733451ced12493ed!2sMausoleo%20Santa%20Clara!5e0!3m2!1ses-419!2smx!4v1648949626031!5m2!1ses-419!2smx" width="300" height="360" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
       <!-- ################################################################################################ -->
