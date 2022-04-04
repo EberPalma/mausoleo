@@ -136,9 +136,9 @@
             let coordenada = `<th>${e.coordenada}</th>`;
             let tamanio = `<th>${e.capacidad}</th>`;
             let familia = `<th>${e.familia}</th>`;
-            let difuntos = '<th>';
+            let difuntos = `<th id="difuntosRow${e.id}">`;
             e.difuntos.forEach((e)=>{
-                difuntos = difuntos + `<span>-${e.nombre}</span></br>`
+                difuntos = difuntos + `<span><a href="../difunto.editar/${e.id}">-${e.nombre}</a></span></br>`
             });
             difuntos = difuntos + '</th>';
             let botones = `<th>
@@ -155,25 +155,34 @@
             document
                 .querySelector("#delete" + e.id)
                 .addEventListener("click", () => {
-                    Swal.fire({
-                    title: 'Estas por eliminar este nicho',
-                    text: "Estas seguro?",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Si, borralo'
-                    }).then((result) => {
-                    if (result.isConfirmed) {
-                        Swal.fire(
-                        'Borrado',
-                        'El nicho se ha eliminado.',
-                        'success'
-                        )
-                        axios.get("/api/nichosdelete/" + e.id);
-                        tabla.removeChild(tableRow);
-                    }
-                    })   
+                    if(document.querySelector(`#difuntosRow${e.id}`).innerHTML = ""){
+                        Swal.fire({
+                            title: 'Estas por eliminar este nicho',
+                            text: "Estas seguro?",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Si, borralo'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                Swal.fire(
+                                'Borrado',
+                                'El nicho se ha eliminado.',
+                                'success'
+                                )
+                                axios.get("/api/nichosdelete/" + e.id);
+                                tabla.removeChild(tableRow);
+                            }
+                        }); 
+                    }else{
+                        Swal.fire({
+                            title: "Este registro no se puede eliminar",
+                            text: "Elimina primero los difuntos de este nicho para continuar",
+                            icon: "warning",
+                            confirmButtonText: "ok"
+                        });
+                    }  
                 });
         });
     }

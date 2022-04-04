@@ -20,7 +20,7 @@ class NichosController extends Controller
                         ->orderBy('id', 'ASC')
                         ->get();
         foreach($nicho as $n){
-            $difuntos = \DB::table('beneficiarios')->where('idNicho', $n->id)->select('nombre')->get();
+            $difuntos = \DB::table('beneficiarios')->where('idNicho', $n->id)->select('id', 'nombre')->get();
             $n->difuntos = $difuntos;
             array_push($data, $n);
         }
@@ -98,8 +98,10 @@ class NichosController extends Controller
 
     public function edit($id){
         $nicho = \DB::table('nichos')->where('id', $id)->get();
+        $difuntos = \DB::table('beneficiarios')->where('idNicho', $nicho[0]->id)->select('id', 'nombre')->get();
         return view('layouts.nichos.edit')
-            ->with('nicho', $nicho[0]);
+            ->with('nicho', $nicho[0])
+            ->with('difuntos', $difuntos);
     }
 
     /**

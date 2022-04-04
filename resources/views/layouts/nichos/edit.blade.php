@@ -73,9 +73,14 @@
                                     @include('alerts.feedback', ['field' => 'email'])
                                 </div>
 
-
-
-
+                                <h4>Difuntos</h4>
+                                <hr>
+                                <div class="col-md-12" id="difuntosList">
+                                    @foreach($difuntos as $difunto)
+                                        <a href="../difunto.editar/{{ $difunto->id }}">-{{ $difunto->nombre }}</a><br>
+                                    @endforeach
+                                </div>
+                                <hr>
 
 
                                     <div class="text-center">
