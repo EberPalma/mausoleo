@@ -155,7 +155,7 @@
             document
                 .querySelector("#delete" + e.id)
                 .addEventListener("click", () => {
-                    if(document.querySelector(`#difuntosRow${e.id}`).innerHTML = ""){
+                    if(document.querySelector(`#difuntosRow${e.id}`).innerHTML == ""){
                         Swal.fire({
                             title: 'Estas por eliminar este nicho',
                             text: "Estas seguro?",
