@@ -136,12 +136,19 @@
             let difunto = `<td>${e.nombre}</td>`;
             let coordenada = `<td>${e.coordenada}</td>`;
             let familia = `<td>${e.familia}</td>`;
-            let botones = `<td>
+            let botones = e.activo == 1 ? `<td>
                                 <a type="button" href="difunto.editar/${e.id}" rel="tooltip" title="Editar" class="btn btn-info">
                                     <i class="fa fa-edit"></i>
                                 </a>
                                 <button type="button" rel="tooltip" id="delete${e.id}" title="Eliminar" class="btn btn-danger alerteliminar">
                                     <i class="fa fa-times"></i>
+                                </button>
+                            </td>`: `<td>
+                                <a type="button" href="difunto.editar/${e.id}" rel="tooltip" title="Editar" class="btn btn-info">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <button type="button" rel="tooltip" id="delete${e.id}" title="Restaurar" class="btn btn-warning alerteliminar">
+                                    Restaurar
                                 </button>
                             </td>`;
             let tableRow = document.createElement("tr");
