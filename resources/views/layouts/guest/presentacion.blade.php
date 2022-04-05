@@ -16,7 +16,8 @@ body {
 }
 .card {
   background-color: #fff;
-  max-width: 800px;
+  max-width: 410px;
+  max-height: 420px;
   flex-direction: column;
   overflow: hidden;
   border-radius: 2rem;
@@ -42,7 +43,7 @@ body {
   transform: translateY(30%);
   transition: transform 200ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
 }
-.card .banner img:hover {
+.card img:hover {
   z-index: 100;
   transform: translateY(50%) scale(1.3);
 }
@@ -91,7 +92,7 @@ body {
 }
 .card .title {
   color: #a0a0a0;
-  font-size: 0.85rem;
+  font-size: 0.80rem;
   text-align: center;
   padding: 0 2rem 1.2rem;
 }
@@ -164,6 +165,12 @@ body {
   padding: 0 2rem 2.5rem;
   order: 100;
 }
+.imgRedonda {
+    width:300px;
+    height:300px;
+    border-radius:150px;
+    border:10px solid #666;
+}
 
 </style>
 <html lang="en">
@@ -178,14 +185,38 @@ body {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/estilos.css">
 </head>
-<body>
+<body style="background-image:url('images/demo/backgrounds/marmol-blanco.jpg');">
+    <img loading="lazy" src="Images/demo/logolargo.png" style=" position:fixed; float:left;"  alt="">
 	<main id="fullpage">
-		<header class="section" style="background-image:url('images/demo/backgrounds/marmol-blanco.jpg');" >
+		<header class="section"  style="background-color: rgba(0, 0, 0, 0.8);">
+<div class="container" >
+    <center><img  class="imgRedonda" loading="lazy" src="images/demo/Jaime-Sabines.jpg" style="width:250px; height:250px;" alt=""></center>
+    <div class="row">
+    <h1 style="color: white;">'Morir es retirarse, hacerse a un lado, ocultarse un momento, quedarse quieto pasar el aire de una orilla a nada y estar en todas partes en secreto'</h1>
+</div>
+<div class="row" style="float:right;"><br><br><br>
+    <h1 style="color: white;">Jaime Sabines</h1>
+</div>
+</div>
 
-            <div class="card" style="float:right">
-                <img width="120px" height="120px" src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(300)->generate('http://www.mausoleosantaclara.com.mx/Informacion/Nicho/A7')) !!} ">
+		</header>
+
+        @foreach ($nichos as $n )
+        <?php
+  $numdifuntos = $n->difuntos;
+  $numero = count($numdifuntos,COUNT_RECURSIVE);
+?>
+        @if($numero == 0)
+        @else
+		<section class="section">
+			<div class="card" style="float:right"><?php
+                                 $searchString = " ";
+                                 $replaceString = "";
+                                 $originalString = "{$n->coordenada}";
+                                 $outputString = str_replace($searchString, $replaceString, $originalString);?>
+                <img loading="lazy" width="120px" height="120px" src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(300)->generate('http://www.mausoleosantaclara.com.mx/Informacion/Nicho/'.$outputString)) !!} ">
                 <div class="card-body">
-                    <h4 class="card-text">A7</h4>
+                    <h4 class="card-text">{{ $n->coordenada}}</h4>
                   </div>
 
             </div>
@@ -193,52 +224,44 @@ body {
             <center>
             <div class="container">
                 <div class="row justify-content-md-center">
+                    <?php $difuntos = $n->difuntos ?>
+                    @foreach ($difuntos as $d )
                     <div class="col-md-auto">
             <div class="card">
                 <div class="banner">
-                  <img src="Images/Beneficiary/2_1.jpg">&nbsp;&nbsp;&nbsp;
-                  <img src="Images/Beneficiary/3_1.jpg">
+                                       @if (File::exists(public_path("Images/Beneficiary/{$d->id}_1.jpg")))
+                                        <img class="avatar border-gray" loading="lazy" src="{{ asset("Images/Beneficiary/{$d->id}_1.jpg") }}" alt="...">
+                                        @else
+                                        <img class="avatar border-gray" loading="lazy" src="{{ asset("img/MSC.png") }}" alt="...">
+                                        @endif
                 </div>
                 <div class="menu">
                   <div class="opener"><span></span><span></span><span></span></div>
                 </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <h3 class="name">Manuel Roberto Maya Guadarrama</h3>
+
+
+                            <h3 class="name" style="font-size: 22px; margin-bottom:10%">{{ $d->nombre}}</h3>
                             <div class="title">Información</div>
                             <div class="actions">
                               <div class="follow-info">
-                                <h2><a href="#"><span>8/26/1922</span><small>Nacimiento</small></a></h2>
-                                <h2><a href="#"><span>---</span><small></small></a></h2>
-                                <h2><a href="#"><span>2/12/2015</span><small>Defunción</small></a></h2>
+                                <h2><a href="#"><small>Nacimiento</small><span>{{ $d->fechaNacimiento}}</span></a></h2>
+                                <h2><a href="#"><span>_</span><small></small></a></h2>
+                                <h2><a href="#"><small>Defunción</small><span>{{ $d->fechaDefuncion}}</span></a></h2>
                               </div>
                             </div>
-            </div>
-                <div class="col">
-                    <h3 class="name">Maria de la Luz Quiroz Sanchez</h3>
-                <div class="title">Información</div>
-                <div class="actions">
-                  <div class="follow-info">
-                    <h2><a href="#"><span>6/7/1917</span><small>Nacimiento</small></a></h2>
-                    <h2><a href="#"><span>---</span><small></small></a></h2>
-                    <h2><a href="#"><span>11/23/2012</span><small>Defunción</small></a></h2>
-                  </div>
-                </div>
+        </div>
+    </div>
+    @endforeach
 
-                </div>
-                </div>
-                </div>
-            </div>
-            <div class="col">
-            </div>
+</div>
         </center>
         </div>
         </div>
-		</header>
-		<section class="section">
-			<h1>Productos</h1>
 		</section>
+
+    @endif
+    @endforeach
+
 		<footer class="section">
 			<h1>Footer</h1>
 		</footer>
@@ -246,6 +269,16 @@ body {
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/fullpage.js"></script>
 	<script src="js/opciones.js"></script>
+<script>
+//     $(document).ready(function(){
+//     //Cada 10 segundos (10000 milisegundos) se ejecutará la función refrescar
+//     setInterval(pageScroll, 5000);
+//   });
+//     function pageScroll() {
+//         window.scrollBy(0,50); // horizontal and vertical scroll increments
+//         scrolldelay = setTimeout('pageScroll()',100); // scrolls every 100 milliseconds
+// }
+</script>
 
 </body>
 </html>

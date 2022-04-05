@@ -68,7 +68,8 @@ Route::get('/invitado.contacto', function () {return view('layouts.invitado.cont
 Route::get('/invitado.contacto-confirmacion', function () {return view('layouts.invitado.confirmacion-contacto');})->name('invitado.confirmacion-contacto');
 Route::post('/invitado.contacto/action', [App\Http\Controllers\ContactoController::class, 'store1']);
 Route::get('/invitado.menu', function () {return view('layouts.invitado.invitadomenu');})->name('invitado.menu');
-Route::get('/presentacion', function () {return view('layouts.guest.presentacion');})->name('presentacion');
+Route::get('/presentacion', [App\Http\Controllers\PresentacionController::class, 'index']);
+Route::get('/presentacion/json', [App\Http\Controllers\PresentacionController::class, 'indexjson']);
 Route::get('/inicio', function () {return view('layouts.guest.index');})->name('inicio');
 Auth::routes();
 

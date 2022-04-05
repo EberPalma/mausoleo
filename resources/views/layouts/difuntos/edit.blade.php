@@ -208,7 +208,7 @@
 
 
        const $input1 = document.querySelector('.datepicker1');
-       const patron1 = /[0-9/AMP:]+/;
+       const patron1 = /[0-9/AMP :]+/;
        const validacionf =  $(".valfn").val();
 
        $input1.addEventListener("keydown", event => {
@@ -250,7 +250,7 @@
             });
 
        const $input2 = document.querySelector('.datepicker2');
-       const patron2 = /[0-9/AMP:]+/;
+       const patron2 = /[0-9/AMP :]+/;
        $input2.addEventListener("keydown", event => {
                    console.log(event.key);
                    if(patron2.test(event.key)){

@@ -1,4 +1,4 @@
-@extends('index') 
+@extends('index')
 @section('Contenidoprincipal')
 <style>
     @media screen and (max-width: 320px){
@@ -10,7 +10,7 @@
 </style>
 @if(!isset(Auth::user()->name))
     <meta http-equiv="refresh" content="0; url={{ route('login') }}">
-@else 
+@else
 
 <div class="content">
     <div class="container-fluid">
@@ -26,26 +26,26 @@
                                    Gestor de nichos
                                 </p>
                             </div>
-                            
+
                         </div>
                     </div><br>
                     <div class="container">
                     <div class="row">
                        <div class="col-md-2">
                            <b>Nicho:</b>
-                       </div> 
+                       </div>
                        <div class="col-md-4">
                            <input type="text" id="input-filtro" class="form-control">
                        </div>
                        <div class="col-md-2">
                            <a class="btn" id="btnBuscar">Buscar</a>
-                       </div> 
+                       </div>
                        <div class="col-md-2">
                         <a href="{{ route('nicho.añadir') }}" class="btn btn-warning"><i class="fa fa-plus-circle"></i> Agregar </a>
-                    </div>  
+                    </div>
                     </div>
                 </div>
-                
+
 
                     <div class="col-12 mt-2">
                                                                             </div>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                     <div class="card  card-tasks">
-                        
+
                             <div class="card-body table-full-width table-responsive">
                                 <table class="table table-hover table-striped">
                                     <thead>
@@ -66,7 +66,7 @@
                                         <th>Resultado de busqueda</th>
                                     </thead>
                                     <tbody id="tableBody">
-                                        
+
                                     </tbody>
                                 </table>
                             </div>
@@ -75,10 +75,10 @@
                             <hr>
                             <div class="stats container">
                                 <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"> <i class="now-ui-icons loader_refresh spin"></i> {{ __('VER REGISTROS ELIMINADOS') }}
-                            
+
                         </div>
                     </div>
-                
+
             </div>
         </div>
         <div class="alert alert-danger">
@@ -155,7 +155,7 @@
             document
                 .querySelector("#delete" + e.id)
                 .addEventListener("click", () => {
-                    if(document.querySelector(`#difuntosRow${e.id}`).innerHTML == ""){
+                    if(document.querySelector(`#difuntosRow${e.id}`).innerHTML = ""){
                         Swal.fire({
                             title: 'Estas por eliminar este nicho',
                             text: "Estas seguro?",
@@ -174,7 +174,7 @@
                                 axios.get("/api/nichosdelete/" + e.id);
                                 tabla.removeChild(tableRow);
                             }
-                        }); 
+                        });
                     }else{
                         Swal.fire({
                             title: "Este registro no se puede eliminar",
@@ -182,7 +182,7 @@
                             icon: "warning",
                             confirmButtonText: "ok"
                         });
-                    }  
+                    }
                 });
         });
     }
