@@ -16,7 +16,7 @@ class NichosController extends Controller
         $data = array();
         $nicho = \DB::table('nichos')
                         ->where('activo', $activo)
-                        ->select('id', 'coordenada', 'capacidad', 'nombre', 'familia')
+                        ->select('id', 'coordenada', 'capacidad', 'nombre', 'familia', 'activo')
                         ->orderBy('id', 'ASC')
                         ->get();
         foreach($nicho as $n){
@@ -158,7 +158,7 @@ class NichosController extends Controller
             $error = '1';
         }
         $activo = $nicho[0]->activo;
-        $nicho = \DB::table('nichos')->where('id', $id)->update(['activo' => $activo == 1 ? 0 : 1]);
+        $nicho = \DB::table('nichos')->where('id', $id)->update(['coordenada' => $coordenada,'activo' => $activo == 1 ? 0 : 1]);
         $nicho = \DB::table('nichos')->where('id', $id)->get();
         return json_encode(array('message' => $mensaje, 'errors' => $error, 'data' => $nicho));
     }

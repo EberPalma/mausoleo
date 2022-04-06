@@ -30,7 +30,7 @@ class BeneficiariosController extends Controller
         $beneficiarios = \DB::table('beneficiarios')
                                 ->where('nombre', 'like', '%'.$filtro.'%')
                                 ->where('activo', 1)
-                                ->select('id', 'nombre', 'idNicho')
+                                ->select('id', 'nombre', 'idNicho', 'activo')
                                 ->get();
         foreach($beneficiarios as $beneficiario){
             $nicho = \DB::table('nichos')

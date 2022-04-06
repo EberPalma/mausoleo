@@ -141,12 +141,19 @@
                 difuntos = difuntos + `<span><a href="../difunto.editar/${e.id}">-${e.nombre}</a></span></br>`
             });
             difuntos = difuntos + '</th>';
-            let botones = `<th>
+            let botones = e.activo == 1 ? `<th>
                                 <a type="button" href="/nicho.editar/${ e.id }" rel="tooltip" title="Editar" class="btn btn-info">
                                     <i class="fa fa-edit"></i>
                                 </a>
                                 <button type="button" rel="tooltip" id="delete${e.id}" title="Eliminar" class="btn btn-danger">
                                     <i class="fa fa-times"></i>
+                                </button>
+                            </th>`: `<th>
+                                <a type="button" href="/nicho.editar/${ e.id }" rel="tooltip" title="Editar" class="btn btn-info">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <button type="button" rel="tooltip" id="delete${e.id}" title="Eliminar" class="btn btn-warning">
+                                    Restaurar
                                 </button>
                             </th>`;
             let tableRow = document.createElement("tr");
@@ -155,7 +162,7 @@
             document
                 .querySelector("#delete" + e.id)
                 .addEventListener("click", () => {
-                    if(document.querySelector(`#difuntosRow${e.id}`).innerHTML = ""){
+                    if(document.querySelector(`#difuntosRow${e.id}`).innerHTML == ""){
                         Swal.fire({
                             title: 'Estas por eliminar este nicho',
                             text: "Estas seguro?",
