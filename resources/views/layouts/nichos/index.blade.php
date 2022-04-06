@@ -135,7 +135,7 @@
         data.forEach((e)=>{
             let coordenada = `<th>${e.coordenada}</th>`;
             let tamanio = `<th>${e.capacidad}</th>`;
-            let familia = `<th>${e.familia}</th>`;
+            let familia = e.familia ==null ? '<th style="color:green;">Disponible</th>' : `<th>${e.familia}</th>`;
             let difuntos = `<th id="difuntosRow${e.id}">`;
             e.difuntos.forEach((e)=>{
                 difuntos = difuntos + `<span><a href="../difunto.editar/${e.id}">-${e.nombre}</a></span></br>`

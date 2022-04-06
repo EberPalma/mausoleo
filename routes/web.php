@@ -56,7 +56,7 @@ Route::get('/nicho.editar/{id}', [App\Http\Controllers\NichosController::class, 
 Route::get('/difuntos', function () {return view('layouts.difuntos.index');})->name('difuntos');
 Route::get('/difunto.editar/{id}', [App\Http\Controllers\BeneficiariosController::class, 'edit'])->name('difuntos.update');
 Route::get('/difunto.añadir', function () {
-    $nichos = \DB::table('nichos')->select('id', 'coordenada')->get();
+    $nichos = \DB::table('nichos')->select('id', 'coordenada')->where('familia','<>',null)->get();
     return view('layouts.difuntos.create')
     ->with('nichos', $nichos);
 })->name('difunto.añadir');

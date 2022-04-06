@@ -46,7 +46,7 @@ class BeneficiariosController extends Controller
 
     public function edit($id){
         $beneficiario = \DB::table('beneficiarios')->where('id', $id)->get();
-        $nichos = \DB::table('nichos')->select('id', 'coordenada')->get();
+        $nichos = \DB::table('nichos')->select('id', 'coordenada')->where('familia','<>',null)->get();
         return view('layouts.difuntos.edit')
             ->with('beneficiario', $beneficiario[0])
             ->with('nichos', $nichos);

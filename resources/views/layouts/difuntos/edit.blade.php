@@ -19,11 +19,22 @@
                         </div>
                         <div class="card-body">
                             <form method="post" action="/api/beneficiariosupdate/{{ $beneficiario->id }}" autocomplete="off"
+
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('put')
 
                                 <h6 class="heading-small text-muted mb-4">{{ __('Información de difunto') }}</h6>
+                                @if ($beneficiario->activo==0)
+                                <div class="alert alert-danger">
+                                    <button type="button" aria-hidden="true" class="close" data-dismiss="alert">
+                                        <i class="nc-icon nc-simple-remove"></i>
+                                    </button>
+                                    <span>
+                                    <b>Este registro se encuentra eliminado</b> </span>
+                                </div>
+
+                                @endif
 
                                 @include('alerts.success')
                                 @include('alerts.error_self_update', ['key' => 'not_allow_profile'])
