@@ -31,7 +31,7 @@ class NichosController extends Controller
         $data = array();
         $nicho = \DB::table('nichos')
                         ->where('coordenada', 'like', '%'.$filtro.'%')
-                        ->select('id', 'coordenada', 'capacidad', 'nombre', 'familia')
+                        ->select('id', 'coordenada', 'capacidad', 'nombre', 'familia', 'activo')
                         ->get();
         foreach($nicho as $n){
             $difuntos = \DB::table('beneficiarios')->where('idNicho', $n->id)->select('nombre')->get();
