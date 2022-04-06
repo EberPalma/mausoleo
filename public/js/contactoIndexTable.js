@@ -47,7 +47,7 @@ function loadTable(response) {
         let check = e.atendido == 1 ? "checked" : "";
         let atendido = `<td>
                             <div class="form-check">
-                                    <input class="form-check-input" id="id${e.id}" type="checkbox" value="${e.id}" ${check}>
+                                    <input class="form-check-input" style="visibility: visible; opacity: 1" id="id${e.id}" type="checkbox" value="${e.id}" ${check}>
 
                             </div>
                         </td>`;
