@@ -150,6 +150,7 @@ Route::GET('/contactoindexdashboard', [ContactoController::class, 'indexDashboar
 Route::POST('/contactostore', [ContactoController::class, 'store'])->name('contactoStore');
 Route::GET('/contactochecked/{id}', [ContactoController::class, 'setChecked'])->name('contactoChecked');
 Route::GET('/contactoactivo/{id}', [ContactoController::class, 'setActivo'])->name('contactoActivo');
+Route::GET('/showDeletedContacto', [ContactoController::class, 'showDeleted'])->name('showDeletedContacto');
 
 //Rutas para el dashboard
 Route::GET('/nichosdashboard', [DashboardController::class, 'countNichos'])->name('countNichos');

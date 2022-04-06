@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     let filtro = document.querySelector("#btnBuscar");
-    loadWithCheckbox(document.querySelector("#filtroStatus").value, "activo");
+    loadWithCheckbox(document.querySelector("#filtroStatus").value, 1);
 
     let showAllCheckbox = document.querySelector("#defaultCheck1");
 
@@ -8,12 +8,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (showAllCheckbox.checked) {
             loadWithCheckbox(
                 document.querySelector("#filtroStatus").value,
-                "todos"
+                1
             );
         } else {
             loadWithCheckbox(
                 document.querySelector("#filtroStatus").value,
-                "activo"
+                0
             );
         }
     });
@@ -22,15 +22,16 @@ document.addEventListener("DOMContentLoaded", () => {
         if (showAllCheckbox.checked) {
             loadWithCheckbox(
                 document.querySelector("#filtroStatus").value,
-                "todos"
+                1
             );
         } else {
             loadWithCheckbox(
                 document.querySelector("#filtroStatus").value,
-                "activo"
+                0
             );
         }
     });
+
 });
 
 function loadWithCheckbox(filtro, activo) {
@@ -62,7 +63,7 @@ function loadTable(response) {
         let fechaRegistro = `<td>
                                     <small>${e.created_at}</small>
                                 </td>`;
-        let acciones = `<td class="td-actions"  >
+        let acciones = e.activo == 1 ? `<td class="td-actions"  >
             
                                 <a href="https://api.whatsapp.com/send?phone=https://api.whatsapp.com/send?phone=521${e.telefono}" target="_blank" title="Mandar mensaje" class="btn btn-sm btn-success">
                                     <i class="fa fa-whatsapp"></i>
@@ -74,7 +75,19 @@ function loadTable(response) {
                                     <i class="fa fa-trash"></i>
                                 </label>
                                 
-                            </td>`;
+                            </td>` : `<td class="td-actions"  >
+            
+                            <a href="https://api.whatsapp.com/send?phone=https://api.whatsapp.com/send?phone=521${e.telefono}" target="_blank" title="Mandar mensaje" class="btn btn-sm btn-success">
+                                <i class="fa fa-whatsapp"></i>
+                            </a>
+                            <a href="mailto:${e.email}?Subject=Mausoleo%20Santa%20Clara"  target="_blank" rel="tooltip" title="Mandar email" class="btn btn-sm btn-info">
+                                <i class="fa fa-envelope"></i>
+                            </a><br>
+                            <label class="btn btn-sm btn-warning" rel="tooltip" title="Borrar" id="delete${e.id}">
+                                Restaurar
+                            </label>
+                            
+                        </td>`;
 
         let tableRow = document.createElement("tr");
         tableRow.innerHTML =

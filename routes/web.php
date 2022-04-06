@@ -39,6 +39,7 @@ Route::get('/verify', function () {return view('auth.verify');})->name('verifica
 //Administrativos CRUD
 //Codigo QR
 Route::get('/codigoqr', function () {return view('layouts.codigosqr.index');})->name('codigoqr');
+Route::get('/indexqr', [App\Http\Controllers\QRController::class, 'index'])->name('indexQR');
 //Contacto
 Route::get('/contacto', function () {return view('layouts.contacto.index');})->name('contacto');
 //Usuarios

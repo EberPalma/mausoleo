@@ -11,4 +11,18 @@ class QRController extends Controller
 
     }
 
+    public function index(){
+        $data = array();
+        $nicho = \DB::table('nichos')
+                        ->select('id', 'coordenada', 'familia')
+                        ->orderBy('id', 'ASC')
+                        ->get();
+        foreach($nicho as $n){
+            $difuntos = \DB::table('beneficiarios')->where('idNicho', $n->id)->select('id', 'nombre')->get();
+            $n->difuntos = $difuntos;
+            array_push($data, $n);
+        }
+        return $data;
+    }
+
 }
