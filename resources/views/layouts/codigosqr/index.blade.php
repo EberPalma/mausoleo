@@ -76,6 +76,29 @@
 
 @push('js')
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-{{-- <script src="{{ asset('js/contactoIndexTable.js') }}"></script> --}}
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        axios.get('{{ route("indexQR") }}').then((response)=>{
+            data = response.data;
+            createTable(data);
+        });
+    });
+
+    function createTable(data){
+        data.forEach((e)=>{
+            let coordenada = `<td>${e.coordenada}</td>`;
+            let familia = `<td>${e.familia}</td>`;
+            let difuntos = '<th>'
+            e.difuntos.forEach((e)=>{
+                difuntos = difuntos + `<span><a href="../difunto.editar/${e.id}">-${e.nombre}</a></span></br>`
+            });
+            let qrcode = `<img href="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(200)->generate('http://www.mausoleosantaclara.com.mx/Informacion/Nicho/'.$outputString)) !!} ">`;
+            difuntos = difuntos + '</th>'
+            let tableRow = document.createElement('tr');
+            tableRow.innerHTML = coordenada + familia + difuntos;
+            document.querySelector('#tableBody').appendChild(tableRow);
+        });
+    }
+</script>
 @endpush
 @endif

@@ -28,18 +28,18 @@ class ContactoController extends Controller
         return redirect()->route('invitado.confirmacion-contacto');
     }
 
-    public function index($tipo)
+    public function index($tipo, $activo)
     {
         $contacto = "";
         switch ($tipo){
             case "sinatender":
-                $contacto = \DB::table('contacto')->where('atendido', 0)->where('activo', 1)->get();
+                $contacto = \DB::table('contacto')->where('atendido', 0)->where('activo', $activo)->get();
                 break;
             case "atendidas":
-                $contacto = \DB::table('contacto')->where('atendido', 1)->where('activo', 1)->get();
+                $contacto = \DB::table('contacto')->where('atendido', 1)->where('activo', $activo)->get();
                 break;
             case "todas":
-                $contacto = \DB::table('contacto')->where('activo', 1)->get();
+                $contacto = \DB::table('contacto')->where('activo', $activo)->get();
                 break;
         }
 
@@ -114,6 +114,11 @@ class ContactoController extends Controller
             $contacto->save();
             return $contacto;
         }
+    }
+
+    public function showDeleted(){
+        $contacto = \DB::table('contacto')->where('activo', 0)->get();
+        return $contacto;
     }
 }
 

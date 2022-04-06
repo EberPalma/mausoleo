@@ -76,7 +76,7 @@
                         <div class="card-footer ">
                             <hr>
                             <div class="stats container">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"> <i class="now-ui-icons loader_refresh spin"></i> {{ __('VER REGISTROS ELIMINADOS') }}
+                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" checked> <i class="now-ui-icons loader_refresh spin"></i> {{ __('VER REGISTROS ACTIVOS') }}
 
                         </div>
                     </div>
