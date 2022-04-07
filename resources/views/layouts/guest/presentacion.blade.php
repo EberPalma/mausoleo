@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <style>
+    html {
+  scroll-behavior: smooth;
+}
     url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
 body {
   font-size: 16px;
@@ -188,7 +191,7 @@ body {
 <body style="background-image:url('images/demo/backgrounds/marmol-blanco.jpg');">
     <img loading="lazy" src="Images/demo/logolargo.png" style=" position:fixed; float:left;"  alt="">
 	<main id="fullpage">
-		<header class="section"  style="background-color: rgba(0, 0, 0, 0.8);">
+		<header class="section" id="Presentacion"  style="background-color: rgba(0, 0, 0, 0.8);">
 <div class="container" >
     <center><img  class="imgRedonda" loading="lazy" src="images/demo/Jaime-Sabines.jpg" style="width:250px; height:250px;" alt=""></center>
     <div class="row">
@@ -208,13 +211,13 @@ body {
 ?>
         @if($numero == 0)
         @else
-		<section class="section">
+		<section class="section" id="{{$n->coordenada}}">
 			<div class="card" style="float:right"><?php
                                  $searchString = " ";
                                  $replaceString = "";
                                  $originalString = "{$n->coordenada}";
                                  $outputString = str_replace($searchString, $replaceString, $originalString);?>
-                <img loading="lazy" width="120px" height="120px" src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(300)->generate('http://www.mausoleosantaclara.com.mx/Informacion/Nicho/'.$outputString)) !!} ">
+                <img width="120px" height="120px" src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(300)->generate('http://www.mausoleosantaclara.com.mx/Informacion/Nicho/'.$outputString)) !!} ">
                 <div class="card-body">
                     <h4 class="card-text">{{ $n->coordenada}}</h4>
                   </div>
@@ -261,24 +264,12 @@ body {
 
     @endif
     @endforeach
-
-		<footer class="section">
-			<h1>Footer</h1>
-		</footer>
 	</main>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/fullpage.js"></script>
-	<script src="js/opciones.js"></script>
-<script>
-//     $(document).ready(function(){
-//     //Cada 10 segundos (10000 milisegundos) se ejecutará la función refrescar
-//     setInterval(pageScroll, 5000);
-//   });
-//     function pageScroll() {
-//         window.scrollBy(0,50); // horizontal and vertical scroll increments
-//         scrolldelay = setTimeout('pageScroll()',100); // scrolls every 100 milliseconds
-// }
-</script>
+	<script src="js/opcionesnew.js"></script>
+
+
 
 </body>
 </html>

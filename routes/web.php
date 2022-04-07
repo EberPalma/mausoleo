@@ -38,8 +38,8 @@ Route::get('/verify', function () {return view('auth.verify');})->name('verifica
 
 //Administrativos CRUD
 //Codigo QR
-Route::get('/codigoqr', function () {return view('layouts.codigosqr.index');})->name('codigoqr');
-Route::get('/indexqr', [App\Http\Controllers\QRController::class, 'index'])->name('indexQR');
+Route::get('/codigoqr',  [App\Http\Controllers\QRController::class, 'index'])->name('codigoqr');
+Route::get('/descargar/qr/{id}', [App\Http\Controllers\QRController::class, 'descargar'])->name('qr.descargar');
 //Contacto
 Route::get('/contacto', function () {return view('layouts.contacto.index');})->name('contacto');
 //Usuarios
@@ -72,6 +72,7 @@ Route::get('/invitado.menu', function () {return view('layouts.invitado.invitado
 Route::get('/presentacion', [App\Http\Controllers\PresentacionController::class, 'index']);
 Route::get('/presentacion/json', [App\Http\Controllers\PresentacionController::class, 'indexjson']);
 Route::get('/inicio', function () {return view('layouts.guest.index');})->name('inicio');
+Route::get('/productos', function () {return view('layouts.guest.productos');})->name('productos');
 Auth::routes();
 
 

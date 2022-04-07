@@ -16,7 +16,6 @@ class PresentacionController extends Controller
         foreach($nicho as $n){
             $difuntos = \DB::table('beneficiarios')->where('idNicho', $n->id)->select('id', 'nombre','fechaNacimiento','fechaDefuncion')->get();
             $n->difuntos = $difuntos;
-            $n->difuntos = $difuntos;
             array_push($data, $n);
         }
         return view('layouts.guest.presentacion')
