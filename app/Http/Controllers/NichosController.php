@@ -158,8 +158,11 @@ class NichosController extends Controller
             $error = '1';
         }
         $activo = $nicho[0]->activo;
+        $antCoordenada = $nicho[0]->coordenada;
+        $coordenada = strlen($antCoordenada) > 9 ? substr($antCoordenada, 10, strlen($antCoordenada)): "Anterior: ".$nicho[0]->coordenada;
+
         $nicho = \DB::table('nichos')->where('id', $id)->update(['coordenada' => $coordenada,'activo' => $activo == 1 ? 0 : 1]);
         $nicho = \DB::table('nichos')->where('id', $id)->get();
-        return json_encode(array('message' => $mensaje, 'errors' => $error, 'data' => $nicho));
+        return json_encode(array( 'errors' => $error, 'data' => $nicho));
     }
 }
