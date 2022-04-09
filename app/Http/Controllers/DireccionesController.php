@@ -46,15 +46,15 @@ class DireccionesController extends Controller
         try{
             $direcciones = \DB::table('direcciones')
                             ->insert([
-                                'idCliente' => $request->idCliente
-                                'idTitular' => $request->idTitular
-                                'calle' => $request->calle
-                                'numExterno' => $request->numExterno
-                                'numInterno' => $request->numInterno
-                                'colonia' => $request->colonia
-                                'municipio' => $request->municipio
-                                'codigoPostal' => $request->codigoPostal
-                                'estado' => $request->estado
+                                'idCliente' => $request->idCliente,
+                                'idTitular' => $request->idTitular,
+                                'calle' => $request->calle,
+                                'numExterno' => $request->numExterno,
+                                'numInterno' => $request->numInterno,
+                                'colonia' => $request->colonia,
+                                'municipio' => $request->municipio,
+                                'codigoPostal' => $request->codigoPostal,
+                                'estado' => $request->estado,
                                 'pais' => $request->pais
                             ]);
             $mensaje = "Registro realizado correctamente";
@@ -112,15 +112,15 @@ class DireccionesController extends Controller
 
            \DB::table('direcciones')->where('id', $id)
                             ->update([
-                                'idCliente' => $request->idCliente
-                                'idTitular' => $request->idTitular
-                                'calle' => $request->calle
-                                'numExterno' => $request->numExterno
-                                'numInterno' => $request->numInterno
-                                'colonia' => $request->colonia
-                                'municipio' => $request->municipio
-                                'codigoPostal' => $request->codigoPostal
-                                'estado' => $request->estado
+                                'idCliente' => $request->idCliente,
+                                'idTitular' => $request->idTitular,
+                                'calle' => $request->calle,
+                                'numExterno' => $request->numExterno,
+                                'numInterno' => $request->numInterno,
+                                'colonia' => $request->colonia,
+                                'municipio' => $request->municipio,
+                                'codigoPostal' => $request->codigoPostal,
+                                'estado' => $request->estado,
                                 'pais' => $request->pais
                             ]);
 
