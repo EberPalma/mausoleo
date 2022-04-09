@@ -20,6 +20,7 @@ use App\Http\Controllers\RecibosController;
 use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\session\SessionController;
+use App\Http\Controllers\inMemoriaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -160,3 +161,7 @@ Route::GET('/contactodashboard', [DashboardController::class, 'countContacto'])-
 Route::GET('/informesdashboard', [DashboardController::class, 'countInformes'])->name('countNichos');
 Route::GET('/quejasdashboard', [DashboardController::class, 'countQuejas'])->name('countHuespedes');
 Route::GET('/otrosdashboard', [DashboardController::class, 'countOtros'])->name('countContacto');
+
+// Rutas para la conmemorarion
+Route::GET('/inMemoria/today', [inMemoriaController::class, 'today'])->name('inMemoriaToday');
+Route::GET('/inMemoria/thisMonth', [inMemoriaController::class, 'thisMonth'])->name('inMemoriaMonth');
