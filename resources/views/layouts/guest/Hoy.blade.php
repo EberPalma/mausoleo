@@ -186,38 +186,74 @@
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <div class="wrapper row3" style="background-color:rgba(0,0,0,0.8);">
-  <section id="services" class="hoc container clear">
-    <!-- ################################################################################################ -->
-    <div class="sectiontitle">
-      <h1 style="color:white">ESTE DIA RECORDAMOS A</h1>
-    </div>
-    <div class="container" style="margin-top:-130px;">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="profile-card-4 text-center"><img src="http://envato.jayasankarkr.in/code/profile/assets/img/profile-4.jpg" class="img img-responsive">
-                    <div class="profile-content">
-                        <div class="profile-name">John Doe
+    <section id="services" class="hoc container clear">
+      <!-- ################################################################################################ -->
+      <div>
+      <div class="sectiontitle">
+        <h1 style="color:white">ESTE DIA RECORDAMOS A</h1>
+      </div>
+      <div class="container" style="margin-top:-130px;">
+          <div class="row">
+              <div class="col-md-4">
+                  <div class="profile-card-4 text-center"><img src="http://envato.jayasankarkr.in/code/profile/assets/img/profile-4.jpg" class="img img-responsive">
+                      <div class="profile-content">
+                          <div class="profile-name">John Doe
 
-                        </div>
-                        <div class="row">
-                            <div class="col-12"> <h2>12-02-2020</h2> </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-12"> <h2>12-02-2020</h2> </div>
 
-                        </div>
-                        <div class="row">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<center><a href="" class="btn btn-warning">Enviar Condolencia</a></center>
-                        </div>
+                          </div>
+                          <div class="row">
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<center><a href="" class="btn btn-warning">Enviar Condolencia</a></center>
+                          </div>
 
-                    </div>
-                </div>
-            </div>
+                      </div>
+                  </div>
+              </div>
 
-        </div>
-    </div>
+          </div>
+      </div>
+      </div>
 
-    <!-- ################################################################################################ -->
-  </section>
-</div>
+      <!-- ################################################################################################ -->
+    </section>
+  </div>
 <!-- ################################################################################################ -->
+<div class="wrapper row3" style="background-color:rgba(148,131,7,0.8);">
+    <section id="services" class="hoc container clear">
+      <!-- ################################################################################################ -->
+      <div>
+      <div class="sectiontitle">
+        <h1 style="color:white">CUMPLEAÑOS</h1>
+      </div>
+      <div class="container" style="margin-top:-130px;">
+          <div class="row">
+              <div class="col-md-4">
+                  <div class="profile-card-4 text-center"><img src="http://envato.jayasankarkr.in/code/profile/assets/img/profile-4.jpg" class="img img-responsive">
+                      <div class="profile-content">
+                          <div class="profile-name">John Doe
+
+                          </div>
+                          <div class="row">
+                              <div class="col-12"> <h2>12-02-2020</h2> </div>
+
+                          </div>
+                          <div class="row">
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<center><a href="" class="btn btn-warning">Enviar Condolencia</a></center>
+                          </div>
+
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+      </div>
+
+      <!-- ################################################################################################ -->
+    </section>
+  </div>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 
