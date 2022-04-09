@@ -14,9 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
                             </td>`;
             let mensaje = `<td>${e.mensaje}</td>`;
             let acciones = `<td class="td-actions text-right">
-                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
-                                    <i class="fa fa-edit"></i>
-                                </button>
+                                <a href="contacto" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
+                                    <i class="fa fa-eye"></i>
+                                </a>
                                 <button type="button" rel="tooltip" id="delete${e.id}" title="Remove" class="btn btn-danger btn-simple btn-link">
                                     <i class="fa fa-times"></i>
                                 </button>

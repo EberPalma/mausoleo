@@ -14,7 +14,7 @@ class PresentacionController extends Controller
                         ->orderBy('id', 'ASC')
                         ->get();
         foreach($nicho as $n){
-            $difuntos = \DB::table('beneficiarios')->where('idNicho', $n->id)->select('id', 'nombre','fechaNacimiento','fechaDefuncion')->get();
+            $difuntos = \DB::table('beneficiarios')->where('idNicho', $n->id)->where('activo', 1)->select('id', 'nombre','fechaNacimiento','fechaDefuncion')->get();
             $n->difuntos = $difuntos;
             array_push($data, $n);
         }
@@ -30,7 +30,7 @@ class PresentacionController extends Controller
                         ->orderBy('id', 'ASC')
                         ->get();
         foreach($nicho as $n){
-            $difuntos = \DB::table('beneficiarios')->where('idNicho', $n->id)->select('id', 'nombre')->get();
+            $difuntos = \DB::table('beneficiarios')->where('idNicho', $n->id)->where('activo', 1)->select('id', 'nombre')->get();
             $n->difuntos = $difuntos;
             array_push($data, $n);
         }

@@ -29,13 +29,16 @@
                                 @include('alerts.error_self_update', ['key' => 'not_allow_profile'])
 
                                 <div class="pl-lg-4">
-                                   <center><h1>{{$nicho->coordenada}}</h1> </center>
+                                   <center><h1>{{$nicho->coordenada}}</h1>
                                     <?php
                                  $searchString = " ";
                                  $replaceString = "";
                                  $originalString = "{$nicho->coordenada}";
-                                 $outputString = str_replace($searchString, $replaceString, $originalString);?>
+                                 $outputString = str_replace($searchString, $replaceString, $originalString);
+                                 $imagen = '<img  src="data:image/png;base64, {!! base64_encode(QrCode::format("png")->size(500)->generate("http://www.mausoleosantaclara.com.mx/Informacion/Nicho/'.$outputString.')) !!} >'?>
+
                 <img  src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(500)->generate('http://www.mausoleosantaclara.com.mx/Informacion/Nicho/'.$outputString)) !!} ">
+                <a class="btn btn-lg btn-primary" href="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(500)->generate('http://www.mausoleosantaclara.com.mx/Informacion/Nicho/'.$outputString)) !!} " download="{{$nicho->coordenada}}.png"> Descargar </a></center>
                                 </div>
                             </form>
                         </div>

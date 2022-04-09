@@ -56,6 +56,9 @@ class ContactoController extends Controller
     public function indexDashboard(){
         $contacto = \DB::table('contacto')
                             ->select('id', 'mensaje', 'atendido', 'asunto')
+                            ->where('atendido', 0)
+                            ->take(5)
+                            ->orderBy('id', 'DESC')
                             ->get();
         if($contacto != null){
             $mensaje = 'Ok';

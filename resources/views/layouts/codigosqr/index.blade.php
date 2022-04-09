@@ -8,7 +8,7 @@
         }
     }
 </style>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 @if(!isset(Auth::user()->name))
     <meta http-equiv="refresh" content="0; url={{ route('login') }}">
 @else
@@ -21,7 +21,7 @@
                     <div class="card-header">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">Contacto</h3>
+                                <h3 class="mb-0">Codigos QR</h3>
                                 <p class="text-sm mb-0">
                                    Gestor de Codigos QR
                                 </p>
@@ -62,14 +62,14 @@
                                         <tr>
                                             <th> <?php echo $i;?> </th>
                                             <td> {{$c->coordenada}} </td>
-                                            <td> {{$c->familia}}</td>
+                                            <td><a href="/nicho.editar/{{$c->id}}">{{$c->familia}}</a> </td>
                                             <td><?php $difuntos = $c->difuntos ?>
                                                 @foreach ($difuntos as $d )
-                                                {{$d->nombre}}<br>
+                                                <a href="/difunto.editar/{{$d->id}}">{{$d->nombre}}</a><br>
                                                 @endforeach
                                             </td>
                                             <td>
-                                                <a class="btn btn-primary" href="descargar/qr/{{$c->id}}" target="_blank"> Descargar </a></td>
+                                                <a class="btn btn-primary" href="descargar/qr/{{$c->id}}" target="_blank"> <i class="fas fa-qrcode"></i></a></td>
                                             </td>
 
                                         </tr>
@@ -81,9 +81,7 @@
                         </div>
                         <div class="card-footer ">
                             <hr>
-                            <div class="stats container">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"> <i class="now-ui-icons loader_refresh spin"></i> {{ __('VER REGISTROS ELIMINADOS') }}
-
+                            
                         </div>
                     </div>
 

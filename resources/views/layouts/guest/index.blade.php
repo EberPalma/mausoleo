@@ -109,7 +109,7 @@
   <header id="header" class="hoc clear"  style="background-image:url('images/demo/backgrounds/marmol-blanco.jpg'); border-radius: 10px; ">
     <div id="logo" >
       <!-- ################################################################################################ -->
-      <img loading="lazy" src="Images/demo/logolargo.png" style="margin-top:-10px; height:80px"  alt="">
+      <img loading="lazy" src="Images/demo/logolargo.png" style="margin-top:-10px; height:70px"  alt="">
       <!-- ################################################################################################ -->
 
     <nav id="mainav" class="fl_right">
@@ -117,7 +117,7 @@
       <ul class="clear">
         <li class="active"><a href="index.html" style="color: black; font-weight:bold ">Inicio</a></li>
         <li><a href="#" style="color: #948307; font-weight:bold ">Nosotros</a></li>
-        <li><a href="#" style="color: #948307; font-weight:bold ">Servicios</a></li>
+        <li><a href="#" style="color: #948307; font-weight:bold ">Productos & Servicios</a></li>
         <li><a class="drop" href="#" style="color: #948307; font-weight:bold ">Recordando a</a>
           <ul>
             <li><a href="pages/gallery.html">Hoy</a></li>

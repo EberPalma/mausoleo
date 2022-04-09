@@ -71,21 +71,35 @@
                                            <span style="color:red; float:right;" id="spanmail"></span>
 
                                     @include('alerts.feedback', ['field' => 'email'])
+
                                 </div>
+                                <div class="text-center">
+                                    <button class="btn btn-warning" type="submit" id="btnSubmit" class="btn btn-default mt-4">{{ __('GUARDAR') }}</button>
+                                </div><br><br><br>
 
                                 <h4>Difuntos</h4>
                                 <hr>
                                 <div class="col-md-12" id="difuntosList">
                                     @foreach($difuntos as $difunto)
-                                        <a href="../difunto.editar/{{ $difunto->id }}">-{{ $difunto->nombre }}</a><br>
+                                    @if ($difunto->activo = 0)
+                                    @else
+                                    <div class="alert alert-success">
+
+                                        <span>
+                                            @if (File::exists(public_path("Images/Beneficiary/{$difunto->id}_1.jpg")))
+                                            <img style="border-radius: 50%; width:30px" class="avatar border-gray" src="{{ asset("Images/Beneficiary/{$difunto->id}_1.jpg") }}" alt="...">
+                                            @else
+                                            <img style="border-radius: 50%; width:30px"class="avatar border-gray" src="{{ asset("img/MSC.png") }}" alt="...">
+                                            @endif<a href="../difunto.editar/{{ $difunto->id }}">- {{ $difunto->nombre }}</a><br>
+                                    </div>
+
+                                    @endif
                                     @endforeach
                                 </div>
                                 <hr>
 
 
-                                    <div class="text-center">
-                                        <button class="btn btn-warning" type="submit" id="btnSubmit" class="btn btn-default mt-4">{{ __('GUARDAR') }}</button>
-                                    </div>
+
                                 </div>
                             </form>
                         </div>
@@ -106,6 +120,7 @@
                                         <h5 class="title" title="Ver registro"> Contenido Actual </h5>
                                     </a>
                                     <hr>
+
                                     <p class="description">
                                        Coordenada: <b>{{ $nicho->coordenada }}</b>
                                     </p>
@@ -114,13 +129,26 @@
                                         Tamaño: <b>{{ $nicho->capacidad }}</b>
                                      </p>
                                      <hr>
+                                     @if ($nicho->nombre<>null)
                                      <p class="description">
                                         Nombre del Titular:<br> <b>{{ $nicho->nombre }}</b>
                                      </p>
+                                     @else
+                                     <b class="description" style="color:green">
+                                        No hay registro de titular
+                                     </b><br>
+                                     @endif
+                                     @if ($nicho->nombre<>null)
                                      <p class="description">
                                         Familia:<br> <b>{{ $nicho->familia }}</b>
                                      </p>
+                                     @else
+                                     <b class="description" style="color:green">
+                                        No hay registro de familia
+                                     </b>
+                                     @endif
                                      @if ($nicho->email == NULL)
+
 
                                      @else
                                      <hr>

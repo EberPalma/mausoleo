@@ -104,7 +104,7 @@
                         <div class="card-footer ">
                             <hr>
                             <div class="stats">
-                                <i class="now-ui-icons loader_refresh spin"></i> {{ __('Actualizado recientemente') }}
+                                <i class="now-ui-icons loader_refresh spin"></i> {{ __('Ultimos 5 registros') }}
                             </div>
                         </div>
                     </div>
@@ -130,7 +130,7 @@
         });
         console.log(informes);
 
-        
+
 
         });
     </script>
