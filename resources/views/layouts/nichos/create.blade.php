@@ -93,9 +93,9 @@
             axios.post('api/nichosstore', {
                 coordenada: document.querySelector('#coordenada').value,
                 capacidad: document.querySelector('#capacidad').value,
-                nombre: document.querySelector('#nombre').value,
-                familia: document.querySelector('#familia').value,
-                email: document.querySelector('#email').value
+                nombre: document.querySelector('#nombre').value == "" ? 'Sin titular' : document.querySelector('#nombre').value,
+                familia: document.querySelector('#familia').value == "" ? 'Sin familia' : document.querySelector('#familia').value,
+                email: document.querySelector('#input-email').value == "" ? 'ejemplo@mausoleosantaclara.com' : document.querySelector('#input-email').value
             }).then((response)=>{
                 alert(response.data.message);
             });
