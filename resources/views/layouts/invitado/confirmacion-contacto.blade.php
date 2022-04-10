@@ -52,7 +52,7 @@
             count--;
             $("#countDown").html(count);
             if (count == 0) {
-                window.location = '/invitado.inicio';
+                window.location = '/';
             }
         },1000);
     });

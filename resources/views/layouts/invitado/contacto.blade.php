@@ -4,15 +4,14 @@
 <div>
     <img src="{{ asset('img/Logohc.png') }}" alt="..." width="200" >
   <nav class="nav nav-masthead justify-content-center float-md-end">
-    <a class="nav-link"  href="#">Inicio</a>
+    <a class="nav-link"  href="/">Inicio</a>
     <a class="nav-link" href="#">Condolencias</a>
-    <a class="nav-link" href="#">Presentacion</a>
     <a class="nav-link active" aria-current="page" href="#">Contacto</a>&nbsp&nbsp&nbsp
     <li class="nav-item dropdown show">
       <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Recordando a</a>
       <div id="dropdownf" class="dropdown-menu show" aria-labelledby="dropdown07">
-        <a class="dropdown-item" href="#hoy">Hoy</a>
-        <a class="dropdown-item" href="#mes">Mes</a>
+        <a class="dropdown-item" href="/RecordamosHoy">Hoy</a>
+        <a class="dropdown-item" href="/RecordamosEsteMes">Mes</a>
       </div>
     </li>
   </nav>

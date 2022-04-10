@@ -75,6 +75,8 @@ Route::get('/inicio', function () {return view('layouts.guest.index');})->name('
 Route::get('/productos', function () {return view('layouts.guest.productos');})->name('productos');
 Route::get('/RecordamosEsteMes', function () {return view('layouts.guest.Mes');})->name('RecordamosEsteMes');
 Route::get('/RecordamosHoy', function () {return view('layouts.guest.Hoy');})->name('RecordamosHoy');
+
+
 Auth::routes();
 
 

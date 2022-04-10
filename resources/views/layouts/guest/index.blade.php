@@ -115,13 +115,13 @@
     <nav id="mainav" class="fl_right">
       <!-- ################################################################################################ -->
       <ul class="clear">
-        <li class="active"><a href="index.html" style="color: black; font-weight:bold ">Inicio</a></li>
+        <li class="active"><a href="/" style="color: black; font-weight:bold ">Inicio</a></li>
         <li><a href="#" style="color: #948307; font-weight:bold ">Nosotros</a></li>
-        <li><a href="#" style="color: #948307; font-weight:bold ">Productos & Servicios</a></li>
+        <li><a href="/productos" style="color: #948307; font-weight:bold ">Productos & Servicios</a></li>
         <li><a class="drop" href="#" style="color: #948307; font-weight:bold ">Recordando a</a>
           <ul>
-            <li><a href="pages/gallery.html">Hoy</a></li>
-            <li><a href="pages/full-width.html">Mes</a></li>
+            <li><a href="/RecordamosHoy">Hoy</a></li>
+            <li><a href="/RecordamosEsteMes">Mes</a></li>
           </ul>
         </li>
         <li><a href="#" style="color: #948307; font-weight:bold ">Condolencias</a></li>
