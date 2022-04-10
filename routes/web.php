@@ -73,8 +73,8 @@ Route::get('/presentacion', [App\Http\Controllers\PresentacionController::class,
 Route::get('/presentacion/json', [App\Http\Controllers\PresentacionController::class, 'indexjson']);
 Route::get('/inicio', function () {return view('layouts.guest.index');})->name('inicio');
 Route::get('/productos', function () {return view('layouts.guest.productos');})->name('productos');
-Route::get('/RecordamosEsteMes', function () {return view('layouts.guest.Mes');})->name('RecordamosEsteMes');
-Route::get('/RecordamosHoy', function () {return view('layouts.guest.Hoy');})->name('RecordamosHoy');
+Route::get('/RecordamosEsteMes', [App\Http\Controllers\inMemoriaController::class, 'thisMonth']);
+Route::get('/RecordamosHoy', [App\Http\Controllers\inMemoriaController::class, 'today']);
 
 
 Auth::routes();

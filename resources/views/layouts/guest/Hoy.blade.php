@@ -15,6 +15,7 @@
 
 .profile-card-4 img {
     transition: all 0.25s linear;
+    width:300px; height:400px;  object-fit: cover;
 }
 
 .profile-card-4 .profile-content {
@@ -30,6 +31,7 @@
     right: 0px;
     top: -70px;
     color: #FFF;
+    -webkit-text-stroke: 0.5px black;
     font-size: 17px;
 }
 
@@ -196,7 +198,11 @@
           <div class="row">
             @foreach($defuncion as $difunto)
               <div class="col-md-4">
-                  <div class="profile-card-4 text-center"><img src="{{ asset('Images/Beneficiary/'.$difunto->id.'_1.jpg') }}" class="img img-responsive">
+                  <div class="profile-card-4 text-center">@if (File::exists(public_path("Images/Beneficiary/{$difunto->id}_1.jpg")))
+                    <img src="{{ asset('Images/Beneficiary/'.$difunto->id.'_1.jpg') }}" class="img img-responsive">
+                    @else
+                    <img src="{{ asset("Images/Beneficiary/MSC.jpg") }}" class="img img-responsive">
+                    @endif
                       <div class="profile-content">
                           <div class="profile-name">{{ $difunto->nombre }}</div>
                           <div class="row">
@@ -233,11 +239,15 @@
       <div class="sectiontitle">
         <h1 style="color:white">CUMPLEAÑOS</h1>
       </div>
-      <div class="container" style="margin-top:-130px;">
+      <div class="container"  style="margin-top:-130px;">
           <div class="row">
           @foreach($nacimiento as $difunto)
-              <div class="col-md-4">
-                  <div class="profile-card-4 text-center"><img src="{{ asset('Images/Beneficiary/'.$difunto->id.'_1.jpg') }}" class="img img-responsive">
+              <div class="col-md-4" style="margin-top: 50px">
+                <div class="profile-card-4 text-center">@if (File::exists(public_path("Images/Beneficiary/{$difunto->id}_1.jpg")))
+                    <img src="{{ asset('Images/Beneficiary/'.$difunto->id.'_1.jpg') }}" class="img img-responsive">
+                    @else
+                    <img src="{{ asset("Images/Beneficiary/MSC.jpg") }}" class="img img-responsive">
+                    @endif
                       <div class="profile-content">
                           <div class="profile-name">{{ $difunto->nombre }}</div>
                           <div class="row">
