@@ -1,20 +1,23 @@
-<html lang="en" class="h-100">
-  <head>
-    <meta charset="utf-8" />
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js">
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/apple-icon.png') }}">
     <link rel="icon" type="image/png" href="{{ asset('img/favicon.ico') }}">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>Cover Template · Bootstrap v5.0</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-    
 
-    
 
-    
+
+
+
 
 
 
@@ -26,7 +29,7 @@
         -moz-user-select: none;
         user-select: none;
       }
-      
+
 
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
@@ -88,19 +91,19 @@ body {
 }
     </style>
 
-    
-  
-    
+
+
+
   </head>
   <body class="d-flex h-100 text-center text-white bg-dark">
-    
+
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   <header class="mb-auto">
     @yield('header')
   </header>
   @yield('body')
 
-  
+
 
   <footer class="mt-auto text-white-50">
     <p>mausoleosantaclara.com <a  class="text-white"></a>, by <a href="#" class="text-white">CPI</a>.</p>
@@ -108,14 +111,14 @@ body {
 </div>
 
 
-    
+
   </body>
   <script>
-  
+
     $(document).ready(function(){
       // Mostrar drwopdown por unos segundos
       $("#dropdownf").hide();
-      
+
       var showed=0;
       $("#dropdown07").click(function(){
       $('#dropdownf').toggle();
@@ -125,8 +128,8 @@ body {
       $("#collapseAviso").click(function(){
           $('#txtavisoprivacidad').toggle();
       })
-      
-  
+
+
     });
     </script>
 </html>

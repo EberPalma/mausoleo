@@ -175,8 +175,10 @@ class NichosController extends Controller
             }
         }
         $nicho = \DB::table('nichos')->where('coordenada', $newCoordenada)->get();
-        // $difuntos = \DB::table('beneficiarios')->where('idNicho', $newCoordenada->coordenada)->select('id', 'nombre')->get();
-        return $difuntos;
+         $difuntos = \DB::table('beneficiarios')->where('idNicho', $nicho[0]->id)->select('id', 'nombre','fechaDefuncion','fechaNacimiento','mensaje')->get();
+         return view('layouts.guest.Informacion')
+            ->with('nicho', $nicho)
+            ->with('difuntos', $difuntos);
     }
 }
 
