@@ -165,4 +165,17 @@ class NichosController extends Controller
         $nicho = \DB::table('nichos')->where('id', $id)->get();
         return json_encode(array( 'errors' => $error, 'data' => $nicho));
     }
+
+    public function informacion($coordenada){
+        $newCoordenada = "";
+        for($i = 0; $i<strlen($coordenada); $i++){
+            if(is_numeric($coordenada[$i])){
+                 $newCoordenada = $newCoordenada.' '.$coordenada[$i];
+            }else{
+                $newCoordenada = $newCoordenada.$coordenada[$i];
+            }
+        }
+        $nicho = \DB::table('nichos')->where('coordenada', $newCoordenada)->get();
+        return $nicho;
+    }
 }

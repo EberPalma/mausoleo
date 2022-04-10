@@ -81,3 +81,5 @@ Auth::routes();
 
 
 Route::get('/qr_generate', [App\Http\Controllers\QRController::class, 'qr_generate'])->name('qr_generate');
+
+Route::get('Informacion/Nicho/{coordenada}', [App\Http\Controllers\NichosController::class, 'informacion'])->name('infoController');
