@@ -192,12 +192,13 @@
         let btn = document.querySelector('#btnSubmit');
         btn.addEventListener('click', (e)=>{
             e.preventDefault();
+            
             axios.put('../api/nichosupdate/{{ $nicho->id }}', {
                 coordenada: document.querySelector('#input-coordenada').value,
                 capacidad: document.querySelector('#input-capacidad').value,
                 nombre: document.querySelector('#input-nombre').value,
                 familia: document.querySelector('#input-familia').value,
-                email: document.querySelector('#input-email').value
+                email: document.querySelector('#input-email').value == "" ? 'ejemplo@mausoleosantaclara.com' : document.querySelector('#input-email').value
             }).then((response)=>{
                 alert(response.data);
             });
