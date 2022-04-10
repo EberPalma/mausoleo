@@ -167,6 +167,13 @@ class NichosController extends Controller
     }
     public function informacion($coordenada){
         $newCoordenada = "";
+        if(is_numeric($coordenada)){
+            $nicho = \DB::table('nichos')->where('id', $coordenada)->get();
+            $difuntos = \DB::table('beneficiarios')->where('idNicho', $nicho[0]->id)->select('id', 'nombre','fechaDefuncion','fechaNacimiento','mensaje')->get();
+            return view('layouts.guest.Informacion')
+                ->with('nicho', $nicho)
+                ->with('difuntos', $difuntos);
+        }
         for($i = 0; $i<strlen($coordenada); $i++){
             if(is_numeric($coordenada[$i]) && !is_numeric($coordenada[$i-1])){
                  $newCoordenada = $newCoordenada.' '.$coordenada[$i];

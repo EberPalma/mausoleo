@@ -217,7 +217,7 @@
 
                           </div>
                           <div class="row">
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<center><a href="/Informacion/Nicho/" class="btn btn-warning">Enviar Condolencia</a></center>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<center><a href="{{ '/Informacion/Nicho/'.$difunto->idNicho }}" class="btn btn-warning">Enviar Condolencia</a></center>
                           </div>
 
                       </div>
