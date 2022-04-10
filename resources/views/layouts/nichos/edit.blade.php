@@ -147,7 +147,7 @@
                                         No hay registro de familia
                                      </b>
                                      @endif
-                                     @if ($nicho->email == NULL)
+                                     @if ($nicho->email == NULL || $nicho->email == "ejemplo@mausoleosantaclara.com")
 
 
                                      @else
@@ -192,7 +192,7 @@
         let btn = document.querySelector('#btnSubmit');
         btn.addEventListener('click', (e)=>{
             e.preventDefault();
-            
+
             axios.put('../api/nichosupdate/{{ $nicho->id }}', {
                 coordenada: document.querySelector('#input-coordenada').value,
                 capacidad: document.querySelector('#input-capacidad').value,
@@ -262,7 +262,7 @@
                             $("#btnSubmit").show();}
                             else{$("#spanmail").text("Correo Incorrecto").css("color", "red");
                             $(".mail").css({ "border":"1px solid #F00"}).fadeIn(2000);
-                            $("#btnSubmit").hide();}
+                            }
                             });
 
 

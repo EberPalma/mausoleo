@@ -246,7 +246,7 @@
                             $(".btnsubmit").show();}
                             else{$("#spaninputfn").text("Registre una fecha valida").css("color", "red");
                             $(".datepicker1").css({ "border":"1px solid #C00"}).fadeIn(2000);
-                            $(".btnsubmit").hide();}
+                            }
             });
             $(".datepicker2").keyup(function(){
                var txtfechad = $(".datepicker2").val();
@@ -257,7 +257,7 @@
                             $(".btnsubmit").show();}
                             else{$("#spaninputfd").text("Registre una fecha valida").css("color", "red");
                             $(".datepicker2").css({ "border":"1px solid #C00"}).fadeIn(2000);
-                            $(".btnsubmit").hide();}
+                            }
             });
 
        const $input2 = document.querySelector('.datepicker2');
