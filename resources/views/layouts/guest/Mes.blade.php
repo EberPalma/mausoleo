@@ -194,14 +194,20 @@
       </div>
       <div class="container" style="margin-top:-130px;">
           <div class="row">
+          @foreach($defuncion as $difunto)
               <div class="col-md-4">
-                  <div class="profile-card-4 text-center"><img src="http://envato.jayasankarkr.in/code/profile/assets/img/profile-4.jpg" class="img img-responsive">
+                  <div class="profile-card-4 text-center"><img src="{{ asset('Images/Beneficiary/'.$difunto->id.'_1.jpg') }}" class="img img-responsive">
                       <div class="profile-content">
-                          <div class="profile-name">John Doe
-
-                          </div>
+                          <div class="profile-name">{{ $difunto->nombre }}</div>
                           <div class="row">
-                              <div class="col-12"> <h2>12-02-2020</h2> </div>
+                              <div class="col-12"> <h2>
+                                @for($i = 0; $i < strlen($difunto->fechaDefuncion); $i++)
+                                  @if($difunto->fechaDefuncion[$i] == " " && is_numeric($difunto->fechaDefuncion[$i+1]))
+                                    <span>{{ substr($difunto->fechaDefuncion, 0, $i) }}</span>
+                                  @else
+                                  @endif
+                                @endfor
+                              </h2> </div>
 
                           </div>
                           <div class="row">
@@ -211,6 +217,7 @@
                       </div>
                   </div>
               </div>
+            @endforeach
 
           </div>
       </div>
@@ -229,14 +236,20 @@
       </div>
       <div class="container" style="margin-top:-130px;">
           <div class="row">
+          @foreach($nacimiento as $difunto)
               <div class="col-md-4">
-                  <div class="profile-card-4 text-center"><img src="http://envato.jayasankarkr.in/code/profile/assets/img/profile-4.jpg" class="img img-responsive">
+                  <div class="profile-card-4 text-center"><img src="{{ asset('Images/Beneficiary/'.$difunto->id.'_1.jpg') }}" class="img img-responsive">
                       <div class="profile-content">
-                          <div class="profile-name">John Doe
-
-                          </div>
+                          <div class="profile-name">{{ $difunto->nombre }}</div>
                           <div class="row">
-                              <div class="col-12"> <h2>12-02-2020</h2> </div>
+                              <div class="col-12"> <h2>
+                                @for($i = 0; $i < strlen($difunto->fechaDefuncion); $i++)
+                                  @if($difunto->fechaDefuncion[$i] == " " && is_numeric($difunto->fechaDefuncion[$i+1]))
+                                    <span>{{ substr($difunto->fechaDefuncion, 0, $i) }}</span>
+                                  @else
+                                  @endif
+                                @endfor
+                              </h2> </div>
 
                           </div>
                           <div class="row">
@@ -246,6 +259,7 @@
                       </div>
                   </div>
               </div>
+            @endforeach
 
           </div>
       </div>

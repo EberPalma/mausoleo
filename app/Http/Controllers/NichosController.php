@@ -169,7 +169,7 @@ class NichosController extends Controller
     public function informacion($coordenada){
         $newCoordenada = "";
         for($i = 0; $i<strlen($coordenada); $i++){
-            if(is_numeric($coordenada[$i])){
+            if(is_numeric($coordenada[$i]) && !is_numeric($coordenada[$i-1])){
                  $newCoordenada = $newCoordenada.' '.$coordenada[$i];
             }else{
                 $newCoordenada = $newCoordenada.$coordenada[$i];
