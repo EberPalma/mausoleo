@@ -134,7 +134,7 @@
         let data = response.data;
         data.forEach((e)=>{
             let difunto = `<td>${e.nombre}</td>`;
-            let coordenada = `<td>${e.coordenada}</td>`;
+            let coordenada = `<td><a href="/nicho.editar/${e.idNicho}">${e.coordenada}</a></td>`;
             let familia = `<td>${e.familia}</td>`;
             let botones = e.activo == 1 ? `<td>
                                 <a type="button" href="difunto.editar/${e.id}" rel="tooltip" title="Editar" class="btn btn-info">
