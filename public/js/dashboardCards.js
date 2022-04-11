@@ -12,4 +12,19 @@ document.addEventListener("DOMContentLoaded", () => {
             response.data + " Formularios";
         console.log(response.data);
     });
+    axios.get("/api/informesdashboard").then((response) => {
+        document.querySelector("#countInformes").value =
+            response.data;
+        console.log(response.data);
+    });
+    axios.get("/api/quejasdashboard").then((response) => {
+        document.querySelector("#countQuejas").value =
+            response.data;
+        console.log(response.data);
+    });
+    axios.get("/api/otrosdashboard").then((response) => {
+        document.querySelector("#countOtros").value =
+            response.data;
+        console.log(response.data);
+    });
 });

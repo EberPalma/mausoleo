@@ -112,7 +112,7 @@
                                                     <a href="#" class="btn btn-round btn-fill btn-default disabled">{{ __('Current Version')}}</a>
                                                 </td>
                                                 <td>
-                                                    <a target="_blank" href="https://www.creative-tim.com/product/light-bootstrap-dashboard-pro-laravel" class="btn btn-round btn-fill btn-info">{{ __('Upgrade to PRO') }}</a>
+                                                    <a target="_blank" href="https://www.mausoleosantaclara.com.mx/product/light-bootstrap-dashboard-pro-laravel" class="btn btn-round btn-fill btn-info">{{ __('Upgrade to PRO') }}</a>
                                                 </td>
                                             </tr>
                                         </tbody>

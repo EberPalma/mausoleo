@@ -74,14 +74,15 @@
                         </div>
                         <div class="card-body ">
                             <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+                            <hr>
                             <div class="legend">
                                 <i class="fa fa-circle text-info"></i> {{ __('Informes') }}
-                                <i class="fa fa-circle text-danger"></i> {{ __('Otros') }}
-                                <i class="fa fa-circle text-warning"></i> {{ __('Quejas') }}
+                                <i class="fa fa-circle text-danger"></i> {{ __('Quejas') }}
+                                <i class="fa fa-circle text-warning"></i> {{ __('Sugerencias') }}
                             </div>
-                            <hr>
+
                             <div class="stats">
-                                <i class="fa fa-clock-o"></i> {{ __('Ultimo formulario hecho:') }}
+
                             </div>
                         </div>
                     </div>
@@ -105,11 +106,14 @@
                             <hr>
                             <div class="stats">
                                 <i class="now-ui-icons loader_refresh spin"></i> {{ __('Ultimos 5 registros') }}
+
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div><input type="hidden" id="countInformes">
+            <input type="hidden" id="countQuejas">
+            <input type="hidden" id="countOtros">
 
         </div>
     </div>
@@ -128,8 +132,21 @@
         let otros = axios.get("/api/otrosdashboard").then((response) => {
             return response.data;
         });
-        console.log(informes);
-
+        function onDrawClick() {
+        var x = document.getElementById("countInformes").value;
+        var y = document.getElementById("countQuejas").value;
+        var z = document.getElementById("countOtros").value;
+        var chart = new Chartist.Pie('.ct-chart', {
+            labels: ['Informes', 'Quejas', 'Sugerencias'],
+                                series: [x, y,z],
+                            }, {
+                                showLabel: true
+                            });
+                        }
+    $(document).ready(function(){
+    //Cada 10 segundos (10000 milisegundos) se ejecutará la función refrescar
+    setTimeout(onDrawClick, 5000);
+  });
 
 
         });
@@ -137,4 +154,6 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="{{ asset('js/dashboardContactoTable.js') }}"></script>
     <script src="{{ asset('js/dashboardCards.js') }}"></script>
+    <script>
+        </script>
 @endpush

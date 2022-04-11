@@ -32,7 +32,7 @@
             </div>
 
         </div>
-       
+
 
 
     </body>
@@ -57,7 +57,7 @@
     @stack('js')
     <script>
       $(document).ready(function () {
-        
+
         $('#facebook').sharrre({
           share: {
             facebook: true
@@ -70,7 +70,7 @@
             api.openPopup('facebook');
           },
           template: '<i class="fab fa-facebook-f"></i> Facebook',
-          url: 'https://light-bootstrap-dashboard-laravel.creative-tim.com/login'
+          url: 'https://light-bootstrap-dashboard-laravel.mausoleosantaclara.com.mx/login'
         });
 
         $('#google').sharrre({
@@ -85,7 +85,7 @@
             api.openPopup('googlePlus');
           },
           template: '<i class="fab fa-google-plus"></i> Google',
-          url: 'https://light-bootstrap-dashboard-laravel.creative-tim.com/login'
+          url: 'https://light-bootstrap-dashboard-laravel.mausoleosantaclara.com.mx/login'
         });
 
         $('#twitter').sharrre({
@@ -105,7 +105,7 @@
             api.openPopup('twitter');
           },
           template: '<i class="fab fa-twitter"></i> Twitter',
-          url: 'https://light-bootstrap-dashboard-laravel.creative-tim.com/login'
+          url: 'https://light-bootstrap-dashboard-laravel.mausoleosantaclara.com.mx/login'
         });
       });
     </script>

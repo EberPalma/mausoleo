@@ -20,19 +20,19 @@ class DashboardController extends Controller
         $contacto  = \DB::table('contacto')->count();
         return $contacto;
     }
-    
+
     public function countInformes(){
-        $contacto  = \DB::table('contacto')->where('asunto', 'informes')->count();
+        $contacto  = \DB::table('contacto')->where('asunto', 'Informes')->count();
         return $contacto;
     }
 
     public function countQuejas(){
-        $contacto  = \DB::table('contacto')->where('asunto', 'quejas')->count();
+        $contacto  = \DB::table('contacto')->where('asunto', 'Quejas')->count();
         return $contacto;
     }
-    
+
     public function countOtros(){
-        $contacto  = \DB::table('contacto')->where('asunto', 'otros')->count();
+        $contacto  = \DB::table('contacto')->where('asunto', 'Sugerencias')->count();
         return $contacto;
     }
 }

@@ -1,5 +1,5 @@
 
- <!-- JS, Fuentes, Iconos, CSS (HEADER) --> 
+ <!-- JS, Fuentes, Iconos, CSS (HEADER) -->
  <!DOCTYPE html>
 
  <html lang="en">
@@ -18,25 +18,25 @@
          <link href="{{ asset('css/light-bootstrap-dashboard.css?v=2.0.0') }} " rel="stylesheet" />
          <!-- CSS Just for demo purpose, don't include it in your project -->
          <link href="{{ asset('css/demo.css') }}" rel="stylesheet" />
- 
+
          <!-- Canonical SEO -->
-         <link rel="canonical" href="https://www.creative-tim.com/product/light-bootstrap-dashboard-laravel" />        <!--  Social tags      -->
-         <meta name="keywords" content="design system, dashboard, bootstrap 4 dashboard, bootstrap 4 design, bootstrap 4 system, bootstrap 4, bootstrap 4 uit kit, bootstrap 4 kit, light bootstrap, light bootstrap dashboard, creative tim,updivision, html dashboard, html css template, web template, bootstrap, bootstrap 4, css3 template, frontend, responsive bootstrap template, bootstrap dashboard, responsive dashboard, laravel, laravel php, laravel php framework, free laravel admin template, free laravel admin, free laravel admin template + Front End + CRUD, crud laravel php, crud laravel, laravel backend admin dashboard">
+
+         <meta name="keywords" content="design system, dashboard, bootstrap 4 dashboard, bootstrap 4 design, bootstrap 4 system, bootstrap 4, bootstrap 4 uit kit, bootstrap 4 kit, light bootstrap, light bootstrap dashboard, mausoleo santaclara,updivision, html dashboard, html css template, web template, bootstrap, bootstrap 4, css3 template, frontend, responsive bootstrap template, bootstrap dashboard, responsive dashboard, laravel, laravel php, laravel php framework, free laravel admin template, free laravel admin, free laravel admin template + Front End + CRUD, crud laravel php, crud laravel, laravel backend admin dashboard">
          <meta name="description" content="Start your development with a Bootstrap 4 Admin Dashboard built for Laravel Framework 5.5 and Up.">
- 
- 
+
+
          <!-- Schema.org markup for Google+ -->
          <meta itemprop="name" content="Mausoleo Santa Clara">
          <meta itemprop="description" content="Start your development with a Bootstrap 4 Admin Dashboard built for Laravel Framework 5.5 and Up.">
- 
+
          <meta itemprop="image" content="https://s3.amazonaws.com/creativetim_bucket/products/213/opt_lbd_laravel_thumbnail.jpg">
- 
-        
+
+
          <!-- Open Graph data -->
          <meta property="fb:app_id" content="655968634437471">
          <meta property="og:title" content="Mausoleo Santa Clara" />
          <meta property="og:type" content="article" />
-         <meta property="og:url" content="https://www.creative-tim.com/live/light-bootstrap-dashboard-laravel" />
+         <meta property="og:url" content="https://www.mausoleosantaclara.com.mx/live/light-bootstrap-dashboard-laravel" />
          <meta property="og:image" content="https://s3.amazonaws.com/creativetim_bucket/products/213/opt_lbd_laravel_thumbnail.jpg"/>
          <meta property="og:description" content="Start your development with a Bootstrap 4 Admin Dashboard built for Laravel Framework 5.5 and Up." />
          <meta property="og:site_name" content="Mausoleo Santa Clara" />
@@ -47,7 +47,7 @@
          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
          })(window,document,'script','dataLayer','GTM-NKDMSK6');</script>
          <!-- End Google Tag Manager -->
-     
+
          <script>
              // Facebook Pixel Code Don't Delete
                ! function(f, b, e, v, n, t, s) {
@@ -76,7 +76,7 @@
                }
          </script>
      </head>
- 
+
 
 <body class="clickup-chrome-ext_installed">
     <!-- Google Tag Manager (noscript) -->
@@ -88,16 +88,16 @@
     </noscript>
 
     <div class="wrapper ">
-<!-- Zona del navbar -->     
+<!-- Zona del navbar -->
         <div class="sidebar" data-image="{{ asset('img/sidebar-5.jpg') }}">
             <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
-        
+
         Tip 2: you can also add an image using data-image tag
         -->
             <div class="sidebar-wrapper">
                 <div class="logo">
-                    <a href="http://www.creative-tim.com" class="simple-text">
+                    <a href="http://www.mausoleosantaclara.com.mx" class="simple-text">
                         {{ __("Mausoleo Santa Clara") }}
                     </a>
                 </div>
@@ -108,7 +108,7 @@
                             <p>{{ __("Tablero") }}</p>
                         </a>
                     </li>
-                   
+
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#laravelExamples" aria-expanded="true">
                             <i class="nc-icon nc-icon nc-grid-45"></i>
@@ -134,7 +134,7 @@
                             </ul>
                         </div>
                     </li>
-        
+
                     <li class="nav-item ">
                         <a class="nav-link" href="{{route('page.index', 'table')}}">
                             <img src="{{ asset('img/laravel.svg') }}" style="width:25px">
@@ -153,12 +153,12 @@
                             <p>{{ __("Usuarios") }}</p>
                         </a>
                     </li>
-    
+
                 </ul>
             </div>
-        </div>     
-<!-- /Zona del navbar -->     
-<!-- Zona del navbarstyle -->           
+        </div>
+<!-- /Zona del navbar -->
+<!-- Zona del navbarstyle -->
         <div class="fixed-plugin">
 <div class="dropdown show-dropdown">
     <a href="#" data-toggle="dropdown">
@@ -166,7 +166,7 @@
     </a>
     <ul class="dropdown-menu">
         <li class="header-title"> Estilo lateral </li>
-        
+
         <li class="adjustments-line">
             <a href="javascript:void(0)" class="switch-trigger background-color">
                 <p>Filtros</p>
@@ -204,20 +204,20 @@
         </li>
         <li class="button-container">
             <div class="">
-                <a href="https://www.creative-tim.com/product/light-bootstrap-dashboard-laravel" target="_blank" class="btn btn-success btn-block btn-fill">Acceder a Whatsapp</a>
+                <a href="https://www.mausoleosantaclara.com.mx/product/light-bootstrap-dashboard-laravel" target="_blank" class="btn btn-success btn-block btn-fill">Acceder a Whatsapp</a>
             </div>
         </li>
         <li class="button-container">
             <div class="">
-                <a href="https://light-bootstrap-dashboard-laravel.creative-tim.com/docs/tutorial-components.html" target="_blank" class="btn btn-info btn-block btn-fill">Acceder a Facebook</a>
+                <a href="https://light-bootstrap-dashboard-laravel.mausoleosantaclara.com.mx/docs/tutorial-components.html" target="_blank" class="btn btn-info btn-block btn-fill">Acceder a Facebook</a>
             </div>
         </li>
         <li class="header-title" id="sharrreTitle"> - ARMONIA ETERNA - </li>
     </ul>
 </div>
-<!-- /Zona del navbarstyle --> 
-<!-- Zona del header --> 
-</div>            
+<!-- /Zona del navbarstyle -->
+<!-- Zona del header -->
+</div>
         <div class=" main-panel ">
             <nav class="navbar navbar-expand-lg " color-on-scroll="500">
                 <div class="container-fluid">
@@ -231,11 +231,11 @@
                         <ul class="nav navbar-nav mr-auto">
                             <li class="nav-item">
                                 <a href="#" class="nav-link" data-toggle="dropdown">
-                                    <i class="nc-icon nc-palette"></i>
+
                                     <span class="d-lg-none">{{ __('Tablero') }}</span>
                                 </a>
                             </li>
-                            
+
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="nc-icon nc-zoom-split"></i>
@@ -258,26 +258,26 @@
                         </ul>
                     </div>
                 </div>
-            </nav>   
-<!-- /Zona del header --> 
-<!-- Contenido --> 
-    
+            </nav>
+<!-- /Zona del header -->
+<!-- Contenido -->
+
 @yield('Contenidoprincipal')
 
-<!-- /Contenido --> 
-<!-- Footer --> 
+<!-- /Contenido -->
+<!-- Footer -->
             <footer class="footer">
 <div class="container -fluid ">
     <nav>
         <ul class="footer-menu">
             <li>
-                <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Mausoleo Santa Clara</a>
+                <a href="https://www.mausoleosantaclara.com.mx" class="nav-link" target="_blank">Mausoleo Santa Clara</a>
             </li>
             <li>
                 <a href="https://www.cartuchosweb.com" class="nav-link" target="_blank">CPI</a>
             </li>
             <li>
-                <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">Nosotros</a>
+                <a href="https://www.mausoleosantaclara.com.mx/presentation" class="nav-link" target="_blank">Nosotros</a>
             </li>
         </ul>
         <p class="copyright text-center">
@@ -285,17 +285,17 @@
             <script>
                 document.write(new Date().getFullYear())
             </script>
-            <a href="http://www.creative-tim.com">Mausoleo Santa Clara</a> &amp; <a href="https://www.cartuchosweb.com">CPI</a>
+            <a href="http://www.mausoleosantaclara.com.mx">Mausoleo Santa Clara</a> &amp; <a href="https://www.cartuchosweb.com">CPI</a>
         </p>
     </nav>
 </div>
-</footer> 
-<!-- /Footer --> 
-<!-- JS, Fuentes, Iconos, CSS (FOOTER) --> 
+</footer>
+<!-- /Footer -->
+<!-- JS, Fuentes, Iconos, CSS (FOOTER) -->
     </div>
 
     </div>
-   
+
 
 
 
@@ -303,7 +303,7 @@
         <script src="{{ asset('js/core/jquery.3.2.1.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('js/core/popper.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('js/core/bootstrap.min.js') }}" type="text/javascript"></script>
-    
+
         <script src="{{ asset('js/plugins/jquery.sharrre.js') }}"></script>
         <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
         <script src="{{ asset('js/plugins/bootstrap-switch.js') }}"></script>
@@ -320,7 +320,7 @@
         @stack('js')
         <script>
           $(document).ready(function () {
-            
+
             $('#facebook').sharrre({
               share: {
                 facebook: true
@@ -333,9 +333,9 @@
                 api.openPopup('facebook');
               },
               template: '<i class="fab fa-facebook-f"></i> Facebook',
-              url: 'https://light-bootstrap-dashboard-laravel.creative-tim.com/login'
+              url: 'https://light-bootstrap-dashboard-laravel.mausoleosantaclara.com.mx/login'
             });
-    
+
             $('#google').sharrre({
               share: {
                 googlePlus: true
@@ -348,9 +348,9 @@
                 api.openPopup('googlePlus');
               },
               template: '<i class="fab fa-google-plus"></i> Google',
-              url: 'https://light-bootstrap-dashboard-laravel.creative-tim.com/login'
+              url: 'https://light-bootstrap-dashboard-laravel.mausoleosantaclara.com.mx/login'
             });
-    
+
             $('#twitter').sharrre({
               share: {
                 twitter: true
@@ -368,9 +368,9 @@
                 api.openPopup('twitter');
               },
               template: '<i class="fab fa-twitter"></i> Twitter',
-              url: 'https://light-bootstrap-dashboard-laravel.creative-tim.com/login'
+              url: 'https://light-bootstrap-dashboard-laravel.mausoleosantaclara.com.mx/login'
             });
           });
         </script>
     </html>
- <!-- /JS, Fuentes, Iconos, CSS (FOOTER) --> 
+ <!-- /JS, Fuentes, Iconos, CSS (FOOTER) -->

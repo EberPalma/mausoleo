@@ -61,6 +61,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/apple-icon.png') }}">
+         <link rel="icon" type="image/png" href="{{ asset('img/favicon.ico') }}">
+         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 </head>
 <body id="top">
 
@@ -124,7 +127,6 @@
             <li><a href="/RecordamosEsteMes">Mes</a></li>
           </ul>
         </li>
-        <li><a href="#" style="color: #948307; font-weight:bold ">Condolencias</a></li>
         <li><a href="/invitado.contacto" style="color: #948307; font-weight:bold ">Contacto</a></li>
       </ul>
       <!-- ################################################################################################ -->

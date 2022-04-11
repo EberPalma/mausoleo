@@ -52,18 +52,18 @@
             </li>
             <li class="button-container">
                 <div class="">
-                    <a href="https://www.creative-tim.com/product/light-bootstrap-dashboard-laravel" target="_blank" class="btn btn-info btn-block btn-fill">{{ __("Download, it's free!") }}</a>
+                    <a href="https://www.mausoleosantaclara.com.mx/product/light-bootstrap-dashboard-laravel" target="_blank" class="btn btn-info btn-block btn-fill">{{ __("Download, it's free!") }}</a>
                 </div>
             </li>
             <li class="button-container">
                 <div class="">
-                    <a href="https://light-bootstrap-dashboard-laravel.creative-tim.com/docs/tutorial-components.html" target="_blank" class="btn btn-default btn-block btn-fill">{{ __('View Documentation') }}</a>
+                    <a href="https://light-bootstrap-dashboard-laravel.mausoleosantaclara.com.mx/docs/tutorial-components.html" target="_blank" class="btn btn-default btn-block btn-fill">{{ __('View Documentation') }}</a>
                 </div>
             </li>
             <li class="header-title pro-title text-center">{{ __('Want more components?') }}</li>
             <li class="button-container">
                 <div class="">
-                    <a href="https://www.creative-tim.com/product/light-bootstrap-dashboard-pro-laravel" target="_blank" class="btn btn-success btn-block btn-fill">{{ __('Ir a Whatsapp') }}</a>
+                    <a href="https://www.mausoleosantaclara.com.mx/product/light-bootstrap-dashboard-pro-laravel" target="_blank" class="btn btn-success btn-block btn-fill">{{ __('Ir a Whatsapp') }}</a>
                 </div>
             </li>
             <li class="header-title" id="sharrreTitle">{{ __('Thank you for sharing!') }}</li>

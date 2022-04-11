@@ -15,10 +15,10 @@
                         <i class="nc-icon nc-chart-pie-35"></i> {{ __('Tablero') }}
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ route('register') }}" class="nav-link">
                         <i class="nc-icon nc-badge"></i> {{ __('Registro') }}
-                    </a>
+                    </a> --}}
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('login') }}" class="nav-link">

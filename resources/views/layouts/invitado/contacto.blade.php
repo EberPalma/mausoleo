@@ -5,7 +5,6 @@
     <img src="{{ asset('img/Logohc.png') }}" alt="..." width="200" >
   <nav class="nav nav-masthead justify-content-center float-md-end">
     <a class="nav-link"  href="/">Inicio</a>
-    <a class="nav-link" href="#">Condolencias</a>
     <a class="nav-link active" aria-current="page" href="#">Contacto</a>&nbsp&nbsp&nbsp
     <li class="nav-item dropdown show">
       <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Recordando a</a>

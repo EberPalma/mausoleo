@@ -67,7 +67,7 @@
         -->
             <div class="sidebar-wrapper">
                 <div class="logo">
-                    <a href="http://www.creative-tim.com" class="simple-text">
+                    <a href="http://www.mausoleosantaclara.com.mx" class="simple-text">
                         {{ __("Mausoleo Santa Clara") }}
                     </a>
                 </div>
@@ -102,12 +102,12 @@
                              <p>{{ __("Codigo QR") }}</p>
                         </a>
                     </li>
-                    <li class="nav-item ">
+                    {{-- <li class="nav-item ">
                         <a class="nav-link" href="{{route('page.index', 'typography')}}">
                             <i class="nc-icon nc-album-2"></i>
                             <p>{{ __("Imagenes") }}</p>
                         </a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('usuarios')}}">
                             <i class="nc-icon nc-single-02"></i>
@@ -171,12 +171,12 @@
         </li>
         <li class="button-container">
             <div class="">
-                <a href="https://www.creative-tim.com/product/light-bootstrap-dashboard-laravel" target="_blank" class="btn btn-success btn-block btn-fill">Acceder a Whatsapp</a>
+                <a href="https://www.mausoleosantaclara.com.mx/product/light-bootstrap-dashboard-laravel" target="_blank" class="btn btn-success btn-block btn-fill">Acceder a Whatsapp</a>
             </div>
         </li>
         <li class="button-container">
             <div class="">
-                <a href="https://light-bootstrap-dashboard-laravel.creative-tim.com/docs/tutorial-components.html" target="_blank" class="btn btn-info btn-block btn-fill">Acceder a Facebook</a>
+                <a href="https://light-bootstrap-dashboard-laravel.mausoleosantaclara.com.mx/docs/tutorial-components.html" target="_blank" class="btn btn-info btn-block btn-fill">Acceder a Facebook</a>
             </div>
         </li>
         <li class="header-title" id="sharrreTitle"> - ARMONIA ETERNA - </li>
@@ -198,17 +198,17 @@
                         <ul class="nav navbar-nav mr-auto">
                             <li class="nav-item">
                                 <a href="#" class="nav-link" data-toggle="dropdown">
-                                    <i class="nc-icon nc-palette"></i>
+
                                     <span class="d-lg-none">{{ __('Tablero') }}</span>
                                 </a>
                             </li>
 
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="nc-icon nc-zoom-split"></i>
                                     <span class="d-lg-block">&nbsp;{{ __('Buscar') }}</span>
                                 </a>
-                            </li>
+                            </li> --}}
                         </ul>
                         <ul class="navbar-nav   d-flex align-items-center">
                             <li class="nav-item">
@@ -238,13 +238,13 @@
     <nav>
         <ul class="footer-menu">
             <li>
-                <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Mausoleo Santa Clara</a>
+                <a href="https://www.mausoleosantaclara.com.mx" class="nav-link" target="_blank">Mausoleo Santa Clara</a>
             </li>
             <li>
                 <a href="https://www.cartuchosweb.com" class="nav-link" target="_blank">CPI</a>
             </li>
             <li>
-                <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">Nosotros</a>
+                <a href="https://www.mausoleosantaclara.com.mx/presentation" class="nav-link" target="_blank">Nosotros</a>
             </li>
         </ul>
         <p class="copyright text-center">
@@ -252,7 +252,7 @@
             <script>
                 document.write(new Date().getFullYear())
             </script>
-            <a href="http://www.creative-tim.com">Mausoleo Santa Clara</a> &amp; <a href="https://www.cartuchosweb.com">CPI</a>
+            <a href="http://www.mausoleosantaclara.com.mx">Mausoleo Santa Clara</a> &amp; <a href="https://www.cartuchosweb.com">CPI</a>
         </p>
     </nav>
 </div>

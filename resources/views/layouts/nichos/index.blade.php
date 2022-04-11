@@ -164,18 +164,18 @@
                 .addEventListener("click", () => {
                     if(document.querySelector(`#difuntosRow${e.id}`).innerHTML == ""){
                         Swal.fire({
-                            title: 'Estas por eliminar este nicho',
+                            title: 'Estas por realizar esta accion',
                             text: "Estas seguro?",
                             icon: 'warning',
                             showCancelButton: true,
                             confirmButtonColor: '#3085d6',
                             cancelButtonColor: '#d33',
-                            confirmButtonText: 'Si, borralo'
+                            confirmButtonText: 'Si'
                         }).then((result) => {
                             if (result.isConfirmed) {
                                 Swal.fire(
-                                'Borrado',
-                                'El nicho se ha eliminado.',
+                                'Listo',
+                                'Se ha realizado dicha accion.',
                                 'success'
                                 )
                                 axios.get("/api/nichosdelete/" + e.id);
