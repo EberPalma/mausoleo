@@ -95,10 +95,10 @@
                 capacidad: document.querySelector('#capacidad').value,
                 nombre: document.querySelector('#nombre').value == "" ? 'Sin titular' : document.querySelector('#nombre').value,
                 familia: document.querySelector('#familia').value == "" ? 'Sin familia' : document.querySelector('#familia').value,
-                email: document.querySelector('#input-email').value == "" ? 'ejemplo@mausoleosantaclara.com' : document.querySelector('#input-email').value
+                email: document.querySelector('#email').value == "" ? 'ejemplo@mausoleosantaclara.com' : document.querySelector('#email').value
             }).then((response)=>{
                 alert(response.data.message);
-            });
+            }).catch((e)=>{console.log(e)});
         });
     });
     </script>

@@ -50,7 +50,7 @@ class NichosController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'coordenada'=>'required|string|unique: nichos',
+            'coordenada'=>'required|string',
             'capacidad'=>'required|integer',
             'nombre'=>'required|string',
             'familia'=>'required|string',
