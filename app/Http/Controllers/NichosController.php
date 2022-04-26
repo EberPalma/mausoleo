@@ -169,7 +169,21 @@ class NichosController extends Controller
         $newCoordenada = "";
         if(is_numeric($coordenada)){
             $nicho = \DB::table('nichos')->where('id', $coordenada)->get();
-            $difuntos = \DB::table('beneficiarios')->where('idNicho', $nicho[0]->id)->select('id', 'nombre','fechaDefuncion','fechaNacimiento','mensaje')->get();
+            $difuntos = \DB::table('beneficiarios')->where('idNicho', $nicho[0]->id)->where('activo', 1)->select('id', 'nombre','fechaDefuncion','fechaNacimiento','mensaje')->get();
+            if(count($difuntos)==0){}else{
+                // foreach($nicho as $n){
+                //     $difuntos = \DB::table('beneficiarios')->where('idNicho', $n->id)->where('activo', 1)->select('nombre')->get();
+                //     $n->difuntos = $difuntos;
+                //     array_push($data, $n);
+                // }
+                // return $data;
+
+            $condolencias = \DB::table('condolencias')->where('idifunto', $difuntos[0]->id)->where('verificado', 1)->select('id', 'nombre', 'mensaje', 'relacion','created_at')->get();
+            return view('layouts.guest.Informacion')
+                ->with('nicho', $nicho)
+                ->with('difuntos', $difuntos)
+                ->with('msgcondolencias', $condolencias);
+            }
             return view('layouts.guest.Informacion')
                 ->with('nicho', $nicho)
                 ->with('difuntos', $difuntos);
@@ -183,9 +197,16 @@ class NichosController extends Controller
         }
         $nicho = \DB::table('nichos')->where('coordenada', $newCoordenada)->get();
          $difuntos = \DB::table('beneficiarios')->where('idNicho', $nicho[0]->id)->select('id', 'nombre','fechaDefuncion','fechaNacimiento','mensaje')->get();
-         return view('layouts.guest.Informacion')
-            ->with('nicho', $nicho)
-            ->with('difuntos', $difuntos);
+         if(count($difuntos)==0){}else{
+            $condolencias = \DB::table('condolencias')->where('idifunto','=', $difuntos[0]->id)->where('verificado', 1)->select('id', 'nombre', 'mensaje', 'relacion','created_at')->get();
+            return view('layouts.guest.Informacion')
+                ->with('nicho', $nicho)
+                ->with('difuntos', $difuntos)
+                ->with('msgcondolencias', $condolencias);
+            }
+            return view('layouts.guest.Informacion')
+                ->with('nicho', $nicho)
+                ->with('difuntos', $difuntos);
     }
 }
 

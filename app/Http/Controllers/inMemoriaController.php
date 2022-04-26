@@ -17,7 +17,7 @@ class inMemoriaController extends Controller
             $dia = str_replace("0", "", $dia);
         }
         $mes = $mes == 10 ? $mes : str_replace("0", "", $mes);
-        $date = $dia.'/'.$mes;
+        $date = $mes.'/'.$dia;
         $defuncion = \DB::table('beneficiarios')->where('fechaDefuncion', 'like', '%'.$date.'%')->get();
         $nacimiento = \DB::table('beneficiarios')->where('fechaNacimiento', 'like', '%'.$date.'%')->get();
         return view('layouts.guest.Hoy')

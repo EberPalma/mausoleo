@@ -75,6 +75,9 @@ Route::get('/inicio', function () {return view('layouts.guest.index');})->name('
 Route::get('/productos', function () {return view('layouts.guest.productos');})->name('productos');
 Route::get('/RecordamosEsteMes', [App\Http\Controllers\inMemoriaController::class, 'thisMonth']);
 Route::get('/RecordamosHoy', [App\Http\Controllers\inMemoriaController::class, 'today']);
+// Condolencia
+Route::get('/invitado.condolencia-confirmacion', function () {return view('layouts.invitado.confirmacion-condolencia');})->name('invitado.confirmacion-condolencia');
+Route::post('/invitado.condolencia/action', [App\Http\Controllers\CondolenciasController::class, 'store']);
 
 
 Auth::routes();

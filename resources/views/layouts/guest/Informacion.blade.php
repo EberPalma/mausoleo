@@ -2,6 +2,8 @@
 
 @section('header')
 <div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <img src="{{ asset('img/Logohc.png') }}" alt="..." width="200" >
   <nav class="nav nav-masthead justify-content-center float-md-end">
     <a class="nav-link"  href="/">Inicio</a>
@@ -15,6 +17,9 @@
     </li>
   </nav>
 </div>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 @endsection
 @section('body')
 <style>
@@ -43,7 +48,17 @@
             <h2 class="card-title"> Nicho</h2>
             <h1 class="card-title">@foreach ($nicho as $n)
                 {{$n->coordenada}}
-            </h1>
+            </h1><br><br><hr>
+            @if(count($difuntos)>0)
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Enviarcondolencia">
+                <b>Enviar condolencia</b>
+            </button>
+            @else
+
+                <a class="btn btn-lg btn-success" href="https://api.whatsapp.com/send/?phone=+527228974086&text=Hola!%0AQuiero%20informes%20de%20este%20nicho:%20{{$n->coordenada}}" target="_blank">Solicitar informacion del nicho <br><i class="fab fa-whatsapp fa-2x"></i></a>
+
+            @endif
+
             @endforeach
           {{-- <p class="card-text">Horario: Lunes a Viernes de 10:00 a 18:00 hrs. Sábado y Domingo de 10:00 a 14:00 hrs. Para mayores informes comuníquese con nosotros o envíenos sus comentarios.</p> --}}
         </div><hr>
@@ -113,9 +128,90 @@
 
 
             </div>
+
+        </div>
+        <div>
+            <div class="card bg-dark"  >
+                <div class="card-title"><br>
+                    <h3 > <a class="condolencias" style="text-decoration:none"> Condolencias<i class="fas fa-chevron-down" style="float:right; margin-right:30px"></i></a></h3>
+                </div>
+                <div class=" card-body ">
+
+
+                @foreach ($msgcondolencias as $msg)
+
+                    <div class="msgcondolencia ">
+                  <hr><div class="bg-secondary" style="border-radius: 10px;" >
+                    <div style="float:left; margin-left:10px"><b>{{$msg->nombre}}</b></div>@if($msg->relacion != NULL)<div style="float:right ; margin-right:10px">Fecha: {{$msg->created_at}}</div><br>@else @endif
+                  @if($msg->relacion != NULL)<div style="float:left ; font-style: oblique; margin-left:10px" >{{$msg->relacion}}</div>@else @endif<br><hr>
+
+                 <div> {{$msg->mensaje}}</div>
+                  <hr>
+                </div>
+                </div>
+                @endforeach
+            </div>
+              </div>
         </div>
         <br><br><br><br>
         @endforeach
+        <!-- Modal -->
+<div class="modal fade" id="Enviarcondolencia" tabindex="-1" role="dialog" aria-labelledby="EnviarcondolenciaLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <center><h5 class="modal-title" id="EnviarcondolenciaLabel" style="color:black">Condolencias</h5></center>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="{{ url('/invitado.condolencia/action')}}" method="post" enctype="multipart/form-data">
+                @csrf
+            <div class="form-group">
+                <label for="FormControlSelect1" style="color:black">Enviar condolencia a:</label>
+                <select class="form-control" name="idifunto" id="FormControlSelect1">
+                  <option>Seleccione al destinatario</option>
+                  @foreach ($difuntos as $difunto)
+                  <option value="{{$difunto->id}}">{{$difunto->nombre}}</option>
+                  @endforeach
+                </select>
+                <hr>
+                <div class="form-group col">
+                    <label for="inputEmail4" style="color:black">Email</label>
+                    <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Inserte su correo electrónico">
+                  </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="inputPassword4" style="color:black">Nombre</label>
+                      <input spellcheck="true" name="nombre" type="text" class="form-control" id="inputPassword4" placeholder="Inserte su nombre">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4" style="color:black">Relación</label>
+                        <select class="form-control" name="relacion" id="FormControlSelect1">
+                            <option >Seleccione una opción</option>
+                            <option value="Familiar">Familiar</option>
+                            <option value="Amigo">Amigo</option>
+                            <option value="Conocido">Conocido</option>
+                            <select>
+                      </div>
+
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleFormControlTextarea1" style="color:black">Mensaje</label>
+                    <textarea name="mensaje" spellcheck="true" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary">Enviar condolencia</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
+
       </div>
 
 
@@ -206,6 +302,16 @@
 </div>
 </div>
 </center>
+<script>
+    $(document).ready(function(){
+      // Mensajes de condolencias
+      $(".msgcondolencia").hide();
+      $(".condolencias").click(function(){
+        $('.msgcondolencia').toggle('1000');
+       $("i", this).toggleClass("fas fa-chevron-up fas fa-chevron-down");
+      })
+    });
+</script>
 
 @endsection
 
