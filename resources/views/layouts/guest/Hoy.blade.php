@@ -216,6 +216,9 @@
                                   @endif
                                 @endfor
                               </h2> </div>
+                              <div class="col-12">
+                                <h4>Nicho: {{ $difunto->coordenada }}</h4>
+                              </div>
 
                           </div>
                           <div class="row">
@@ -253,14 +256,20 @@
                       <div class="profile-content">
                           <div class="profile-name">{{ $difunto->nombre }}</div>
                           <div class="row">
-                              <div class="col-12"> <h2>
-                                @for($i = 0; $i < strlen($difunto->fechaNacimiento); $i++)
-                                  @if($difunto->fechaNacimiento[$i] == " " && is_numeric($difunto->fechaNacimiento[$i+1]))
-                                    <span>{{ substr($difunto->fechaNacimiento, 0, $i) }}</span>
-                                  @else
-                                  @endif
-                                @endfor
-                              </h2> </div>
+                              <div class="col-12"> 
+                                <h2>
+                                  @for($i = 0; $i < strlen($difunto->fechaNacimiento); $i++)
+                                    @if($difunto->fechaNacimiento[$i] == " " && is_numeric($difunto->fechaNacimiento[$i+1]))
+                                      <span>{{ substr($difunto->fechaNacimiento, 0, $i) }}</span>
+                                    @else
+                                    @endif
+                                  @endfor
+                                </h2>
+                              
+                              </div>
+                              <div class="col-12">
+                                <h4>Nicho: {{ $difunto->coordenada }}</h4>
+                              </div>
 
                           </div>
                           <div class="row">

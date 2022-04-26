@@ -216,6 +216,9 @@
                                   @endif
                                 @endfor
                               </h2> </div>
+                              <div class="col-12">
+                                <h4>Nicho: {{ $difunto->coordenada }}</h4>
+                              </div>
 
                           </div>
                           <div class="row">
@@ -263,6 +266,9 @@
                                   @endif
                                 @endfor
                               </h2> </div>
+                              <div class="col-12">
+                                <h4>Nicho: {{ $difunto->coordenada }}</h4>
+                              </div>
 
                           </div>
                           <div class="row">

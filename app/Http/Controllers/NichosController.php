@@ -203,7 +203,7 @@ class NichosController extends Controller
                 array_push($newDifuntos, $difunto);
              }
             
-             return $newDifuntos;
+            //return $newDifuntos;
             return view('layouts.guest.Informacion')
                 ->with('nicho', $nicho)
                 ->with('difuntos', $newDifuntos);

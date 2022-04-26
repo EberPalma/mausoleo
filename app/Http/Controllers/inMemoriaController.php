@@ -20,6 +20,17 @@ class inMemoriaController extends Controller
         $date = $mes.'/'.$dia;
         $defuncion = \DB::table('beneficiarios')->where('fechaDefuncion', 'like', '%'.$date.'%')->get();
         $nacimiento = \DB::table('beneficiarios')->where('fechaNacimiento', 'like', '%'.$date.'%')->get();
+
+        foreach($defuncion as $def){
+            $nicho = \DB::table('nichos')->select('coordenada')->where('id', '=', $def->idNicho)->get();
+            $def->coordenada = $nicho[0]->coordenada;
+        }
+
+        foreach($nacimiento as $nac){
+            $nicho = \DB::table('nichos')->select('coordenada')->where('id', '=', $def->idNicho)->get();
+            $nac->coordenada = $nicho[0]->coordenada;
+        }
+
         return view('layouts.guest.Hoy')
             ->with('defuncion', $defuncion)
             ->with('nacimiento', $nacimiento);
@@ -31,6 +42,17 @@ class inMemoriaController extends Controller
         //return $date;
         $defuncion = \DB::table('beneficiarios')->where('fechaDefuncion', 'like', '%'.$date.'%')->get();
         $nacimiento = \DB::table('beneficiarios')->where('fechaNacimiento', 'like', '%'.$date.'%')->get();
+        
+        foreach($defuncion as $def){
+            $nicho = \DB::table('nichos')->select('coordenada')->where('id', '=', $def->idNicho)->get();
+            $def->coordenada = $nicho[0]->coordenada;
+        }
+
+        foreach($nacimiento as $nac){
+            $nicho = \DB::table('nichos')->select('coordenada')->where('id', '=', $def->idNicho)->get();
+            $nac->coordenada = $nicho[0]->coordenada;
+        }
+
         return view('layouts.guest.Mes')
             ->with('defuncion', $defuncion)
             ->with('nacimiento', $nacimiento);
