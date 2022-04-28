@@ -53,10 +53,11 @@
                                 <table id="qrtable" class="table table-hover table-striped">
                                     <thead>
                                         <th>#</th>
-                                        <th>Coordenada</th>
-                                        <th>Familia</th>
-                                        <th>Huespedes</th>
-                                        <th>Codigo QR</th>
+                                        <th>Nombre</th>
+                                        <th>Titulo</th>
+                                        <th>Descripcion</th>
+                                        <th>Precio</th>
+                                        <th>Porcentaje</th>
 
                                     </thead>
                                     <tbody>

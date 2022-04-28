@@ -237,7 +237,7 @@ body {
                                        @if (File::exists(public_path("Images/Beneficiary/{$d->id}_1.jpg")))
                                         <img class="avatar border-gray" loading="lazy" src="{{ asset("Images/Beneficiary/{$d->id}_1.jpg") }}" alt="...">
                                         @else
-                                        <img class="avatar border-gray" loading="lazy" src="{{ asset("img/MSC.png") }}" alt="...">
+                                        <img class="avatar border-gray" style="object-fit: contain;" loading="lazy" src="{{ asset("img/MSC.png") }}" alt="...">
                                         @endif
                 </div>
                 <div class="menu">
