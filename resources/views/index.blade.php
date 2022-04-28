@@ -126,6 +126,12 @@
                             <p>{{ __("Condolencias") }}</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('promociones.index')}}">
+                            <i class="nc-icon nc-tag-content"></i>
+                            <p>{{ __("Promociones") }}</p>
+                        </a>
+                    </li>
 
                 </ul>
             </div>

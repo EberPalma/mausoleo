@@ -179,12 +179,13 @@
                 <hr>
                 <div class="form-group col">
                     <label for="inputEmail4" style="color:black">Email</label>
-                    <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Inserte su correo electrónico">
+                    <input type="email" name="email" class="form-control mail" id="inputEmail4" placeholder="Inserte su correo electrónico">
+                    <span style="color:red; float:right;" id="spanmail"></span>
                   </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="inputPassword4" style="color:black">Nombre</label>
-                      <input spellcheck="true" name="nombre" type="text" class="form-control" id="inputPassword4" placeholder="Inserte su nombre">
+                      <input spellcheck="true" name="nombre" type="text" class="form-control nomb" id="inputPassword4" placeholder="Inserte su nombre">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputEmail4" style="color:black">Relación</label>
@@ -311,6 +312,30 @@
        $("i", this).toggleClass("fas fa-chevron-up fas fa-chevron-down");
       })
     });
+
+    $(".mail").blur(function(){
+                            var txtmail = $(".mail").val();
+                            var valmail = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+                            if(valmail.test(txtmail)){
+                                $("#spanmail").text("Valido").css("color", "green");
+                            $(".mail").css({ "border":"1px solid #0F0"}).fadeIn(2000);}
+                            else{$("#spanmail").text("Correo Incorrecto").css("color", "red");
+                            $(".mail").css({ "border":"1px solid #F00"}).fadeIn(2000);}
+                            });
+            const $input2 = document.querySelector('.nomb');
+            const patron2 = /[A-Za-zñÑáéíóúýÁÉÍÓÚ Ý]+/;
+            $input2.addEventListener("keydown", event => {
+
+                        if(patron2.test(event.key)){
+                            $(".nomb").css({ "border": "1px solid #0C0"});
+                        }
+                        else{$(".nomb").css({ "border": "1px solid #C00"});
+                            if(event.keyCode==8){ console.log("backspace"); }
+                            else{ event.preventDefault();}
+                        }
+
+
+                    });
 </script>
 
 @endsection
