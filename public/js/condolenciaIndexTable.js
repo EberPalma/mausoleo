@@ -52,7 +52,7 @@ function loadTable(response) {
 
                             </div>
                         </td>`;
-        let idifunto = `<td><a class="btn btn-warning" href="https://www.mausoleosantaclara.com.mx/Informacion/Nicho/${e.idifunto}" target="_blank">${e.idifunto}</a></td>`;
+        let idifunto = `<td><a class="btn btn-warning" href="https://www.mausoleosantaclara.com.mx/Informacion/Nicho/${e.difunto.forEach((difunto)=>{console.log(difunto.idNicho); let nicho =difunto.idNicho})}" target="_blank">${e.idifunto}</a></td>`;
         let mensaje = `<td><small>${e.mensaje}</small></td>`;
         let nombre = `<td><small>${e.nombre}</small></td>`;
         let email =
@@ -69,7 +69,7 @@ function loadTable(response) {
         let acciones = e.activo == 1 ? `<td class="td-actions"  >
 
 
-                                
+
                                 <label class="btn btn-sm btn-danger" rel="tooltip" title="Borrar" id="delete${e.id}">
                                     <i class="fa fa-trash"></i>
                                 </label>

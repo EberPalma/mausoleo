@@ -37,23 +37,41 @@ class CondolenciasController extends Controller
         $condolencia = "";
         switch ($tipo){
             case "sinverificar":
-                $condolencia = \DB::table('condolencias')->where('verificado', 0)->where('activo', $activo)->get();
+                $condolencias = \DB::table('condolencias')->where('verificado', 0)->where('activo', $activo)->get();
+                $newDC= array();
+                foreach($condolencias as $condolencia){
+                $infohuesped = \DB::table('beneficiarios')->where('id', $condolencia[0]->idifunto)->where('activo', $activo)->get();
+                $condolencia->difunto = $infohuesped;
+                   array_push($newDC, $condolencia);
+                }
                 break;
             case "verificadas":
-                $condolencia = \DB::table('condolencias')->where('verificado', 1)->where('activo', $activo)->get();
+                $condolencias = \DB::table('condolencias')->where('verificado', 1)->where('activo', $activo)->get();
+                $newDC= array();
+                foreach($condolencias as $condolencia){
+                $infohuesped = \DB::table('beneficiarios')->where('id', $condolencia->idifunto)->where('activo', $activo)->get();
+                $condolencia->difunto = $infohuesped;
+                   array_push($newDC, $condolencia);
+                }
                 break;
             case "todas":
-                $condolencia = \DB::table('condolencias')->where('activo', $activo)->get();
+                $condolencias = \DB::table('condolencias')->where('activo', $activo)->get();
+                $newDC= array();
+                foreach($condolencias as $condolencia){
+                $infohuesped = \DB::table('beneficiarios')->where('id', $condolencia->idifunto)->where('activo', $activo)->get();
+                $condolencia->difunto = $infohuesped;
+                   array_push($newDC, $condolencia);
+                }
                 break;
         }
-        if($condolencia != null){
+        if($condolencias != null){
             $mensaje = 'Ok';
             $error = '0';
         }else{
             $mensaje = 'No se puede obtener la informacion';
             $error = '1';
         }
-        return json_encode(array('message' => $mensaje, 'errors' => $error, 'data' => $condolencia));
+        return json_encode(array('message' => $mensaje, 'errors' => $error, 'data' => $newDC));
     }
 
     public function setChecked($id){
