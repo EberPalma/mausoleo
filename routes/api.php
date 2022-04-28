@@ -18,6 +18,7 @@ use App\Http\Controllers\VendedoresController;
 use App\Http\Controllers\PagosController;
 use App\Http\Controllers\RecibosController;
 use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\CondolenciasController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\session\SessionController;
 use App\Http\Controllers\inMemoriaController;
@@ -162,6 +163,11 @@ Route::GET('/informesdashboard', [DashboardController::class, 'countInformes'])-
 Route::GET('/quejasdashboard', [DashboardController::class, 'countQuejas'])->name('countHuespedes');
 Route::GET('/otrosdashboard', [DashboardController::class, 'countOtros'])->name('countContacto');
 
+//Rutas para las condolencias
+Route::GET('/condolenciaindex/{filtro}/{activo}', [CondolenciasController::class, 'index'])->name('condolenciaIndex');
+Route::GET('/condolenciachecked/{id}', [CondolenciasController::class, 'setChecked'])->name('condolenciaChecked');
+Route::GET('/condolenciaactivo/{id}', [CondolenciasController::class, 'setActivo'])->name('condolenciaActivo');
+Route::GET('/showDeletedCondolencia', [CondolenciasController::class, 'showDeleted'])->name('showDeletedCondolencia');
 // Rutas para la conmemorarion
 Route::GET('/inMemoria/today', [inMemoriaController::class, 'today'])->name('inMemoriaToday');
 Route::GET('/inMemoria/thisMonth', [inMemoriaController::class, 'thisMonth'])->name('inMemoriaMonth');

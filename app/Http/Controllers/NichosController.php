@@ -173,11 +173,11 @@ class NichosController extends Controller
             if(count($difuntos) != 0){
                 $newDifuntos = array();
                 foreach($difuntos as $difunto){
-                   $condolencias = \DB::table('condolencias')->where('idBeneficiario','=', $difunto->id)->where('verificado', 1)->select('id', 'nombre', 'mensaje', 'relacion','created_at')->get();
+                   $condolencias = \DB::table('condolencias')->where('idifunto','=', $difunto->id)->where('verificado', 1)->select('id', 'nombre', 'mensaje', 'relacion','created_at')->get();
                    $difunto->condolencias = $condolencias;
                    array_push($newDifuntos, $difunto);
                 }
-               
+
                return view('layouts.guest.Informacion')
                    ->with('nicho', $nicho)
                    ->with('difuntos', $newDifuntos);
@@ -198,11 +198,11 @@ class NichosController extends Controller
          if(count($difuntos)!=0){
              $newDifuntos = array();
              foreach($difuntos as $difunto){
-                $condolencias = \DB::table('condolencias')->where('idBeneficiario','=', $difunto->id)->where('verificado', 1)->select('id', 'nombre', 'mensaje', 'relacion','created_at')->get();
+                $condolencias = \DB::table('condolencias')->where('idifunto','=', $difunto->id)->where('verificado', 1)->select('id', 'nombre', 'mensaje', 'relacion','created_at')->get();
                 $difunto->condolencias = $condolencias;
                 array_push($newDifuntos, $difunto);
              }
-            
+
             //return $newDifuntos;
             return view('layouts.guest.Informacion')
                 ->with('nicho', $nicho)
@@ -218,7 +218,7 @@ class NichosController extends Controller
         foreach($nichos as $nicho){
             $difuntos = \DB::table('beneficiarios')->where('idNicho', $nicho->id)->select('id', 'nombre','fechaDefuncion','fechaNacimiento')->get();
             foreach($difuntos as $difunto){
-                $condolencias = \DB::table('condolencias')->where('idBeneficiario','=', $difunto->id)->where('verificado', 1)->select('id', 'nombre', 'mensaje', 'relacion','created_at')->get();
+                $condolencias = \DB::table('condolencias')->where('idifunto','=', $difunto->id)->where('verificado', 1)->select('id', 'nombre', 'mensaje', 'relacion','created_at')->get();
                 $difunto->condolencias = $condolencias;
             }
             $nicho->difuntos = $difuntos;

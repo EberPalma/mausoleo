@@ -32,4 +32,57 @@ class CondolenciasController extends Controller
         return redirect()->route('invitado.confirmacion-condolencia');
     }
 
+    public function index($tipo, $activo)
+    {
+        $condolencia = "";
+        switch ($tipo){
+            case "sinverificar":
+                $condolencia = \DB::table('condolencias')->where('verificado', 0)->where('activo', $activo)->get();
+                break;
+            case "verificadas":
+                $condolencia = \DB::table('condolencias')->where('verificado', 1)->where('activo', $activo)->get();
+                break;
+            case "todas":
+                $condolencia = \DB::table('condolencias')->where('activo', $activo)->get();
+                break;
+        }
+        if($condolencia != null){
+            $mensaje = 'Ok';
+            $error = '0';
+        }else{
+            $mensaje = 'No se puede obtener la informacion';
+            $error = '1';
+        }
+        return json_encode(array('message' => $mensaje, 'errors' => $error, 'data' => $condolencia));
+    }
+
+    public function setChecked($id){
+        $condolencia = Condolencia::find($id);
+        if($condolencia->verificado == 1){
+            $condolencia->verificado = 0;
+            $condolencia->save();
+        }else{
+            $condolencia->verificado = 1;
+            $condolencia->save();
+        }
+    }
+
+    public function setActivo($id){
+        $condolencia = Condolencia::find($id);
+        if($condolencia->activo == 1){
+            $condolencia->activo = 0;
+            $condolencia->save();
+            return $condolencia;
+        }else{
+            $condolencia->activo = 1;
+            $condolencia->save();
+            return $condolencia;
+        }
+    }
+
+    public function showDeleted(){
+        $condolencia = \DB::table('contacto')->where('activo', 0)->get();
+        return $condolencia;
+    }
+
 }

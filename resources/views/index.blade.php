@@ -120,6 +120,12 @@
                             <p>{{ __("Calendario") }}</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('condolencias.index')}}">
+                            <i class="nc-icon nc-chat-round"></i>
+                            <p>{{ __("Condolencias") }}</p>
+                        </a>
+                    </li>
 
                 </ul>
             </div>

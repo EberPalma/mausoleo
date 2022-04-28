@@ -87,4 +87,5 @@ Route::get('/qr_generate', [App\Http\Controllers\QRController::class, 'qr_genera
 
 Route::get('Informacion/Nicho/{coordenada}', [App\Http\Controllers\NichosController::class, 'informacion'])->name('infoController');
 Route::get('Informacion/Nicho', [App\Http\Controllers\NichosController::class, 'informacion_t'])->name('infoControllerT');
+Route::get('/condolencias', function () {return view('layouts.condolencias.index');})->name('condolencias.index');
 

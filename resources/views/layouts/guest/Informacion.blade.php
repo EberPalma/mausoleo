@@ -138,7 +138,7 @@
                 <div class=" card-body ">
 
 
-                @foreach ($msgcondolencias as $msg)
+                @foreach ($difunto->condolencias as $msg)
 
                     <div class="msgcondolencia ">
                   <hr><div class="bg-secondary" style="border-radius: 10px;" >
