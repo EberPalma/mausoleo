@@ -40,27 +40,36 @@ class CondolenciasController extends Controller
                 $condolencias = \DB::table('condolencias')->where('verificado', 0)->where('activo', $activo)->get();
                 $newDC= array();
                 foreach($condolencias as $condolencia){
-                $infohuesped = \DB::table('beneficiarios')->where('id', $condolencia[0]->idifunto)->where('activo', $activo)->get();
-                $condolencia->difunto = $infohuesped;
-                   array_push($newDC, $condolencia);
+                    $infohuesped = \DB::table('beneficiarios')->select('idNicho')->where('id', $condolencia->idifunto)->where('activo', $activo)->get();
+                    foreach($infohuesped as $info){
+                        $nicho = \DB::table('nichos')->select('id', 'email')->where('id', $info->idNicho)->get();
+                    }
+                    $condolencia->nicho = $nicho;
+                    array_push($newDC, $condolencia);
                 }
                 break;
             case "verificadas":
                 $condolencias = \DB::table('condolencias')->where('verificado', 1)->where('activo', $activo)->get();
                 $newDC= array();
                 foreach($condolencias as $condolencia){
-                $infohuesped = \DB::table('beneficiarios')->where('id', $condolencia->idifunto)->where('activo', $activo)->get();
-                $condolencia->difunto = $infohuesped;
-                   array_push($newDC, $condolencia);
+                    $infohuesped = \DB::table('beneficiarios')->select('idNicho')->where('id', $condolencia->idifunto)->where('activo', $activo)->get();
+                    foreach($infohuesped as $info){
+                        $nicho = \DB::table('nichos')->select('id', 'email')->where('id', $info->idNicho)->get();
+                    }
+                    $condolencia->nicho = $nicho;
+                    array_push($newDC, $condolencia);
                 }
                 break;
             case "todas":
                 $condolencias = \DB::table('condolencias')->where('activo', $activo)->get();
                 $newDC= array();
                 foreach($condolencias as $condolencia){
-                $infohuesped = \DB::table('beneficiarios')->where('id', $condolencia->idifunto)->where('activo', $activo)->get();
-                $condolencia->difunto = $infohuesped;
-                   array_push($newDC, $condolencia);
+                    $infohuesped = \DB::table('beneficiarios')->select('idNicho')->where('id', $condolencia->idifunto)->where('activo', $activo)->get();
+                    foreach($infohuesped as $info){
+                        $nicho = \DB::table('nichos')->select('id', 'email')->where('id', $info->idNicho)->get();
+                    }
+                    $condolencia->nicho = $nicho;
+                    array_push($newDC, $condolencia);
                 }
                 break;
         }

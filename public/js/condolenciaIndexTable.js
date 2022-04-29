@@ -37,7 +37,12 @@ document.addEventListener("DOMContentLoaded", () => {
 function loadWithCheckbox(filtro, activo) {
     axios
         .get("api/condolenciaindex/" + filtro + "/" + activo)
-        .then((response) => loadTable(response));
+        .then((response) => {
+            //console.log(response.data);
+            loadTable(response);
+        }
+            //loadTable(response)
+        );
 }
 
 function loadTable(response) {
@@ -46,13 +51,14 @@ function loadTable(response) {
     let data = response.data;
     data.data.forEach((e) => {
         let check = e.verificado == 1 ? "checked" : "";
+        let nicho = e.nicho[0];
         let verificado = `<td>
                             <div class="form-check">
                                     <input class="form-check-input" style="visibility: visible; opacity: 1" id="id${e.id}" type="checkbox" value="${e.id}" ${check}>
 
                             </div>
                         </td>`;
-        let idifunto = `<td><a class="btn btn-warning" href="https://www.mausoleosantaclara.com.mx/Informacion/Nicho/${e.difunto.forEach((difunto)=>{console.log(difunto.idNicho); let nicho =difunto.idNicho})}" target="_blank">${e.idifunto}</a></td>`;
+        let idifunto = `<td><a class="btn btn-warning" href="https://www.mausoleosantaclara.com.mx/Informacion/Nicho/${nicho.id}" target="_blank">${e.idifunto}</a></td>`;
         let mensaje = `<td><small>${e.mensaje}</small></td>`;
         let nombre = `<td><small>${e.nombre}</small></td>`;
         let email =
@@ -60,8 +66,8 @@ function loadTable(response) {
                 ? `<td><a class="btn btn-primary" href="mailto:${e.email}?Subject=Mausoleo%20Santa%20Clara">${e.email}</a></td>`
                 : `<td><small>No hay registro</small></td>`;
         let emailn =
-            e.email != null
-                ? `<td><a class="btn btn-primary" href="mailto:${e.emailn}?Subject=Mausoleo%20Santa%20Clara">${e.emailn}</a></td>`
+            nicho.email != null
+                ? `<td><a class="btn btn-primary" href="mailto:${nicho.email}?Subject=Mausoleo%20Santa%20Clara">${nicho.email}</a></td>`
                 : `<td><small>No hay registro</small></td>`;
         let fechaRegistro = `<td>
                                     <small>${e.created_at}</small>
