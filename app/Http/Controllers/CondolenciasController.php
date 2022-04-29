@@ -42,7 +42,7 @@ class CondolenciasController extends Controller
                 foreach($condolencias as $condolencia){
                     $infohuesped = \DB::table('beneficiarios')->select('idNicho')->where('id', $condolencia->idifunto)->where('activo', $activo)->get();
                     foreach($infohuesped as $info){
-                        $nicho = \DB::table('nichos')->select('id', 'email')->where('id', $info->idNicho)->get();
+                        $nicho = \DB::table('nichos')->select('id', 'email','coordenada')->where('id', $info->idNicho)->get();
                     }
                     $condolencia->nicho = $nicho;
                     array_push($newDC, $condolencia);
@@ -54,7 +54,7 @@ class CondolenciasController extends Controller
                 foreach($condolencias as $condolencia){
                     $infohuesped = \DB::table('beneficiarios')->select('idNicho')->where('id', $condolencia->idifunto)->where('activo', $activo)->get();
                     foreach($infohuesped as $info){
-                        $nicho = \DB::table('nichos')->select('id', 'email')->where('id', $info->idNicho)->get();
+                        $nicho = \DB::table('nichos')->select('id', 'email','coordenada')->where('id', $info->idNicho)->get();
                     }
                     $condolencia->nicho = $nicho;
                     array_push($newDC, $condolencia);
@@ -66,7 +66,7 @@ class CondolenciasController extends Controller
                 foreach($condolencias as $condolencia){
                     $infohuesped = \DB::table('beneficiarios')->select('idNicho')->where('id', $condolencia->idifunto)->where('activo', $activo)->get();
                     foreach($infohuesped as $info){
-                        $nicho = \DB::table('nichos')->select('id', 'email')->where('id', $info->idNicho)->get();
+                        $nicho = \DB::table('nichos')->select('id', 'email','coordenada')->where('id', $info->idNicho)->get();
                     }
                     $condolencia->nicho = $nicho;
                     array_push($newDC, $condolencia);

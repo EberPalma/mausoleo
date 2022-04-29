@@ -58,16 +58,16 @@ function loadTable(response) {
 
                             </div>
                         </td>`;
-        let idifunto = `<td><a class="btn btn-warning" href="https://www.mausoleosantaclara.com.mx/Informacion/Nicho/${nicho.id}" target="_blank">${e.idifunto}</a></td>`;
+        let idifunto = `<td><a class="btn btn-sm btn-warning" href="https://www.mausoleosantaclara.com.mx/Informacion/Nicho/${nicho.id}" target="_blank">${nicho.coordenada}</a></td>`;
         let mensaje = `<td><small>${e.mensaje}</small></td>`;
         let nombre = `<td><small>${e.nombre}</small></td>`;
         let email =
             e.email != null
-                ? `<td><a class="btn btn-primary" href="mailto:${e.email}?Subject=Mausoleo%20Santa%20Clara">${e.email}</a></td>`
+                ? `<td><a class="btn btn-sm btn-primary" href="mailto:${e.email}?Subject=Mausoleo%20Santa%20Clara">${e.email}</a></td>`
                 : `<td><small>No hay registro</small></td>`;
         let emailn =
             nicho.email != null
-                ? `<td><a class="btn btn-primary" href="mailto:${nicho.email}?Subject=Mausoleo%20Santa%20Clara">${nicho.email}</a></td>`
+                ? `<td><a class="btn btn-sm btn-primary" href="mailto:${nicho.email}?Subject=Mausoleo%20Santa%20Clara">${nicho.email}</a></td>`
                 : `<td><small>No hay registro</small></td>`;
         let fechaRegistro = `<td>
                                     <small>${e.created_at}</small>

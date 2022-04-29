@@ -28,7 +28,7 @@
                                 </p>
 
                             </div>
-                            <a href="#" style="float: right" class="btn btn-warning"> Agregar Promoción</a>
+                            <a href="/promociones.create" style="float: right" class="btn btn-warning"> Agregar Promoción</a>
 
                         </div>
                     </div><br>
@@ -53,12 +53,10 @@
                                 <table id="qrtable" class="table table-hover table-striped">
                                     <thead>
                                         <th>#</th>
-                                        <th>Nombre</th>
                                         <th>Titulo</th>
                                         <th>Descripcion</th>
                                         <th>Precio</th>
-                                        <th>Porcentaje</th>
-
+                                        <th>Imagen</th>
                                     </thead>
                                     <tbody>
 

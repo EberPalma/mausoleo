@@ -61,7 +61,7 @@
                                 <table class="table table-hover table-striped">
                                     <thead>
                                         <th>Aceptar</th>
-                                        <th>Huesped</th>
+                                        <th>Nicho</th>
                                         <th>Mensaje</th>
                                         <th>Nombre</th>
                                         <th>Email (Remitente)</th>

@@ -89,4 +89,5 @@ Route::get('Informacion/Nicho/{coordenada}', [App\Http\Controllers\NichosControl
 Route::get('Informacion/Nicho', [App\Http\Controllers\NichosController::class, 'informacion_t'])->name('infoControllerT');
 Route::get('/condolencias', function () {return view('layouts.condolencias.index');})->name('condolencias.index');
 Route::get('/promociones', function () {return view('layouts.promociones.index');})->name('promociones.index');
+Route::get('/promociones.create', function () {return view('layouts.promociones.create');})->name('promociones.create');
 
