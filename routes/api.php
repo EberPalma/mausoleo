@@ -22,6 +22,7 @@ use App\Http\Controllers\CondolenciasController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\session\SessionController;
 use App\Http\Controllers\inMemoriaController;
+use App\Http\Controllers\ProductosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -171,3 +172,11 @@ Route::GET('/showDeletedCondolencia', [CondolenciasController::class, 'showDelet
 // Rutas para la conmemorarion
 Route::GET('/inMemoria/today', [inMemoriaController::class, 'today'])->name('inMemoriaToday');
 Route::GET('/inMemoria/thisMonth', [inMemoriaController::class, 'thisMonth'])->name('inMemoriaMonth');
+
+// Rutas para las promociones
+Route::get('/promocionesindex', [ProductosController::class, 'index'])->name('PromocionesIndex');
+Route::get('/promocionesshow/{id}', [ProductosController::class, 'show'])->name('PromocionesShow');
+Route::post('/promocionesset/{id}', [ProductosController::class, 'setOferta'])->name('PromocionesSetOferta');
+Route::post('/promocionesstore', [ProductosController::class, 'store'])->name('PromocionesStore');
+Route::post('/promocionesupdate/{id}', [ProductosController::class, 'update'])->name('PromocionesUpdate');
+Route::get('/promocionesdeleteimage/{id}', [ProductosController::class, 'deleteImage'])->name('PromocionesDeleteImage');

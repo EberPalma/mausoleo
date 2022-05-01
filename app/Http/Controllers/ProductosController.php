@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class ProductosController extends Controller
 {
     public function index(){
-        $productos = \DB::table('productos')->select('nombre', 'titulo', 'descripcion', 'oferta', 'precio')->get();
+        $productos = \DB::table('productos')->select('nombre', 'titulo', 'description', 'oferta', 'precio')->get();
         return $productos;
     }
 
@@ -17,24 +17,28 @@ class ProductosController extends Controller
     }
 
     public function store(Request $request){
+        $fecha = date('Y-m-d h:i:s');
 
         $producto = \DB::table('productos')->insert([
             'nombre' => $request->nombre,
             'titulo' => $request->titulo,
-            'cantidad' => $request->cantidad,
-            'descripcion' => $request->descripcion,
+            'description' => $request->descripcion,
             'existencias' => $request->existencias,
             'precio' => $request->precio,
             'oferta' => $request->oferta,
             'porcentaje_oferta' => $request->porcentaje_oferta,
-            'created_at' => date('Y-m-d h:i:s')
+            'created_at' => $fecha,
+            'updated_at' => date('Y-m-d h:i:s')
         ]);
 
-        if($request->file('foto') != ''){
-            $file = $request->file('foto');
-            $nombre = $request->id.'.'.$file->extension();
-            \Storage::disk('local')->put($nombre, \File::get($file));
+        $producto = \DB::table('productos')->select('id')->where('created_at', $fecha)->get();
+
+        if($request->file('foto1') != ''){
+            $file = $request->file('foto1');
+            $nombre = $producto[0]->id.'.'.$file->extension();
+            \Storage::disk('local')->put('/Promociones/'.$nombre, \File::get($file));
         }
+        return redirect()->back();
     }
 
     public function update(Request $request, $id){
@@ -43,12 +47,22 @@ class ProductosController extends Controller
         $producto->update([
             'nombre' => $request->nombre,
             'titulo' => $request->titulo,
-            'cantidad' => $request->cantidad,
-            'descripcion' => $request->descripcion,
+            'description' => $request->descripcion,
             'existencias' => $request->existencias,
             'precio' => $request->precio,
             'updated_at' => date('Y-m-d h:i:s')
         ]);
+
+        $id = $producto[0]->id;
+
+        if($request->file('foto1') != ''){
+            if(\File::exists(public_path("Images/Beneficiary/Promociones/".$id.".jpg"))){
+                \Storage::disk('local')->move($id.'_1.jpg', '/Promociones/old/'.$id.'_'.date('Y-m-d').'.jpg');
+            }
+            $file = $request->file('foto1');
+            $nombre = $id.'.'.$file->extension();
+            \Storage::disk('local')->put('Promociones'.$nombre, \File::get($file));
+        }
     }
 
     public function setOferta(Request $request, $id){
@@ -56,5 +70,14 @@ class ProductosController extends Controller
 
         $oferta = $producto[0]->oferta;
         $producto->update(['oferta' => $oferta == 1 ? 0 : 1, 'porcentaje_oferta' => $request->porcentaje_oferta]);
+    }
+
+    public function deleteImage($id){
+        if(\File::exists(public_path("Images/Beneficiary/Promociones/".$id.".jpg"))){
+            \Storage::disk('local')->move($id.'_1.jpg', '/Promociones/old/'.$id.'_'.date('Y-m-d').'.jpg');
+            return redirect()->back();
+        }else{
+            return redirect()->back()->with('alert', 'No se encontro la imagen!');
+        }
     }
 }
