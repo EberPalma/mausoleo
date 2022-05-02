@@ -44,12 +44,13 @@ class ProductosController extends Controller
     public function update(Request $request, $id){
         $producto = \DB::table('productos')->where('id', $id)->get();
 
+
         $producto->update([
             'nombre' => $request->nombre,
             'titulo' => $request->titulo,
             'description' => $request->descripcion,
             'existencias' => $request->existencias,
-            'precio' => $request->precio,
+            'precio' => floatval($request->precio),
             'updated_at' => date('Y-m-d h:i:s')
         ]);
 
@@ -63,6 +64,8 @@ class ProductosController extends Controller
             $nombre = $id.'.'.$file->extension();
             \Storage::disk('local')->put('Promociones'.$nombre, \File::get($file));
         }
+
+
     }
 
     public function setOferta(Request $request, $id){

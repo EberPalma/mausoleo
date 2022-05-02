@@ -18,11 +18,10 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form method="post" action="{{ route('PromocionesStore') }}" autocomplete="off"
+                            <form method="post" action="/api/promocionesupdate/{{ $producto->id }}" autocomplete="off"
                                 enctype="multipart/form-data">
                                 @csrf
-                                @method('put')
-
+                                
                                 <h6 class="heading-small text-muted mb-4">{{ __('Información de promoción') }}</h6>
 
                                 @include('alerts.success')
@@ -53,10 +52,13 @@
                                         </div>
                                         <hr>
                                     <div class="form-group">
-                                        <label class="form-control-label" for="foto"><h4><svg  style="width:30px ; margin-right:20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M464 448H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h416c26.51 0 48 21.49 48 48v288c0 26.51-21.49 48-48 48zM112 120c-30.928 0-56 25.072-56 56s25.072 56 56 56 56-25.072 56-56-25.072-56-56-56zM64 384h384V272l-87.515-87.515c-4.686-4.686-12.284-4.686-16.971 0L208 320l-55.515-55.515c-4.686-4.686-12.284-4.686-16.971 0L64 336v48z"/></svg>{{ __(' Foto') }}</h4></label>
-                                        <div class="drop-zone ">
-                                            <span class="drop-zone__prompt">Foto Promoción (Requerido)</span>
-                                            <input accept="image/*" type="file" name="foto1" class="drop-zone__input">
+                                        <label class="form-control-label" for="foto"><h4><svg  style="width:30px ; margin-right:20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M464 448H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h416c26.51 0 48 21.49 48 48v288c0 26.51-21.49 48-48 48zM112 120c-30.928 0-56 25.072-56 56s25.072 56 56 56 56-25.072 56-56-25.072-56-56-56zM64 384h384V272l-87.515-87.515c-4.686-4.686-12.284-4.686-16.971 0L208 320l-55.515-55.515c-4.686-4.686-12.284-4.686-16.971 0L64 336v48z"/></svg>{{ __(' Imagen') }}</h4></label>
+                                        <div class="drop-zone " style="max-width: 100%;
+                                        border: 1px solid red;
+                                        width: 100%;
+                                        height: 200px; ">
+                                            <input type="file" name="foto1" class="drop-zone__input">
+                                            <div class="drop-zone__thumb" data-label="{{$producto->id}}.jpg" style="background-image:url('{{ asset("Images/Beneficiary/promociones/{$producto->id}.jpg") }}');"></div>
                                           </div>
                                           </div>
                                         </div>
