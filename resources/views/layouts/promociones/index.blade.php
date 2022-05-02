@@ -6,6 +6,7 @@
             display:block;
             overflow-x: auto;
         }
+
     }
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -56,9 +57,25 @@
                                         <th>Titulo</th>
                                         <th>Descripcion</th>
                                         <th>Precio</th>
+                                        <th>Acciones</th>
                                         <th>Imagen</th>
                                     </thead>
+
                                     <tbody>
+                                        <?php $i=1;?>
+                                        @foreach ($productos as $producto)
+                                        <th><?php echo $i;?></th>
+                                        <td>{{$producto->nombre}}</td>
+                                        <td>{{$producto->description}}</td>
+                                        <td><b>$</b>{{$producto->precio}}</td>
+                                        <td><a  class="btn btn-primary" href="">Editar</a><a  class="btn btn-danger" href="">Borrar</a></td>
+                                        <td><img style="max-width: 100%;
+                                            border: 1px solid red;
+                                            width: 100%;
+                                            height: 200px; " src="Images/Beneficiary/Promociones/{{$producto->id}}.jpg" alt=""></td>
+
+                                        @endforeach
+
 
                                     </tbody>
                                 </table>

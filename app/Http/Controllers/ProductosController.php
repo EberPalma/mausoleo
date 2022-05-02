@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 class ProductosController extends Controller
 {
     public function index(){
-        $productos = \DB::table('productos')->select('nombre', 'titulo', 'description', 'oferta', 'precio')->get();
-        return $productos;
+        $productos = \DB::table('productos')->select('id','nombre', 'titulo', 'description', 'oferta', 'precio')->get();
+        return view('layouts.promociones.index')->with('productos', $productos);
     }
 
     public function show($id){
