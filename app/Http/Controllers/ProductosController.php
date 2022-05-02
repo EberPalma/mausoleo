@@ -42,10 +42,8 @@ class ProductosController extends Controller
     }
 
     public function update(Request $request, $id){
-        $producto = \DB::table('productos')->where('id', $id)->get();
-
-
-        $producto->update([
+        $producto = \DB::table('productos')->where('id', $id)
+        ->update([
             'nombre' => $request->nombre,
             'titulo' => $request->titulo,
             'description' => $request->descripcion,
@@ -53,8 +51,6 @@ class ProductosController extends Controller
             'precio' => floatval($request->precio),
             'updated_at' => date('Y-m-d h:i:s')
         ]);
-
-        $id = $producto[0]->id;
 
         if($request->file('foto1') != ''){
             if(\File::exists(public_path("Images/Beneficiary/Promociones/".$id.".jpg"))){
@@ -65,7 +61,7 @@ class ProductosController extends Controller
             \Storage::disk('local')->put('Promociones'.$nombre, \File::get($file));
         }
 
-
+        return redirect()->back();
     }
 
     public function setOferta(Request $request, $id){
