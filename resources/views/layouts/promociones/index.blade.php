@@ -68,7 +68,7 @@
                                         <td>{{$producto->nombre}}</td>
                                         <td>{{$producto->description}}</td>
                                         <td><b>$</b>{{$producto->precio}}</td>
-                                        <td><a  class="btn btn-primary" href="">Editar</a><a  class="btn btn-danger" href="">Borrar</a></td>
+                                        <td><a  class="btn btn-primary" href="promociones.edit/{{$producto->id}}">Editar</a><a  class="btn btn-danger" href="">Borrar</a></td>
                                         <td><img style="max-width: 100%;
                                             border: 1px solid red;
                                             width: 100%;

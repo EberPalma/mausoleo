@@ -13,7 +13,7 @@ class ProductosController extends Controller
 
     public function show($id){
         $producto = \DB::table('productos')->where('id', $id)->get();
-        return $producto[0];
+        return view('layouts.promociones.edit')->with( 'producto' , $producto[0]);
     }
 
     public function store(Request $request){
